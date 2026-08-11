@@ -62,36 +62,28 @@ export class SlicerUIEngine {
 
             let optionList = Array.from(uniqueValues);
 
-            // ?? MASTER SLICER BUTTON SORTING RULES ENGINE
+            // ?? FIXED MASTER SLICER BUTTON SORTING RULES ENGINE
             const rowPriorityMap = this.config.customSortPriority?.[filterSchema.key];
 
             optionList.sort((a, b) => {
-                const priorityA = rowPriorityMap?.[a];
-                const priorityB = rowPriorityMap?.[b];
+                // If a priority map exists for this row, look up the custom weight.
+                // If the button text is NOT in your config, assign it a neutral middle score of 500.
+                const weightA = rowPriorityMap && rowPriorityMap[a] !== undefined ? rowPriorityMap[a] : 500;
+                const weightB = rowPriorityMap && rowPriorityMap[b] !== undefined ? rowPriorityMap[b] : 500;
 
-                // 1?? RULE: Both items have manual priority configs, rank by their exact weights
-                if (priorityA !== undefined && priorityB !== undefined) {
-                    return priorityA - priorityB;
+                // 1?? Rule: If they have different weights, sort strictly by their custom priority scores
+                if (weightA !== weightB) {
+                    return weightA - weightB;
                 }
 
-                // 2?? RULE: If ONLY 'a' has a priority weight
-                if (priorityA !== undefined) {
-                    // If it is 999, push 'a' to the back. Otherwise, it's a top feature (push to front).
-                    return priorityA === 999 ? 1 : -1;
-                }
-
-                // 3?? RULE: If ONLY 'b' has a priority weight
-                if (priorityB !== undefined) {
-                    // If it is 999, push 'b' to the back. Otherwise, it's a top feature (push to front).
-                    return priorityB === 999 ? -1 : 1;
-                }
-
-                // 4?? FALLBACK RULE: Neither item is in config.js, sort them using natural numbers/alphabet
+                // 2?? Fallback Rule: If they have the exact same priority score (e.g. both are unmapped 500s),
+                // use standard natural alphanumeric sorting relative to each other.
                 return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
             });
 
             // Always prepend "All" option to the front of the filter row list row tracking
             optionList = ["All", ...optionList];
+
 
 
 
