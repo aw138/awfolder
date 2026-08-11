@@ -22,7 +22,7 @@ export const TRAVEL_PROJECT_CONFIG = {
         { key: "tag5", label: "Agent" },
         { key: "tag6", label: "Days" }
     ]
-};
+
 
     // ?? DEFINE CUSTOM BUTTON SORTING PRIORITY HERE
     // You can set specific buttons to be pushed to the front or back (like "N/A" at 999)
