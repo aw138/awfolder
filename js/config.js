@@ -21,7 +21,7 @@ export const TRAVEL_PROJECT_CONFIG = {
         { key: "tag4", label: "Place" },
         { key: "tag5", label: "Agent" },
         { key: "tag6", label: "Days" }
-    ]
+    ],
 
 
     // ?? DEFINE CUSTOM BUTTON SORTING PRIORITY HERE
