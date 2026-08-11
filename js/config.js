@@ -27,15 +27,15 @@ export const TRAVEL_PROJECT_CONFIG = {
     // ?? DEFINE CUSTOM BUTTON SORTING PRIORITY HERE
     // You can set specific buttons to be pushed to the front or back (like "N/A" at "999")
     customSortPriority: {
-        "tag3": {
+        "country": {
             "中國": 1,
 			"N/A": 999
         },
-        "tag5": {
+        "agent": {
             "自由行": 1,
 			"Others": 999
         },
-        "tag2": {
+        "season": {
             "春季": 1,
             "夏季": 2,
             "秋季": 3
