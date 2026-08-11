@@ -1,7 +1,7 @@
 // The central lifecycle coordinator orchestration file.
 
 import { TRAVEL_PROJECT_CONFIG } from './config.js';
-import { TRAVEL_DATASET } from './data.js';
+
 import { SlicerUIEngine } from './ui.js';
 
 document.addEventListener("DOMContentLoaded", () => {
