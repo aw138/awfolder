@@ -14,12 +14,12 @@ export const APP_CONFIG = {
 
     // Your exact priority sorting criteria weights dictionary [PDF: 0.1.11]
     customSortPriority: { 
-        "¶€•—¶Ê": 1, 
-        "§§∞Í": 1, 
-        "•x∆W": 2, 
-        "¨K©u": 1, 
-        "ÆL©u": 2, 
-        "¨Ó©u": 3, 
-        "•V©u": 4 
+        "Ëá™Áî±Ë°å": 1, 
+        "‰∏≠Âúã": 1, 
+        "Âè∞ÁÅ£": 2, 
+        "Êò•Â≠£": 1, 
+        "Â§èÂ≠£": 2, 
+        "ÁßãÂ≠£": 3, 
+        "ÂÜ¨Â≠£": 4 
     }
 };

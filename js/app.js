@@ -2,6 +2,7 @@ import { APP_CONFIG } from './config.js';
 import { SlicerUIEngine } from './ui.js';
 
 document.addEventListener("DOMContentLoaded", () => {
+    // ?? INITIALIZE ENGINE INSTANCE
     const ui = new SlicerUIEngine();
 
     const tbody = document.getElementById("tableBody");
@@ -15,34 +16,33 @@ document.addEventListener("DOMContentLoaded", () => {
     
     window.globalTableRows = [];
 
-    // Header Sort Interface Setup from lines 835-840 [PDF: 0.1.13]
-    document.querySelectorAll("th.sortable").forEach((header) => {
-        const titleText = header.textContent.trim();
-        header.innerHTML = `<div class="header-inner-flex">
-                                <div class="header-label-sort-combo">
-                                    <span class="header-title-text">${titleText}</span>
-                                    <span class="sort-icon-trigger"></span>
-                                </div>
-                            </div>`;
-    });
-
-    // 1. ASYNCHRONOUS JSON DATA PIPELINE INITIALIZER [PDF: 0.1.13]
+    // ?? DATA INGESTION OPERATIONS LOOP [PDF: 0.1.13]
     fetch(APP_CONFIG.DATA_SOURCE_URL)
         .then(res => { if (!res.ok) throw new Error("Load failed"); return res.json(); })
         .then(jsonData => {
+            // Render table head cells first to prevent layout drops [PDF: 0.1.13]
+            ui.renderTableHeader();
+            
+            // Build the row items directly out of your json objects
             window.globalTableRows = ui.renderTableBody(jsonData);
+            
+            // Set up horizontal filtering rows and active buttons panel
             ui.initHorizontalFilters(window.globalTableRows);
+            
+            // Execute text filtering pipelines
             window.applyCombinedFilter();
+            
+            // Bind cell sorting commands
             window.bindSortingTriggers();
         })
         .catch(err => {
             console.error(err);
-            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">µLªk¦Û¶³ºÝ¸ü¤J JSON ¼Æ¾Ú¡C</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">ç„¡æ³•è‡ªé›²ç«¯è¼‰å…¥ JSON æ•¸æ“šã€‚</td></tr>`;
         });
 
     window.getRuntimeRows = () => window.globalTableRows.length > 0 ? window.globalTableRows : Array.from(tbody.querySelectorAll("tr"));
 
-    // Copied from your original working filter lines 968-1022 [PDF: 0.1.15, 0.1.16]
+    // Copied from your original working filter algorithm [PDF: 0.1.15, 0.1.16]
     window.applyCombinedFilter = function() {
         const activeRows = window.getRuntimeRows();
         const searchText = searchInput.value.toLowerCase().trim();
@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.recalculateZebraStriping();
         window.updateMasterCheckboxState();
 
-        if (resultsCounter) resultsCounter.textContent = `${visibleCount}/${activeRows.length}`;
+        const counterElement = document.getElementById("tableResultsCounter");
+        if (counterElement) counterElement.textContent = `${visibleCount}/${activeRows.length}`;
         ui.updateAllSlicerButtonsUI(activeRows);
     };
     window.recalculateZebraStriping = () => {
@@ -93,10 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.updateMasterCheckboxState = () => {
-        if (!selectAllRowsCheckbox) return;
+        const masterBox = document.getElementById("selectAllRowsCheckbox");
+        if (!masterBox) return;
         const visible = window.getRuntimeRows().filter(r => r.style.display !== "none");
-        if (visible.length === 0) { selectAllRowsCheckbox.checked = false; return; }
-        selectAllRowsCheckbox.checked = visible.every(r => r.querySelector(".row-selector-checkbox")?.checked);
+        if (visible.length === 0) { masterBox.checked = false; return; }
+        masterBox.checked = visible.every(r => r.querySelector(".row-selector-checkbox")?.checked);
     };
 
     function injectTextHighlights(element, phrase) {
@@ -112,22 +114,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Copied from your original sorting algorithm lines 1042-1090 [PDF: 0.1.16, 0.1.17]
+    // Copied from your original sorting algorithms [PDF: 0.1.16, 0.1.17]
     window.bindSortingTriggers = function() {
         let currentSortAscending = true;
-        document.querySelectorAll(".sort-icon-trigger").forEach(icon => {
-            const oldTh = icon.closest("th");
-            const th = oldTh.cloneNode(true);
-            oldTh.parentNode.replaceChild(th, oldTh);
+        document.querySelectorAll("th.sortable").forEach(th => {
+            // Clear old event listeners via node clones
+            const cleanTh = th.cloneNode(true);
+            th.parentNode.replaceChild(cleanTh, th);
             
-            const dynamicIcon = th.querySelector(".sort-icon-trigger");
-            
-            th.addEventListener("click", () => {
-                const idx = Array.from(th.parentNode.children).indexOf(th);
+            cleanTh.addEventListener("click", () => {
+                const idx = Array.from(cleanTh.parentNode.children).indexOf(cleanTh);
                 currentSortAscending = !currentSortAscending;
                 
                 document.querySelectorAll(".sort-icon-trigger").forEach(i => i.classList.remove("asc", "desc"));
-                dynamicIcon.classList.add(currentSortAscending ? "asc" : "desc");
+                const dynamicIcon = cleanTh.querySelector(".sort-icon-trigger");
+                if (dynamicIcon) dynamicIcon.classList.add(currentSortAscending ? "asc" : "desc");
 
                 const activeRows = window.getRuntimeRows();
                 activeRows.sort((rowA, rowB) => {
@@ -157,18 +158,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Font Sizing Panel Controls
+    // Font Sizing Multiplying Triggers
     let fSize = 14;
     document.getElementById("decreaseFontBtn")?.addEventListener("click", () => { if (fSize > 8) document.documentElement.style.setProperty('--base-font', (fSize -= 2) + "px"); });
     document.getElementById("increaseFontBtn")?.addEventListener("click", () => { if (fSize < 20) document.documentElement.style.setProperty('--base-font', (fSize += 2) + "px"); });
 
-    // Collapsible Dashboard Trigger [PDF: 0.1.14]
+    // Collapsible Layout Panels
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel").classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#8744;" : "&#8743;";
     });
 
-    // Checkbox Listeners
+    // Checkbox Actions
     document.body.addEventListener("change", (e) => {
         if (e.target && e.target.id === "selectAllRowsCheckbox") {
             const isChecked = e.target.checked;
@@ -182,9 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput?.addEventListener("input", window.applyCombinedFilter);
     clearSearchBtn?.addEventListener("click", () => { searchInput.value = ""; window.applyCombinedFilter(); searchInput.focus(); });
 
-    // Reset Handle [PDF: 0.1.16]
+    // Reset All Fields Handle [PDF: 0.1.16]
     document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
-        if (searchInput) searchInput.value = ""; if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false; if (selectAllRowsCheckbox) selectAllRowsCheckbox.checked = false;
+        if (searchInput) searchInput.value = ""; if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
+        const masterBox = document.getElementById("selectAllRowsCheckbox");
+        if (masterBox) masterBox.checked = false;
         window.getRuntimeRows().forEach(row => { const b = row.querySelector(".row-selector-checkbox"); if (b) b.checked = false; });
         for (const k in window.selectedFilters) { window.selectedFilters[k].clear(); window.multiSelectModes[k] = false; }
         document.querySelectorAll('.multiple-toggle-btn').forEach(btn => btn.classList.remove('active'));

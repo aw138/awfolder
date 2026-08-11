@@ -137,8 +137,8 @@ export class SlicerUIEngine {
             // ?? COPIED DIRECTLY FROM YOUR ORIGINAL EXCEL SLICER CONTRACT [PDF: 0.1.12]
             tagsWithAvailability.sort((a, b) => {
                 if (a.available !== b.available) return a.available ? -1 : 1;
-                const checkA = a.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
-                const checkB = b.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
+                const checkA = a.value.trim().replace(/ï¼ˆ/g, '(').replace(/ï¼‰/g, ')');
+                const checkB = b.value.trim().replace(/ï¼ˆ/g, '(').replace(/ï¼‰/g, ')');
                 if (checkA === "(None)" || checkB === "(None)") {
                     return checkA === "(None)" ? 1 : -1;
                 }
