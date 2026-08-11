@@ -27,22 +27,22 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>`;
     });
 
-    // Asynchronous JSON Data Pipeline Fetch
+    // Asynchronous JSON Fetch Data Pipeline
     fetch(APP_CONFIG.DATA_SOURCE_URL)
-        .then(res => { if (!res.ok) throw new Error("Cloud network data link down"); return res.json(); })
+        .then(res => { if (!res.ok) throw new Error("Cloud data link down"); return res.json(); })
         .then(jsonData => {
             window.globalTableRows = ui.renderTableBody(jsonData);
             ui.updateAllSlicerButtonsUI(window.globalTableRows);
             window.applyCombinedFilter();
+            window.bindSortingTriggers();
         })
         .catch(err => {
             console.error(err);
-            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">Error loading cloud JSON payload.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">Error loading data file.</td></tr>`;
         });
 
     window.getRuntimeRows = () => window.globalTableRows.length > 0 ? window.globalTableRows : Array.from(tbody.querySelectorAll("tr"));
 
-    // Global pipeline mapping for dynamic filters handling
     window.applyCombinedFilter = function() {
         const activeRows = window.getRuntimeRows();
         const searchText = searchInput.value.toLowerCase().trim();
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (resultsCounter) resultsCounter.textContent = `${visibleCount}/${activeRows.length}`;
         ui.updateAllSlicerButtonsUI(activeRows);
     };
-
     window.recalculateZebraStriping = () => {
         let idx = 0;
         window.getRuntimeRows().forEach(row => {
@@ -113,57 +112,75 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    window.bindSortingTriggers = function() {
+        document.querySelectorAll(".sort-icon-trigger").forEach(icon => {
+            const oldTh = icon.closest("th");
+            const th = oldTh.cloneNode(true);
+            oldTh.parentNode.replaceChild(th, oldTh);
+            
+            const dynamicIcon = th.querySelector(".sort-icon-trigger");
+            
+            th.addEventListener("click", () => {
+                const idx = Array.from(th.parentNode.children).indexOf(th);
+                currentSortAscending = !currentSortAscending;
+                
+                document.querySelectorAll(".sort-icon-trigger").forEach(i => i.classList.remove("asc", "desc"));
+                dynamicIcon.classList.add(currentSortAscending ? "asc" : "desc");
+
+                const activeRows = window.getRuntimeRows();
+                activeRows.sort((rowA, rowB) => {
+                    const cellA = rowA.getElementsByTagName("td")[idx].textContent.trim();
+                    const cellB = rowB.getElementsByTagName("td")[idx].textContent.trim();
+
+                    if (idx === 1) { // Date Evaluation
+                        const mA = cellA.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/); 
+                        const mB = cellB.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+                        if (mA && mB) {
+                            const tA = new Date(mA[1], mA[2] - 1, mA[3]).getTime(); 
+                            const tB = new Date(mB[1], mB[2] - 1, mB[3]).getTime();
+                            return currentSortAscending ? tA - tB : tB - tA;
+                        }
+                    }
+                    if (/^-?\d+(\.\d+)?$/.test(cellA) && /^-?\d+(\.\d+)?$/.test(cellB)) {
+                        return currentSortAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+                    }
+                    return currentSortAscending ? cellA.localeCompare(cellB, undefined, { numeric: true }) : cellB.localeCompare(cellA, undefined, { numeric: true });
+                });
+
+                const frag = document.createDocumentFragment(); 
+                activeRows.forEach(r => frag.appendChild(r)); 
+                tbody.appendChild(frag);
+                window.recalculateZebraStriping();
+            });
+        });
+    };
+
     // Font Sizing Multipliers
     let fSize = 14;
     document.getElementById("decreaseFontBtn")?.addEventListener("click", () => { if (fSize > 8) document.documentElement.style.setProperty('--base-font', (fSize -= 2) + "px"); });
     document.getElementById("increaseFontBtn")?.addEventListener("click", () => { if (fSize < 20) document.documentElement.style.setProperty('--base-font', (fSize += 2) + "px"); });
 
-    // Collapsible Layout Panels Handlers
+    // Collapsible Layout Panels
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel").classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#8744;" : "&#8743;";
     });
 
-    // Checkbox Iteration Listeners
-    selectAllRowsCheckbox?.addEventListener("change", function() {
-        const isChecked = this.checked;
-        window.getRuntimeRows().forEach(row => { if (row.style.display !== "none") { const box = row.querySelector(".row-selector-checkbox"); if (box) box.checked = isChecked; } });
+    // Checkbox State Observers
+    document.body.addEventListener("change", (e) => {
+        if (e.target && e.target.id === "selectAllRowsCheckbox") {
+            const isChecked = e.target.checked;
+            window.getRuntimeRows().forEach(row => { if (row.style.display !== "none") { const box = row.querySelector(".row-selector-checkbox"); if (box) box.checked = isChecked; } });
+            if (showCheckedOnlyToggle?.checked) window.applyCombinedFilter();
+        }
     });
+
     tbody.addEventListener("change", (e) => { if (e.target.classList.contains("row-selector-checkbox")) { if (showCheckedOnlyToggle?.checked) window.applyCombinedFilter(); else window.updateMasterCheckboxState(); } });
     showCheckedOnlyToggle?.addEventListener("change", window.applyCombinedFilter);
     searchInput?.addEventListener("input", window.applyCombinedFilter);
     clearSearchBtn?.addEventListener("click", () => { searchInput.value = ""; window.applyCombinedFilter(); searchInput.focus(); });
 
-    // Alphanumeric Grid Sorting Rules Logic
-    document.querySelectorAll(".sort-icon-trigger").forEach(icon => {
-        icon.addEventListener("click", (e) => {
-            e.stopPropagation(); const th = icon.closest("th"); const idx = Array.from(th.parentNode.children).indexOf(th);
-            currentSortAscending = !currentSortAscending;
-            document.querySelectorAll(".sort-icon-trigger").forEach(i => i.classList.remove("asc", "desc"));
-            icon.classList.add(currentSortAscending ? "asc" : "desc");
-
-            const activeRows = window.getRuntimeRows();
-            activeRows.sort((rowA, rowB) => {
-                const cellA = rowA.getElementsByTagName("td")[idx].textContent.trim();
-                const cellB = rowB.getElementsByTagName("td")[idx].textContent.trim();
-
-                if (idx === 1) { // Date Evaluation
-                    const mA = cellA.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/); const mB = cellB.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
-                    if (mA && mB) {
-                        const tA = new Date(mA[1], mA[2] - 1, mA[3]).getTime(); const tB = new Date(mB[1], mB[2] - 1, mB[3]).getTime();
-                        return currentSortAscending ? tA - tB : tB - tA;
-                    }
-                }
-                if (/^-?\d+(\.\d+)?$/.test(cellA) && /^-?\d+(\.\d+)?$/.test(cellB)) return currentSortAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
-                return currentSortAscending ? cellA.localeCompare(cellB, undefined, { numeric: true }) : cellB.localeCompare(cellA, undefined, { numeric: true });
-            });
-
-            const frag = document.createDocumentFragment(); activeRows.forEach(r => frag.appendChild(r)); tbody.appendChild(frag);
-            window.recalculateZebraStriping();
-        });
-    });
-
-    // Reset All Dashboard Operations Handle
+    // Reset All Dashboard Operations
     document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
         if (searchInput) searchInput.value = ""; if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false; if (selectAllRowsCheckbox) selectAllRowsCheckbox.checked = false;
         window.getRuntimeRows().forEach(row => { const b = row.querySelector(".row-selector-checkbox"); if (b) b.checked = false; });

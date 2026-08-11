@@ -6,7 +6,6 @@ export class SlicerUIEngine {
         this.selectedFilters = {};
         this.multiSelectModes = {};
 
-        // Track active elements via their structural data-attribute names [INDEX]
         APP_CONFIG.filters.forEach(config => {
             this.selectedFilters[config.attr] = new Set();
             this.multiSelectModes[config.attr] = false;
@@ -33,7 +32,6 @@ export class SlicerUIEngine {
         jsonData.forEach(item => {
             const tr = document.createElement("tr");
             
-            // ?? FIXED DATA MATCH: Mounts data-tag-X row attribute using the clean jsonKey text [INDEX]
             APP_CONFIG.filters.forEach(f => {
                 tr.setAttribute(f.attr, item[f.jsonKey] || "");
             });
@@ -91,7 +89,7 @@ export class SlicerUIEngine {
 
             const rowDiv = document.createElement('div');
             rowDiv.className = 'filter-row';
-            rowDiv.dataset.attr = currentAttr; // Triggers your CSS order [INDEX]
+            rowDiv.dataset.attr = currentAttr;
 
             const labelDiv = document.createElement('div');
             labelDiv.className = 'filter-label';
@@ -152,6 +150,8 @@ export class SlicerUIEngine {
             toggleBtn.type = 'button';
             toggleBtn.className = 'multiple-toggle-btn' + (this.multiSelectModes[currentAttr] ? ' active' : '');
             toggleBtn.textContent = 'Multi';
+            
+            // ?? FIXED: Resolved the compilation mismatch on currentKey lookup
             toggleBtn.onclick = () => {
                 this.multiSelectModes[currentAttr] = !this.multiSelectModes[currentAttr];
                 toggleBtn.classList.toggle('active', this.multiSelectModes[currentAttr]);
