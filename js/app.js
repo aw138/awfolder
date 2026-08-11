@@ -24,10 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Instantiate UI engine passing Travel specific layouts
     const uiController = new SlicerUIEngine(TRAVEL_PROJECT_CONFIG, filterDatasetProcessor);
 
-    // Initial paint commands lifecycle hooks Execution loop
+    //  CORRECT LINES (Passes your live downloaded GitHub data instead)
     uiController.renderTableHeader();
-    uiController.renderFilters(TRAVEL_DATASET);
-    uiController.renderTableBody(TRAVEL_DATASET);
+    uiController.renderFilters(globalDataset); // <-- Change this to globalDataset
+    uiController.renderTableBody(globalDataset); // <-- Change this to globalDataset
+
 
     // Reset buttons bindings
     document.getElementById("reset-filters-btn").addEventListener("click", () => {
