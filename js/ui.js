@@ -2,7 +2,6 @@ import { APP_CONFIG } from './config.js';
 
 export class SlicerUIEngine {
     constructor() {
-        // Copy state initializers from lines 686-687 [PDF: 0.1.11]
         window.selectedFilters = {};
         window.multiSelectModes = {};
         
@@ -12,7 +11,6 @@ export class SlicerUIEngine {
         });
     }
 
-    // Dynamic row generation copied from lines 851-875 [PDF: 0.1.13, 0.1.14]
     renderTableBody(jsonData) {
         const tbody = document.getElementById("tableBody");
         tbody.innerHTML = ""; 
@@ -20,10 +18,10 @@ export class SlicerUIEngine {
         jsonData.forEach(item => {
             const tr = document.createElement("tr");
             
-            // Re-bind tag datasets mapping attributes cleanly back onto rows [PDF: 0.1.13]
+            // Clean dynamic row data mapper
             APP_CONFIG.tagColumnsConfig.forEach(f => {
-                const cleanKey = f.dataAttr.replace('data-', '').replace('-', '');
-                tr.setAttribute(f.dataAttr, item[cleanKey] || "");
+                const jsonFieldKey = f.dataAttr.replace('data-', '').replace('-', '');
+                tr.setAttribute(f.dataAttr, item[jsonFieldKey] || "");
             });
 
             tr.innerHTML = `
@@ -43,7 +41,6 @@ export class SlicerUIEngine {
         return Array.from(tbody.querySelectorAll("tr"));
     }
 
-    // Copied exactly from your working lines 735-755 [PDF: 0.1.11, 0.1.12]
     getTagAvailabilityList(currentAttr, uniqueTags, rows, searchCtx) {
         const showCheckedOnly = document.getElementById("showCheckedOnlyToggle")?.checked || false;
 
@@ -66,7 +63,6 @@ export class SlicerUIEngine {
         });
     }
 
-    // Setup initial horizontal panels from lines 690-731 [PDF: 0.1.11]
     initHorizontalFilters(rows) {
         const container = document.getElementById("horizontalFiltersContainer");
         container.innerHTML = "";
@@ -109,7 +105,6 @@ export class SlicerUIEngine {
         this.updateAllSlicerButtonsUI(rows);
     }
 
-    // Copied exactly from your working lines 757-812 [PDF: 0.1.12, 0.1.13]
     updateAllSlicerButtonsUI(rows) {
         const container = document.getElementById("horizontalFiltersContainer");
         const searchCtx = document.getElementById("tableSearch").value.toLowerCase().trim();
@@ -139,7 +134,7 @@ export class SlicerUIEngine {
             
             const tagsWithAvailability = this.getTagAvailabilityList(currentAttr, uniqueTags, rows, searchCtx);
             
-            // ?? COPIED FROM YOUR ORIGINAL EXACT WORKING CODE LINES [PDF: 0.1.12]
+            // ?? COPIED DIRECTLY FROM YOUR ORIGINAL EXCEL SLICER CONTRACT [PDF: 0.1.12]
             tagsWithAvailability.sort((a, b) => {
                 if (a.available !== b.available) return a.available ? -1 : 1;
                 const checkA = a.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
@@ -150,6 +145,8 @@ export class SlicerUIEngine {
                 
                 let priorityA = undefined; 
                 let priorityB = undefined;
+                
+                // Reads the clean flat priority object from your file [PDF: 0.1.12]
                 for (const key in APP_CONFIG.customSortPriority) {
                     if (checkA.startsWith(key)) priorityA = APP_CONFIG.customSortPriority[key];
                     if (checkB.startsWith(key)) priorityB = APP_CONFIG.customSortPriority[key];
@@ -160,6 +157,7 @@ export class SlicerUIEngine {
                 if (priorityA !== undefined) return -1; 
                 if (priorityB !== undefined) return 1;
                 
+                // This sorting rule automatically arranges numbers and years logically [PDF: 0.1.12]
                 return checkA.localeCompare(checkB, undefined, { 
                     numeric: true, 
                     sensitivity: 'base' 
