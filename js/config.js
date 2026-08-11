@@ -1,6 +1,6 @@
 export const APP_CONFIG = {
     // ?? Central Data Source Location
-    DATA_SOURCE_URL: "https://githubusercontent.com",
+    DATA_SOURCE_URL: "travel-data.json",
 
     // ?? Table Header Column Definitions
     columns: [
