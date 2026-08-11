@@ -2,55 +2,46 @@ import { TRAVEL_PROJECT_CONFIG } from './config.js';
 import { SlicerUIEngine } from './ui.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // Line 5: Declare variable at the top level of this scope so lines below can read it
     let globalDataset = []; 
     let uiController = null;
 
-	// Update the internal dynamic matching checker rule block inside your existing js/app.js
-	const filterDatasetProcessor = (activeFilters) => {
-		const filteredData = globalDataset.filter(record => {
-			return Object.keys(activeFilters).every(filterKey => {
-				const targetedValue = activeFilters[filterKey];
-				if (targetedValue === "All") return true; 
-				
-				const cellData = String(record[filterKey] || "");
-				
-				// 🔎 TAG COMPATIBILITY SEARCH ENGINE
-				// If raw data string contains semi-colons, check if chosen tag exists inside it
-				if (cellData.includes(";")) {
-					return cellData.split(";").map(t => t.trim()).includes(targetedValue);
-				}
-				
-				return cellData === String(targetedValue);
-			});
-		});
-		uiController.renderTableBody(filteredData);
-	};
+    // Master operational filter evaluator
+    const applyCombinedFilterPipeline = () => {
+        // 1. Reduce down rows to match every active criteria set intersection
+        const filteredData = globalDataset.filter(record => {
+            return Object.entries(uiController.selectedFilters).every(([filterKey, activeSet]) => {
+                if (activeSet.size === 0) return true; // No filter active on this row, skip
+                
+                const cellData = String(record[filterKey] || "");
+                const recordTags = cellData.split(';').map(t => t.trim());
+                
+                // Row matches if it shares any tag with the active filter set
+                return Array.from(activeSet).some(selectedTag => recordTags.includes(selectedTag));
+            });
+        });
 
+        // 2. Update visible table entries
+        uiController.renderTableBody(filteredData);
+        
+        // 3. RE-RENDER SLICER BUTTONS TO DYNAMICALLY ADJUST SORT AND GREY OUT STATES
+        uiController.renderFilters(globalDataset);
+    };
 
     try {
-        // Line 21: Fetch data from the URL configured in config.js
         const response = await fetch(TRAVEL_PROJECT_CONFIG.DATA_URL);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        // Line 27: Save the real JSON results into our variable
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         globalDataset = await response.json();
 
-        // Line 30: Instantiate the UI Controller layout engine
-        uiController = new SlicerUIEngine(TRAVEL_PROJECT_CONFIG, filterDatasetProcessor);
+        uiController = new SlicerUIEngine(TRAVEL_PROJECT_CONFIG, applyCombinedFilterPipeline);
 
-        // Lines 33-35: Run rendering routines using our freshly loaded data
+        // Initial application setup paint execution
         uiController.renderTableHeader();
-        uiController.renderFilters(globalDataset);  
-        uiController.renderTableBody(globalDataset); 
+        uiController.renderTableBody(globalDataset);
+        uiController.renderFilters(globalDataset);
 
-        // Set up action bindings for the reset button
         document.getElementById("reset-filters-btn").addEventListener("click", () => {
             uiController.resetUIFilters();
-            uiController.renderTableBody(globalDataset);
+            applyCombinedFilterPipeline();
         });
 
     } catch (error) {
@@ -58,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("table-body").innerHTML = `
             <tr>
                 <td colspan="${TRAVEL_PROJECT_CONFIG.columns.length}" style="text-align:center; color:#dc3545; font-weight:bold;">
-                    ⚠️ Error loading live records from JSON source. Please inspect network consoles.
+                    ⚠️ Error loading live records from JSON source.
                 </td>
             </tr>`;
     }
