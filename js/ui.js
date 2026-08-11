@@ -2,10 +2,8 @@ export class SlicerUIEngine {
     constructor(config, onFilterChange) {
         this.config = config;
         this.onFilterChange = onFilterChange;
-        
-        // Replicate your original state tracking structures
-        this.selectedFilters = {};  // Maps key -> Set of active buttons
-        this.multiSelectModes = {}; // Maps key -> true/false
+        this.selectedFilters = {};  
+        this.multiSelectModes = {}; 
 
         this.config.filters.forEach(f => {
             this.selectedFilters[f.key] = new Set();
@@ -34,21 +32,16 @@ export class SlicerUIEngine {
         }).join("");
     }
 
-    // ?? YOUR WORKING ENGINE'S CROSS-AVAILABILITY CALCULATOR (PORTED TO JSON)
     getTagAvailabilityList(currentKey, uniqueTags, allRecords) {
         return Array.from(uniqueTags).map(tagValue => {
-            // If it is already selected, it is inherently considered active
             let isAvailable = this.selectedFilters[currentKey].has(tagValue);
             
             if (!isAvailable) {
-                // Check if any record in the dataset matches this tag AND satisfies all OTHER row filters
                 isAvailable = allRecords.some(record => {
-                    // 1. Check if the record contains this specific tag value
                     const cellData = String(record[currentKey] || "");
                     const hasTag = cellData.split(';').map(t => t.trim()).includes(tagValue);
                     if (!hasTag) return false;
 
-                    // 2. Cross-check against all OTHER row selections (Intersection loop)
                     for (const [otherKey, otherFilterSet] of Object.entries(this.selectedFilters)) {
                         if (otherKey === currentKey || otherFilterSet.size === 0) continue;
                         
@@ -64,8 +57,6 @@ export class SlicerUIEngine {
             return { value: tagValue, available: isAvailable };
         });
     }
-
-    // ?? DYNAMICALLY RE-RENDER AND RE-SORT BUTTONS ON EVERY CLICK
     renderFilters(allRecords) {
         const container = document.getElementById("filters-sidebar");
         container.innerHTML = ""; 
@@ -74,7 +65,6 @@ export class SlicerUIEngine {
             const currentKey = filterSchema.key;
             const activeSet = this.selectedFilters[currentKey];
 
-            // Extract all unique values present for this tag column
             const uniqueTags = new Set();
             allRecords.forEach(record => {
                 String(record[currentKey] || "").split(';').forEach(tag => {
@@ -82,7 +72,6 @@ export class SlicerUIEngine {
                 });
             });
 
-            // Create row container
             const groupDiv = document.createElement("div");
             groupDiv.className = "filter-group";
 
@@ -94,7 +83,6 @@ export class SlicerUIEngine {
             const optionsDiv = document.createElement("div");
             optionsDiv.className = "filter-options";
 
-            // Add the master 'All' button
             const allBtn = document.createElement('button');
             allBtn.className = 'filter-btn master-all-btn' + (activeSet.size === 0 ? ' active' : '');
             allBtn.textContent = 'All';
@@ -104,45 +92,56 @@ export class SlicerUIEngine {
             };
             optionsDiv.appendChild(allBtn);
 
-            // Calculate live availability based on your original rules
             const tagsWithAvailability = this.getTagAvailabilityList(currentKey, uniqueTags, allRecords);
 
-            // ?? COPIED DIRECTLY FROM YOUR WORKING ENGINE SORTING CONTRACT
+            // ?? FIXED SHORT LINE COMPATIBILITY BUTTON SORTING ENGINE
             tagsWithAvailability.sort((a, b) => {
-                // First sort by availability status
-                if (a.available !== b.available) return a.available ? -1 : 1;
-
-                const checkA = String(a.value).trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
-                const checkB = String(b.value).trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
-
-                if (checkA === "(None)" || checkB === "(None)" || checkA === "N/A" || checkB === "N/A") {
-                    return (checkA === "(None)" || checkA === "N/A") ? 1 : -1;
+                if (a.available !== b.available) {
+                    return a.available ? -1 : 1;
                 }
 
-                let priorityA = undefined; 
-                let priorityB = undefined;
-                const priorityMap = this.config.customSortPriority || {};
+                // Split strings cleanly into shorter variable sets to fit screens
+                const strA = String(a.value).trim();
+                const strB = String(b.value).trim();
+                
+                const checkA = strA.replace(/¡]/g, '(').replace(/¡^/g, ')');
+                const checkB = strB.replace(/¡]/g, '(').replace(/¡^/g, ')');
 
-                // Your fuzzy string prefix matching loop (.startsWith)
-                for (const key in priorityMap) {
-                    if (checkA.startsWith(key)) priorityA = priorityMap[key];
-                    if (checkB.startsWith(key)) priorityB = priorityMap[key];
+                const isNoneA = (checkA === "(None)" || checkA === "N/A");
+                const isNoneB = (checkB === "(None)" || checkB === "N/A");
+
+                if (isNoneA || isNoneB) {
+                    return isNoneA ? 1 : -1;
                 }
 
-                if (priorityA !== undefined && priorityB !== undefined) return priorityA - priorityB;
-                if (priorityA !== undefined) return -1; 
-                if (priorityB !== undefined) return 1;
+                let pA = undefined; 
+                let pB = undefined;
+                const pMap = this.config.customSortPriority || {};
 
-                return checkA.localeCompare(checkB, undefined, { numeric: true, sensitivity: 'base' });
+                for (const key in pMap) {
+                    if (checkA.startsWith(key)) pA = pMap[key];
+                    if (checkB.startsWith(key)) pB = pMap[key];
+                }
+
+                if (pA !== undefined && pB !== undefined) {
+                    return pA - pB;
+                }
+                if (pA !== undefined) return -1; 
+                if (pB !== undefined) return 1;
+
+                return checkA.localeCompare(checkB, undefined, { 
+                    numeric: true, 
+                    sensitivity: 'base' 
+                });
             });
 
-            // Generate the buttons inside the slicer row layout
             tagsWithAvailability.forEach(tagObj => {
                 const btn = document.createElement('button');
-                // Handle styling states based on activity or availability constraints
-                btn.className = 'filter-btn' + 
-                    (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
+                const hasActive = activeSet.has(tagObj.value);
+                const isUnavail = !tagObj.available;
                 
+                btn.className = 'filter-btn' + 
+                    (hasActive ? ' active' : (isUnavail ? ' disabled-tag' : ''));
                 btn.textContent = tagObj.value;
                 
                 btn.onclick = () => {
@@ -161,17 +160,17 @@ export class SlicerUIEngine {
                 optionsDiv.appendChild(btn);
             });
 
-            // Append a multi-select toggle button exactly like your system framework
             const multiBtn = document.createElement('button');
-            multiBtn.className = 'btn-secondary multi-toggle-btn' + (this.multiSelectModes[currentKey] ? ' active' : '');
+            const isMultiActive = this.multiSelectModes[currentKey];
+            multiBtn.className = 'btn-secondary multi-toggle-btn' + (isMultiActive ? ' active' : '');
             multiBtn.textContent = 'Multi';
             multiBtn.onclick = () => {
                 this.multiSelectModes[currentKey] = !this.multiSelectModes[currentKey];
                 multiBtn.classList.toggle('active', this.multiSelectModes[currentKey]);
                 if (!this.multiSelectModes[currentKey]) {
                     this.selectedFilters[currentKey].clear();
-                    this.onFilterChange();
                 }
+                this.onFilterChange();
             };
 
             groupDiv.appendChild(optionsDiv);
