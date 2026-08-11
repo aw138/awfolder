@@ -1,20 +1,14 @@
-// Handles UI generation (writing tables and
-// filter elements to the DOM) based on whatever
-// metadata configuration object is passed to it.
-
 export class SlicerUIEngine {
     constructor(config, onFilterChange) {
         this.config = config;
         this.onFilterChange = onFilterChange;
-        this.activeFilters = {}; // State tracking object: { country: "Japan", year: "All" }
+        this.activeFilters = {}; 
         
-        // Init active state entries based on configs
         this.config.filters.forEach(f => {
             this.activeFilters[f.key] = "All";
         });
     }
 
-    // Dynamic Head Header Generation
     renderTableHeader() {
         const headerRow = document.getElementById("table-header-row");
         headerRow.innerHTML = this.config.columns
@@ -22,7 +16,6 @@ export class SlicerUIEngine {
             .join("");
     }
 
-    // Dynamic Row Elements Generation
     renderTableBody(records) {
         const tbody = document.getElementById("table-body");
         const countBadge = document.getElementById("record-count");
@@ -37,7 +30,6 @@ export class SlicerUIEngine {
         tbody.innerHTML = records.map(row => {
             const columnsHtml = this.config.columns.map(col => {
                 const cellValue = row[col.key] ?? "-";
-                // Append custom styling tags if data column is duration metrics
                 const visualValue = col.key === 'duration_days' ? `${cellValue} Days` : cellValue;
                 return `<td class="${col.align || ''}">${visualValue}</td>`;
             }).join("");
@@ -46,15 +38,51 @@ export class SlicerUIEngine {
         }).join("");
     }
 
-    // Automatic Engine Slicer UI Generation
+    // ?? NEW UPGRADED DYNAMIC SLICER RENDERING
     renderFilters(fullDataset) {
         const container = document.getElementById("filters-sidebar");
-        container.innerHTML = ""; // Clear existing layout
+        container.innerHTML = ""; 
 
         this.config.filters.forEach(filterSchema => {
-            // Find distinct options present inside dataset array elements automatically
-            const distinctValues = [...new Set(fullDataset.map(item => item[filterSchema.key]))].sort();
-            const optionList = ["All", ...distinctValues];
+            let uniqueValues = new Set();
+
+            // ?? PARSE SEMI-COLON DATA STRINGS INTO SEPARATE TAGS
+            fullDataset.forEach(item => {
+                const rawValue = item[filterSchema.key];
+                if (rawValue !== undefined && rawValue !== null) {
+                    const stringVal = String(rawValue);
+                    if (stringVal.includes(";")) {
+                        // Split tags, clean spaces, and add each individually
+                        stringVal.split(";").forEach(tag => uniqueValues.add(tag.trim()));
+                    } else {
+                        uniqueValues.add(stringVal.trim());
+                    }
+                }
+            });
+
+            let optionList = Array.from(uniqueValues);
+
+            // ?? APPLY MANUAL PRIORITY OR NATURAL ALPHANUMERIC SORTING
+            const priorityMapping = this.config.sortPriority?.[filterSchema.key];
+            
+            if (priorityMapping) {
+                // Sort using custom defined dictionary array layout indexes
+                optionList.sort((a, b) => {
+                    let indexA = priorityMapping.indexOf(a);
+                    let indexB = priorityMapping.indexOf(b);
+                    if (indexA === -1) indexA = 999; // Unknown tags go to end
+                    if (indexB === -1) indexB = 999;
+                    return indexA - indexB;
+                });
+            } else {
+                // ?? NATURAL SORTING ENGINE (Resolves 2 vs 10 text conflicts)
+                optionList.sort((a, b) => {
+                    return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+                });
+            }
+
+            // Always prepend "All" option to filter row tracking
+            optionList = ["All", ...optionList];
 
             const groupDiv = document.createElement("div");
             groupDiv.className = "filter-group";
@@ -75,11 +103,9 @@ export class SlicerUIEngine {
                 btn.addEventListener("click", () => {
                     this.activeFilters[filterSchema.key] = option;
                     
-                    // Highlight selected element
                     optionsDiv.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
                     btn.classList.add("active");
 
-                    // Trigger logical dataset filter reduction loop
                     this.onFilterChange(this.activeFilters);
                 });
 
@@ -95,7 +121,6 @@ export class SlicerUIEngine {
         Object.keys(this.activeFilters).forEach(key => {
             this.activeFilters[key] = "All";
         });
-        // Select all 'All' buttons visually
         document.querySelectorAll(".filter-group").forEach(group => {
             const buttons = group.querySelectorAll(".filter-btn");
             buttons.forEach(btn => {

@@ -6,17 +6,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     let globalDataset = []; 
     let uiController = null;
 
-    // Processor logic mapping filter criteria against live online objects
-    const filterDatasetProcessor = (activeFilters) => {
-        const filteredData = globalDataset.filter(record => {
-            return Object.keys(activeFilters).every(filterKey => {
-                const targetedValue = activeFilters[filterKey];
-                if (targetedValue === "All") return true; 
-                return String(record[filterKey]) === String(targetedValue);
-            });
-        });
-        uiController.renderTableBody(filteredData);
-    };
+	// Update the internal dynamic matching checker rule block inside your existing js/app.js
+	const filterDatasetProcessor = (activeFilters) => {
+		const filteredData = globalDataset.filter(record => {
+			return Object.keys(activeFilters).every(filterKey => {
+				const targetedValue = activeFilters[filterKey];
+				if (targetedValue === "All") return true; 
+				
+				const cellData = String(record[filterKey] || "");
+				
+				// 🔎 TAG COMPATIBILITY SEARCH ENGINE
+				// If raw data string contains semi-colons, check if chosen tag exists inside it
+				if (cellData.includes(";")) {
+					return cellData.split(";").map(t => t.trim()).includes(targetedValue);
+				}
+				
+				return cellData === String(targetedValue);
+			});
+		});
+		uiController.renderTableBody(filteredData);
+	};
+
 
     try {
         // Line 21: Fetch data from the URL configured in config.js
