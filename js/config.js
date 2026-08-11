@@ -1,9 +1,4 @@
-// This file strictly drives the metadata for your
-// dataset layout. Notice how we cleanly map keys to header 
-// labels and mark specific fields as dynamic filter slicers.
-
 export const TRAVEL_PROJECT_CONFIG = {
-    // Specify your remote data location here 
     DATA_URL: "travel-data.json",
 
     columns: [
@@ -15,30 +10,30 @@ export const TRAVEL_PROJECT_CONFIG = {
         { key: "description", label: "Description", align: "text-left" }
     ],
     
-    // ?? FIXED: Changed keys to match your actual data properties
     filters: [
-        { key: "year", label: "Year" },
-        { key: "season", label: "Season" },
-        { key: "country", label: "Country" },
-        { key: "place", label: "Place" },
-        { key: "agent", label: "Agent" },
-        { key: "days", label: "Days" }
+        { key: "tag1", label: "Year" },
+        { key: "tag2", label: "Season" },
+        { key: "tag3", label: "Country" }, // Holds values like "Japan"
+        { key: "tag4", label: "Place" },
+        { key: "tag5", label: "Agent" },  // Holds values like "¬P±á"
+        { key: "tag6", label: "Days" }
     ], 
 
-    // ?? FIXED: Keys here now perfectly mirror the filter keys above
+    // ?? MATCH THE EXACT STRINGS FROM YOUR JSON HERE:
     customSortPriority: {
-        "country": {
+        "tag3": {
             "¤¤°ê": 1,
             "N/A": 999
         },
-        "agent": {
+        "tag5": {
             "¦Û¥Ñ¦æ": 1,
             "Others": 999
         },
-        "season": {
+        "tag2": {
             "¬K©u": 1,
             "®L©u": 2,
-            "¬î©u": 3
+            "¬î©u": 3,
+            "¥V©u": 4
         }
     }
 };
