@@ -25,7 +25,7 @@ export const TRAVEL_PROJECT_CONFIG = {
 
 
     // ?? DEFINE CUSTOM BUTTON SORTING PRIORITY HERE
-    // You can set specific buttons to be pushed to the front or back (like "N/A" at 999)
+    // You can set specific buttons to be pushed to the front or back (like "N/A" at "999")
     customSortPriority: {
         "tag3": {
             "¤¤°ê": 1
