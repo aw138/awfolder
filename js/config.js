@@ -21,19 +21,13 @@ export const TRAVEL_PROJECT_CONFIG = {
 
     // ?? MATCH THE EXACT STRINGS FROM YOUR JSON HERE:
     customSortPriority: {
-        "tag3": {
             "中國": 1,
-            "N/A": 999
-        },
-        "tag5": {
+            "N/A": 999,
             "自由行": 1,
-            "Others": 999
-        },
-        "tag2": {
+            "Others": 999,
             "春季": 1,
             "夏季": 2,
             "秋季": 3,
             "冬季": 4
-        }
     }
 };
