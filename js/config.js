@@ -1,33 +1,38 @@
-export const TRAVEL_PROJECT_CONFIG = {
-    DATA_URL: "travel-data.json",
+export const APP_CONFIG = {
+    // ?? Central Data Source Location
+    DATA_SOURCE_URL: "https://githubusercontent.com",
 
+    // ?? Table Header Column Definitions
     columns: [
-        { key: "date", label: "Date", align: "text-left" },
-        { key: "lunar", label: "Lunar", align: "text-left" },
-        { key: "days", label: "Days", align: "text-left" },
-        { key: "agent", label: "Agent", align: "text-left" },
-        { key: "country", label: "Country", align: "text-left" },
-        { key: "description", label: "Description", align: "text-left" }
+        { isCheckbox: true },
+        { key: "date", label: "Date", isSortable: true },
+        { key: "lunar", label: "Lunar", isSortable: true },
+        { key: "days", label: "Days", isSortable: true },
+        { key: "agent", label: "Agent", isSortable: true },
+        { key: "country", label: "Country/Place", isSortable: true },
+        { key: "description", label: "Description", isSortable: false, showCounter: true }
     ],
-    
-    filters: [
-        { key: "tag1", label: "Year" },
-        { key: "tag2", label: "Season" },
-        { key: "tag3", label: "Country" }, // Holds values like "Japan"
-        { key: "tag4", label: "Place" },
-        { key: "tag5", label: "Agent" },  // Holds values like "星晨"
-        { key: "tag6", label: "Days" }
-    ], 
 
-    // ?? MATCH THE EXACT STRINGS FROM YOUR JSON HERE:
-    customSortPriority: {
-            "中國": 1,
-            "N/A": 999,
-            "自由行": 1,
-            "Others": 999,
-            "春季": 1,
-            "夏季": 2,
-            "秋季": 3,
-            "冬季": 4
+    // ?? Filter Slicer Data Properties Mapping
+    filters: [
+        { key: "data-tag-1", label: "Year" },
+        { key: "data-tag-2", label: "Season" },
+        { key: "data-tag-3", label: "Country" },
+        { key: "data-tag-4", label: "Place" },
+        { key: "data-tag-5", label: "Agent" },
+        { key: "data-tag-6", label: "Days" }
+    ],
+
+    // ?? Flat Button Priorities Mapping Dictionary Array Rules
+    customSortPriority: { 
+        "自由行": 1, 
+        "星晨": 2,
+        "中國": 1, 
+        "Japan": 1,
+        "台灣": 2, 
+        "春季": 1, 
+        "夏季": 2, 
+        "秋季": 3, 
+        "冬季": 4 
     }
 };

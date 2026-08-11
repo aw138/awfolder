@@ -1,55 +1,80 @@
-export class SlicerUIEngine {
-    constructor(config, onFilterChange) {
-        this.config = config;
-        this.onFilterChange = onFilterChange;
-        this.selectedFilters = {};  
-        this.multiSelectModes = {}; 
+import { APP_CONFIG } from './config.js';
 
-        this.config.filters.forEach(f => {
-            this.selectedFilters[f.key] = new Set();
-            this.multiSelectModes[f.key] = false;
+export class SlicerUIEngine {
+    constructor(onFilterChange) {
+        this.onFilterChange = onFilterChange;
+        this.selectedFilters = {};
+        this.multiSelectModes = {};
+
+        APP_CONFIG.filters.forEach(config => {
+            this.selectedFilters[config.key] = new Set();
+            this.multiSelectModes[config.key] = false;
         });
     }
 
     renderTableHeader() {
         const headerRow = document.getElementById("table-header-row");
-        headerRow.innerHTML = this.config.columns
-            .map(col => `<th class="${col.align || ''}">${col.label}</th>`)
-            .join("");
-    }
-
-    renderTableBody(records) {
-        const tbody = document.getElementById("table-body");
-        document.getElementById("record-count").textContent = `${records.length} Record(s) Found`;
-
-        if (records.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="${this.config.columns.length}" style="text-align:center; color:#8c8c8c;">No records match your filters.</td></tr>`;
-            return;
-        }
-
-        tbody.innerHTML = records.map(row => {
-            return `<tr>${this.config.columns.map(col => `<td class="${col.align || ''}">${row[col.key] ?? "-"}</td>`).join("")}</tr>`;
+        headerRow.innerHTML = APP_CONFIG.columns.map(col => {
+            if (col.isCheckbox) {
+                return `<th class="checkbox-header-cell">
+                            <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+                        </th>`;
+            }
+            if (col.showCounter) {
+                return `<th class="${col.isSortable ? 'sortable' : ''}">
+                            <div class="header-inner-flex">
+                                <span class="header-title-text">${col.label}</span>
+                                <span id="tableResultsCounter" class="results-counter-badge"></span>
+                            </div>
+                        </th>`;
+            }
+            return `<th class="${col.isSortable ? 'sortable' : ''}">${col.label}</th>`;
         }).join("");
     }
 
-    getTagAvailabilityList(currentKey, uniqueTags, allRecords) {
-        return Array.from(uniqueTags).map(tagValue => {
-            let isAvailable = this.selectedFilters[currentKey].has(tagValue);
-            
-            if (!isAvailable) {
-                isAvailable = allRecords.some(record => {
-                    const cellData = String(record[currentKey] || "");
-                    const hasTag = cellData.split(';').map(t => t.trim()).includes(tagValue);
-                    if (!hasTag) return false;
+    renderTableBody(jsonData) {
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = "";
 
-                    for (const [otherKey, otherFilterSet] of Object.entries(this.selectedFilters)) {
-                        if (otherKey === currentKey || otherFilterSet.size === 0) continue;
-                        
-                        const otherCellData = String(record[otherKey] || "");
-                        const recordTags = otherCellData.split(';').map(x => x.trim());
-                        
-                        const matchesAnySelected = Array.from(otherFilterSet).some(t => recordTags.includes(t));
-                        if (!matchesAnySelected) return false;
+        jsonData.forEach(item => {
+            const tr = document.createElement("tr");
+            
+            // Map tag parameters back onto elements as data-attributes
+            APP_CONFIG.filters.forEach(f => {
+                tr.setAttribute(f.key, item[f.key.replace('data-', '')] || "");
+            });
+
+            tr.innerHTML = `
+                <td class="checkbox-data-cell">
+                    <input type="checkbox" class="row-selector-checkbox" aria-label="Select row">
+                </td>
+                <td>${item.date || ""}</td>
+                <td>${item.lunar || ""}</td>
+                <td>${item.days || ""}</td>
+                <td>${item.agent || ""}</td>
+                <td>${item.country || ""}</td>
+                <td>${item.description || ""}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        return Array.from(tbody.querySelectorAll("tr"));
+    }
+
+    getTagAvailabilityList(currentAttr, uniqueTags, rows, searchCtx) {
+        const showCheckedOnly = document.getElementById("showCheckedOnlyToggle")?.checked || false;
+
+        return Array.from(uniqueTags).map(tagValue => {
+            let isAvailable = this.selectedFilters[currentAttr].has(tagValue);
+            if (!isAvailable) {
+                isAvailable = rows.some(row => {
+                    if (showCheckedOnly && !row.querySelector(".row-selector-checkbox")?.checked) return false;
+                    if (searchCtx !== "" && !Array.from(row.children).some(c => c.textContent.toLowerCase().includes(searchCtx))) return false;
+                    if (!(row.getAttribute(currentAttr) || "").split(';').map(t => t.trim()).includes(tagValue)) return false;
+
+                    for (const [otherAttr, otherFilterSet] of Object.entries(this.selectedFilters)) {
+                        if (otherAttr === currentAttr || otherFilterSet.size === 0) continue;
+                        if (!Array.from(otherFilterSet).some(t => (row.getAttribute(otherAttr) || "").split(';').map(x => x.trim()).includes(t))) return false;
                     }
                     return true;
                 });
@@ -57,125 +82,95 @@ export class SlicerUIEngine {
             return { value: tagValue, available: isAvailable };
         });
     }
-    renderFilters(allRecords) {
-        const container = document.getElementById("filters-sidebar");
-        container.innerHTML = ""; 
+    updateAllSlicerButtonsUI(rows) {
+        const container = document.getElementById("horizontalFiltersContainer");
+        const searchCtx = document.getElementById("tableSearch").value.toLowerCase().trim();
+        container.innerHTML = "";
 
-        this.config.filters.forEach(filterSchema => {
-            const currentKey = filterSchema.key;
-            const activeSet = this.selectedFilters[currentKey];
+        APP_CONFIG.filters.forEach(config => {
+            const currentAttr = config.key;
+            const activeSet = this.selectedFilters[currentAttr];
 
             const uniqueTags = new Set();
-            allRecords.forEach(record => {
-                String(record[currentKey] || "").split(';').forEach(tag => {
-                    if (tag.trim()) uniqueTags.add(tag.trim());
-                });
+            rows.forEach(row => {
+                (row.getAttribute(currentAttr) || "").split(';').forEach(tag => { if (tag.trim()) uniqueTags.add(tag.trim()); });
             });
 
-            const groupDiv = document.createElement("div");
-            groupDiv.className = "filter-group";
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'filter-row';
+            rowDiv.dataset.attr = currentAttr;
 
-            const labelSpan = document.createElement("span");
-            labelSpan.className = "filter-label";
-            labelSpan.textContent = filterSchema.label;
-            groupDiv.appendChild(labelSpan);
+            const labelDiv = document.createElement('div');
+            labelDiv.className = 'filter-label';
+            labelDiv.textContent = config.label;
+            rowDiv.appendChild(labelDiv);
 
-            const optionsDiv = document.createElement("div");
-            optionsDiv.className = "filter-options";
+            const optionsWrapper = document.createElement('div');
+            optionsWrapper.className = 'filter-options-wrapper';
+            rowDiv.appendChild(optionsWrapper);
 
             const allBtn = document.createElement('button');
-            allBtn.className = 'filter-btn master-all-btn' + (activeSet.size === 0 ? ' active' : '');
+            allBtn.className = 'filter-item-btn master-all-btn' + (activeSet.size === 0 ? ' active' : '');
             allBtn.textContent = 'All';
-            allBtn.onclick = () => {
-                this.selectedFilters[currentKey].clear();
-                this.onFilterChange();
-            };
-            optionsDiv.appendChild(allBtn);
+            allBtn.onclick = () => { this.selectedFilters[currentAttr].clear(); window.applyCombinedFilter(); };
+            optionsWrapper.appendChild(allBtn);
 
-            const tagsWithAvailability = this.getTagAvailabilityList(currentKey, uniqueTags, allRecords);
-
-            // ?? FIXED SHORT LINE COMPATIBILITY BUTTON SORTING ENGINE
+            const tagsWithAvailability = this.getTagAvailabilityList(currentAttr, uniqueTags, rows, searchCtx);
+            
+            // ?? COPIED FROM YOUR ORIGINAL SORT LAWS CONTRACT
             tagsWithAvailability.sort((a, b) => {
-                if (a.available !== b.available) {
-                    return a.available ? -1 : 1;
+                if (a.available !== b.available) return a.available ? -1 : 1;
+                const checkA = a.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
+                const checkB = b.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
+                if (checkA === "(None)" || checkB === "(None)") return checkA === "(None)" ? 1 : -1;
+
+                let priorityA = undefined; let priorityB = undefined;
+                for (const key in APP_CONFIG.customSortPriority) {
+                    if (checkA.startsWith(key)) priorityA = APP_CONFIG.customSortPriority[key];
+                    if (checkB.startsWith(key)) priorityB = APP_CONFIG.customSortPriority[key];
                 }
+                if (priorityA !== undefined && priorityB !== undefined) return priorityA - priorityB;
+                if (priorityA !== undefined) return -1; 
+                if (priorityB !== undefined) return 1;
 
-                // Split strings cleanly into shorter variable sets to fit screens
-                const strA = String(a.value).trim();
-                const strB = String(b.value).trim();
-                
-                const checkA = strA.replace(/¡]/g, '(').replace(/¡^/g, ')');
-                const checkB = strB.replace(/¡]/g, '(').replace(/¡^/g, ')');
-
-                const isNoneA = (checkA === "(None)" || checkA === "N/A");
-                const isNoneB = (checkB === "(None)" || checkB === "N/A");
-
-                if (isNoneA || isNoneB) {
-                    return isNoneA ? 1 : -1;
-                }
-
-                let pA = undefined; 
-                let pB = undefined;
-                const pMap = this.config.customSortPriority || {};
-
-                for (const key in pMap) {
-                    if (checkA.startsWith(key)) pA = pMap[key];
-                    if (checkB.startsWith(key)) pB = pMap[key];
-                }
-
-                if (pA !== undefined && pB !== undefined) {
-                    return pA - pB;
-                }
-                if (pA !== undefined) return -1; 
-                if (pB !== undefined) return 1;
-
-                return checkA.localeCompare(checkB, undefined, { 
-                    numeric: true, 
-                    sensitivity: 'base' 
-                });
+                return checkA.localeCompare(checkB, undefined, { numeric: true, sensitivity: 'base' });
             });
 
             tagsWithAvailability.forEach(tagObj => {
                 const btn = document.createElement('button');
-                const hasActive = activeSet.has(tagObj.value);
-                const isUnavail = !tagObj.available;
-                
-                btn.className = 'filter-btn' + 
-                    (hasActive ? ' active' : (isUnavail ? ' disabled-tag' : ''));
+                btn.className = 'filter-item-btn regular-tag-btn' + (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
                 btn.textContent = tagObj.value;
-                
                 btn.onclick = () => {
                     if (btn.classList.contains('disabled-tag') && !btn.classList.contains('active')) return;
-
-                    if (this.multiSelectModes[currentKey]) {
+                    if (this.multiSelectModes[currentAttr]) {
                         if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value);
                         else activeSet.add(tagObj.value);
                     } else {
-                        const isAlreadyActive = activeSet.has(tagObj.value);
-                        activeSet.clear();
-                        if (!isAlreadyActive) activeSet.add(tagObj.value);
+                        const dynamicState = activeSet.has(tagObj.value);
+                        activeSet.clear(); if (!dynamicState) activeSet.add(tagObj.value);
                     }
-                    this.onFilterChange();
+                    window.applyCombinedFilter();
                 };
-                optionsDiv.appendChild(btn);
+                optionsWrapper.appendChild(btn);
             });
 
-            const multiBtn = document.createElement('button');
-            const isMultiActive = this.multiSelectModes[currentKey];
-            multiBtn.className = 'btn-secondary multi-toggle-btn' + (isMultiActive ? ' active' : '');
-            multiBtn.textContent = 'Multi';
-            multiBtn.onclick = () => {
-                this.multiSelectModes[currentKey] = !this.multiSelectModes[currentKey];
-                multiBtn.classList.toggle('active', this.multiSelectModes[currentKey]);
-                if (!this.multiSelectModes[currentKey]) {
-                    this.selectedFilters[currentKey].clear();
+            const actionArea = document.createElement('div');
+            actionArea.className = 'filter-action-toggle-area';
+            const toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'multiple-toggle-btn' + (this.multiSelectModes[currentAttr] ? ' active' : '');
+            toggleBtn.textContent = 'Multi';
+            toggleBtn.onclick = () => {
+                this.multiSelectModes[currentAttr] = !this.multiSelectModes[currentKey];
+                toggleBtn.classList.toggle('active', this.multiSelectModes[currentAttr]);
+                if (!this.multiSelectModes[currentAttr]) {
+                    this.selectedFilters[currentAttr].clear();
+                    window.applyCombinedFilter();
                 }
-                this.onFilterChange();
             };
-
-            groupDiv.appendChild(optionsDiv);
-            groupDiv.appendChild(multiBtn);
-            container.appendChild(groupDiv);
+            actionArea.appendChild(toggleBtn);
+            rowDiv.appendChild(actionArea);
+            container.appendChild(rowDiv);
         });
     }
 
