@@ -4,7 +4,7 @@
 
 export const TRAVEL_PROJECT_CONFIG = {
     // Specify your remote data location here 
-    DATA_URL: "travel-data.json",
+    DATA_URL: "https://aw138.github.io/awfolder/travel-data.json",
 
     columns: [
         { key: "id", label: "ID", align: "text-center" },
