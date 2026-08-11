@@ -14,26 +14,26 @@ export const TRAVEL_PROJECT_CONFIG = {
         { key: "country", label: "Country", align: "text-left" },
         { key: "description", label: "Description", align: "text-left" }
     ],
+    
+    // ?? FIXED: Changed keys to match your actual data properties
     filters: [
-        { key: "tag1", label: "Year" },
-        { key: "tag2", label: "Season" },
-        { key: "tag3", label: "Country" },
-        { key: "tag4", label: "Place" },
-        { key: "tag5", label: "Agent" },
-        { key: "tag6", label: "Days" }
-    ],
+        { key: "year", label: "Year" },
+        { key: "season", label: "Season" },
+        { key: "country", label: "Country" },
+        { key: "place", label: "Place" },
+        { key: "agent", label: "Agent" },
+        { key: "days", label: "Days" }
+    ], 
 
-
-    // ?? DEFINE CUSTOM BUTTON SORTING PRIORITY HERE
-    // You can set specific buttons to be pushed to the front or back (like "N/A" at "999")
+    // ?? FIXED: Keys here now perfectly mirror the filter keys above
     customSortPriority: {
         "country": {
             "中國": 1,
-			"N/A": 999
+            "N/A": 999
         },
         "agent": {
             "自由行": 1,
-			"Others": 999
+            "Others": 999
         },
         "season": {
             "春季": 1,
