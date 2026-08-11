@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Data Slicer - Travel Records</title>
+    <!-- CSS Modules -->
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/filters.css">
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>🎒 Travel Records Explorer</h1>
+            <p>Advanced horizontal data slicer engine</p>
+        </header>
+
+        <!-- Horizontal Slicers Container -->
+        <section id="filters-sidebar" class="filters-container">
+            <!-- JavaScript will auto-generate filter groups here -->
+        </section>
+
+        <!-- Main Data View -->
+        <main class="data-viewport">
+            <div class="table-actions">
+                <span id="record-count" class="counter-badge">Loading records...</span>
+                <button id="reset-filters-btn" class="btn-secondary">Reset Filters</button>
+            </div>
+            
+            <div class="table-wrapper">
+                <table id="data-table">
+                    <thead>
+                        <tr id="table-header-row">
+                            <!-- JavaScript will auto-generate headers here -->
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- JavaScript will inject filtered rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript Application Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
