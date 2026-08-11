@@ -2,21 +2,20 @@ import { APP_CONFIG } from './config.js';
 import { SlicerUIEngine } from './ui.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const ui = new SlicerUIEngine(window.applyCombinedFilter);
-    ui.renderTableHeader();
+    const ui = new SlicerUIEngine();
 
     const tbody = document.getElementById("tableBody");
     const searchInput = document.getElementById("tableSearch");
     const clearSearchBtn = document.getElementById("clearSearchBtn");
     const noResultsMessage = document.getElementById("noResults");
     const resultsCounter = document.getElementById("tableResultsCounter");
+    
     const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
     
     window.globalTableRows = [];
-    let currentSortAscending = true;
 
-    // Header Sort Interface Setup
+    // Header Sort Interface Setup from lines 835-840 [PDF: 0.1.13]
     document.querySelectorAll("th.sortable").forEach((header) => {
         const titleText = header.textContent.trim();
         header.innerHTML = `<div class="header-inner-flex">
@@ -27,22 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>`;
     });
 
-    // Asynchronous JSON Fetch Data Pipeline
+    // 1. ASYNCHRONOUS JSON DATA PIPELINE INITIALIZER [PDF: 0.1.13]
     fetch(APP_CONFIG.DATA_SOURCE_URL)
-        .then(res => { if (!res.ok) throw new Error("Cloud data link down"); return res.json(); })
+        .then(res => { if (!res.ok) throw new Error("Load failed"); return res.json(); })
         .then(jsonData => {
             window.globalTableRows = ui.renderTableBody(jsonData);
-            ui.updateAllSlicerButtonsUI(window.globalTableRows);
+            ui.initHorizontalFilters(window.globalTableRows);
             window.applyCombinedFilter();
             window.bindSortingTriggers();
         })
         .catch(err => {
             console.error(err);
-            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">Error loading data file.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">無法自雲端載入 JSON 數據。</td></tr>`;
         });
 
     window.getRuntimeRows = () => window.globalTableRows.length > 0 ? window.globalTableRows : Array.from(tbody.querySelectorAll("tr"));
 
+    // Copied from your original working filter lines 968-1022 [PDF: 0.1.15, 0.1.16]
     window.applyCombinedFilter = function() {
         const activeRows = window.getRuntimeRows();
         const searchText = searchInput.value.toLowerCase().trim();
@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const matchesSearch = searchText === "" || cells.some((el, idx) => idx !== 0 && el.textContent.toLowerCase().includes(searchText));
             
             let matchesSlicers = true;
-            for (const [attr, filterSet] of Object.entries(ui.selectedFilters)) {
+            for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters)) {
                 if (filterSet.size === 0) continue;
-                if (!Array.from(filterSet).some(t => (row.getAttribute(attr) || "").split(';').map(x => x.trim()).includes(t))) { matchesSlicers = false; break; }
+                if (!Array.from(filterSet).some(t => (row.getAttribute(dataAttr) || "").split(';').map(x => x.trim()).includes(t))) { matchesSlicers = false; break; }
             }
 
             if (matchesSearch && matchesSlicers) {
@@ -112,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Copied from your original sorting algorithm lines 1042-1090 [PDF: 0.1.16, 0.1.17]
     window.bindSortingTriggers = function() {
+        let currentSortAscending = true;
         document.querySelectorAll(".sort-icon-trigger").forEach(icon => {
             const oldTh = icon.closest("th");
             const th = oldTh.cloneNode(true);
@@ -132,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const cellA = rowA.getElementsByTagName("td")[idx].textContent.trim();
                     const cellB = rowB.getElementsByTagName("td")[idx].textContent.trim();
 
-                    if (idx === 1) { // Date Evaluation
+                    if (idx === 1) { // Chronological Date Sorting [PDF: 0.1.17]
                         const mA = cellA.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/); 
                         const mB = cellB.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
                         if (mA && mB) {
@@ -155,18 +157,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Font Sizing Multipliers
+    // Font Sizing Panel Controls
     let fSize = 14;
     document.getElementById("decreaseFontBtn")?.addEventListener("click", () => { if (fSize > 8) document.documentElement.style.setProperty('--base-font', (fSize -= 2) + "px"); });
     document.getElementById("increaseFontBtn")?.addEventListener("click", () => { if (fSize < 20) document.documentElement.style.setProperty('--base-font', (fSize += 2) + "px"); });
 
-    // Collapsible Layout Panels
+    // Collapsible Dashboard Trigger [PDF: 0.1.14]
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel").classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#8744;" : "&#8743;";
     });
 
-    // Checkbox State Observers
+    // Checkbox Listeners
     document.body.addEventListener("change", (e) => {
         if (e.target && e.target.id === "selectAllRowsCheckbox") {
             const isChecked = e.target.checked;
@@ -180,11 +182,11 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput?.addEventListener("input", window.applyCombinedFilter);
     clearSearchBtn?.addEventListener("click", () => { searchInput.value = ""; window.applyCombinedFilter(); searchInput.focus(); });
 
-    // Reset All Dashboard Operations
+    // Reset Handle [PDF: 0.1.16]
     document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
         if (searchInput) searchInput.value = ""; if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false; if (selectAllRowsCheckbox) selectAllRowsCheckbox.checked = false;
         window.getRuntimeRows().forEach(row => { const b = row.querySelector(".row-selector-checkbox"); if (b) b.checked = false; });
-        for (const k in ui.selectedFilters) { ui.selectedFilters[k].clear(); ui.multiSelectModes[k] = false; }
+        for (const k in window.selectedFilters) { window.selectedFilters[k].clear(); window.multiSelectModes[k] = false; }
         document.querySelectorAll('.multiple-toggle-btn').forEach(btn => btn.classList.remove('active'));
         window.applyCombinedFilter();
     });
