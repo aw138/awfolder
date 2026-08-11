@@ -62,32 +62,37 @@ export class SlicerUIEngine {
 
             let optionList = Array.from(uniqueValues);
 
-            // ?? APPLY CUSTOM BUTTON SORT PRIORITY AND FALLBACK TO NATURAL SORT
+            // ?? MASTER SLICER BUTTON SORTING RULES ENGINE
             const rowPriorityMap = this.config.customSortPriority?.[filterSchema.key];
 
             optionList.sort((a, b) => {
                 const priorityA = rowPriorityMap?.[a];
                 const priorityB = rowPriorityMap?.[b];
 
-                // If BOTH items have a manually specified priority, sort by those weights
+                // 1?? RULE: Both items have manual priority configs, rank by their exact weights
                 if (priorityA !== undefined && priorityB !== undefined) {
                     return priorityA - priorityB;
                 }
-                // If only 'a' has a priority weight, move it based on value
+
+                // 2?? RULE: If ONLY 'a' has a priority weight
                 if (priorityA !== undefined) {
-                    return priorityA === 999 ? 1 : -1; // 999 goes to back, others go to front
+                    // If it is 999, push 'a' to the back. Otherwise, it's a top feature (push to front).
+                    return priorityA === 999 ? 1 : -1;
                 }
-                // If only 'b' has a priority weight, move it based on value
+
+                // 3?? RULE: If ONLY 'b' has a priority weight
                 if (priorityB !== undefined) {
+                    // If it is 999, push 'b' to the back. Otherwise, it's a top feature (push to front).
                     return priorityB === 999 ? -1 : 1;
                 }
 
-                // ?? Fallback: If neither has a manual weight, use standard natural sorting
+                // 4?? FALLBACK RULE: Neither item is in config.js, sort them using natural numbers/alphabet
                 return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
             });
 
-            // Always prepend "All" option to the front of the filter row tracking
+            // Always prepend "All" option to the front of the filter row list row tracking
             optionList = ["All", ...optionList];
+
 
 
             const groupDiv = document.createElement("div");
