@@ -62,27 +62,33 @@ export class SlicerUIEngine {
 
             let optionList = Array.from(uniqueValues);
 
-            // ?? APPLY MANUAL PRIORITY OR NATURAL ALPHANUMERIC SORTING
-            const priorityMapping = this.config.sortPriority?.[filterSchema.key];
-            
-            if (priorityMapping) {
-                // Sort using custom defined dictionary array layout indexes
-                optionList.sort((a, b) => {
-                    let indexA = priorityMapping.indexOf(a);
-                    let indexB = priorityMapping.indexOf(b);
-                    if (indexA === -1) indexA = 999; // Unknown tags go to end
-                    if (indexB === -1) indexB = 999;
-                    return indexA - indexB;
-                });
-            } else {
-                // ?? NATURAL SORTING ENGINE (Resolves 2 vs 10 text conflicts)
-                optionList.sort((a, b) => {
-                    return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
-                });
-            }
+            // ?? APPLY CUSTOM BUTTON SORT PRIORITY AND FALLBACK TO NATURAL SORT
+            const rowPriorityMap = this.config.customSortPriority?.[filterSchema.key];
 
-            // Always prepend "All" option to filter row tracking
+            optionList.sort((a, b) => {
+                const priorityA = rowPriorityMap?.[a];
+                const priorityB = rowPriorityMap?.[b];
+
+                // If BOTH items have a manually specified priority, sort by those weights
+                if (priorityA !== undefined && priorityB !== undefined) {
+                    return priorityA - priorityB;
+                }
+                // If only 'a' has a priority weight, move it based on value
+                if (priorityA !== undefined) {
+                    return priorityA === 999 ? 1 : -1; // 999 goes to back, others go to front
+                }
+                // If only 'b' has a priority weight, move it based on value
+                if (priorityB !== undefined) {
+                    return priorityB === 999 ? -1 : 1;
+                }
+
+                // ?? Fallback: If neither has a manual weight, use standard natural sorting
+                return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+            });
+
+            // Always prepend "All" option to the front of the filter row tracking
             optionList = ["All", ...optionList];
+
 
             const groupDiv = document.createElement("div");
             groupDiv.className = "filter-group";
