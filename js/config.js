@@ -13,17 +13,17 @@ export const APP_CONFIG = {
         { key: "description", label: "Description", isSortable: false, showCounter: true }
     ],
 
-    // ?? Filter Slicer Data Properties Mapping
+    // ?? EXACT PAIRING MAPPINGS: Links your CSS layout to your JSON property keys [INDEX]
     filters: [
-        { key: "data-tag-1", label: "Year" },
-        { key: "data-tag-2", label: "Season" },
-        { key: "data-tag-3", label: "Country" },
-        { key: "data-tag-4", label: "Place" },
-        { key: "data-tag-5", label: "Agent" },
-        { key: "data-tag-6", label: "Days" }
+        { attr: "data-tag-1", jsonKey: "tag1", label: "Year" },
+        { attr: "data-tag-2", jsonKey: "tag2", label: "Season" },
+        { attr: "data-tag-3", jsonKey: "tag3", label: "Country" },
+        { attr: "data-tag-4", jsonKey: "tag4", label: "Place" },
+        { attr: "data-tag-5", jsonKey: "tag5", label: "Agent" },
+        { attr: "data-tag-6", jsonKey: "tag6", label: "Days" }
     ],
 
-    // ?? Flat Button Priorities Mapping Dictionary Array Rules
+    // ?? Flat Button Priorities Mapping Dictionary Array Rules [INDEX]
     customSortPriority: { 
         "自由行": 1, 
         "星晨": 2,

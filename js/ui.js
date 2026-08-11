@@ -6,9 +6,10 @@ export class SlicerUIEngine {
         this.selectedFilters = {};
         this.multiSelectModes = {};
 
+        // Track active elements via their structural data-attribute names [INDEX]
         APP_CONFIG.filters.forEach(config => {
-            this.selectedFilters[config.key] = new Set();
-            this.multiSelectModes[config.key] = false;
+            this.selectedFilters[config.attr] = new Set();
+            this.multiSelectModes[config.attr] = false;
         });
     }
 
@@ -16,17 +17,10 @@ export class SlicerUIEngine {
         const headerRow = document.getElementById("table-header-row");
         headerRow.innerHTML = APP_CONFIG.columns.map(col => {
             if (col.isCheckbox) {
-                return `<th class="checkbox-header-cell">
-                            <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-                        </th>`;
+                return `<th class="checkbox-header-cell"><input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows"></th>`;
             }
             if (col.showCounter) {
-                return `<th class="${col.isSortable ? 'sortable' : ''}">
-                            <div class="header-inner-flex">
-                                <span class="header-title-text">${col.label}</span>
-                                <span id="tableResultsCounter" class="results-counter-badge"></span>
-                            </div>
-                        </th>`;
+                return `<th class="${col.isSortable ? 'sortable' : ''}"><div class="header-inner-flex"><span class="header-title-text">${col.label}</span><span id="tableResultsCounter" class="results-counter-badge"></span></div></th>`;
             }
             return `<th class="${col.isSortable ? 'sortable' : ''}">${col.label}</th>`;
         }).join("");
@@ -39,15 +33,13 @@ export class SlicerUIEngine {
         jsonData.forEach(item => {
             const tr = document.createElement("tr");
             
-            // Map tag parameters back onto elements as data-attributes
+            // ?? FIXED DATA MATCH: Mounts data-tag-X row attribute using the clean jsonKey text [INDEX]
             APP_CONFIG.filters.forEach(f => {
-                tr.setAttribute(f.key, item[f.key.replace('data-', '')] || "");
+                tr.setAttribute(f.attr, item[f.jsonKey] || "");
             });
 
             tr.innerHTML = `
-                <td class="checkbox-data-cell">
-                    <input type="checkbox" class="row-selector-checkbox" aria-label="Select row">
-                </td>
+                <td class="checkbox-data-cell"><input type="checkbox" class="row-selector-checkbox" aria-label="Select row"></td>
                 <td>${item.date || ""}</td>
                 <td>${item.lunar || ""}</td>
                 <td>${item.days || ""}</td>
@@ -82,13 +74,14 @@ export class SlicerUIEngine {
             return { value: tagValue, available: isAvailable };
         });
     }
+
     updateAllSlicerButtonsUI(rows) {
         const container = document.getElementById("horizontalFiltersContainer");
         const searchCtx = document.getElementById("tableSearch").value.toLowerCase().trim();
         container.innerHTML = "";
 
         APP_CONFIG.filters.forEach(config => {
-            const currentAttr = config.key;
+            const currentAttr = config.attr;
             const activeSet = this.selectedFilters[currentAttr];
 
             const uniqueTags = new Set();
@@ -98,7 +91,7 @@ export class SlicerUIEngine {
 
             const rowDiv = document.createElement('div');
             rowDiv.className = 'filter-row';
-            rowDiv.dataset.attr = currentAttr;
+            rowDiv.dataset.attr = currentAttr; // Triggers your CSS order [INDEX]
 
             const labelDiv = document.createElement('div');
             labelDiv.className = 'filter-label';
@@ -117,7 +110,6 @@ export class SlicerUIEngine {
 
             const tagsWithAvailability = this.getTagAvailabilityList(currentAttr, uniqueTags, rows, searchCtx);
             
-            // ?? COPIED FROM YOUR ORIGINAL SORT LAWS CONTRACT
             tagsWithAvailability.sort((a, b) => {
                 if (a.available !== b.available) return a.available ? -1 : 1;
                 const checkA = a.value.trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
@@ -161,7 +153,7 @@ export class SlicerUIEngine {
             toggleBtn.className = 'multiple-toggle-btn' + (this.multiSelectModes[currentAttr] ? ' active' : '');
             toggleBtn.textContent = 'Multi';
             toggleBtn.onclick = () => {
-                this.multiSelectModes[currentAttr] = !this.multiSelectModes[currentKey];
+                this.multiSelectModes[currentAttr] = !this.multiSelectModes[currentAttr];
                 toggleBtn.classList.toggle('active', this.multiSelectModes[currentAttr]);
                 if (!this.multiSelectModes[currentAttr]) {
                     this.selectedFilters[currentAttr].clear();
