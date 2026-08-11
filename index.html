@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅行紀錄</title>
-    <!-- Combined CSS Stylesheets -->
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/filters.css">
-    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
     <div class="app-viewport-wrapper">
-        <!-- 🎯 THE CORRECTED TOP CONTAINER BAR -->
+        <!-- CONTAINER 1: SEARCH, FILTERS AND CHECKBOX SELECTION FILTER -->
         <div class="top-search-panel">
             <div class="search-and-action-row">
-                <!-- Left Section: Search Input & Reset Button -->
                 <div class="left-controls-group">
                     <div class="search-container">
                         <div class="search-wrapper">
@@ -26,7 +23,6 @@
                     <button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Reset</button>
                 </div>
                 
-                <!-- Right Section: Show Checked Checkbox, Font Buttons, and Collapse Trigger -->
                 <div class="right-controls-group">
                     <div class="manual-check-filter-box">
                         <label class="show-checked-filter-label">
@@ -47,25 +43,38 @@
             <div id="horizontalFiltersContainer" class="horizontal-filters-container"></div>
         </div>
 
-        <!-- CONTAINER 3: MAIN DATA TABLE VIEWPORT -->
+        <!-- CONTAINER 3: MAIN DATA TABLE -->
         <div class="table-container">
             <div class="table-scroll-wrapper">
                 <table id="dataTable">
                     <thead>
-                        <tr id="table-header-row">
-                            <!-- Populated dynamically via JS Config -->
+                        <tr>
+                            <th class="checkbox-header-cell">
+                                <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+                            </th>
+                            <th class="sortable">Date</th>
+                            <th class="sortable">Lunar</th>
+                            <th class="sortable">Days</th>
+                            <th class="sortable">Agent</th>
+                            <th class="sortable">Country/Place</th>
+                            <th class="sortable">
+                                <div class="header-inner-flex">
+                                    <span class="header-title-text">Description</span>
+                                    <span id="tableResultsCounter" class="results-counter-badge"></span>
+                                </div>
+                            </th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody">
-                        <!-- Populated dynamically from JSON Cloud Datasets -->
-                    </tbody>
+                    <tbody id="tableBody"></tbody>
                 </table>
             </div>
             <div id="noResults" class="no-results" style="display: none;">No records match your criteria.</div>
         </div>
     </div>
 
-    <!-- JavaScript Application Modules -->
-    <script type="module" src="js/app.js"></script>
+    <!-- Script modular loading dependencies layout -->
+    <script src="js/config.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
