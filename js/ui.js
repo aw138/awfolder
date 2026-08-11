@@ -62,28 +62,44 @@ export class SlicerUIEngine {
 
             let optionList = Array.from(uniqueValues);
 
-            // ?? FIXED MASTER SLICER BUTTON SORTING RULES ENGINE
+            // ?? MASTER SLICER BUTTON SORTING RULES (BORROWED FROM YOUR WORKING ENGINE)
             const rowPriorityMap = this.config.customSortPriority?.[filterSchema.key];
 
             optionList.sort((a, b) => {
-                // If a priority map exists for this row, look up the custom weight.
-                // If the button text is NOT in your config, assign it a neutral middle score of 500.
-                const weightA = rowPriorityMap && rowPriorityMap[a] !== undefined ? rowPriorityMap[a] : 500;
-                const weightB = rowPriorityMap && rowPriorityMap[b] !== undefined ? rowPriorityMap[b] : 500;
+                // 1?? RULE: Clean up string wrappers and alternative parentheses structures
+                const checkA = String(a).trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
+                const checkB = String(b).trim().replace(/¡]/g, '(').replace(/¡^/g, ')');
 
-                // 1?? Rule: If they have different weights, sort strictly by their custom priority scores
-                if (weightA !== weightB) {
-                    return weightA - weightB;
+                // 2?? RULE: Hardcoded exceptions (e.g., "(None)" or "N/A" options always drop to the absolute end)
+                if (checkA === "(None)" || checkA === "N/A") return 1;
+                if (checkB === "(None)" || checkB === "N/A") return -1;
+
+                // 3?? RULE: Evaluate fuzzy partial match values via .startsWith() dictionary mapping
+                let priorityA = undefined; 
+                let priorityB = undefined;
+
+                if (rowPriorityMap) {
+                    for (const key in rowPriorityMap) {
+                        if (checkA.startsWith(key)) priorityA = rowPriorityMap[key];
+                        if (checkB.startsWith(key)) priorityB = rowPriorityMap[key];
+                    }
                 }
 
-                // 2?? Fallback Rule: If they have the exact same priority score (e.g. both are unmapped 500s),
-                // use standard natural alphanumeric sorting relative to each other.
-                return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+                // If both items are found in your custom priority mapping dictionary
+                if (priorityA !== undefined && priorityB !== undefined) {
+                    return priorityA - priorityB;
+                }
+                // If only item A is prioritized, move it to the front
+                if (priorityA !== undefined) return -1; 
+                // If only item B is prioritized, move it to the front
+                if (priorityB !== undefined) return 1;
+
+                // 4?? FALLBACK RULE: Natural sorting for anything else
+                return checkA.localeCompare(checkB, undefined, { numeric: true, sensitivity: 'base' });
             });
 
-            // Always prepend "All" option to the front of the filter row list row tracking
+            // Always prepend "All" option to the front of the filter row list
             optionList = ["All", ...optionList];
-
 
 
 
