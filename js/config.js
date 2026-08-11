@@ -19,6 +19,6 @@ export const TRAVEL_PROJECT_CONFIG = {
         { key: "country", label: "Country" },
         { key: "category", label: "Travel Type" },
         { key: "year", label: "Year" },
-        { key: "budget_rating", label: "Budget Tier" }
+        { key: "days", label: "Days" }
     ]
 };
