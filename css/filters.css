@@ -57,3 +57,15 @@
     font-weight: 500;
     box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
 }
+.filter-btn.disabled-tag {
+    opacity: 0.4;
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.multi-toggle-btn.active {
+    background-color: #28a745 !important;
+    color: white !important;
+    border-color: #28a745 !important;
+}
