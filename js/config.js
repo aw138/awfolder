@@ -1,6 +1,6 @@
 export const APP_CONFIG = {
     // ?? LOCAL FILE FETCH: Bypasses network security blocks completely [INDEX: 1.1.13]
-    DATA_SOURCE_URL: "travel-data.json",
+    DATA_SOURCE_URL: "travel-data2.json",
 
     // The data mapping array parameters copied directly from your setup [PDF: 0.1.10]
     tagColumnsConfig: [
