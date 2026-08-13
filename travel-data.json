@@ -3,7 +3,7 @@
     "columns": [
       { "label": "Date", "isSortable": true },
       { "label": "Lunar", "isSortable": true },
-      { "label": "Days", "isSortable": true },
+      { "label": "Days", "isSortable": true, "alignRight": true },
       { "label": "Agent", "isSortable": true },
       { "label": "Country/Place", "isSortable": true },
       { "label": "Description", "isSortable": false }
@@ -12,11 +12,20 @@
       { "jsonKey": "tag1", "title": "Year" },
       { "jsonKey": "tag2", "title": "Season" },
       { "jsonKey": "tag3", "title": "Country" },
-      { "jsonKey": "tag6", "title": "Days" },
       { "jsonKey": "tag4", "title": "Place" },
-      { "jsonKey": "tag5", "title": "Agent" }
+      { "jsonKey": "tag5", "title": "Agent" },
+      { "jsonKey": "tag6", "title": "Days" }
     ],
-    "customSortPriority": { "自由行": 1, "中國": 1, "台灣": 2, "春季": 1, "夏季": 2, "秋季": 3, "冬季": 4 }
+    "customSortPriority": { 
+		"自由行": 1, 
+		"中國": 1, 
+		"澳門": 2, 
+		"台灣": 3, 
+		"春季": 1, 
+		"夏季": 2, 
+		"秋季": 3, 
+		"冬季": 4 
+	}
   },
   "DATA": [
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "7", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "七月十七 - 七月廿三", "val3": "7", "val4": "星晨 (HON-7)", "val5": "Japan: 本州", "val6": "本州迪士尼筑波七天超級豪華團"},
@@ -71,5 +80,4 @@
 {"tag1": "2026", "tag2": "秋季", "tag3": "中國", "tag4": "內蒙古; 甘肅", "tag5": "大航", "tag6": "8", "val1": "2026/10/9 (Fri) - 2026/10/16 (Fri)", "val2": "八月廿九 - 九月初七", "val3": "8", "val4": "大航 (CDNH08E)", "val5": "中國: 內蒙古; 甘肅", "val6": "一次聯遊:額濟納旗+金塔沙漠胡楊"},
 {"tag1": "2026", "tag2": "冬季", "tag3": "Japan", "tag4": "關西", "tag5": "自由行", "tag6": "11", "val1": "2026/11/23 (Mon) - 2026/12/3 (Thu)", "val2": "十月十五 - 十月廿五", "val3": "11", "val4": "自由行", "val5": "Japan: 關西", "val6": "京都,大阪,滋賀紅葉,琵琶湖自駕遊(計劃中)"}
 ]
-
 }
