@@ -16,7 +16,16 @@
       { "jsonKey": "tag4", "title": "Place" },
       { "jsonKey": "tag5", "title": "Agent" }
     ],
-    "customSortPriority": { "自由行": 1, "中國": 1, "台灣": 2, "春季": 1, "夏季": 2, "秋季": 3, "冬季": 4 }
+    "customSortPriority": { 
+		"自由行": 1, 
+		"中國": 1, 
+		"澳門": 2, 
+		"台灣": 3, 
+		"春季": 1, 
+		"夏季": 2, 
+		"秋季": 3, 
+		"冬季": 4 
+	}
   },
   "DATA": [
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "7", "date": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "lunar": "七月十七 - 七月廿三", "days": "7", "agent": "星晨 (HON-7)", "country": "Japan: 本州", "description": "本州迪士尼筑波七天超級豪華團"},
