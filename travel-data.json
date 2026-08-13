@@ -6,7 +6,7 @@
       { "label": "Days", "isSortable": true, "alignRight": true },
       { "label": "Agent", "isSortable": true },
       { "label": "Country/Place", "isSortable": true },
-      { "label": "Description", "isSortable": false }
+      { "label": "Description", "isSortable": true }
     ],
     "filters": [
       { "jsonKey": "tag1", "title": "Year" },
