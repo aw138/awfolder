@@ -12,7 +12,7 @@
 	],
 
 	"filters": [{"jsonKey":"tag1","title":"Division"},
-	{"jsonKey":"tag2","title":"Category", "textColor":"#58bd2d"},
+	{"jsonKey":"tag2","title":"Category", "textColor":"#065f46"},
 	{"jsonKey":"tag3","title":"Brand"},
 	{"jsonKey":"tag4","title":"Vendor", "textColor":"#bd582d"},
 	{"jsonKey":"tag5","title":"Year"},
