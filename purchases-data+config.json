@@ -6,7 +6,7 @@
 	{"label":"Brand","isSortable":true, "width": 140},
 	{"label":"Model","isSortable":true, "width": 140},
 	{"label":"Description","isSortable":true, "width": 180},
-	{"label":"Vendor","isSortable":true, "width": 140},
+	{"label":"Vendor","isSortable":true, "width": 140, "textcolor":"#e45"},
 	{"label":"Price","isSortable":true, "alignRight":true, "width": 140},
 	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 140}
 	],
