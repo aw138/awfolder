@@ -2,7 +2,7 @@
 "CONFIG":{
 	"columns": [
 	{"label":"Date","isSortable":true, "width": 140},
-	{"label":"Category","isSortable":true, "width": 140},
+	{"label":"Category","isSortable":true, "width": 140, "textColor":"#065f46"},
 	{"label":"Brand","isSortable":true, "width": 140},
 	{"label":"Model","isSortable":true, "width": 140},
 	{"label":"Description","isSortable":true, "width": 200},
