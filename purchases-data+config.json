@@ -17,7 +17,7 @@
 	{"label":"Description","isSortable":true, "width": 220},
 	{"label":"Vendor","isSortable":true, "width": 100, "textColor":"#bd582d"},
 	{"label":"Price","isSortable":true, "alignRight":true, "width": 80, "textColor":"#bd582d"},
-	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 120}
+	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 110}
 	],
 
 	"customSortPriority":{"Active":1,
