@@ -1,18 +1,18 @@
 {
 "CONFIG":{
 	"columns": [
-	{"label":"Date","isSortable":true, "width": 140},
-	{"label":"Category","isSortable":true, "width": 140, "textColor":"#065f46"},
-	{"label":"Brand","isSortable":true, "width": 140},
+	{"label":"Date","isSortable":true, "width": 120},
+	{"label":"Category","isSortable":true, "width": 120, "textColor":"#065f46"},
+	{"label":"Brand","isSortable":true, "width": 120},
 	{"label":"Model","isSortable":true, "width": 140},
-	{"label":"Description","isSortable":true, "width": 200},
-	{"label":"Vendor","isSortable":true, "width": 120, "textColor":"#bd582d"},
-	{"label":"Price","isSortable":true, "alignRight":true, "width": 100, "textColor":"#bd582d"},
+	{"label":"Description","isSortable":true, "width": 220},
+	{"label":"Vendor","isSortable":true, "width": 100, "textColor":"#065f46"},
+	{"label":"Price","isSortable":true, "alignRight":true, "width": 80, "textColor":"#bd582d"},
 	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 120}
 	],
 
 	"filters": [{"jsonKey":"tag1","title":"Division"},
-	{"jsonKey":"tag2","title":"Category", "textColor":"#065f46"},
+	{"jsonKey":"tag2","title":"Category", "textColor":"#58bd2d"},
 	{"jsonKey":"tag3","title":"Brand"},
 	{"jsonKey":"tag4","title":"Vendor", "textColor":"#bd582d"},
 	{"jsonKey":"tag5","title":"Year"},
