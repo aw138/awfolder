@@ -10,14 +10,14 @@
 	],
 
 	"columns": [
-	{"label":"Date","isSortable":true, "width": 110},
-	{"label":"Category","isSortable":true, "width": 110, "textColor":"#065f46"},
-	{"label":"Brand","isSortable":true, "width": 110, "textColor":"#0000e6"},
-	{"label":"Model","isSortable":true, "width": 140},
-	{"label":"Description","isSortable":true, "width": 220},
-	{"label":"Vendor","isSortable":true, "width": 100, "textColor":"#bd582d"},
-	{"label":"Price","isSortable":true, "alignRight":true, "width": 80, "textColor":"#bd582d", "isCurrency":"true", "precision":2},
-	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 110}
+	{"label":"Date","isSortable":true, "width": 110, "dataType": "date"},
+	{"label":"Category","isSortable":true, "width": 110, "textColor":"#065f46", "dataType": "string"},
+	{"label":"Brand","isSortable":true, "width": 110, "textColor":"#0000e6", "dataType": "string"},
+	{"label":"Model","isSortable":true, "width": 140, "dataType": "string"},
+	{"label":"Description","isSortable":true, "width": 220, "dataType": "string"},
+	{"label":"Vendor","isSortable":true, "width": 100, "textColor":"#bd582d", "dataType": "string"},
+	{"label":"Price","isSortable":true, "alignRight":true, "width": 80, "textColor":"#bd582d", "isCurrency":"true", "precision":2, "dataType": "number"},
+	{"label":"Status","isSortable":true, "isStatusBadge":true, "width": 110, "dataType": "string"}
 	],
 
 	"customSortPriority":{"Active":1,
