@@ -10,9 +10,9 @@
 	],
 
 	"columns": [
-	{"label":"Date","isSortable":true, "width": 120},
-	{"label":"Category","isSortable":true, "width": 120, "textColor":"#065f46"},
-	{"label":"Brand","isSortable":true, "width": 120, "textColor":"#0000e6"},
+	{"label":"Date","isSortable":true, "width": 110},
+	{"label":"Category","isSortable":true, "width": 110, "textColor":"#065f46"},
+	{"label":"Brand","isSortable":true, "width": 110, "textColor":"#0000e6"},
 	{"label":"Model","isSortable":true, "width": 140},
 	{"label":"Description","isSortable":true, "width": 220},
 	{"label":"Vendor","isSortable":true, "width": 100, "textColor":"#bd582d"},
