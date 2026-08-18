@@ -28,7 +28,7 @@
     "statusBadges": {
       "active":     { "label": "Active", "background": "#d1fae5", "text": "#065f46", "border": "#065f46"},
       "retired":    { "label": "Retired", "background": "#ffcc00", "text": "#974606", "border": "#974606"},
-      "disposed":   { "label": "Disposed", "background": "#999", "text": "#f5f5f5", "border": "#333" }
+      "disposed":   { "label": "Disposed", "background": "#777777", "text": "#f5f5f5", "border": "#333333" }
     }
 },
 "DATA":
