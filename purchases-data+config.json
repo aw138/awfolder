@@ -1,6 +1,7 @@
 {
 "CONFIG":{
-
+	"pageTitle": "Purchases",
+	
 	"filters": [{"jsonKey":"tag1","title":"Division"},
 	{"jsonKey":"tag2","title":"Category", "textColor":"#065f46"},
 	{"jsonKey":"tag3","title":"Brand", "textColor":"#0000e6"},
