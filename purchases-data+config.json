@@ -26,7 +26,7 @@
 "disposed":{"label": "Disposed", "bg": "#777777","text": "#f5f5f5","border": "#333333"},
 
 
-},
+}
 "DATA":[
 {"tag1": "Components", "tag2": "RAM", "tag3": "Corsair", "tag4": "East Pacific", "tag5": "2024", "tag6": "Active", "val1": "2024/2/16 (Fri)", "val2": "RAM", "val3": "Corsair", "val4": "CMK32GX5M2B6400C32", "val5": "32GB Kit Vengeance DDR5 6400MHz (2x16GB)", "val6": "East Pacific", "val7": "960", "val8": "Active"},
 {"tag1": "Components", "tag2": "CPU", "tag3": "Intel", "tag4": "East Pacific", "tag5": "2024", "tag6": "Active", "val1": "2024/2/16 (Fri)", "val2": "CPU", "val3": "Intel", "val4": "i7-14700K", "val5": "Raptor Lake (3.4GHz 33MB Cache,LGA1700,UHD770) Box", "val6": "East Pacific", "val7": "3100", "val8": "Active"},
