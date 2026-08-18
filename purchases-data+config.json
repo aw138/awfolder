@@ -1,35 +1,39 @@
 {
-"CONFIG":{
+"CONFIG":
+{
 "pageTitle": "Purchases",
-
-"filters": [{"jsonKey": "tag1","title": "Division"},
+"filters": [
+{"jsonKey": "tag1","title": "Division"},
 {"jsonKey": "tag2","title": "Category"},
 {"jsonKey": "tag3","title": "Brand"},
 {"jsonKey": "tag4","title": "Vendor"},
 {"jsonKey": "tag5","title": "Year"},
 {"jsonKey": "tag6","title": "Status"}
 ],
-"columns": [{"label": "Date","isSortable":true},
-{"label": "Category","isSortable":true},
-{"label": "Brand","isSortable":true},
-{"label": "Model","isSortable":true},
-{"label": "Description","isSortable":true},
-{"label": "Vendor","isSortable":true},
-{"label": "Price","isSortable":true, "alignRight":true},
-{"label": "Status","isSortable":true, "isStatusBadge":true}
+"columns": [
+{"label": "Date","dataType": "date","isSortable":true,"width":110},
+{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":110},
+{"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":110},
+{"label": "Model","dataType": "string","isSortable":true,"width":140},
+{"label": "Description","dataType": "string","isSortable":true,"width":220},
+{"label": "Vendor","dataType": "string","textColor": "#db582d","isSortable":true,"width":100},
+{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":80,"isCurrency": "true,"precision": 2},
+{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":110}
 ],
-"customSortPriority":{"Active":1,
+"customSortPriority":
+{
+"Active":1,
 "Retired":2
 },
-"statusBadges":{"active":{"label": "Active", "bg": "#d1fae5","text": "#065f46","border": "#065f46"},
+"statusBadges":
+{
+"active":{"label": "Active", "bg": "#d1fae5","text": "#065f46","border": "#065f46"},
 "retired":{"label": "Retired", "bg": "#ffcc00","text": "#974606","border": "#974606"},
 "disposed":{"label": "Disposed", "bg": "#777777","text": "#f5f5f5","border": "#333333"}
 }
 },
-"DATA":[
-{"tag1": "Storage", "tag2": "SSD", "tag3": "WD", "tag4": "Taobao", "tag5": "2025", "tag6": "Disposed", "val1": "2025/8/2 (Sat)", "val2": "SSD", "val3": "WD", "val4": "SN740", "val5": "Brand new SN740 - 256GB NVMe 2230 (RMB180)-Returned", "val6": "Taobao", "val7": "200", "val8": "Disposed"},
-{"tag1": "Mobile", "tag2": "Phone", "tag3": "Xiaomi", "tag4": "Suning", "tag5": "2025", "tag6": "Active", "val1": "2025/9/19 (Fri)", "val2": "Phone", "val3": "Xiaomi", "val4": "15", "val5": "12GB+512GB 5G Phone (before trade-in $380)", "val6": "Suning", "val7": "4899", "val8": "Active"},
-{"tag1": "Photography", "tag2": "Camera; Lens", "tag3": "Canon", "tag4": "DC Fever", "tag5": "2025", "tag6": "Active", "val1": "2025/12/30 (Tue)", "val2": "Camera; Lens", "val3": "Canon", "val4": "EOS R5 Mark II w/RF24-105 f/4L Kit", "val5": "EOS R5 Mark II w/RF24-105 f/4L USM Kit set", "val6": "DC Fever", "val7": "31980", "val8": "Active"},
+"DATA":
+[
 {"tag1": "Photography", "tag2": "Tripod", "tag3": "Kirk", "tag4": "B&H", "tag5": "2026", "tag6": "Active", "val1": "2026/1/1 (Thu)", "val2": "Tripod", "val3": "Kirk", "val4": "PZ-184", "val5": "Plate for Canon R5 Mark II (USD60)", "val6": "B&H", "val7": "468", "val8": "Active"},
 {"tag1": "Photography", "tag2": "Lens", "tag3": "Canon", "tag4": "B&H", "tag5": "2026", "tag6": "Active", "val1": "2026/1/1 (Thu)", "val2": "Lens", "val3": "Canon", "val4": "EF-EOS R adapter", "val5": "EF-EOS R adapter with control ring (USD149)", "val6": "B&H", "val7": "1162.2", "val8": "Active"}
 
