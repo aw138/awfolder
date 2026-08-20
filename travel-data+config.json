@@ -8,7 +8,7 @@
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6"},
 {"jsonKey": "tag4","title": "Place","textColor": "#065f46"},
 {"jsonKey": "tag5","title": "Agent","textColor": "#db582d"},
-{"jsonKey": "tag6","title": "Days"}
+{"jsonKey": "tag6","title": "Days", "dataType": "number"}
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
