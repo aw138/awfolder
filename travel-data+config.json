@@ -1,7 +1,7 @@
 {
 "CONFIG":
 {
-"pageTitle": "旅行紀錄",
+"pageTitle": "Purchases",
 "filters": [
 {"jsonKey": "tag1","title": "Year"},
 {"jsonKey": "tag2","title": "Season"},
