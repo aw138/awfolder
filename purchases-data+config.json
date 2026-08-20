@@ -17,7 +17,7 @@
 {"label": "Model","dataType": "string","isSortable":true,"width":120},
 {"label": "Description","dataType": "string","isSortable":true,"width":167},
 {"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
-{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency": "true","precision": 2},
+{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency": true,"precision": 2},
 {"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
 ],
 "customSortPriority": {
