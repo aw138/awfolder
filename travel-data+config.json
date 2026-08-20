@@ -8,15 +8,15 @@
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6"},
 {"jsonKey": "tag4","title": "Place","textColor": "#065f46"},
 {"jsonKey": "tag5","title": "Agent","textColor": "#db582d"},
-{"jsonKey": "tag6","title": "Days", "dataType": "number"}
+{"jsonKey": "tag6","title": "Days","dataType": "number"}
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":92},
-{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":75,"isCurrency": false,"precision": 0},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":85,"isStatusBadge":true},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":75,"isCurrency":false,"precision": 0},
 {"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":70},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":86},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":85},
 {"label": "Description","dataType": "string","isSortable":true,"width":167}
 ],
 "customSortPriority": {
