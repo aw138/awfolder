@@ -11,14 +11,14 @@
 {"jsonKey": "tag6","title": "Status"}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":110},
-{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":110},
-{"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":100},
-{"label": "Model","dataType": "string","isSortable":true,"width":140},
-{"label": "Description","dataType": "string","isSortable":true,"width":220},
-{"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":100},
-{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":80,"isCurrency": "true","precision": 2},
-{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":90}
+{"label": "Date","dataType": "date","isSortable":true,"width":80},
+{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":95},
+{"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":77},
+{"label": "Model","dataType": "string","isSortable":true,"width":120},
+{"label": "Description","dataType": "string","isSortable":true,"width":167},
+{"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
+{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency": "true","precision": 2},
+{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
 ],
 "customSortPriority": {
 "Active":1,
