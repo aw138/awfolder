@@ -29,9 +29,9 @@
 "台灣":3
 },
 "statusBadges": {
-"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030""},
-"thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066""},
-"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333""}
+"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
+"thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
+"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 }
 },
 "DATA":
