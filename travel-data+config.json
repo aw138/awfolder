@@ -3,20 +3,20 @@
 {
 "pageTitle": "旅行紀錄",
 "filters": [
-{"jsonKey": "tag1","title": "Season"},
-{"jsonKey": "tag2","title": "Year","textColor": "#065f46"},
+{"jsonKey": "tag1","title": "Year"},
+{"jsonKey": "tag2","title": "Season"},
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6"},
-{"jsonKey": "tag4","title": "Place","textColor": "#db582d"},
-{"jsonKey": "tag5","title": "Days"},
-{"jsonKey": "tag6","title": "Agent"}
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46"},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d"},
+{"jsonKey": "tag6","title": "Days"}
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
-{"label": "Lunar","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
-{"label": "Days","dataType": "number","textColor": "#0000e6","isSortable":true, "alignRight":true,"width":75,"isCurrency": "false","precision": 0},
-{"label": "Agent","dataType": "string","isSortable":true,"width":85},
-{"label": "Country","dataType": "string","isSortable":true, "isStatusBadge":true,"width":70},
-{"label": "Place","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
+{"label": "Lunar","dataType": "string","isSortable":true,"width":92},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":75,"isCurrency": "false","precision": 0},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":85},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":70},
+{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":86},
 {"label": "Description","dataType": "string","isSortable":true,"width":167}
 ],
 "customSortPriority": {
@@ -28,6 +28,7 @@
 "澳門":2,
 "台灣":3
 },
+
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#d1fae5","text": "#065f46","border": "#065f46"},
 "japan":{"label": "Japan", "bg": "#777777","text": "#f5f5f5","border": "#333333"}
