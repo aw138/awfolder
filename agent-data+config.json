@@ -6,22 +6,22 @@
 {"jsonKey": "tag1","title": "Type"}
 ],
 "columns": [
-{"label": "Type","dataType": "string","isSortable":true,"width":220,"minwidth":110},
-{"label": "English","dataType": "string","isSortable":true,"width":160,"minwidth":70},
-{"label": "Chinese","dataType": "string","isSortable":true, "alignRight":true,"width":67,"minwidth":67},
-{"label": "Established","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minwidth":85},
-{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":95,"minwidth":70},
-{"label": "Favourite","dataType": "string","isSortable":true,"width":300,"minwidth":115}
+{"label": "Type","dataType": "string","isSortable":true,"width":120,"minwidth":120},
+{"label": "English","dataType": "string","isSortable":true,"width":130,"minwidth":130},
+{"label": "Chinese","dataType": "string","isSortable":true, "alignRight":true,"width":100,"minwidth":100},
+{"label": "Established","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":80,"minwidth":80},
+{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":200,"minwidth":200},
+{"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minwidth":80}
 ],
 "customSortPriority": {
-"中國":1,
+"已結業":999,
 "澳門":2,
 "台灣":3
 },
 "statusBadges": {
-"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
-"thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
-"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
+"大型旅行社":{"label": "大型旅行社", "bg": "#C99B51","text": "#664B20","border": "#664B20"},
+"中小型旅行社":{"label": "中小型旅行社", "bg": "#46a3fa","text": "#1b3b59","border": "#1b3b59"},
+"新興旅行社":{"label": "新興旅行社", "bg": "#74e667","text": "#34662e","border": "#34662e"}
 }
 },
 "DATA":
@@ -73,5 +73,6 @@
 {"tag1": "新興旅行社", "val1": "新興旅行社", "val2": "Yoyo Enjoy", "val3": "暢遊假期", "val4": "2025", "val5": "https://yoyoenjoy.hk/"},
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Yummy Holiday", "val3": "美味假期", "val4": "2012", "val5": "http://www.yummyholiday.net/"},
 {"tag1": "已結業", "val1": "已結業", "val2": "Mordern China", "val3": "現代中國旅行社", "val4": "1983", "val5": "http://www.modernchinatravel.com/"}
+
 ]
 }
