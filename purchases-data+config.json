@@ -11,8 +11,8 @@
 {"jsonKey": "tag6","title": "Status"}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":82},
-{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":95},
+{"label": "Date","dataType": "date","isSortable":true,"width":85},
+{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
 {"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
 {"label": "Model","dataType": "string","isSortable":true,"width":120},
 {"label": "Description","dataType": "string","isSortable":true,"width":167},
