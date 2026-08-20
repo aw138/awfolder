@@ -14,7 +14,7 @@
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":92},
 {"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":75,"isCurrency": false,"precision": 0},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":85},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":85",isStatusBadge":true},
 {"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":70},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":86},
 {"label": "Description","dataType": "string","isSortable":true,"width":167}
@@ -29,7 +29,7 @@
 "台灣":3
 },
 "statusBadges": {
-"中國":{"label": "中國", "bg": "#FF4040","text": "#FFFF00","border": "#660000"},
+"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
 "thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
 "japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 }
