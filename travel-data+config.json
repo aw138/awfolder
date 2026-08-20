@@ -30,7 +30,7 @@
 },
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#990000","text": "#FFFF00","border": "#660000"},
-"japan":{"label": "JAPAN", "bg": "#FFFFFF","text": "#FF0000","border": "#333333"}
+"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 }
 },
 "DATA":
