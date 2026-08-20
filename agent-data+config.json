@@ -10,7 +10,7 @@
 {"label": "English","dataType": "string","isSortable":true,"width":130,"minwidth":130},
 {"label": "Chinese","dataType": "string","isSortable":true, "alignRight":true,"width":100,"minwidth":100},
 {"label": "Established","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":80,"minwidth":80},
-{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":200,"minwidth":200},
+{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":200,"minwidth":200,"format":"uri"},
 {"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minwidth":80}
 ],
 "customSortPriority": {
@@ -26,6 +26,7 @@
 },
 "DATA":
 [
+
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Amsito Travel", "val3": "貴豪旅行社", "val4": "1993", "val5": "http://www.amsito.com.hk/index"},
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Any Tours", "val3": "天洋旅遊", "val4": "1978", "val5": "https://anytours.com.hk/zh-hant/"},
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Best Friends", "val3": "旅友", "val4": "2007", "val5": "http://www.bestfriendstravel.com.hk/index.htm"},
