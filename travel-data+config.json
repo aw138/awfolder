@@ -14,9 +14,9 @@
 {"label": "Date","dataType": "date","isSortable":true,"width":220},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":160},
 {"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":65,"isCurrency":false,"precision": 0},
-{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":125},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":90},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":100},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125},
 {"label": "Description","dataType": "string","isSortable":true,"width":300}
 ],
 "customSortPriority": {
