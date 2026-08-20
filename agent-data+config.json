@@ -6,12 +6,12 @@
 {"jsonKey": "tag1","title": "Type"}
 ],
 "columns": [
-{"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":120,"minwidth":120},
-{"label": "English","dataType": "string","isSortable":true,"width":130,"minwidth":130},
-{"label": "Chinese","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minwidth":100},
-{"label": "Established","dataType": "string","textColor": "#0000e6","isSortable":true,"width":80,"minwidth":80},
-{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":200,"minwidth":200,"format":"uri"},
-{"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minwidth":80}
+{"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":120},
+{"label": "English","dataType": "string","isSortable":true,"width":130,"minWidth":130},
+{"label": "Chinese","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":100},
+{"label": "Established","dataType": "string","textColor": "#0000e6","isSortable":true,"width":80,"minWidth":80},
+{"label": "Web site","dataType": "string","textColor": "#065f46","isSortable":false,"width":200,"minWidth":200,"format":"uri"},
+{"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minWidth":80}
 ],
 "customSortPriority": {
 "已結業":999,
