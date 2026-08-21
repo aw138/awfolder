@@ -7,10 +7,10 @@
 ],
 "columns": [
 {"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":110,"minWidth":110},
-{"label": "English","dataType": "string","textColor": "#64462e","isSortable":true,"width":130,"minWidth":90},
-{"label": "Chinese","dataType": "string","textColor": "#64462e","isSortable":true, "alignRight":false,"width":100,"minWidth":90},
+{"label": "English","dataType": "string","textColor": "#000000","isSortable":true,"width":130,"minWidth":90},
+{"label": "Chinese","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":100,"minWidth":90},
 {"label": "Established","dataType": "string","isSortable":true,"width":90,"minWidth":90},
-{"label": "Web site","dataType": "string","textColor": "#0000e6","isSortable":true,"width":200,"minWidth":160,"format":"uri"},
+{"label": "Web site","dataType": "string","isSortable":true,"width":200,"minWidth":160,"format":"uri"},
 {"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minWidth":80}
 ],
 "customSortPriority": {
@@ -19,14 +19,15 @@
 "台灣":3
 },
 "statusBadges": {
-"大型旅行社":{"label": "大型旅行社", "bg": "#C9BB71","text": "#664B20","border": "#664B20"},
+"大型旅行社":{"label": "大型旅行社", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
 "中小型旅行社":{"label": "中小型旅行社", "bg": "#66C3FF","text": "#1b3b59","border": "#1b3b59"},
-"新興旅行社":{"label": "新興旅行社", "bg": "#94FF87","text": "#34662e","border": "#34662e"},
+"新興旅行社":{"label": "新興旅行社", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
 "已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
 }
 },
 "DATA":
 [
+
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Amsito Travel", "val3": "貴豪旅行社", "val4": "1993", "val5": "http://www.amsito.com.hk/index", "val6": ""},
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Any Tours", "val3": "天洋旅遊", "val4": "1978", "val5": "https://anytours.com.hk/zh-hant/", "val6": ""},
 {"tag1": "中小型旅行社", "val1": "中小型旅行社", "val2": "Best Friends", "val3": "旅友", "val4": "2007", "val5": "http://www.bestfriendstravel.com.hk/index.htm", "val6": ""},
