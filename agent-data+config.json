@@ -9,7 +9,7 @@
 {"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":110,"minWidth":110},
 {"label": "English","dataType": "string","textColor": "#000000","isSortable":true,"width":130,"minWidth":90},
 {"label": "Chinese","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":100,"minWidth":90},
-{"label": "Established","dataType": "string","isSortable":true,"width":90,"minWidth":90},
+{"label": "Established","dataType": "string","isSortable":true,"width":100,"minWidth":80},
 {"label": "Web site","dataType": "string","isSortable":true,"width":200,"minWidth":160,"format":"uri"},
 {"label": "Favourite","dataType": "string","isSortable":true,"width":80,"minWidth":80}
 ],
