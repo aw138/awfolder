@@ -19,9 +19,9 @@
 {"label": "Accompany","dataType": "string","isSortable":true,"width":140,"minWidth":140}
 ],
 "customSortPriority": {
-"(None)":2,
-"English":4,
-"Cantonese":1,
+"(None)":999,
+"English":1,
+"Cantonese":2,
 "Mandarin":3
 },
 "statusBadges": {
