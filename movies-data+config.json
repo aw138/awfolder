@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Movies",
-"defaultFontSize":14,
+
 "filters": [
 {"jsonKey": "tag1","title": "Watch Yr"},
 {"jsonKey": "tag2","title": "Genre"},
