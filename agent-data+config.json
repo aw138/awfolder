@@ -2,7 +2,7 @@
 "CONFIG": {
 
 	"pageTitle": "旅行社",
-	"defaultSourceUrl": "https://aw138.github.io/awfolder/agent-data+config.json",
+	"defaultFontSize": 16,
 	"filters": [
 		{"jsonKey": "tag1","title": "Type"}
 		],
