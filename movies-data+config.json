@@ -14,9 +14,9 @@
 {"label": "Date","dataType": "string","isSortable":true,"width":90,"minWidth":90},
 {"label": "Title","dataType": "string","textColor": "#000000","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lanuage","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true,"width":150,"minWidth":150},
-{"label": "Genre","dataType": "string","isSortable":true, "alignRight":false,"width":80,"minWidth":80},
+{"label": "Genre","dataType": "string","isSortable":true, "alignRight":false,"width":120,"minWidth":120},
 {"label": "Cinema","dataType": "string","isSortable":true,"width":100,"minWidth":100},
-{"label": "Accompany","dataType": "string","isSortable":true,"width":120,"minWidth":120}
+{"label": "Accompany","dataType": "string","isSortable":true,"width":140,"minWidth":140}
 ],
 "customSortPriority": {
 "(None)":999,
