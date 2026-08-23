@@ -1,0 +1,50 @@
+{
+"CONFIG":
+{
+"pageTitle": "Movies",
+"defaultFontSize":14,
+"filters": [
+{"jsonKey": "tag1","title": "Year"},
+{"jsonKey": "tag2","title": "Genre"},
+{"jsonKey": "tag3","title": "Language"},
+{"jsonKey": "tag4","title": "Cinema"},
+{"jsonKey": "tag5","title": "Accompany"}
+],
+"columns": [
+{"label": "Date","dataType": "string","isSortable":true,"width":110,"minWidth":90},
+{"label": "Title","dataType": "string","textColor": "#000000","isSortable":true,"width":130,"minWidth":200},
+{"label": "Lanuage","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true,"width":100,"minWidth":150},
+{"label": "Genre","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":80},
+{"label": "Cinema","dataType": "string","isSortable":true,"width":200,"minWidth":100},
+{"label": "Accompany","dataType": "string","isSortable":true,"width":80,"minWidth":120}
+],
+"customSortPriority": {
+"(None)":999,
+"English":1,
+"Cantonese":2
+"Mandarin":3
+},
+"statusBadges": {
+"English":{"label": "English", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
+"Cantonese":{"label": "Cantonese", "bg": "#66C3FF","text": "#1b3b59","border": "#1b3b59"},
+"Mandarin":{"label": "Mandarin", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
+"已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
+}
+},
+"DATA":
+[
+{"tag1": "1977", "tag2": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "tag3": "English", "tag4": "Washington 華盛頓", "tag5": "Lam Paul", "val1": "1977/11/4 (Fri)", "val2": "The Deep<BR>《深深深》 (1977)", "val3": "English", "val4": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "val5": "Washington 華盛頓", "val6": "Lam Paul"},
+{"tag1": "1977", "tag2": "Horror 恐怖", "tag3": "English", "tag4": "Rex 文華", "tag5": "Lam Paul; Choi Chi Yung; Yeung Man Fai", "val1": "1977/11/12 (Sat)", "val2": "Exorcist II: The Heretic<BR>《驅魔人續集》 (1977)", "val3": "English", "val4": "Horror 恐怖", "val5": "Rex 文華", "val6": "Lam Paul; Choi Chi Yung; Yeung Man Fai"},
+{"tag1": "1977", "tag2": "Horror 恐怖; Sci-Fi 科幻", "tag3": "English", "tag4": "Washington 華盛頓", "tag5": "Lam Paul; Choi Chi Yung", "val1": "1977/11/26 (Sat)", "val2": "The Blob<BR>《星球怪物》 (1958)", "val3": "English", "val4": "Horror 恐怖; Sci-Fi 科幻", "val5": "Washington 華盛頓", "val6": "Lam Paul; Choi Chi Yung"},
+{"tag1": "1977", "tag2": "Comedy 喜劇", "tag3": "Danish", "tag4": "Washington 華盛頓", "tag5": "Lam Paul; Hor Kwok Man", "val1": "1977/12/2 (Fri)", "val2": "Jumpin' at the Bedside (AKA: Danish Escort Girls)<BR>《春意濃》 (1976)", "val3": "Danish", "val4": "Comedy 喜劇", "val5": "Washington 華盛頓", "val6": "Lam Paul; Hor Kwok Man"},
+{"tag1": "1977", "tag2": "Documentary 紀錄; Musical 歌舞", "tag3": "French", "tag4": "Prince 華聲", "tag5": "Lam Paul; Choi Chi Yung; Yeung Man Fai; Hor Kwok Man", "val1": "1977/12/3 (Sat)", "val2": "Crazy Horse de Paris<BR>《法國癲馬夜總會》 (1977)", "val3": "French", "val4": "Documentary 紀錄; Musical 歌舞", "val5": "Prince 華聲", "val6": "Lam Paul; Choi Chi Yung; Yeung Man Fai; Hor Kwok Man"},
+{"tag1": "1977", "tag2": "Action 動作; Drama 劇情", "tag3": "Mandarin", "tag4": "Golden 黃金", "tag5": "Lam Paul; Hor Kwok Man", "val1": "1977/12/10 (Sat)", "val2": "Broken Oath<BR>《破戒》 (1977)", "val3": "Mandarin", "val4": "Action 動作; Drama 劇情", "val5": "Golden 黃金", "val6": "Lam Paul; Hor Kwok Man"},
+{"tag1": "1978", "tag2": "Action 動作; Adventure 冒險; Sci-Fi 科幻", "tag3": "Japanese", "tag4": "Century 影都", "tag5": "Lam Paul; Hor Kwok Man", "val1": "1978/1/6 (Fri)", "val2": "The War in Space<BR>《太空星球大戰》 (1977)", "val3": "Japanese", "val4": "Action 動作; Adventure 冒險; Sci-Fi 科幻", "val5": "Century 影都", "val6": "Lam Paul; Hor Kwok Man"},
+{"tag1": "1978", "tag2": "Action 動作; Adventure 冒險; Drama 劇情; Thriller 驚悚", "tag3": "English", "tag4": "Ruby 珠江", "tag5": "Hor Kwok Man; Choi Chi Yung; Yeung Man Fai", "val1": "1978/1/15 (Sun)", "val2": "The Poseidon Adventure<BR>《海神號遇險記》 (1972)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Drama 劇情; Thriller 驚悚", "val5": "Ruby 珠江", "val6": "Hor Kwok Man; Choi Chi Yung; Yeung Man Fai"},
+{"tag1": "1978", "tag2": "Horror 恐怖; Sci-Fi 科幻", "tag3": "English", "tag4": "Rex 文華", "tag5": "Hor Kwok Man; Lam Paul; Yeung Man Fai", "val1": "1978/1/21 (Sat)", "val2": "Demon Seed<BR>《魔種》 (1977)", "val3": "English", "val4": "Horror 恐怖; Sci-Fi 科幻", "val5": "Rex 文華", "val6": "Hor Kwok Man; Lam Paul; Yeung Man Fai"},
+{"tag1": "1978", "tag2": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "tag3": "English", "tag4": "Royal 麗聲", "tag5": "Lam Paul; Yeung Man Fai", "val1": "1978/2/2 (Thu)", "val2": "Star Wars: Episode IV - A New Hope (AKA: Star Wars)<BR>《星球大戰》 (1977)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "val5": "Royal 麗聲", "val6": "Lam Paul; Yeung Man Fai"},
+{"tag1": "1978", "tag2": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "tag3": "English", "tag4": "Royal 麗聲", "tag5": "Ip Shui Kuen", "val1": "1978/2/5 (Sun)", "val2": "Star Wars: Episode IV - A New Hope (AKA: Star Wars)<BR>《星球大戰》 (1977)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "val5": "Royal 麗聲", "val6": "Ip Shui Kuen"},
+{"tag1": "1978", "tag2": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "tag3": "English", "tag4": "Ocean 海運", "tag5": "Wong Ka Pik; Wong Barbara; Lee Wai Chai; Lee Wai Chai's brother", "val1": "1978/2/10 (Fri)", "val2": "Star Wars: Episode IV - A New Hope (AKA: Star Wars)<BR>《星球大戰》 (1977)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Fantasy 幻想; Sci-Fi 科幻", "val5": "Ocean 海運", "val6": "Wong Ka Pik; Wong Barbara; Lee Wai Chai; Lee Wai Chai's brother"}
+
+]
+}
