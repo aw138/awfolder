@@ -2,7 +2,6 @@
 "CONFIG":
 {
 "pageTitle": "Movies",
-
 "filters": [
 {"jsonKey": "tag1","title": "Watch Yr"},
 {"jsonKey": "tag2","title": "Genre"},
@@ -227,7 +226,7 @@
 {"tag1": "1987", "tag2": "Adventure 冒險; Comedy 喜劇", "tag3": "Cantonese", "tag4": "President 總統", "tag5": "Chan Crisy", "val1": "1987/7/5 (Sun)", "val2": "The Thirty Million Dollar Rush<BR>《橫財三千萬》 (1987)", "val3": "Cantonese", "val4": "Adventure 冒險; Comedy 喜劇", "val5": "President 總統", "val6": "Chan Crisy"},
 {"tag1": "1987", "tag2": "Comedy 喜劇; Romance 浪漫", "tag3": "Cantonese", "tag4": "Good Luck 好運", "tag5": "Chan Crisy", "val1": "1987/7/8 (Wed)", "val2": "The Romancing Star<BR>《精裝追女仔》 (1987)", "val3": "Cantonese", "val4": "Comedy 喜劇; Romance 浪漫", "val5": "Good Luck 好運", "val6": "Chan Crisy"},
 {"tag1": "1987", "tag2": "Action 動作; Adventure 冒險; Thriller 驚悚", "tag3": "English", "tag4": "Ocean 海運", "tag5": "Chan Crisy", "val1": "1987/7/23 (Thu)", "val2": "The Living Daylights<BR>《鐵金剛大戰特務飛龍》 (1987)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Thriller 驚悚", "val5": "Ocean 海運", "val6": "Chan Crisy"},
-{"tag1": "1987", "tag2": "Drama 劇情; Romance 浪漫", "tag3": "Cantonese", "tag4": "Cosmo 宇宙", "tag5": "Tang Chi Yuen; Subena; Chan Crisy", "val1": "1987/7/29 (Wed)", "val2": "An Autumn's Tale<BR>《秋天的童話》 (1987)", "val3": "Cantonese", "val4": "Drama 劇情; Romance 浪漫", "val5": "Cosmo 宇宙", "val6": "Tang Chi Yuen; Subena; Chan Crisy"},
+{"tag1": "1987", "tag2": "Drama 劇情; Romance 浪漫", "tag3": "Cantonese", "tag4": "Cosmo 宇宙", "tag5": "Tang Chi Yuen; Sabrina; Chan Crisy", "val1": "1987/7/29 (Wed)", "val2": "An Autumn's Tale<BR>《秋天的童話》 (1987)", "val3": "Cantonese", "val4": "Drama 劇情; Romance 浪漫", "val5": "Cosmo 宇宙", "val6": "Tang Chi Yuen; Sabrina; Chan Crisy"},
 {"tag1": "1987", "tag2": "Action 動作; Adventure 冒險; Sci-Fi 科幻", "tag3": "English", "tag4": "South China 南華", "tag5": "Tang Chi Yuen; Olisa; San; Brother 7; Chan Crisy", "val1": "1987/8/6 (Thu)", "val2": "Superman IV: The Quest for Peace<BR>《超人第四集決戰核能人》 (1987)", "val3": "English", "val4": "Action 動作; Adventure 冒險; Sci-Fi 科幻", "val5": "South China 南華", "val6": "Tang Chi Yuen; Olisa; San; Brother 7; Chan Crisy"},
 {"tag1": "1987", "tag2": "Action 動作; Comedy 喜劇; Crime 罪案", "tag3": "Cantonese", "tag4": "Harbour City 海城", "tag5": "Chan Crisy", "val1": "1987/9/3 (Thu)", "val2": "Project A 2<BR>《A計劃續集》 (1987)", "val3": "Cantonese", "val4": "Action 動作; Comedy 喜劇; Crime 罪案", "val5": "Harbour City 海城", "val6": "Chan Crisy"},
 {"tag1": "1987", "tag2": "Drama 劇情; Thriller 驚悚", "tag3": "Cantonese", "tag4": "Royal 麗聲", "tag5": "Chan Crisy", "val1": "1987/9/6 (Sun)", "val2": "Lady in Black<BR>《奪命佳人》 (1987)", "val3": "Cantonese", "val4": "Drama 劇情; Thriller 驚悚", "val5": "Royal 麗聲", "val6": "Chan Crisy"},
