@@ -2,7 +2,7 @@
 "CONFIG": {
 
 	"pageTitle": "旅行社",
-	"defaultFontSize": 14,
+	"defaultFontSize": 18,
 	"filters": [
 		{"jsonKey": "tag1","title": "Type"}
 		],
