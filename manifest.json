@@ -1,8 +1,0 @@
-{
-  "availableDatasets": [
-    { "fileName": "travel-data.json", "displayName": "🎒 Travel Records (旅行紀錄)" },
-    { "fileName": "purchases-data.json", "displayName": "🛒 Purchases (消費紀錄)" },
-    { "fileName": "camera-data.json", "displayName": "📷 Camera Assets (相機紀錄)" }
-  ]
-}
- 
