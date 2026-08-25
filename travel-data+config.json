@@ -11,13 +11,13 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number"}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":220,"minwidth":110},
-{"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minwidth":70},
-{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minwidth":73,"isCurrency":false,"precision": 0},
-{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minwidth":85},
-{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minwidth":70},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minwidth":85},
-{"label": "Description","dataType": "string","isSortable":true,"width":300,"minwidth":115}
+{"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":110},
+{"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minWidth":70},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minWidth":73,"isCurrency":false,"precision": 0},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":85},
+{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":70},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
+{"label": "Description","dataType": "string","isSortable":true,"width":300,"minWidth":115}
 ],
 "customSortPriority": {
 "春季":1,
