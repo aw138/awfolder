@@ -13,7 +13,7 @@
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":220,"minwidth":110},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minwidth":70},
-{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":67,"minwidth":67,"isCurrency":false,"precision": 0},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":70,"minwidth":70,"isCurrency":false,"precision": 0},
 {"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minwidth":85},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minwidth":70},
 {"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minwidth":85},
