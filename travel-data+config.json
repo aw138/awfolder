@@ -3,12 +3,12 @@
 {
 "pageTitle": "旅行紀錄",
 "filters": [
-{"jsonKey": "tag1","title": "Year"},
-{"jsonKey": "tag2","title": "Season"},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6"},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46"},
-{"jsonKey": "tag5","title": "Agent","textColor": "#db582d"},
-{"jsonKey": "tag6","title": "Days","dataType": "number"}
+{"jsonKey": "tag1","title": "Year","labelWidth":60},
+{"jsonKey": "tag2","title": "Season","labelWidth":60},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","labelWidth":60},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","labelWidth":60},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","labelWidth":60},
+{"jsonKey": "tag6","title": "Days","dataType": "number","labelWidth":60}
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":110},
@@ -36,6 +36,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "7", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "七月十七 - 七月廿三", "val3": "7", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-7)", "val7": "本州迪士尼筑波七天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "八月初五 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "曼谷，布吉，巴提雅"},
