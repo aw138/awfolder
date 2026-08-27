@@ -3,12 +3,12 @@
 {
 "pageTitle": "Purchases",
 "filters": [
-{"jsonKey": "tag1","title": "Status","labelWidth":75},
-{"jsonKey": "tag2","title": "Division","labelWidth":75},
-{"jsonKey": "tag3","title": "Category","textColor": "#065f46","labelWidth":75},
-{"jsonKey": "tag4","title": "Brand","textColor": "#0000e6","labelWidth":75},
-{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","labelWidth":75},
-{"jsonKey": "tag6","title": "Year","labelWidth":75}
+{"jsonKey": "tag1","title": "Status","labelWidth":55},
+{"jsonKey": "tag2","title": "Division","labelWidth":55},
+{"jsonKey": "tag3","title": "Category","textColor": "#065f46","labelWidth":55},
+{"jsonKey": "tag4","title": "Brand","textColor": "#0000e6","labelWidth":55},
+{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","labelWidth":55},
+{"jsonKey": "tag6","title": "Year","labelWidth":55}
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
