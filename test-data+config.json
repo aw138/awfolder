@@ -1,7 +1,7 @@
 {
 "CONFIG":
 {
-"pageTitle": "Purchases",
+"pageTitle": "Test Data",
 "filters": [
 {"jsonKey": "tag1","title": "Status","labelWidth":55},
 {"jsonKey": "tag2","title": "Division","labelWidth":55},
