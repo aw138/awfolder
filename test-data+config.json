@@ -14,7 +14,7 @@
 {"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":110},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minWidth":80},
 {"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minWidth":73,"isCurrency":false,"precision": 0},
-{"label": "Country","dataType": "number","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":95},
+{"label": "Country","dataType": "number","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":95,"isCurrency":false,"precision": 0},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
 {"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
 {"label": "Description","dataType": "string","isSortable":true,"width":300,"minWidth":115}
@@ -36,6 +36,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": 7, "tag4": "本州", "tag5": "星晨", "tag6": "7", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "七月十七 - 七月廿三", "val3": "7", "val4": "7", "val5": "本州", "val6": "星晨 (HON-7)", "val7": "8 本州迪士尼筑波七天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": 7, "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "八月初五 - 八月十一", "val3": "7", "val4": "7", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "8曼谷，布吉，巴提雅"},
