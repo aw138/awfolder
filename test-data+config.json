@@ -3,31 +3,35 @@
 {
 "pageTitle": "Test Data",
 "filters": [
-{"jsonKey": "tag1","title": "Status","labelWidth":55},
-{"jsonKey": "tag2","title": "Division","labelWidth":55},
-{"jsonKey": "tag3","title": "Category","textColor": "#065f46","labelWidth":55},
-{"jsonKey": "tag4","title": "Brand","textColor": "#0000e6","labelWidth":55},
-{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","labelWidth":55},
-{"jsonKey": "tag6","title": "Year","labelWidth":55}
+{"jsonKey": "tag1","title": "Year","labelWidth":55},
+{"jsonKey": "tag2","title": "Season","labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","labelWidth":55},
+{"jsonKey": "tag6","title": "Days","dataType": "number","labelWidth":55}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":85},
-{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
-{"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
-{"label": "Model","dataType": "string","isSortable":true,"width":120},
-{"label": "Description","dataType": "string","isSortable":true,"width":167},
-{"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
-{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency":true,"precision": 2},
-{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
+{"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":110},
+{"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minWidth":80},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minWidth":73,"isCurrency":false,"precision": 0},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":95},
+{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
+{"label": "Description","dataType": "string","isSortable":true,"width":300,"minWidth":115}
 ],
 "customSortPriority": {
-"Active":1,
-"Retired":2
+"春季":1,
+"夏季":2,
+"秋季":3,
+"自由行":1,
+"中國":1,
+"澳門":2,
+"台灣":3
 },
 "statusBadges": {
-"active":{"label": "Active", "bg": "#d1fae5","text": "#065f46","border": "#065f46"},
-"retired":{"label": "Retired", "bg": "#ffcc00","text": "#974606","border": "#974606"},
-"disposed":{"label": "Disposed", "bg": "#777777","text": "#f5f5f5","border": "#333333"}
+"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
+"thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
+"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 }
 },
 "DATA":
