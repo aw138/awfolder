@@ -34,23 +34,29 @@
                     <button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
                 </div>
             </div>
-            <!-- ROW 2: Checkbox on Left, Counter Badge & Collapse Button on Right -->
-            <div class="panel-row-two">
-				<!-- 🎯 Change your HTML code block to this exact format: -->
-				<div class="manual-check-filter-box">
-					<label id="checkedFilterLabel" class="show-checked-filter-label">
-						<input type="checkbox" id="showCheckedOnlyToggle">
-						<span id="checkedFilterCounterText">Selected only (0)</span>
-					</label>
-				</div>
-								<div class="left-controls-group">
-                    <button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
-                </div>
-                <div class="row-two-right-group">
-                    <span id="tableResultsCounter" class="results-counter-badge"></span>
-                    <button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
-                </div>
-            </div>
+			<!-- ROW 2: Checkbox on Left, Counter Badge in Center, Global Accordion Controls on Right -->
+			<div class="panel-row-two">
+			  <div class="manual-check-filter-box">
+				<label id="checkedFilterLabel" class="show-checked-filter-label">
+				  <input type="checkbox" id="showCheckedOnlyToggle">
+				  <span id="checkedFilterCounterText">Selected (0)</span>
+				</label>
+			  </div>
+			  <div class="left-controls-group">
+				<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+			  </div>
+
+			  <!-- Centered slot created previously -->
+			  <div class="panel-row-two-center-slot">
+				<span id="tableResultsCounter" class="results-counter-badge"></span>
+			  </div>
+
+			  <div class="row-two-right-group">
+				<!-- 🎯 THE ADDITION: New Global Toggle Accordion Action Button placed on the right side -->
+				<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
+				<button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
+			  </div>
+			</div>
         </div>
 
         <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
