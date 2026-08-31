@@ -156,7 +156,7 @@
 .active-selected-chip {
     background-color: #E24E66 !important;
     color: #ffffff !important;
-    border: none !important;
+    border: 1px solid #643D32 !important;
     border-radius: 999px !important;
     padding: 2px 8px !important;
     font-size: 1.0rem !important;
@@ -183,7 +183,7 @@
     background-color: #ffffff !important;
     border: 1px solid #748D92 !important;
     color: #124E66 !important;
-    padding: 3px 10px !important;
+    padding: 3px 8px !important;
     font-size: 0.85rem !important;
     font-weight: 700 !important;
     border-radius: 4px !important;
@@ -230,4 +230,66 @@
 /* Collapsed visibility state shortcut utility */
 .filter-options-dropdown-deck.hidden-drawer-state {
     display: none !important;
+}
+/* --- ROW 2 CONTAINER STRUCTURAL HOOKS --- */
+.panel-row-two {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 8px !important;
+    position: relative !important; /* Establishes baseline plane floor layout boundaries */
+}
+
+/* 🎯 THE CENTERING FIX: Locks the counter slot dead-center within Row 2 without extending panels */
+.panel-row-two-center-slot {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    pointer-events: none !important; /* Shuts down layout layer bounding boxes so they never block data table scrolling clicks */
+    z-index: 5 !important;
+}
+
+/* Reactivate interaction bounds exclusively on the visible badge card boundaries */
+.results-counter-badge {
+    pointer-events: auto !important;
+    white-space: nowrap !important;
+}
+/* --- GLOBAL WORKSPACE EXPAND ACCORDION BUTTON --- */
+.global-slicers-expand-btn {
+    /* background-color: #ffffff !important; */
+    background-color: #aaaadd !important;
+    border: 1px solid #748D92 !important;
+    color: #1E2934 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important; /* 🌟 THE FIX: Enforces a clickable finger pointer mouse icon */
+    font-weight: bold !important;
+    height: 30px !important;
+    padding: 0px 8px !important;
+    font-size: 0.88rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+	width: 88px;
+}
+
+/* Hover Accent Action Glow */
+.global-slicers-expand-btn:hover {
+    background-color: #124E66 !important;
+    color: #ffffff !important;
+    border-color: #124E66 !important;
+}
+
+/* Collapse Active Status Toggle Style */
+.global-slicers-expand-btn.collapse-active-state {
+    background-color: #2E3944 !important;
+    /* background-color: #5E69A4 !important; */
+    color: #ffffff !important;
+    border-color: #2E3944 !important;
 }
