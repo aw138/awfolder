@@ -1,0 +1,135 @@
+/* ?? FILTER PANEL STYLESHEET: Handles slicer containers & option chips */
+
+.horizontal-filters-container {
+    display: grid;
+    grid-template-columns: 34% 66%;
+    border: 1px solid #748D92;
+    border-radius: 6px;
+    background-color: #748D92;
+    gap: 1px;
+    overflow: hidden;
+}
+
+/* .filter-row {  */
+    /* display: flex;  */
+    /* align-items: flex-start;  */
+    /* padding: 4px 8px;  */
+    /* background-color: #eef1f1;  */
+/* } */
+
+@media screen and (max-width: 950px) {
+    .horizontal-filters-container { 
+        grid-template-columns: 1fr !important; 
+    }
+    .horizontal-filters-container > .filter-row { 
+        grid-column: auto !important; 
+    }
+}
+
+.clear-all-btn {
+    background-color: #ffffff; 
+    border: 1px solid #D13438; 
+    color: #D13438; 
+    padding: 7px 17px 5px 17px;
+    font-size: 0.93rem !important; 
+    font-weight: 600; 
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: all 0.15s ease; 
+    user-select: none; 
+    white-space: nowrap; 
+    display: inline-block; 
+    box-sizing: border-box;
+}
+
+.clear-all-btn:hover { 
+    background-color: #a80000; 
+    border-color: #a80000; 
+    color: #FFFFFF; 
+}
+
+.dashboard-arrow-toggle { 
+	background: none; 
+	border: none; 
+	color: #2E3944; 
+	font-size: 16px; 
+	font-weight: bold; 
+	cursor: pointer; 
+	height: 30px;                   /* 👈 Match height */
+	flex: 1 !important;             /* 👈 Takes up the exact same 50% flex space as the large-a button! */
+	min-width: 30px !important;     /* 👈 Match large-a min-width */
+	max-width: 30px !important;     /* 👈 Match large-a max-width */
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box !important;
+}
+
+.filter-dashboard-panel.collapsed-state { 
+    display: none !important; 
+}
+
+.filter-options-wrapper { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 2px; 
+    flex-grow: 1; 
+}
+
+.filter-item-btn { 
+    background-color: #ffffff; 
+    border: 1px solid #abb5c1; 
+    color: #2E3944; 
+    padding: 3px 8px; 
+    font-size: 0.93rem !important; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: all 0.15s ease; 
+}
+
+.filter-item-btn:hover { 
+    color: #ffffff; 
+    border-color: #2E3944; 
+    background-color: #2E3944; 
+}
+
+.filter-item-btn.active { 
+    background-color: #124E66 !important; 
+    border-color: #124E66 !important; 
+    color: #ffffff !important; 
+    font-weight: 600; 
+}
+
+.filter-item-btn.disabled-tag { 
+    display: none !important; 
+}
+
+.multiple-toggle-btn { 
+    background-color: #ffffff; 
+    border: 1px solid #0078d4; 
+    color: #0078d4; 
+    padding: 3px 6px; 
+    font-size: 0.93rem !important; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: 500; 
+    box-sizing: border-box !important; 
+    white-space: nowrap !important; 
+    word-break: keep-all !important; 
+    min-width: 42px !important; 
+}
+
+.multiple-toggle-btn:hover, 
+.multiple-toggle-btn.active { 
+    background-color: #4444F4; 
+    color: #ffffff; 
+}
+
+.filter-action-toggle-area { 
+    padding-left: 6px; 
+    min-width: 56px !important; 
+    box-sizing: border-box !important; 
+    display: flex !important; 
+    justify-content: flex-end !important; 
+    align-items: center !important; 
+}

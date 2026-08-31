@@ -1,0 +1,161 @@
+/* ?? CORE LAYOUT STYLESHEET: Handles global viewports & application panels */
+
+html, 
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    --base-font: 14px;
+    font-size: var(--base-font);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #212A31;
+    background-color: #f4f6f6;
+}
+
+.app-viewport-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    gap: 3px;
+    position: fixed !important;
+    top: 5px !important;
+    left: 5px !important;
+    width: calc(100vw - 10px) !important;
+    height: calc(100vh - 10px) !important; 
+    z-index: 9999 !important;
+}
+
+.top-search-panel {
+    background-color: #D3D9D4;
+    border: 1px solid #748D92;
+    border-radius: 6px;
+    padding: 4px 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px; 
+}
+
+.panel-row-one,
+.panel-row-two {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 8px !important;
+}
+
+.left-controls-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important; 
+}
+
+.search-container {
+    width: 35% !important; 
+    max-width: 215px !important; 
+    position: relative !important;
+    min-width: 80px !important; 
+}
+
+.search-wrapper { 
+    position: relative !important; 
+    width: 100% !important; 
+}
+
+.search-box {
+    width: 100%; 
+    padding: 6px 35px 6px 10px; 
+    font-size: 1rem !important;
+    border: 1px solid #748D92; 
+    border-radius: 6px; 
+    outline: none; 
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.search-box:focus { 
+    border-color: #124E66; 
+    box-shadow: 0 0 0 3px rgba(18, 78, 102, 0.15); 
+}
+
+/* ROW 1 RIGHT WRAPPER */
+.font-size-controls { 
+	display: flex !important; 
+	align-items: center !important; 
+	gap: 4px !important;            
+	flex-shrink: 0 !important; 
+	width: 10% !important;          /* 👈 Explicit width match */
+	min-width: 104px !important;    /* 👈 Ensures room for minimum 50px buttons + 6px gap */
+	box-sizing: border-box !important;
+}
+
+/* ROW 2 RIGHT WRAPPER */
+.row-two-right-group { 
+	display: flex !important; 
+	align-items: center !important; 
+	gap: 4px !important;            /* 👈 Match the row 1 wrapper gap precisely */
+	flex-shrink: 0 !important; 
+	width: 10% !important;          /* 👈 Must match row 1 width */
+	min-width: 104px !important;    /* 👈 Must match row 1 min-width */
+	box-sizing: border-box !important;
+}
+
+/* MOBILE VIEWS - UPDATE BOTH AT THE SAME BREAKPOINT */
+@media screen and (max-width: 768px) {
+.font-size-controls,
+.row-two-right-group { 
+	width: 20% !important;      /* 👈 Both expand together to 30% on mobile screens */
+	}
+}
+
+.custom-clear-btn { 
+    position: absolute; 
+    right: 12px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none; 
+    border: none; 
+    color: #748D92; 
+    font-size: 20px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.font-ctrl-btn { 
+    background-color: #ffffff; 
+    border: 1px solid #748D92; 
+    color: #2E3944; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* --- ROW 1 ITEMS (FONT BUTTONS) --- */
+.font-ctrl-btn.small-a { 
+	font-size: 14px; 
+	height: 30px; 
+	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
+	min-width: 50px !important;     
+	max-width: 80px !important;     
+	box-sizing: border-box !important;
+}
+
+.font-ctrl-btn.large-a { 
+	font-size: 20px; 
+	height: 30px; 
+	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
+	min-width: 50px !important;     
+	max-width: 80px !important;     
+	box-sizing: border-box !important;
+}

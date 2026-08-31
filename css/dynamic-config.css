@@ -1,0 +1,129 @@
+/* ============================================================= */
+/* 🎯 DYNAMIC CORE DASHBOARD LAYOUT STYLESHEET                   */
+/* ============================================================= */
+
+/* ------------------------------------------------------------- */
+/* 🎯 FULL-WIDTH SLICER FLEX CONTAINER SYSTEM                    */
+/* ------------------------------------------------------------- */
+.horizontal-filters-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 🧱 THE TOP-ALIGN FIX: Forces all row structures to line up along the top edge */
+.horizontal-filters-container .filter-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important; /* 🔥 Keeps items locked to the top */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 2px 8px !important;
+    border-bottom: 1px solid #f1f5f9;
+	background-color: #eef1f1;
+}
+
+/* 🏷️ FILTER TITLE LABELS: Styled and padded to anchor cleanly with button text */
+.filter-label {
+    font-weight: 500 !important;
+    color: #334155 !important;
+    /* min-width: 54px !important; */
+    /* max-width: 54px !important; */
+    padding-top: 2px !important; /* Aligns baseline height perfectly with chips */
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+    user-select: none !important;
+}
+
+/* 🎴 CHIPS WRAPPER AREA: Fluidly wraps multiple buttons downward cleanly */
+.filter-options-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; /* Allows rows to naturally expand downwards */
+    gap: 4px !important;
+    flex: 1 1 auto !important;
+    padding-left: 12px !important;
+    padding-right: 0px !important;
+	box-sizing: border-box !important; /* Ensures the padding is calculated inside the fluid row width */    min-width: 0 !important;
+}
+
+/* 🎛️ MULTI BUTTON TOGGLE AREA: Locked to the top right edge of each slicer row */
+.filter-action-toggle-area {
+    display: flex !important;
+    align-items: flex-start !important; /* 🔥 Keeps Multi button top-aligned */
+    justify-content: flex-end !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
+    padding-left: 0px !important;
+	margin-left: 6px !important; /* 👈 This enforces the exact 19px wrapping threshold! */
+    padding-top: 0px !important; /* Matches line margins beautifully */
+    box-sizing: border-box !important;
+}
+
+/* ------------------------------------------------------------- */
+/* 🎯 VERTICAL SLICER DISPLAY SEQUENCE ORDERS (tagX CHIP BLOCKS) */
+/* ------------------------------------------------------------- */
+.horizontal-filters-container > .filter-row[data-attr="tag1"] { order: 1 !important; }
+.horizontal-filters-container > .filter-row[data-attr="tag2"] { order: 2 !important; }
+.horizontal-filters-container > .filter-row[data-attr="tag3"] { order: 3 !important; }
+.horizontal-filters-container > .filter-row[data-attr="tag4"] { order: 4 !important; }
+.horizontal-filters-container > .filter-row[data-attr="tag5"] { order: 5 !important; }
+.horizontal-filters-container > .filter-row[data-attr="tag6"] { order: 6 !important; }
+
+/* ------------------------------------------------------------- */
+/* 🎯 UNIVERSAL DATA CELL SHAPE BOUNDARIES                      */
+/* ------------------------------------------------------------- */
+#dataTable th, 
+#dataTable td {
+    padding: 3px 10px !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+    vertical-align: top !important;
+}
+
+/* Checkbox specific sizing track shortcut */
+.checkbox-header-cell, 
+.checkbox-data-cell {
+    text-align: center !important;
+    width: 33px !important;
+}
+
+/* ------------------------------------------------------------- */
+/* 🎯 DYNAMIC AMORPHOUS STATUS BADGE SPACING SHAPE RULES         */
+/* ------------------------------------------------------------- */
+.status-badge-token {
+    display: inline-block !important;
+    padding: 1px 8px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    min-width: 50px !important;
+    box-sizing: border-box !important; /* Prevents text jumping with border shifts */
+}
+/* ------------------------------------------------------------- */
+/* 🎯 TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE     */
+/* ------------------------------------------------------------- */
+.panel-row-one {
+    position: relative !important; /* 👈 Step 1: Establishes a spatial coordinate floor */
+}
+
+.inline-row-dashboard-title {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    user-select: none !important;
+    white-space: nowrap !important;
+    
+    /* 👈 Step 2: Detaches text from flex-push variables to lock into the exact midline of row 1 */
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    pointer-events: none !important; /* Prevents invisible block clicks from intercepting inputs */
+}
