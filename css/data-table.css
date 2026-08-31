@@ -115,7 +115,7 @@
 }
 
 #dataTable tbody tr:hover td { 
-    background-color: #D1D0Fc !important; 
+    background-color: #ecc0c1 !important; 
     border-bottom: 1px solid #bdf2f2 !important; 
 }
 
