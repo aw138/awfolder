@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Data</title>
-	<!-- v.6.8 Top container optimized -->
+	<!-- v.7.2.2 Expand all button -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -34,24 +34,30 @@
                     <button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
                 </div>
             </div>
-            <!-- ROW 2: Checkbox on Left, Counter Badge & Collapse Button on Right -->
-            <div class="panel-row-two">
-				<!-- 🎯 Change your HTML code block to this exact format: -->
-				<div class="manual-check-filter-box">
-					<label id="checkedFilterLabel" class="show-checked-filter-label">
-						<input type="checkbox" id="showCheckedOnlyToggle">
-						<span id="checkedFilterCounterText">Selected (0)</span>
-					</label>
-				</div>
-								<div class="left-controls-group">
-                    <button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
-                </div>
-                <div class="row-two-right-group">
-                    <span id="tableResultsCounter" class="results-counter-badge"></span>
-                    <button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
-                </div>
-            </div>
-        </div>
+			<!-- ROW 2: Checkbox on Left, Counter Badge in Center, Global Accordion Controls on Right -->
+			<div class="panel-row-two">
+			  <div class="manual-check-filter-box">
+				<label id="checkedFilterLabel" class="show-checked-filter-label">
+				  <input type="checkbox" id="showCheckedOnlyToggle">
+				  <span id="checkedFilterCounterText">Selected (0)</span>
+				</label>
+			  </div>
+			  <div class="left-controls-group">
+				<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+			  </div>
+
+			  <!-- Centered slot created previously -->
+			  <div class="panel-row-two-center-slot">
+				<span id="tableResultsCounter" class="results-counter-badge"></span>
+			  </div>
+
+			  <div class="row-two-right-group">
+				<!-- 🎯 THE ADDITION: New Global Toggle Accordion Action Button placed on the right side -->
+				<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
+				<button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
+			  </div>
+			</div>
+			</div>
 
         <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
         <div class="filter-dashboard-panel">
@@ -88,7 +94,9 @@
 	<script>
         window.APP_DATA_SOURCE_URL = "https://aw138.github.io/awfolder/test-data+config.json";
 	</script>
-    <script src="js/ui.js"></script>
+    <script src="js/ui-core.js"></script>
+    <script src="js/ui-slicer-state.js"></script>
+    <script src="js/ui-slicer-view.js"></script>
     <script src="js/core-search.js"></script>
     <script src="js/table-sort.js"></script>
     <script src="js/dynamic-app.js"></script>
