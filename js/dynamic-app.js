@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel")?.classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#9660;" : "&#9650;";
+        // this.innerHTML = isCollapsed ? "&#8862;" : "&#8863;";
     });
 
     let fontTrackerSize = 14;

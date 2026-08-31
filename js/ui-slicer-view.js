@@ -60,7 +60,7 @@ window.initHorizontalFilters = function(rows) {
         const expandToggleBtn = document.createElement('button');
         expandToggleBtn.type = 'button';
         expandToggleBtn.className = 'row-dropdown-expand-btn';
-        expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#9650;' : '&#9660;';
+        expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
         rightControls.appendChild(expandToggleBtn);
         headerLine.appendChild(rightControls);
         rowDiv.appendChild(headerLine);
@@ -73,7 +73,7 @@ window.initHorizontalFilters = function(rows) {
 
         expandToggleBtn.onclick = () => {
             window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
-            expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#9650;' : '&#9660;';
+            expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
             optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
         };
 
