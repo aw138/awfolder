@@ -235,3 +235,44 @@ window.updateAllSlicerButtonsUI = function(rows) {
 			});
 	});
 };
+// GLOBAL BULLETPROOF SLICERS ACCORDION EXPANSION ENGINE ??
+window.toggleAllSlicerDrawersGlobal = function() {
+    const globalBtn = document.getElementById("globalSlicersToggleBtn");
+    if (!globalBtn) return;
+
+    // Check if we should expand or collapse (true if button currently says "Expand all")
+    const shouldExpandAll = !globalBtn.classList.contains("collapse-active-state");
+
+    (window.activeFiltersSchema || []).forEach(config => {
+        const cleanKey = String(config.jsonKey || "").replace('data-', '').replace('-', '').trim();
+        
+        // 1. Update data variables states globally
+        window.slicerExpandedStates[cleanKey] = shouldExpandAll;
+
+        // 2. Query individual row card deck panel drawers elements inside DOM tree
+        const optionsDeck = document.getElementById(`options-deck-${cleanKey}`);
+        const rowEl = document.querySelector(`.filter-row[data-attr="${cleanKey}"]`);
+        
+        if (optionsDeck && rowEl) {
+            const arrowBtn = rowEl.querySelector('.row-dropdown-expand-btn');
+            
+            // 3. Force visually match open or closed drawers frames with +/- markers [INDEX: 0.1.50]
+            if (shouldExpandAll) {
+                optionsDeck.classList.remove('hidden-drawer-state');
+                if (arrowBtn) arrowBtn.innerHTML = '&#8722;'; // Horizontal Minus sign
+            } else {
+                optionsDeck.classList.add('hidden-drawer-state');
+                if (arrowBtn) arrowBtn.innerHTML = '&#43;'; // Plus sign
+            }
+        }
+    });
+
+    // 4. Update the Master Button state visually
+    if (shouldExpandAll) {
+        globalBtn.textContent = "Collapse all";
+        globalBtn.classList.add("collapse-active-state");
+    } else {
+        globalBtn.textContent = "Expand all";
+        globalBtn.classList.remove("collapse-active-state");
+    }
+};

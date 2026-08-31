@@ -1,14 +1,13 @@
-// 🎯 UNIFIED RUNTIME BOOTLOADER ENGINE (Combines all listeners into one safe thread) [INDEX: 0.1.128, 0.1.129]
+// UNIFIED RUNTIME BOOTLOADER ENGINE (Combines all listeners into one safe thread) 🎯
 document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.getElementById("tableBody");
     if (!tbody) return;
     window.globalTableRows = [];
 
-    // A. Bind UI Controls Panel Elements safely within the active thread [INDEX: 0.1.128]
+    // A. Bind UI Controls Panel Elements safely within the active thread
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel")?.classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#9660;" : "&#9650;";
-        // this.innerHTML = isCollapsed ? "&#8862;" : "&#8863;";
     });
 
     let fontTrackerSize = 14;
@@ -23,7 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // B. Initiate Cloud Data Connection Pipeline [INDEX: 0.1.129]
+    // 🎯 THE EXACT PLACE: Hooking up the global accordion toggle listener on line 25
+    document.getElementById("globalSlicersToggleBtn")?.addEventListener("click", function() {
+        if (typeof window.toggleAllSlicerDrawersGlobal === "function") {
+            window.toggleAllSlicerDrawersGlobal();
+        }
+    });
+
+    // B. Initiate Cloud Data Connection Pipeline [INDEX: 0.1.98]
     const targetSourceUrl = window.APP_DATA_SOURCE_URL || "js/fallback-data.json";
 
     fetch(targetSourceUrl)
@@ -51,21 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const columnConfigs = config.columns || [];
             const badgeSchema = config.statusBadges || {};
 
-            // 🔄 BULLETPROOF RESTORATION ENGINE FOR POPULATING SAVED ROW CHECKBOXES [INDEX: 0.1.28, 0.1.130]
-            // 🔄 UNIFIED RESTORATION ENGINE FOR POPULATING SAVED ROW CHECKBOXES [INDEX: 0.1.150]
-            // 🔄 BULLETPROOF UNIVERSAL RESTORATION ENGINE FOR POPULATING CHECKS
+            // BULLETPROOF RESTORATION ENGINE FOR POPULATING SAVED ROW CHECKBOXES 🔄 [INDEX: 0.1.98]
             records.forEach(item => {
                 const tr = document.createElement("tr");
-                
-                // 🎯 THE DIRECT FIX: Combine columns dynamically to form an absolute, non-colliding unique ID key!
+
                 const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
-                
                 const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
                 const initialCheckedMemoryState = savedCheckedKeysDatabase.includes(rowStorageKeySignature);
 
-                // Inject the non-colliding key directly onto the live row attribute container cell
                 tr.setAttribute("data-row-key", rowStorageKeySignature);
-
                 tr.setAttribute("tag1", item.tag1 || "");
                 tr.setAttribute("tag2", item.tag2 || "");
                 tr.setAttribute("tag3", item.tag3 || "");
@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
 
                 let cellsContentHtml = `
-                    <td class="checkbox-data-cell">
-                        <input type="checkbox" class="row-selector-checkbox" ${checkedAttributeMarker} aria-label="Select row">
-                    </td>
+                <td class="checkbox-data-cell">
+                <input type="checkbox" class="row-selector-checkbox" ${checkedAttributeMarker} aria-label="Select row">
+                </td>
                 `;
 
                 columnConfigs.forEach((colConf, idx) => {
@@ -117,9 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
 
                             badgeHtml = `
-                                <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder}">
-                                    ${badgeRules.label || cellDisplayValue}
-                                </span>
+                            <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder}">
+                            ${badgeRules.label || cellDisplayValue}
+                            </span>
                             `;
                         }
                         cellsContentHtml += `<td ${stylingAttributes}>${badgeHtml}</td>`;
@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
 
-            // Initialize all child dashboard layouts safely [INDEX: 0.1.131]
             if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
             if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
             if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
