@@ -141,7 +141,7 @@
 	background-color: #748D92; 
 	color: #ffffff;
 	text-align: center;
-	height: 30px;                   /* 👈 Match font button height */
+	height: 28px;                   /* 👈 Match font button height */
 	display: inline-flex !important;
 	align-items: center;
 	justify-content: center;
