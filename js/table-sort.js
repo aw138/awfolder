@@ -28,30 +28,65 @@ function executeSort(columnIndex, ascending) {
         return /[\u4e00-\u9fff]/.test(str.charAt(0));
     }
 
-    // Core comparison logic matching your attached sample exactly [INDEX: 0.1.112, 0.1.113]
-    function compareValues(a, b) {
-        // 🧱 BASELINE RULE: Handle blank entries instantly to prevent index locking
-        if (a === "" && b !== "") return 1;
-        if (a !== "" && b === "") return -1;
-        if (a === "" && b === "") return 0;
+// CORRECTED: Pure Text ASCII-First + Chinese Stroke Suffix Engine 🎯
+function compareValues(a, b) {
+    if (a === "" && b !== "") return 1;
+    if (a !== "" && b === "") return -1;
+    if (a === "" && b === "") return 0;
 
-        const typeA = isChinese(a) ? 'cn' : 'en';
-        const typeB = isChinese(b) ? 'cn' : 'en';
+    const lenA = a.length;
+    const lenB = b.length;
+    const maxLen = Math.max(lenA, lenB);
 
-        // 规则1：英文/数字排在中文前面 [INDEX: 0.1.112]
-        if (typeA !== typeB) {
-            return typeA === 'en' ? -1 : 1;
+    // Helper to evaluate script priority tier per character
+    function getCharTier(ch) {
+        if (!ch) return 0; // Empty string buffer fallback
+        const code = ch.charCodeAt(0);
+        // ASCII range covering numbers, English letters, spaces, and punctuation codes
+        if (code >= 0 && code <= 127) return 1; 
+        // Chinese characters range
+        if (code >= 0x4E00 && code <= 0x9FFF) return 2;
+        return 3; // Alternate international symbols
+    }
+
+    // 1. Loop character-by-character from left to right to respect exact ASCII sequence alignment
+    for (let i = 0; i < maxLen; i++) {
+        const charA = a[i] || "";
+        const charB = b[i] || "";
+
+        // If one string ends early, the shorter string comes first
+        if (charA === "" && charB !== "") return -1;
+        if (charA !== "" && charB === "") return 1;
+
+        const tierA = getCharTier(charA);
+        const tierB = getCharTier(charB);
+
+        // If characters belong to different categories (e.g. ASCII vs Chinese)
+        if (tierA !== tierB) {
+            return tierA - tierB; // Tier 1 (ASCII) always comes before Tier 2 (Chinese)
         }
 
-        // 规则2：同类型比较 [INDEX: 0.1.112]
-        if (typeA === 'en') {
-            // 字典序比较 [INDEX: 0.1.113]
-            return enCollator.compare(a, b);
-        } else {
-            // 笔画比较 [INDEX: 0.1.113]
-            return zhStrokeCollator.compare(a, b);
+        // If both characters are in the ASCII block, sort strictly by their literal code values
+        if (tierA === 1) {
+            const codeA = charA.charCodeAt(0);
+            const codeB = charB.charCodeAt(0);
+            if (codeA !== codeB) {
+                return codeA - codeB; // Strict text ASCII order (space ' ' is 32, which is less than any letter/number)
+            }
+        }
+
+        // If we hit Chinese characters at this index, both strings share an identical ASCII prefix
+        // We isolate the remaining Chinese suffixes and sort the rest of the string by strokes
+        if (tierA === 2) {
+            const suffixA = a.substring(i);
+            const suffixB = b.substring(i);
+            const zhStrokeCollator = new Intl.Collator('zh-CN-u-co-stroke', { sensitivity: 'base' });
+            return zhStrokeCollator.compare(suffixA, suffixB);
         }
     }
+
+    return 0; // Strings are perfectly identical
+}
 
     // Determine sorting direction multiplier strictly based on the active tab state [INDEX: 0.1.113]
     // 1 for Ascending, -1 for Descending [INDEX: 0.1.113]
@@ -121,8 +156,7 @@ window.bindSortingTriggers = function() {
     });
 };
 
-// 🎯 THE FIX: Isolated Master Reset Button Handler [INDEX: 0.1.128]
-// 🎯 FIXED MASTER RESET ENGINE: "Show all" now clears text, buttons, AND checkbox filters [INDEX: 0.1.149]
+// FIXED MASTER RESET ENGINE: "Show all" now clears text, buttons, AND updates UI states smoothly 🎯
 document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     const searchInput = document.getElementById("tableSearch");
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
@@ -130,14 +164,19 @@ document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     if (searchInput) searchInput.value = "";
     if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
 
-    // Reset categories sets...
+    // 1. Reset category logic variables back to default safe starting rules
     for (const dataAttr in window.selectedFilters) {
         window.selectedFilters[dataAttr].clear();
+        window.booleanLogicalModes[dataAttr] = true; // Reset background variables back to 'AND'
     }
 
-    // 🎯 This will execute your new dynamic counter and reset the text back to (0) or your total rows instantly!
-    window.applyCombinedFilter();
-	// Add this line inside your clearAllFiltersBtn click listener function:
-	window.activeSlicerKey = null;
+    // 2. 🔥 THE DIRECT FIX: Instantly force the visual HTML buttons to match the background states
+    document.querySelectorAll('.boolean-logic-toggle-btn').forEach(btn => {
+        btn.textContent = 'And';
+        btn.classList.remove('or-state'); // Removes the orange background color accent instantly
+    });
 
+    // 3. Clear transient tracking variables and execute a fresh data render recalculation
+    window.activeSlicerKey = null;
+    window.applyCombinedFilter();
 });

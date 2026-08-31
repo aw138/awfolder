@@ -115,13 +115,34 @@ window.applyCombinedFilter = function() {
         // ============================================================================
         const matchesSearch = searchText === "" || cells.some((el, idx) => { if (idx === 0) return false; return el.textContent.toLowerCase().includes(searchText); });
 
+        // ============================================================================
+        // FIXED DYNAMIC BOOLEAN INTER-SLICER LOGIC RUNTIME ENGINE 🎯
+        // ============================================================================
         let matchesSlicers = true; 
         for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters)) { 
             if (filterSet.size === 0) continue; 
+            
+            // THE DIRECT FIX: Standardize the mapping key signature to match ui-slicer-view variables
             const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
-            const rowTags = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
-            if (!Array.from(filterSet).some(t => rowTags.split(';').map(x => x.trim()).includes(t))) { matchesSlicers = false; break; } 
+            
+            const rowTagsStr = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
+            const rowParsedTags = rowTagsStr.split(';').map(x => x.trim());
+
+            // Correctly match the tracking array signature key property [INDEX: 0.1.13]
+            const useAndLogicOperator = window.booleanLogicalModes[cleanKey] !== false;
+            const activeFilterItems = Array.from(filterSet);
+
+            if (useAndLogicOperator) {
+                // Boolean AND Strategy: Must contain EVERY active choice selected inside this slice row
+                const satisfiesAllChips = activeFilterItems.every(t => rowParsedTags.includes(t));
+                if (!satisfiesAllChips) { matchesSlicers = false; break; }
+            } else {
+                // Boolean OR Strategy: Visible if it hits AT LEAST one active chip match inside this category row
+                const satisfiesAnyChip = activeFilterItems.some(t => rowParsedTags.includes(t));
+                if (!satisfiesAnyChip) { matchesSlicers = false; break; }
+            }
         }
+        // ============================================================================
         
         if (matchesSearch && matchesSlicers) { 
             row.style.display = ""; visibleCount++; 
