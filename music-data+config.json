@@ -1,0 +1,63 @@
+{
+"CONFIG":
+{
+"pageTitle": "Music",
+"filters": [
+{"jsonKey": "tag1","title": "Artist","labelWidth":55},
+{"jsonKey": "tag2","title": "Start","labelWidth":55},
+{"jsonKey": "tag3","title": "Genres","textColor": "#0000e6","labelWidth":55},
+{"jsonKey": "tag4","title": "Release","textColor": "#065f46","labelWidth":55},
+{"jsonKey": "tag5","title": "Format","textColor": "#db582d","labelWidth":55},
+{"jsonKey": "tag6","title": "Added","dataType": "string","labelWidth":55}
+],
+"columns": [
+{"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
+{"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":80},
+{"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":73,"minWidth":73},
+{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":100,"minWidth":95},
+{"label": "Added","dataType": "string","isSortable":true,"width":95,"minWidth":77,"isCurrency":false,"precision": 0},
+{"label": "Genres","dataType": "string","textColor": "#0000e6","isSortable":true,"width":300,"minWidth":115},
+{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":125,"minWidth":85}
+],
+"customSortPriority": {
+"春季":1,
+"夏季":2,
+"秋季":3,
+"自由行":1,
+"中國":1,
+"澳門":2,
+"台灣":3
+},
+"statusBadges": {
+"cd":{"label": "CD", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
+"digital":{"label": "Digital", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
+"sacd":{"label": "SACD", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
+}
+},
+"DATA":
+[
+{"tag1": "Various", "tag2": "V", "tag3": "Made in Japan;Mandarin;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Made in Japan;Mandarin;Oldies;Compilation", "val3": "", "val4": "Various", "val5": "0", "val6": "18 Golden Oldies 金嗓子-18首懷舊金曲", "val7": "0"},
+{"tag1": "Twelve Girls Band 女子十二樂坊", "tag2": "T", "tag3": "Instrumental;Christmas", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Instrumental;Christmas", "val3": "", "val4": "Twelve Girls Band 女子十二樂坊", "val5": "0", "val6": "White Christmas", "val7": "0"},
+{"tag1": "4 Cal-Quettes", "tag2": "4", "tag3": "English;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Oldies;Compilation", "val3": "", "val4": "4 Cal-Quettes", "val5": "0", "val6": "Popular Favourites Of Yesterday", "val7": "0"},
+{"tag1": "4P.M.", "tag2": "4", "tag3": "English;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Compilation", "val3": "", "val4": "4P.M.", "val5": "0", "val6": "All My Loving CD 1", "val7": "0"},
+{"tag1": "5000 Volts", "tag2": "5", "tag3": "English;Disco;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Disco;Compilation", "val3": "", "val4": "5000 Volts", "val5": "0", "val6": "Disco Fever 5-And The Beat Goes", "val7": "0"},
+{"tag1": "A Liyue 阿梨粵", "tag2": "A", "tag3": "HQCD;Cantonese;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "HQCD;Cantonese;Pop", "val3": "", "val4": "A Liyue 阿梨粵", "val5": "0", "val6": "不該用情", "val7": "0"},
+{"tag1": "A Liyue 阿梨粵", "tag2": "A", "tag3": "Cantonese;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Cantonese;Pop", "val3": "", "val4": "A Liyue 阿梨粵", "val5": "0", "val6": "晚風心裡吹", "val7": "0"},
+{"tag1": "A Liyue 阿梨粵", "tag2": "A", "tag3": "Cantonese;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Cantonese;Pop", "val3": "", "val4": "A Liyue 阿梨粵", "val5": "0", "val6": "最愛", "val7": "0"},
+{"tag1": "A Liyue 阿梨粵", "tag2": "A", "tag3": "HQCD;Cantonese;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "HQCD;Cantonese;Pop", "val3": "", "val4": "A Liyue 阿梨粵", "val5": "0", "val6": "難得有情人", "val7": "0"},
+{"tag1": "A Taste Of Honey", "tag2": "A", "tag3": "English;Disco;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Disco;Compilation", "val3": "", "val4": "A Taste Of Honey", "val5": "0", "val6": "Disco Fever 3-Turn The Beat Around", "val7": "0"},
+{"tag1": "A Taste Of Honey", "tag2": "A", "tag3": "English;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Oldies;Compilation", "val3": "", "val4": "A Taste Of Honey", "val5": "0", "val6": "Unforgettable Memories", "val7": "0"},
+{"tag1": "A Taste Of Honeys Hazel Payne", "tag2": "A", "tag3": "English;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Oldies;Compilation", "val3": "", "val4": "A Taste Of Honeys Hazel Payne", "val5": "0", "val6": "Golden Memories", "val7": "0"},
+{"tag1": "A. Godoy - Z. Edicoes", "tag2": "A", "tag3": "Denon;Instrumental;Classical;Hi-Fi;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Denon;Instrumental;Classical;Hi-Fi;Compilation", "val3": "", "val4": "A. Godoy - Z. Edicoes", "val5": "0", "val6": "Denon - The First Name In Digital Recording", "val7": "0"},
+{"tag1": "A. Louis / E. Clapton", "tag2": "A", "tag3": "SACD;Made in Germany;English;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "SACD;Made in Germany;English;Compilation", "val3": "", "val4": "A. Louis / E. Clapton", "val5": "0", "val6": "The Reunion (SACD)", "val7": "0"},
+{"tag1": "Ab Und Zu", "tag2": "A", "tag3": "SACD;Made in Germany;English;Hi-Fi;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "SACD;Made in Germany;English;Hi-Fi;Compilation", "val3": "", "val4": "Ab Und Zu", "val5": "0", "val6": "Female Audiophile (SACD)", "val7": "0"},
+{"tag1": "Ab Und Zu", "tag2": "A", "tag3": "SACD;Made in Germany;English;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "SACD;Made in Germany;English;Compilation", "val3": "", "val4": "Ab Und Zu", "val5": "0", "val6": "The Absolute Sound 2008 (SACD)", "val7": "0"},
+{"tag1": "ABBA", "tag2": "A", "tag3": "English;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Pop", "val3": "", "val4": "ABBA", "val5": "0", "val6": "Gold - Greatest Hits", "val7": "0"},
+{"tag1": "ABBA", "tag2": "A", "tag3": "English;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Pop", "val3": "", "val4": "ABBA", "val5": "0", "val6": "Greatest Hits", "val7": "0"},
+{"tag1": "ABBA", "tag2": "A", "tag3": "English;Pop;Live", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Pop;Live", "val3": "", "val4": "ABBA", "val5": "0", "val6": "Live at Wembley Arena", "val7": "0"},
+{"tag1": "ABBA", "tag2": "A", "tag3": "English;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "English;Pop", "val3": "", "val4": "ABBA", "val5": "0", "val6": "More ABBA Gold", "val7": "0"},
+{"tag1": "ABBA", "tag2": "A", "tag3": "Made in Germany;English;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Made in Germany;English;Pop", "val3": "", "val4": "ABBA", "val5": "0", "val6": "The Singles - The First Ten Years", "val7": "0"},
+{"tag1": "Abo 阿寶", "tag2": "A", "tag3": "Cantonese;Pop", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Digital", "val2": "Cantonese;Pop", "val3": "", "val4": "Abo 阿寶", "val5": "0", "val6": "Flashback", "val7": "0"}
+
+]
+}
