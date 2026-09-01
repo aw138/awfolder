@@ -26,8 +26,8 @@
 },
 "statusBadges": {
 "cd":{"label": "CD", "bg": "#00e050","text": "#307030","border": "#307030"},
-"digital":{"label": "Digital", "bg": "#FFFFFF","text": "#000000","border": "#000000"},
-"sacd":{"label": "SACD", "bg": "#151555","text": "#0000FF","border": "#0000FF"}
+"digital":{"label": "Digital", "bg": "#00eeee","text": "#111111","border": "#111111"},
+"sacd":{"label": "SACD", "bg": "#a5a5DD","text": "#0000FF","border": "#a5a5DD"}
 }
 },
 "DATA":
