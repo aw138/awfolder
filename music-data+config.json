@@ -25,9 +25,9 @@
 "台灣":3
 },
 "statusBadges": {
-"cd":{"label": "CD", "bg": "#00e050","text": "#307030","border": "#307030"},
-"digital":{"label": "Digital", "bg": "#00eeee","text": "#111111","border": "#111111"},
-"sacd":{"label": "SACD", "bg": "#a5a5DD","text": "#0000FF","border": "#a5a5DD"}
+"cd":{"label": "CD", "bg": "#00e050","text": "#202020","border": "#202020"},
+"digital":{"label": "Digital", "bg": "#eeee00","text": "#111111","border": "#111111"},
+"sacd":{"label": "SACD", "bg": "#a5a5DD","text": "#0000FF","border": "#0000FF"}
 }
 },
 "DATA":
