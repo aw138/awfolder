@@ -50,19 +50,19 @@ body {
     gap: 8px !important;
 }
 
-.left-controls-group {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important; 
-}
+/* .left-controls-group { */
+    /* display: flex !important; */
+    /* align-items: center !important; */
+    /* gap: 12px !important; */
+    /* flex: 1 1 auto !important; */
+    /* min-width: 0 !important;  */
+/* } */
 
 .search-container {
     width: 35% !important; 
     max-width: 215px !important; 
     position: relative !important;
-    min-width: 80px !important; 
+    min-width: 100px !important; 
 }
 
 .search-wrapper { 
@@ -72,7 +72,7 @@ body {
 
 .search-box {
     width: 100%; 
-    padding: 6px 35px 6px 10px; 
+    padding: 6px 28px 6px 10px; 
     font-size: 1rem !important;
     border: 1px solid #748D92; 
     border-radius: 6px; 
@@ -92,8 +92,8 @@ body {
 	align-items: center !important; 
 	gap: 4px !important;            
 	flex-shrink: 0 !important; 
-	width: 10% !important;          /* 👈 Explicit width match */
-	min-width: 104px !important;    /* 👈 Ensures room for minimum 50px buttons + 6px gap */
+	width: 15% !important;          /* 👈 Explicit width match */
+	min-width: 130px !important;    /* 👈 Ensures room for minimum 50px buttons + 6px gap */
 	box-sizing: border-box !important;
 }
 
@@ -103,8 +103,8 @@ body {
 	align-items: center !important; 
 	gap: 4px !important;            /* 👈 Match the row 1 wrapper gap precisely */
 	flex-shrink: 0 !important; 
-	width: 10% !important;          /* 👈 Must match row 1 width */
-	min-width: 104px !important;    /* 👈 Must match row 1 min-width */
+	width: 15% !important;          /* 👈 Must match row 1 width */
+	min-width: 130px !important;    /* 👈 Must match row 1 min-width */
 	box-sizing: border-box !important;
 }
 
@@ -118,7 +118,7 @@ body {
 
 .custom-clear-btn { 
     position: absolute; 
-    right: 12px; 
+    right: 5px; 
     top: 50%; 
     transform: translateY(-50%); 
     background: none; 

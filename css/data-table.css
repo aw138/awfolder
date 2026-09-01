@@ -134,14 +134,15 @@
 
 /* --- ROW 2 ITEMS (COUNTER & TOGGLE BUTTON) --- */
 .results-counter-badge { 
-	font-size: 1.2rem !important; 
+	font-size: 1.1rem !important; 
 	font-weight: 600; 
 	padding: 4px 20px !important;    /* 👈 Cleared horizontal padding so width dictates size */
-	border-radius: 6px; 
+	border-radius: 6px;
+    border: 1px solid #748D92;
 	background-color: #748D92; 
 	color: #ffffff;
 	text-align: center;
-	height: 28px;                   /* 👈 Match font button height */
+	height: 29px;                   /* 👈 Match font button height */
 	display: inline-flex !important;
 	align-items: center;
 	justify-content: center;

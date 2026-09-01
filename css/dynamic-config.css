@@ -18,10 +18,10 @@
     flex-direction: column !important; /* Stack Row 1 and Row 2 vertically */
     width: 100% !important;
     box-sizing: border-box !important;
-    padding: 2px 4px !important;
+    padding: 3px 3px !important;
     border-bottom: 1px solid #c1c5cb !important;
     background-color: #eef1f1 !important;
-    gap: 4px !important;
+    gap: 2px !important;
 }
 /* 🏷️ FILTER TITLE LABELS: Styled and padded to anchor cleanly with button text */
 .filter-label {
@@ -103,9 +103,9 @@
 /* ------------------------------------------------------------- */
 /* 🎯 TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE     */
 /* ------------------------------------------------------------- */
-.panel-row-one {
-    position: relative !important; /* 👈 Step 1: Establishes a spatial coordinate floor */
-}
+/* .panel-row-one { */
+    /* position: relative !important; /* 👈 Step 1: Establishes a spatial coordinate floor */ */
+/* } */
 
 .inline-row-dashboard-title {
     font-size: 1.4rem !important;
@@ -139,7 +139,7 @@
 .filter-header-left-group {
     display: flex !important;
     align-items: flex-start !important;
-    gap: 12px !important;
+    gap: 0px !important;
     flex: 1 1 auto !important;
     min-width: 0 !important;
 }
@@ -148,7 +148,7 @@
 .filter-selected-chips-wrapper {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 4px !important;
     min-width: 0 !important;
 }
 
@@ -158,13 +158,13 @@
     color: #ffffff !important;
     border: 1px solid #643D32 !important;
     border-radius: 999px !important;
-    padding: 2px 8px !important;
+    padding: 2px 6px !important;
     font-size: 1.0rem !important;
     font-weight: 400 !important;
     cursor: pointer !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 4px !important;
 }
 .active-selected-chip:hover {
     background-color: #b13438 !important; /* Red hover indicating deletion */
@@ -183,12 +183,12 @@
     background-color: #ffffff !important;
     border: 1px solid #748D92 !important;
     color: #124E66 !important;
-    padding: 3px 8px !important;
+    padding: 3px 6px !important;
     font-size: 0.85rem !important;
     font-weight: 700 !important;
-    border-radius: 4px !important;
+    border-radius: 6px !important;
     cursor: pointer !important;
-    min-width: 50px !important;
+    min-width: 40px !important;
     text-align: center !important;
     text-transform: uppercase !important;
 }
@@ -217,10 +217,10 @@
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 3px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    padding: 6px 8px !important;
+    padding: 4px 4px !important;
     background-color: #aaaaDD !important;
     border: 1px solid #6666AA !important;
     border-radius: 4px !important;
@@ -232,14 +232,14 @@
     display: none !important;
 }
 /* --- ROW 2 CONTAINER STRUCTURAL HOOKS --- */
-.panel-row-two {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    gap: 8px !important;
-    position: relative !important; /* Establishes baseline plane floor layout boundaries */
-}
+/* .panel-row-two { */
+    /* display: flex !important; */
+    /* justify-content: space-between !important; */
+    /* align-items: center !important; */
+    /* width: 100% !important; */
+    /* gap: 8px !important; */
+    /* position: relative !important; /* Establishes baseline plane floor layout boundaries */ */
+/* } */
 
 /* 🎯 THE CENTERING FIX: Locks the counter slot dead-center within Row 2 without extending panels */
 .panel-row-two-center-slot {
@@ -268,15 +268,15 @@
     border-radius: 6px !important;
     cursor: pointer !important; /* 🌟 THE FIX: Enforces a clickable finger pointer mouse icon */
     font-weight: bold !important;
-    height: 30px !important;
-    padding: 0px 8px !important;
+    height: 29px !important;
+    padding: 0px 3px !important;
     font-size: 0.88rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     white-space: nowrap !important;
     box-sizing: border-box !important;
-	width: 88px;
+	/* width: 88px; */
 }
 
 /* Hover Accent Action Glow */
@@ -292,4 +292,138 @@
     /* background-color: #5E69A4 !important; */
     color: #ffffff !important;
     border-color: #2E3944 !important;
+}
+/* ============================================================= */
+/* ?? PRECISION TOOLBAR DIMENSION CONTROL ENGINE */
+/* ============================================================= */
+
+/* --- GLOBAL ROW RE-ALIGNMENT FLEX LINE SYSTEM --- */
+.panel-row-one,
+.panel-row-two {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    position: relative !important; /* Fixed baseline floor for tracking center alignments */
+    box-sizing: border-box !important;
+    height: 34px !important; /* Enforces uniform vertical line mapping heights across rows */
+}
+
+/* --- ROW 1 CONTROL CONFIGURATION SETTINGS --- */
+
+/* Row 1 Left DIV: Search Container Bounds */
+.r1-left-container {
+    width: 25% !important;
+    min-width: 100px !important;
+    max-width: 215px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+}
+.r1-left-container .search-wrapper {
+    width: 100% !important; /* Forces inner wrapper to occupy full parent width */
+}
+.r1-left-container .search-box {
+    width: 100% !important; /* Full 100% inner field stretching */
+}
+
+/* Row 1 Right DIV: Font Size & Arrow Toggle Container */
+.r1-right-container {
+    width: 20% !important;
+    min-width: 120px !important;
+    /* max-width: 160px !important; */
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+/* Two font buttons wrapper subgroup occupy 80% width space */
+.font-buttons-subgroup {
+    width: 80% !important;
+    display: flex !important;
+    gap: 4px !important;
+}
+.font-buttons-subgroup .font-ctrl-btn {
+    flex: 1 !important; /* Splits the 80% wrapper evenly among the A-/A+ buttons */
+    height: 30px !important;
+}
+/* Dashboard toggle arrow button occupies exactly 20% width space */
+.r1-right-container .dashboard-arrow-toggle {
+    width: 20% !important;
+    height: 30px !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* --- ROW 2 CONTROL CONFIGURATION SETTINGS --- */
+
+/* Row 2 Left DIV: Checkbox Toggle & Show All Container */
+.r2-left-container {
+    width: 25% !important;
+    min-width: 170px !important;
+    max-width: 215px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+/* Selected check counter badge box stretches to 66% width space */
+.r2-left-container .manual-check-filter-box {
+    width: 66% !important;
+    min-width: 110px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important; /* Wiped away old margin-auto layouts to hold strict grid borders */
+}
+/* Show all button occupies the remaining 34% width space */
+.r2-left-container .clear-all-btn {
+    width: 34% !important;
+    min-width: 60px !important;
+    padding: 6px 0px 5px 0px !important; /* Centered compact text padding fields */
+    text-align: center !important;
+}
+
+/* Row 2 Right DIV: Counter Badge & Expand/Collapse Toggle Group */
+.r2-right-container {
+    width: 20% !important;
+    min-width: 140px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+/* Counter badge component occupies 50% split width space */
+.r2-right-container .results-counter-badge {
+    width: 50% !important;
+    flex: none !important; /* Wipes out old 1fr stretch blocks to preserve 50% size layout bounds */
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 29px !important;
+    padding: 0px 1px !important; /* Relies purely on container width for sizing */
+}
+/* Global Accordion Expand/Collapse master toggle button occupies exactly 50% split width space */
+.r2-right-container .global-slicers-expand-btn {
+    width: 49% !important;
+    height: 29px !important;
+    padding: 0px 1px!important;
+    flex-shrink: 0 !important;
+}
+
+/* --- OPTIONAL PAGE TITLE HOORAY CLEANUP BALANCE --- */
+.panel-row-center-title,
+.panel-row-two-center-slot {
+    position: absolute !important;
+    left: 50% !important;
+    top: 10% !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: none !important; /* Zero footprint prevents blocking data table scrolls */
+    height: 0px !important;
+    z-index: 5 !important;
+}
+.inline-row-dashboard-title {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    position: static !important;
+    transform: none !important;
 }
