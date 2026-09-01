@@ -12,16 +12,15 @@
 ],
 "columns": [
 {"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
-{"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":80},
-{"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":73,"minWidth":73},
-{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":100,"minWidth":95},
-{"label": "Added","dataType": "string","isSortable":true,"width":95,"minWidth":77,"isCurrency":false,"precision": 0},
-{"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":300,"minWidth":115},
-{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":125,"minWidth":85}
+{"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":100},
+{"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":73},
+{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":80},
+{"label": "Added","dataType": "string","isSortable":true,"width":95,"minWidth":80,"isCurrency":false,"precision": 0},
+{"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":220,"minWidth":110},
+{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":100,"minWidth":85}
 ],
 "customSortPriority": {
 "春季":1,
-"夏季":2,
 "台灣":3
 },
 "statusBadges": {
@@ -33,6 +32,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "V", "tag2": "Various", "tag3": "Made in Japan;Mandarin;Oldies;Compilation", "tag4": "1990", "tag5": "CD", "tag6": "1991", "val1": "18 Golden Oldies 金嗓子-18首懷舊金曲", "val2": "Various", "val3": "", "val4": "1990", "val5": "1991", "val6": "Made in Japan;Mandarin;Oldies;Compilation", "val7": "CD"},
 {"tag1": "T", "tag2": "Twelve Girls Band 女子十二樂坊", "tag3": "Instrumental;Christmas", "tag4": "", "tag5": "Digital", "tag6": "", "val1": "White Christmas", "val2": "Twelve Girls Band 女子十二樂坊", "val3": "", "val4": "", "val5": "", "val6": "Instrumental;Christmas", "val7": "Digital"},
