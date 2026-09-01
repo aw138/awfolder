@@ -3,9 +3,9 @@
 {
 "pageTitle": "Music",
 "filters": [
-{"jsonKey": "tag1","title": "Artist","labelWidth":55},
-{"jsonKey": "tag2","title": "Start","labelWidth":55},
-{"jsonKey": "tag3","title": "Genres","textColor": "#0000e6","labelWidth":55},
+{"jsonKey": "tag1","title": "Artist cat","labelWidth":55},
+{"jsonKey": "tag2","title": "Artist","labelWidth":55},
+{"jsonKey": "tag3","title": "Keyword","textColor": "#0000e6","labelWidth":55},
 {"jsonKey": "tag4","title": "Release","textColor": "#065f46","labelWidth":55},
 {"jsonKey": "tag5","title": "Format","textColor": "#db582d","labelWidth":55},
 {"jsonKey": "tag6","title": "Added","dataType": "string","labelWidth":55}
@@ -16,7 +16,7 @@
 {"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":73,"minWidth":73},
 {"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":100,"minWidth":95},
 {"label": "Added","dataType": "string","isSortable":true,"width":95,"minWidth":77,"isCurrency":false,"precision": 0},
-{"label": "Genres","dataType": "string","textColor": "#0000e6","isSortable":true,"width":300,"minWidth":115},
+{"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":300,"minWidth":115},
 {"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":125,"minWidth":85}
 ],
 "customSortPriority": {
