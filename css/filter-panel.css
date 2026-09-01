@@ -22,7 +22,7 @@
         grid-template-columns: 1fr !important; 
     }
     .horizontal-filters-container > .filter-row { 
-        grid-column: auto !important; 
+        grid-column: au!important; 
     }
 }
 
@@ -30,7 +30,7 @@
     background-color: #ffffff; 
     border: 1px solid #D13438; 
     color: #D13438; 
-    padding: 7px 14px 5px 14px;
+    /* padding: 7px 14px 5px 14px; */
     font-size: 0.93rem !important; 
     font-weight: 600; 
     border-radius: 6px; 

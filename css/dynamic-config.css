@@ -328,7 +328,7 @@
 
 /* Row 1 Right DIV: Font Size & Arrow Toggle Container */
 .r1-right-container {
-    width: 20% !important;
+    width: 18% !important;
     min-width: 120px !important;
     /* max-width: 160px !important; */
     box-sizing: border-box !important;
@@ -370,14 +370,14 @@
 }
 /* Selected check counter badge box stretches to 66% width space */
 .r2-left-container .manual-check-filter-box {
-    width: 66% !important;
+    width: 60% !important;
     min-width: 110px !important;
     box-sizing: border-box !important;
     margin: 0 !important; /* Wiped away old margin-auto layouts to hold strict grid borders */
 }
 /* Show all button occupies the remaining 34% width space */
 .r2-left-container .clear-all-btn {
-    width: 34% !important;
+    width: 40% !important;
     min-width: 60px !important;
     padding: 6px 0px 5px 0px !important; /* Centered compact text padding fields */
     text-align: center !important;
@@ -385,7 +385,7 @@
 
 /* Row 2 Right DIV: Counter Badge & Expand/Collapse Toggle Group */
 .r2-right-container {
-    width: 20% !important;
+    width: 18% !important;
     min-width: 140px !important;
     box-sizing: border-box !important;
     display: flex !important;
