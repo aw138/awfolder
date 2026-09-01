@@ -40,6 +40,7 @@
     white-space: nowrap; 
     display: inline-block; 
     box-sizing: border-box;
+	height: 29px;
 }
 
 .clear-all-btn:hover { 
