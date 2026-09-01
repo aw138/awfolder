@@ -3,7 +3,7 @@
 {
 "pageTitle": "Music",
 "filters": [
-{"jsonKey": "tag1","title": "Artist cat","labelWidth":55},
+{"jsonKey": "tag1","title": "Alphabet","labelWidth":55},
 {"jsonKey": "tag2","title": "Artist","labelWidth":55},
 {"jsonKey": "tag3","title": "Keyword","textColor": "#0000e6","labelWidth":55},
 {"jsonKey": "tag4","title": "Release","textColor": "#065f46","labelWidth":55},
@@ -25,13 +25,14 @@
 "台灣":3
 },
 "statusBadges": {
-"cd":{"label": "CD", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
-"digital":{"label": "Digital", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
-"sacd":{"label": "SACD", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
+"cd":{"label": "CD", "bg": "#00e050","text": "#307030","border": "#307030"},
+"digital":{"label": "Digital", "bg": "#FFFFFF","text": "#000000","border": "#000000"},
+"sacd":{"label": "SACD", "bg": "#151555","text": "#0000FF","border": "#0000FF"}
 }
 },
 "DATA":
 [
+
 {"tag1": "V", "tag2": "Various", "tag3": "Made in Japan;Mandarin;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "18 Golden Oldies 金嗓子-18首懷舊金曲", "val2": "Various", "val3": "0", "val4": "0", "val5": "", "val6": "Made in Japan;Mandarin;Oldies;Compilation", "val7": "Digital"},
 {"tag1": "T", "tag2": "Twelve Girls Band 女子十二樂坊", "tag3": "Instrumental;Christmas", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "White Christmas", "val2": "Twelve Girls Band 女子十二樂坊", "val3": "0", "val4": "0", "val5": "", "val6": "Instrumental;Christmas", "val7": "Digital"},
 {"tag1": "4", "tag2": "4 Cal-Quettes", "tag3": "English;Oldies;Compilation", "tag4": "0", "tag5": "Digital", "tag6": "", "val1": "Popular Favourites Of Yesterday", "val2": "4 Cal-Quettes", "val3": "0", "val4": "0", "val5": "", "val6": "English;Oldies;Compilation", "val7": "Digital"},
