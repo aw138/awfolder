@@ -58,12 +58,12 @@ body {
     /* min-width: 0 !important;  */
 /* } */
 
-.search-container {
-    width: 35% !important; 
-    max-width: 215px !important; 
-    position: relative !important;
-    min-width: 100px !important; 
-}
+/* .search-container { /* <---not used */ */
+    /* width: 35% !important;  */
+    /* max-width: 215px !important;  */
+    /* position: relative !important; */
+    /* min-width: 100px !important;  */
+/* } */
 
 .search-wrapper { 
     position: relative !important; 

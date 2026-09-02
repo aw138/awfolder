@@ -59,16 +59,6 @@
 }
 
 /* ------------------------------------------------------------- */
-/* 🎯 VERTICAL SLICER DISPLAY SEQUENCE ORDERS (tagX CHIP BLOCKS) */
-/* ------------------------------------------------------------- */
-.horizontal-filters-container > .filter-row[data-attr="tag1"] { order: 1 !important; }
-.horizontal-filters-container > .filter-row[data-attr="tag2"] { order: 2 !important; }
-.horizontal-filters-container > .filter-row[data-attr="tag3"] { order: 3 !important; }
-.horizontal-filters-container > .filter-row[data-attr="tag4"] { order: 4 !important; }
-.horizontal-filters-container > .filter-row[data-attr="tag5"] { order: 5 !important; }
-.horizontal-filters-container > .filter-row[data-attr="tag6"] { order: 6 !important; }
-
-/* ------------------------------------------------------------- */
 /* 🎯 UNIVERSAL DATA CELL SHAPE BOUNDARIES                      */
 /* ------------------------------------------------------------- */
 #dataTable th, 
@@ -242,17 +232,17 @@
 /* } */
 
 /* 🎯 THE CENTERING FIX: Locks the counter slot dead-center within Row 2 without extending panels */
-.panel-row-two-center-slot {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    pointer-events: none !important; /* Shuts down layout layer bounding boxes so they never block data table scrolling clicks */
-    z-index: 5 !important;
-}
+/* .panel-row-two-center-slot { /* seems no effect */ */
+    /* position: absolute !important; */
+    /* left: 10% !important; */
+    /* top: 10% !important; */
+    /* transform: translate(-50%, -50%) !important; */
+    /* display: inline-flex !important; */
+    /* justify-content: center !important; */
+    /* align-items: center !important; */
+    /* pointer-events: none !important; /* Shuts down layout layer bounding boxes so they never block data table scrolling clicks */ */
+    /* z-index: 5 !important; */
+/* } */
 
 /* Reactivate interaction bounds exclusively on the visible badge card boundaries */
 .results-counter-badge {
@@ -313,9 +303,9 @@
 
 /* Row 1 Left DIV: Search Container Bounds */
 .r1-left-container {
-    width: 25% !important;
-    min-width: 100px !important;
-    max-width: 215px !important;
+    width: 25% !important;       /*adjust search box width %*/
+    min-width: 100px !important; /*adjust search box min-width*/
+    max-width: 215px !important; /*adjust search box max-width*/
     box-sizing: border-box !important;
     display: flex !important;
 }
@@ -328,8 +318,8 @@
 
 /* Row 1 Right DIV: Font Size & Arrow Toggle Container */
 .r1-right-container {
-    width: 18% !important;
-    min-width: 120px !important;
+    width: 18% !important; 			/*adjust right width % */
+    min-width: 120px !important;	/*adjust right min-width */
     /* max-width: 160px !important; */
     box-sizing: border-box !important;
     display: flex !important;
@@ -338,17 +328,17 @@
 }
 /* Two font buttons wrapper subgroup occupy 80% width space */
 .font-buttons-subgroup {
-    width: 80% !important;
+    width: 80% !important; /*adjust % width of font btns */
     display: flex !important;
-    gap: 4px !important;
+    gap: 4px !important; /*adjust width between font btn */
 }
 .font-buttons-subgroup .font-ctrl-btn {
     flex: 1 !important; /* Splits the 80% wrapper evenly among the A-/A+ buttons */
-    height: 30px !important;
+    height: 30px !important; /*adjust font btn height */
 }
 /* Dashboard toggle arrow button occupies exactly 20% width space */
 .r1-right-container .dashboard-arrow-toggle {
-    width: 20% !important;
+    width: 20% !important; /*adjust % width of toggle btn */
     height: 30px !important;
     flex-shrink: 0 !important;
     display: inline-flex !important;
@@ -360,66 +350,75 @@
 
 /* Row 2 Left DIV: Checkbox Toggle & Show All Container */
 .r2-left-container {
-    width: 25% !important;
-    min-width: 170px !important;
-    max-width: 215px !important;
+    width: 25% !important; /*adjust % width of Row 2 left */
+    min-width: 170px !important; /*adjust min-width of Row 2 left */
+    max-width: 215px !important; /*adjust max-width of Row 2 left */
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: 4px !important; /*adjust width between two btns */
 }
 /* Selected check counter badge box stretches to 66% width space */
 .r2-left-container .manual-check-filter-box {
-    width: 60% !important;
-    min-width: 110px !important;
+    width: 65% !important; /*adjust % width of Selected btn */
+    min-width: 110px !important; /*adjust min-width of Selected btn */
     box-sizing: border-box !important;
     margin: 0 !important; /* Wiped away old margin-auto layouts to hold strict grid borders */
 }
 /* Show all button occupies the remaining 34% width space */
 .r2-left-container .clear-all-btn {
-    width: 40% !important;
-    min-width: 60px !important;
+    width: 35% !important; /*adjust % width of Show all btn */
+    min-width: 60px !important; /*adjust min-width of Show all btn */
     padding: 6px 0px 5px 0px !important; /* Centered compact text padding fields */
     text-align: center !important;
 }
 
 /* Row 2 Right DIV: Counter Badge & Expand/Collapse Toggle Group */
 .r2-right-container {
-    width: 18% !important;
-    min-width: 140px !important;
+    width: 18% !important;			/*adjust right width % */
+    min-width: 140px !important;	/*adjust min-width of two btns */
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: 4px !important; /*adjust width between two btns */
 }
 /* Counter badge component occupies 50% split width space */
 .r2-right-container .results-counter-badge {
-    width: 50% !important;
+    width: 50% !important; /*adjust % width of counter badge */
     flex: none !important; /* Wipes out old 1fr stretch blocks to preserve 50% size layout bounds */
     min-width: 0 !important;
     max-width: none !important;
-    height: 29px !important;
+    height: 29px !important; /*adjust height of counter badge */
     padding: 0px 1px !important; /* Relies purely on container width for sizing */
 }
 /* Global Accordion Expand/Collapse master toggle button occupies exactly 50% split width space */
 .r2-right-container .global-slicers-expand-btn {
-    width: 49% !important;
-    height: 29px !important;
+    width: 49% !important; /*adjust % width of Expand btn */
+    height: 29px !important; /*adjust height of Expand btn */
     padding: 0px 1px!important;
     flex-shrink: 0 !important;
 }
 
 /* --- OPTIONAL PAGE TITLE HOORAY CLEANUP BALANCE --- */
-.panel-row-center-title,
-.panel-row-two-center-slot {
+.panel-row-center-title {
     position: absolute !important;
-    left: 50% !important;
-    top: 10% !important;
+    left: 50% !important; /*adjust H-position of top title */
+    top: 20% !important; /*adjust V-position of top title */
     transform: translate(-50%, -50%) !important;
     pointer-events: none !important; /* Zero footprint prevents blocking data table scrolls */
     height: 0px !important;
     z-index: 5 !important;
 }
+.panel-row-two-center-slot {
+    position: absolute !important;
+    left: 50% !important; /*adjust H-position of bottom title */
+    top: 50% !important; /*adjust V-position of bottom title */
+    transform: translate(-50%, -50%) !important;
+    pointer-events: none !important; /* Zero footprint prevents blocking data table scrolls */
+    height: 0px !important;
+    z-index: 5 !important;
+}
+
 .inline-row-dashboard-title {
     font-size: 1.4rem !important;
     font-weight: 700 !important;
