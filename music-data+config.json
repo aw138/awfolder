@@ -18,11 +18,11 @@
 {"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":100},
 {"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":73},
 {"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":220,"minWidth":110},
-{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":90,"minWidth":80},
+{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":80},
 {"label": "Language","dataType": "string","isSortable":true,"width":100,"minWidth":80},
 {"label": "Made in","dataType": "string","isSortable":true,"width":95,"minWidth":80},
 {"label": "Added","dataType": "string","isSortable":true,"width":90,"minWidth":80,"isCurrency":false,"precision": 0},
-{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":100,"minWidth":85}
+{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":85}
 ],
 "customSortPriority": {
 "春季":1,
