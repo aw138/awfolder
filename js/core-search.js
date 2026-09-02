@@ -184,7 +184,8 @@ window.applyCombinedFilter = function() {
             }
         });
         
-        counterTextTarget.textContent = `Selected (${checkedVisibleCount})`;
+        // counterTextTarget.textContent = `Selected (${checkedVisibleCount})`;
+        counterTextTarget.textContent = `${checkedVisibleCount} selected`;
     }
     // ============================================================================
 
