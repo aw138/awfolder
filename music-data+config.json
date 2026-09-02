@@ -3,15 +3,15 @@
 {
 "pageTitle": "Music",
 "filters": [
-{"jsonKey": "tag1","title": "A ... Z","labelWidth":55},
-{"jsonKey": "tag2","title": "Artist","labelWidth":55},
-{"jsonKey": "tag3","title": "Composer","labelWidth":55},
-{"jsonKey": "tag4","title": "Keyword","textColor": "#0000e6","labelWidth":55},
-{"jsonKey": "tag5","title": "Release","textColor": "#065f46","labelWidth":55},
-{"jsonKey": "tag6","title": "Language","labelWidth":55},
-{"jsonKey": "tag7","title": "Format","textColor": "#db582d","labelWidth":55},
-{"jsonKey": "tag8","title": "Made in","labelWidth":55},
-{"jsonKey": "tag9","title": "Added","dataType": "string","labelWidth":55}
+{"jsonKey": "tag1","title": "A ... Z","labelWidth":73},
+{"jsonKey": "tag2","title": "Artist","labelWidth":73},
+{"jsonKey": "tag3","title": "Composer","labelWidth":73},
+{"jsonKey": "tag4","title": "Keyword","textColor": "#0000e6","labelWidth":73},
+{"jsonKey": "tag5","title": "Release","textColor": "#065f46","labelWidth":73},
+{"jsonKey": "tag6","title": "Language","labelWidth":73},
+{"jsonKey": "tag7","title": "Format","textColor": "#db582d","labelWidth":73},
+{"jsonKey": "tag8","title": "Made in","labelWidth":73},
+{"jsonKey": "tag9","title": "Added","dataType": "string","labelWidth":73}
 ],
 "columns": [
 {"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
