@@ -199,15 +199,17 @@ window.updateAllSlicerButtonsUI = function(rows) {
         window.renderTargetedSlicerLayoutGroup(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr);
     });
 };
-// HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Dynamic Available Tabs Filter)
+// HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Fully Dynamic Badge Counters Engine)
 
 window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr) {
     const isTabEnabledForThisSlicer = filterConfig && filterConfig.useTab === true;
 
     if (isTabEnabledForThisSlicer) {
-        // MODULE A: THE DYNAMIC TAB DECK RENDERER (Hides unavailable keys)
+        // MODULE A: THE DYNAMIC TAB DECK RENDERER (Filters out empty tabs with dynamic badges)
         const alphaGroupsMap = {};
         const tabAvailabilityTracker = {};
+        const tabDynamicLiveCountMap = {}; // 🎯 Tracks ONLY available, clickable options per letter
+        let totalLiveAvailableOptionsInDrawer = 0; // 🎯 Tracks total available options across ALL letters
 
         tagsWithAvailability.forEach(tagObj => {
             const displayChar = tagObj.value.trim().charAt(0).toUpperCase();
@@ -216,19 +218,22 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
             if (!alphaGroupsMap[targetTabKey]) {
                 alphaGroupsMap[targetTabKey] = [];
                 tabAvailabilityTracker[targetTabKey] = false;
+                tabDynamicLiveCountMap[targetTabKey] = 0; // Initialize counter
             }
             alphaGroupsMap[targetTabKey].push(tagObj);
             
-            // Mark tab as active only if at least one choice inside contains live matches
+            // 🧠 🎯 DYNAMIC COUNT ENGINE: Only count options that match current cross-filters!
             if (tagObj.available) {
                 tabAvailabilityTracker[targetTabKey] = true;
+                tabDynamicLiveCountMap[targetTabKey]++; // Increment letter badge count dynamically
+                totalLiveAvailableOptionsInDrawer++; // Increment global master drawer count
             }
         });
 
         const tabDeckWrapper = document.createElement('div');
         tabDeckWrapper.className = 'slicer-alphabet-tab-deck';
         
-        // 🎯 FILTER OUT THE COLD KEYS: Only keep tabs that have true live matching records
+        // Filter out empty letter groups, keeping only active matching ones
         const sortedActiveTabKeys = Object.keys(alphaGroupsMap)
             .filter(key => tabAvailabilityTracker[key] === true)
             .sort((a, b) => {
@@ -236,22 +241,49 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
                 return a.localeCompare(b);
             });
 
+        // Append the "All" navigation master key to the end of the active tabs array
+        if (sortedActiveTabKeys.length > 0) {
+            sortedActiveTabKeys.push('All');
+            tabAvailabilityTracker['All'] = true; // Always selectable
+        }
+
         if (!window.activeSlicerTabStates) window.activeSlicerTabStates = {};
         
         let targetCurrentTab = window.activeSlicerTabStates[currentAttr];
         
-        // Auto-focus management: If our current letter has disappeared, focus the first remaining tab
-        if (!targetCurrentTab || !sortedActiveTabKeys.includes(targetCurrentTab)) {
-            targetCurrentTab = sortedActiveTabKeys[0] || '';
+        // Sequential Chronological Fallback Engine
+        const getNextClosestAvailableTabKey = () => {
+            if (tabAvailabilityTracker['A']) return 'A';
+            const nextValidLetterKey = sortedActiveTabKeys.find(key => key !== 'All');
+            return nextValidLetterKey || (sortedActiveTabKeys.includes('All') ? 'All' : '');
+        };
+
+        // Handle initial page load state mapping configuration rules
+        if (!targetCurrentTab) {
+            targetCurrentTab = getNextClosestAvailableTabKey();
+            window.activeSlicerTabStates[currentAttr] = targetCurrentTab;
+        }
+        
+        // Handle cross-filtering context shifts when choices disappear dynamically
+        if (!sortedActiveTabKeys.includes(targetCurrentTab) || !tabAvailabilityTracker[targetCurrentTab]) {
+            targetCurrentTab = getNextClosestAvailableTabKey();
             window.activeSlicerTabStates[currentAttr] = targetCurrentTab;
         }
 
-        // Draw Tab Navigation Elements (Only active letters are generated now)
+        // Draw Tab Navigation Elements (A-Z strings + "All" token button)
         sortedActiveTabKeys.forEach(tabCharKey => {
             const tabBtn = document.createElement('button');
             tabBtn.type = 'button';
             tabBtn.className = 'slicer-alpha-tab-btn' + (targetCurrentTab === tabCharKey ? ' active-tab' : '');
-            tabBtn.innerHTML = `${tabCharKey} <span class="tab-badge-count">(${alphaGroupsMap[tabCharKey].length})</span>`;
+            
+            // 🧠 🎯 INJECT DYNAMIC BADGE NUMBERS
+            if (tabCharKey === 'All') {
+                // Shows how many total options are clickable inside this drawer right now
+                tabBtn.innerHTML = `All <span class="tab-badge-count">(${totalLiveAvailableOptionsInDrawer})</span>`;
+            } else {
+                // Shows how many options under this specific letter match your active filters right now
+                tabBtn.innerHTML = `${tabCharKey} <span class="tab-badge-count">(${tabDynamicLiveCountMap[tabCharKey]})</span>`;
+            }
             
             tabBtn.onclick = (e) => {
                 e.stopPropagation(); 
@@ -268,7 +300,14 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
         const buttonsContainerNode = document.createElement('div');
         buttonsContainerNode.className = 'slicer-tabbed-buttons-grid';
         
-        const activeTabGroupItems = alphaGroupsMap[targetCurrentTab] || [];
+        // Draw either single letter arrays or merge everything for "All"
+        let activeTabGroupItems = [];
+        if (targetCurrentTab === 'All') {
+            activeTabGroupItems = tagsWithAvailability;
+        } else {
+            activeTabGroupItems = alphaGroupsMap[targetCurrentTab] || [];
+        }
+
         activeTabGroupItems.forEach(tagObj => {
             const btn = document.createElement('button'); 
             btn.type = 'button';
