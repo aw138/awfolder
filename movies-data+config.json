@@ -8,7 +8,7 @@
 {"jsonKey": "tag2","title": "Language","textColor": "#0000E6", "labelWidth":70,"useTab":false},
 {"jsonKey": "tag3","title": "Genre","textColor": "#065F46", "labelWidth":70,"useTab":false},
 {"jsonKey": "tag4","title": "Cinema","textColor": "#DB582D", "labelWidth":70,"useTab":false},
-{"jsonKey": "tag5","title": "Accompany", "labelWidth":70,"useTab":false}
+{"jsonKey": "tag5","title": "Accompany", "labelWidth":70,"useTab":true}
 ],
 "columns": [
 {"label": "Date","dataType": "string","isSortable":true,"width":90,"minWidth":90},
