@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 🎯 THE EXACT PLACE: Hooking up the global accordion toggle listener on line 25
+    // Hook up the global accordion toggle listener cleanly
     document.getElementById("globalSlicersToggleBtn")?.addEventListener("click", function() {
         if (typeof window.toggleAllSlicerDrawersGlobal === "function") {
             window.toggleAllSlicerDrawersGlobal();
         }
     });
 
-    // B. Initiate Cloud Data Connection Pipeline [INDEX: 0.1.98]
+    // B. Initiate Cloud Data Connection Pipeline
     const targetSourceUrl = window.APP_DATA_SOURCE_URL || "js/fallback-data.json";
 
     fetch(targetSourceUrl)
@@ -57,21 +57,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const columnConfigs = config.columns || [];
             const badgeSchema = config.statusBadges || {};
 
-            // BULLETPROOF RESTORATION ENGINE FOR POPULATING SAVED ROW CHECKBOXES 🔄 [INDEX: 0.1.98]
+            // CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP 🔄
             records.forEach(item => {
                 const tr = document.createElement("tr");
 
+                // Generate a non-colliding row signature index key
                 const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
                 const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
                 const initialCheckedMemoryState = savedCheckedKeysDatabase.includes(rowStorageKeySignature);
 
                 tr.setAttribute("data-row-key", rowStorageKeySignature);
-                tr.setAttribute("tag1", item.tag1 || "");
-                tr.setAttribute("tag2", item.tag2 || "");
-                tr.setAttribute("tag3", item.tag3 || "");
-                tr.setAttribute("tag4", item.tag4 || "");
-                tr.setAttribute("tag5", item.tag5 || "");
-                tr.setAttribute("tag6", item.tag6 || "");
+
+                // 🚀 THE DYNAMIC INJECTION: Automatically mapping tag attributes straight from your JSON file!
+                (window.activeFiltersSchema || []).forEach(filterConfig => {
+                    const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+                    if (item[cleanKey] !== undefined) {
+                        tr.setAttribute(cleanKey, item[cleanKey]);
+                    } else if (item.TAGS && item.TAGS[cleanKey] !== undefined) {
+                        tr.setAttribute(cleanKey, item.TAGS[cleanKey]);
+                    } else {
+                        tr.setAttribute(cleanKey, ""); // Safe default boundary fallback
+                    }
+                });
 
                 let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
 
@@ -134,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
 
+            // Initialize background calculations and triggers safely
             if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
             if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
             if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();

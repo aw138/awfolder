@@ -1,6 +1,6 @@
 /**
- * UI SLICER VIEW ENGINE
- * Renders Row 1 (Removable Chips) and Row 2 (Dropdown Selections Deck Drawer).
+ * HYBRID CONDITIONAL UI SLICER ENGINE - PART A
+ * Supports switchable conditional Tab layouts based on schema options profiles.
  */
 
 // 1. UNIVERSAL ROW FILTER BUILDER SYSTEM
@@ -9,9 +9,11 @@ window.initHorizontalFilters = function(rows) {
     if (!container) return;
     container.innerHTML = "";
 
-    (window.activeFiltersSchema || []).forEach(config => {
+    const filterSchema = window.activeFiltersSchema || [];
+
+    filterSchema.forEach((config, index) => {
         const cleanKey = String(config.jsonKey || "").replace('data-', '').replace('-', '').trim();
-        
+
         if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
         if (window.booleanLogicalModes[cleanKey] === undefined) window.booleanLogicalModes[cleanKey] = true;
         if (window.slicerExpandedStates[cleanKey] === undefined) window.slicerExpandedStates[cleanKey] = false;
@@ -19,6 +21,7 @@ window.initHorizontalFilters = function(rows) {
         const rowDiv = document.createElement('div');
         rowDiv.className = 'filter-row';
         rowDiv.dataset.attr = cleanKey;
+        rowDiv.style.setProperty('order', (index + 1), 'important');
 
         // ROW 1: HEADER CONTROLS (Label + Selected Chips Wrapper)
         const headerLine = document.createElement('div');
@@ -81,6 +84,7 @@ window.initHorizontalFilters = function(rows) {
     });
     window.updateAllSlicerButtonsUI(rows);
 };
+// HYBRID CONDITIONAL UI SLICER ENGINE - PART B (Paste directly beneath Part A)
 
 // 2. LIVE CHIP SELECTION RENDER LOOP
 window.updateAllSlicerButtonsUI = function(rows) {
@@ -127,115 +131,189 @@ window.updateAllSlicerButtonsUI = function(rows) {
         const customTextColor = filterConfig && filterConfig.textColor ? filterConfig.textColor : "";
         const assignedDataType = filterConfig && filterConfig.dataType ? filterConfig.dataType.toLowerCase() : "string";
 
-        // VERBATIM RESTORATION OF ORIGINAL SORT ENGINE CRITERIA RULES [INDEX: 0.1.16, 0.1.17]
+        // VERBATIM RESTORATION OF ORIGINAL SORT ENGINE CRITERIA RULES
         tagsWithAvailability.sort((a, b) => {
             if (a.available !== b.available) return a.available ? -1 : 1;
-            
-            const checkA = a.value.trim(); 
-            const checkB = b.value.trim();
+            const checkA = a.value.trim(); const checkB = b.value.trim();
             if (checkA === "None" || checkB === "None" || checkA === "" || checkB === "") return checkA === "None" ? 1 : -1;
 
-            // CASE A: Custom Priority Weights [INDEX: 0.1.16]
-            let priorityA = undefined; 
-            let priorityB = undefined;
+            // CASE A: Custom Priority Weights
+            let priorityA = undefined; let priorityB = undefined;
             const priorityRules = window.currentCustomSortPriority || {};
-            const strippedA = checkA.replace(/[\s¡]¡^()]/g, '');
-            const strippedB = checkB.replace(/[\s¡]¡^()]/g, '');
+            const strippedA = checkA.replace(/[\sï¼ˆï¼‰()]/g, ''); const strippedB = checkB.replace(/[\sï¼ˆï¼‰()]/g, '');
 
             for (const key in priorityRules) {
-                const cleanKey = key.trim().replace(/[\s¡]¡^()]/g, '');
+                const cleanKey = key.trim().replace(/[\sï¼ˆï¼‰()]/g, '');
                 if (strippedA === cleanKey || strippedA.startsWith(cleanKey)) priorityA = priorityRules[key];
                 if (strippedB === cleanKey || strippedB.startsWith(cleanKey)) priorityB = priorityRules[key];
             }
             if (priorityA !== undefined && priorityB !== undefined) return priorityA - priorityB;
-            if (priorityA !== undefined) return priorityA === 999 ? 1 : -1; 
+            if (priorityA !== undefined) return priorityA === 999 ? 1 : -1;
             if (priorityB !== undefined) return priorityB === 999 ? -1 : 1;
 
-            // CASE B: Explicit Date Timeline Sorting [INDEX: 0.1.16]
-            if (assignedDataType === "date") { 
-                const matchA = checkA.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/); 
-                const matchB = checkB.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/); 
-                if (matchA && matchB) { 
+            // CASE B: Explicit Date Timeline Sorting (ðŸŽ¯ THE EXACT TRACKING INDEX POINTERS REFIXED VERBATIM)
+            if (assignedDataType === "date") {
+                const matchA = checkA.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+                const matchB = checkB.match(/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+                if (matchA && matchB) {
                     const timeA = new Date(parseInt(matchA[1], 10), parseInt(matchA[2], 10) - 1, parseInt(matchA[3], 10)).getTime();
                     const timeB = new Date(parseInt(matchB[1], 10), parseInt(matchB[2], 10) - 1, parseInt(matchB[3], 10)).getTime();
                     return timeA - timeB;
-                } 
-            } 
+                }
+            }
 
-            // CASE C: Pure Mathematical Currency / Numerical Sorting [INDEX: 0.1.16, 0.1.17]
+            // CASE C: Pure Mathematical Currency / Numerical Sorting
             if (assignedDataType === "number") {
                 const numA = parseFloat(strippedA.replace(/[^\d.-]/g, '')) || 0;
                 const numB = parseFloat(strippedB.replace(/[^\d.-]/g, '')) || 0;
-                return numA - numB; 
+                return numA - numB;
             }
 
-            // CASE D: Pure Text ASCII-First character-by-character Sort Engine ??
-            const lenA = checkA.length;
-            const lenB = checkB.length;
-            const maxLen = Math.max(lenA, lenB);
-
+            // CASE D: Pure Text ASCII-First sort rules
+            const lenA = checkA.length; const lenB = checkB.length; const maxLen = Math.max(lenA, lenB);
             function getCharTier(ch) {
-                if (!ch) return 0;
-                const code = ch.charCodeAt(0);
-                if (code >= 0 && code <= 127) return 1;
-                if (code >= 0x4E00 && code <= 0x9FFF) return 2;
-                return 3;
+                if (!ch) return 0; const code = ch.charCodeAt(0);
+                if (code >= 0 && code <= 127) return 1; if (code >= 0x4E00 && code <= 0x9FFF) return 2; return 3;
             }
-
             let resolvedDiff = null;
             for (let i = 0; i < maxLen; i++) {
-                const charA = checkA[i] || "";
-                const charB = checkB[i] || "";
-
+                const charA = checkA[i] || ""; const charB = checkB[i] || "";
                 if (charA === "" && charB !== "") { resolvedDiff = -1; break; }
                 if (charA !== "" && charB === "") { resolvedDiff = 1; break; }
-
-                const tierA = getCharTier(charA);
-                const tierB = getCharTier(charB);
-
+                const tierA = getCharTier(charA); const tierB = getCharTier(charB);
                 if (tierA !== tierB) { resolvedDiff = tierA - tierB; break; }
-
                 if (tierA === 1) {
-                    const codeA = charA.charCodeAt(0);
-                    const codeB = charB.charCodeAt(0);
+                    const codeA = charA.charCodeAt(0); const codeB = charB.charCodeAt(0);
                     if (codeA !== codeB) { resolvedDiff = codeA - codeB; break; }
                 }
-
                 if (tierA === 2) {
-                    const suffixA = checkA.substring(i);
-                    const suffixB = checkB.substring(i);
+                    const suffixA = checkA.substring(i); const suffixB = checkB.substring(i);
                     const zhStrokeCollator = new Intl.Collator('zh-CN-u-co-stroke', { sensitivity: 'base' });
-                    resolvedDiff = zhStrokeCollator.compare(suffixA, suffixB);
-                    break;
+                    resolvedDiff = zhStrokeCollator.compare(suffixA, suffixB); break;
                 }
             }
-
             if (resolvedDiff !== null) return resolvedDiff;
         });
 
-        // Populate Row 2 Buttons
+        // Redirect safely onto rendering layers
+        window.renderTargetedSlicerLayoutGroup(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr);
+    });
+};
+// HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Adaptive Alphabet Engine)
+
+window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr) {
+    const isTabEnabledForThisSlicer = filterConfig && filterConfig.useTab === true;
+
+    if (isTabEnabledForThisSlicer) {
+        // MODULE A: THE ADAPTIVE TAB DECK RENDERER
+        const alphaGroupsMap = {};
+        const tabAvailabilityTracker = {}; // Tracks if a tab has live matching content
+
         tagsWithAvailability.forEach(tagObj => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
+            const displayChar = tagObj.value.trim().charAt(0).toUpperCase();
+            const targetTabKey = /[A-Z]/.test(displayChar) ? displayChar : '#';
+            
+            if (!alphaGroupsMap[targetTabKey]) {
+                alphaGroupsMap[targetTabKey] = [];
+                tabAvailabilityTracker[targetTabKey] = false;
+            }
+            alphaGroupsMap[targetTabKey].push(tagObj);
+            
+            // If at least one option inside this letter is available, flag the tab as true!
+            if (tagObj.available) {
+                tabAvailabilityTracker[targetTabKey] = true;
+            }
+        });
+
+        const tabDeckWrapper = document.createElement('div');
+        tabDeckWrapper.className = 'slicer-alphabet-tab-deck';
+        
+        const sortedActiveTabKeys = Object.keys(alphaGroupsMap).sort((a, b) => {
+            if (a === '#') return 1; if (b === '#') return -1; return a.localeCompare(b);
+        });
+
+        // ðŸ§  ðŸŽ¯ THE UX INTELLIGENCE: Auto-detect the best active tab
+        if (!window.activeSlicerTabStates) window.activeSlicerTabStates = {};
+        
+        let targetCurrentTab = window.activeSlicerTabStates[currentAttr];
+        
+        // If no tab is selected, or if the selected tab has zero available items, auto-focus the first letter with data!
+        if (!targetCurrentTab || !alphaGroupsMap[targetCurrentTab] || !tabAvailabilityTracker[targetCurrentTab]) {
+            const firstValidTabKey = sortedActiveTabKeys.find(key => tabAvailabilityTracker[key] === true);
+            // Fallback to the first physical tab key if the entire filter dataset yields 0 matching rows
+            targetCurrentTab = firstValidTabKey || sortedActiveTabKeys[0] || '';
+            window.activeSlicerTabStates[currentAttr] = targetCurrentTab;
+        }
+
+        // Draw Tab Navigation Elements
+        sortedActiveTabKeys.forEach(tabCharKey => {
+            const hasDataInCurrentContext = tabAvailabilityTracker[tabCharKey] === true;
+            const tabBtn = document.createElement('button');
+            tabBtn.type = 'button';
+            
+            // Visually fade tabs that don't match the current cross-filters
+            tabBtn.className = 'slicer-alpha-tab-btn' + 
+                               (targetCurrentTab === tabCharKey ? ' active-tab' : '') + 
+                               (!hasDataInCurrentContext ? ' empty-tab-state' : '');
+            
+            tabBtn.innerHTML = `${tabCharKey} <span class="tab-badge-count">(${alphaGroupsMap[tabCharKey].length})</span>`;
+            
+            // Disable click actions on tabs that contain no data for the current selection
+            if (hasDataInCurrentContext || targetCurrentTab === tabCharKey) {
+                tabBtn.onclick = (e) => {
+                    e.stopPropagation(); 
+                    window.activeSlicerTabStates[currentAttr] = tabCharKey; 
+                    window.updateAllSlicerButtonsUI(rows);
+                };
+            } else {
+                tabBtn.style.cursor = 'not-allowed';
+            }
+            tabDeckWrapper.appendChild(tabBtn);
+        });
+        if (sortedActiveTabKeys.length > 1) optionsDeck.appendChild(tabDeckWrapper);
+
+        const buttonsContainerNode = document.createElement('div');
+        buttonsContainerNode.className = 'slicer-tabbed-buttons-grid';
+        
+        const activeTabGroupItems = alphaGroupsMap[targetCurrentTab] || [];
+        activeTabGroupItems.forEach(tagObj => {
+            const btn = document.createElement('button'); btn.type = 'button';
+            btn.className = 'filter-item-btn' + (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
+            btn.textContent = tagObj.value;
+            if (customTextColor && !activeSet.has(tagObj.value) && tagObj.available) {
+                btn.style.setProperty('color', customTextColor, 'important'); btn.style.setProperty('border-color', customTextColor, 'important');
+            }
+            btn.onclick = () => {
+                window.activeSlicerKey = currentAttr;
+                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); else activeSet.add(tagObj.value);
+                window.applyCombinedFilter();
+            };
+            buttonsContainerNode.appendChild(btn);
+        });
+        optionsDeck.appendChild(buttonsContainerNode);
+
+    } else {
+        // MODULE B: ORIGINAL FLAT CHIP DECK (Maintained verbatim)
+        tagsWithAvailability.forEach(tagObj => {
+            const btn = document.createElement('button'); btn.type = 'button';
             btn.className = 'filter-item-btn' + (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
             btn.textContent = tagObj.value;
 
             if (customTextColor && !activeSet.has(tagObj.value) && tagObj.available) {
-                btn.style.setProperty('color', customTextColor, 'important');
-                btn.style.setProperty('border-color', customTextColor, 'important');
+                btn.style.setProperty('color', customTextColor, 'important'); btn.style.setProperty('border-color', customTextColor, 'important');
             }
-
-		btn.onclick = () => {
-			window.activeSlicerKey = currentAttr;
-			if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value);
-			else activeSet.add(tagObj.value);
-			window.applyCombinedFilter();
-			};
-		optionsDeck.appendChild(btn);
-			});
-	});
+            btn.onclick = () => {
+                window.activeSlicerKey = currentAttr;
+                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); else activeSet.add(tagObj.value);
+                window.applyCombinedFilter();
+            };
+            optionsDeck.appendChild(btn);
+        });
+    }
 };
-// GLOBAL BULLETPROOF SLICERS ACCORDION EXPANSION ENGINE ??
+// =============================================================
+// GLOBAL BULLETPROOF SLICERS ACCORDION EXPANSION ENGINE ðŸŽ¯
+// =============================================================
 window.toggleAllSlicerDrawersGlobal = function() {
     const globalBtn = document.getElementById("globalSlicersToggleBtn");
     if (!globalBtn) return;
@@ -246,28 +324,28 @@ window.toggleAllSlicerDrawersGlobal = function() {
     (window.activeFiltersSchema || []).forEach(config => {
         const cleanKey = String(config.jsonKey || "").replace('data-', '').replace('-', '').trim();
         
-        // 1. Update data variables states globally
+        // 1. Synchronize the state tracks globally across arrays [INDEX: 0.1.222]
         window.slicerExpandedStates[cleanKey] = shouldExpandAll;
 
-        // 2. Query individual row card deck panel drawers elements inside DOM tree
+        // 2. Query target layout container components inside the document tree [INDEX: 0.1.222]
         const optionsDeck = document.getElementById(`options-deck-${cleanKey}`);
         const rowEl = document.querySelector(`.filter-row[data-attr="${cleanKey}"]`);
         
         if (optionsDeck && rowEl) {
             const arrowBtn = rowEl.querySelector('.row-dropdown-expand-btn');
             
-            // 3. Force visually match open or closed drawers frames with +/- markers [INDEX: 0.1.50]
+            // 3. Force toggle display visibilities smoothly across standard and tabbed elements [INDEX: 0.1.222]
             if (shouldExpandAll) {
                 optionsDeck.classList.remove('hidden-drawer-state');
-                if (arrowBtn) arrowBtn.innerHTML = '&#8722;'; // Horizontal Minus sign
+                if (arrowBtn) arrowBtn.innerHTML = '&#8722;'; // Horizontal Minus sign [INDEX: 0.1.222]
             } else {
                 optionsDeck.classList.add('hidden-drawer-state');
-                if (arrowBtn) arrowBtn.innerHTML = '&#43;'; // Plus sign
+                if (arrowBtn) arrowBtn.innerHTML = '&#43;'; // Plus sign [INDEX: 0.1.222]
             }
         }
     });
 
-    // 4. Update the Master Button state visually
+    // 4. Toggle the Master Toggle Label State visually [INDEX: 0.1.222]
     if (shouldExpandAll) {
         globalBtn.textContent = "Collapse all";
         globalBtn.classList.add("collapse-active-state");

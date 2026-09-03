@@ -58,7 +58,7 @@ body {
     /* min-width: 0 !important;  */
 /* } */
 
-/* .search-container { /* <---not used */ */
+.search-container {} /* <---used by x mark in search box*/
     /* width: 35% !important;  */
     /* max-width: 215px !important;  */
     /* position: relative !important; */
