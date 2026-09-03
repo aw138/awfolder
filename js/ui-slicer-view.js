@@ -199,15 +199,15 @@ window.updateAllSlicerButtonsUI = function(rows) {
         window.renderTargetedSlicerLayoutGroup(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr);
     });
 };
-// HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Adaptive Alphabet Engine)
+// HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Dynamic Available Tabs Filter)
 
 window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr) {
     const isTabEnabledForThisSlicer = filterConfig && filterConfig.useTab === true;
 
     if (isTabEnabledForThisSlicer) {
-        // MODULE A: THE ADAPTIVE TAB DECK RENDERER
+        // MODULE A: THE DYNAMIC TAB DECK RENDERER (Hides unavailable keys)
         const alphaGroupsMap = {};
-        const tabAvailabilityTracker = {}; // Tracks if a tab has live matching content
+        const tabAvailabilityTracker = {};
 
         tagsWithAvailability.forEach(tagObj => {
             const displayChar = tagObj.value.trim().charAt(0).toUpperCase();
@@ -219,7 +219,7 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
             }
             alphaGroupsMap[targetTabKey].push(tagObj);
             
-            // If at least one option inside this letter is available, flag the tab as true!
+            // Mark tab as active only if at least one choice inside contains live matches
             if (tagObj.available) {
                 tabAvailabilityTracker[targetTabKey] = true;
             }
@@ -228,64 +228,62 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
         const tabDeckWrapper = document.createElement('div');
         tabDeckWrapper.className = 'slicer-alphabet-tab-deck';
         
-        const sortedActiveTabKeys = Object.keys(alphaGroupsMap).sort((a, b) => {
-            if (a === '#') return 1; if (b === '#') return -1; return a.localeCompare(b);
-        });
+        // 🎯 FILTER OUT THE COLD KEYS: Only keep tabs that have true live matching records
+        const sortedActiveTabKeys = Object.keys(alphaGroupsMap)
+            .filter(key => tabAvailabilityTracker[key] === true)
+            .sort((a, b) => {
+                if (a === '#') return 1; if (b === '#') return -1; 
+                return a.localeCompare(b);
+            });
 
-        // 🧠 🎯 THE UX INTELLIGENCE: Auto-detect the best active tab
         if (!window.activeSlicerTabStates) window.activeSlicerTabStates = {};
         
         let targetCurrentTab = window.activeSlicerTabStates[currentAttr];
         
-        // If no tab is selected, or if the selected tab has zero available items, auto-focus the first letter with data!
-        if (!targetCurrentTab || !alphaGroupsMap[targetCurrentTab] || !tabAvailabilityTracker[targetCurrentTab]) {
-            const firstValidTabKey = sortedActiveTabKeys.find(key => tabAvailabilityTracker[key] === true);
-            // Fallback to the first physical tab key if the entire filter dataset yields 0 matching rows
-            targetCurrentTab = firstValidTabKey || sortedActiveTabKeys[0] || '';
+        // Auto-focus management: If our current letter has disappeared, focus the first remaining tab
+        if (!targetCurrentTab || !sortedActiveTabKeys.includes(targetCurrentTab)) {
+            targetCurrentTab = sortedActiveTabKeys[0] || '';
             window.activeSlicerTabStates[currentAttr] = targetCurrentTab;
         }
 
-        // Draw Tab Navigation Elements
+        // Draw Tab Navigation Elements (Only active letters are generated now)
         sortedActiveTabKeys.forEach(tabCharKey => {
-            const hasDataInCurrentContext = tabAvailabilityTracker[tabCharKey] === true;
             const tabBtn = document.createElement('button');
             tabBtn.type = 'button';
-            
-            // Visually fade tabs that don't match the current cross-filters
-            tabBtn.className = 'slicer-alpha-tab-btn' + 
-                               (targetCurrentTab === tabCharKey ? ' active-tab' : '') + 
-                               (!hasDataInCurrentContext ? ' empty-tab-state' : '');
-            
+            tabBtn.className = 'slicer-alpha-tab-btn' + (targetCurrentTab === tabCharKey ? ' active-tab' : '');
             tabBtn.innerHTML = `${tabCharKey} <span class="tab-badge-count">(${alphaGroupsMap[tabCharKey].length})</span>`;
             
-            // Disable click actions on tabs that contain no data for the current selection
-            if (hasDataInCurrentContext || targetCurrentTab === tabCharKey) {
-                tabBtn.onclick = (e) => {
-                    e.stopPropagation(); 
-                    window.activeSlicerTabStates[currentAttr] = tabCharKey; 
-                    window.updateAllSlicerButtonsUI(rows);
-                };
-            } else {
-                tabBtn.style.cursor = 'not-allowed';
-            }
+            tabBtn.onclick = (e) => {
+                e.stopPropagation(); 
+                window.activeSlicerTabStates[currentAttr] = tabCharKey; 
+                window.updateAllSlicerButtonsUI(rows);
+            };
             tabDeckWrapper.appendChild(tabBtn);
         });
-        if (sortedActiveTabKeys.length > 1) optionsDeck.appendChild(tabDeckWrapper);
+        
+        if (sortedActiveTabKeys.length > 1) {
+            optionsDeck.appendChild(tabDeckWrapper);
+        }
 
         const buttonsContainerNode = document.createElement('div');
         buttonsContainerNode.className = 'slicer-tabbed-buttons-grid';
         
         const activeTabGroupItems = alphaGroupsMap[targetCurrentTab] || [];
         activeTabGroupItems.forEach(tagObj => {
-            const btn = document.createElement('button'); btn.type = 'button';
+            const btn = document.createElement('button'); 
+            btn.type = 'button';
             btn.className = 'filter-item-btn' + (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
             btn.textContent = tagObj.value;
+            
             if (customTextColor && !activeSet.has(tagObj.value) && tagObj.available) {
-                btn.style.setProperty('color', customTextColor, 'important'); btn.style.setProperty('border-color', customTextColor, 'important');
+                btn.style.setProperty('color', customTextColor, 'important'); 
+                btn.style.setProperty('border-color', customTextColor, 'important');
             }
+            
             btn.onclick = () => {
                 window.activeSlicerKey = currentAttr;
-                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); else activeSet.add(tagObj.value);
+                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); 
+                else activeSet.add(tagObj.value);
                 window.applyCombinedFilter();
             };
             buttonsContainerNode.appendChild(btn);
@@ -295,16 +293,20 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
     } else {
         // MODULE B: ORIGINAL FLAT CHIP DECK (Maintained verbatim)
         tagsWithAvailability.forEach(tagObj => {
-            const btn = document.createElement('button'); btn.type = 'button';
+            const btn = document.createElement('button'); 
+            btn.type = 'button';
             btn.className = 'filter-item-btn' + (activeSet.has(tagObj.value) ? ' active' : (!tagObj.available ? ' disabled-tag' : ''));
             btn.textContent = tagObj.value;
 
             if (customTextColor && !activeSet.has(tagObj.value) && tagObj.available) {
-                btn.style.setProperty('color', customTextColor, 'important'); btn.style.setProperty('border-color', customTextColor, 'important');
+                btn.style.setProperty('color', customTextColor, 'important'); 
+                btn.style.setProperty('border-color', customTextColor, 'important');
             }
+            
             btn.onclick = () => {
                 window.activeSlicerKey = currentAttr;
-                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); else activeSet.add(tagObj.value);
+                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); 
+                else activeSet.add(tagObj.value);
                 window.applyCombinedFilter();
             };
             optionsDeck.appendChild(btn);
