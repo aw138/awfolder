@@ -5,7 +5,7 @@
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","dataType": "number","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","dataType": "number","useTab":true,"labelWidth":55},
 {"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
 {"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
