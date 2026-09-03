@@ -1,38 +1,43 @@
 {
 "CONFIG":
 {
-"pageTitle": "Movies",
-
+"pageTitle": "Music",
 "filters": [
-{"jsonKey": "tag1","title": "Watch Year", "labelWidth":70},
-{"jsonKey": "tag2","title": "Language","textColor": "#0000E6", "labelWidth":70},
-{"jsonKey": "tag3","title": "Genre","textColor": "#065F46", "labelWidth":70},
-{"jsonKey": "tag4","title": "Cinema","textColor": "#DB582D", "labelWidth":70},
-{"jsonKey": "tag5","title": "Accompany", "labelWidth":70}
+{"jsonKey": "tag1","title": "A ... Z","useTab":false,"labelWidth":73},
+{"jsonKey": "tag2","title": "Artist","useTab":true,"labelWidth":73},
+{"jsonKey": "tag3","title": "Composer","useTab":true,"labelWidth":73},
+{"jsonKey": "tag4","title": "Keyword","textColor": "#0000e6","useTab":false,"labelWidth":73},
+{"jsonKey": "tag5","title": "Release","textColor": "#065f46","useTab":false,"labelWidth":73},
+{"jsonKey": "tag6","title": "Language","useTab":false,"labelWidth":73},
+{"jsonKey": "tag7","title": "Format","textColor": "#db582d","useTab":false,"labelWidth":73},
+{"jsonKey": "tag8","title": "Made in","useTab":false,"labelWidth":73},
+{"jsonKey": "tag9","title": "Added","dataType": "string","useTab":false,"labelWidth":73}
 ],
 "columns": [
-{"label": "Date","dataType": "string","isSortable":true,"width":90,"minWidth":90},
-{"label": "Title","dataType": "string","isSortable":true,"width":200,"minWidth":200},
-{"label": "Lanuage","dataType": "string","textColor": "#0000E6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
-{"label": "Genre","dataType": "string","textColor": "#065F46","isSortable":true, "alignRight":false,"width":120,"minWidth":120},
-{"label": "Cinema","dataType": "string","textColor": "#DB582D","isSortable":true,"width":90,"minWidth":90},
-{"label": "Accompany","dataType": "string","isSortable":true,"width":140,"minWidth":140}
+{"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
+{"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":100},
+{"label": "Composer","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":73},
+{"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":220,"minWidth":110},
+{"label": "Release","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":80},
+{"label": "Language","dataType": "string","isSortable":true,"width":100,"minWidth":80},
+{"label": "Made in","dataType": "string","isSortable":true,"width":95,"minWidth":80},
+{"label": "Added","dataType": "string","isSortable":true,"width":90,"minWidth":80,"isCurrency":false,"precision": 0},
+{"label": "Format","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":85}
 ],
 "customSortPriority": {
-"(None)":999,
-"English":1,
-"Cantonese":2,
-"Mandarin":3
+"春季":1,
+"(Unknown)":999
 },
 "statusBadges": {
-"English":{"label": "English", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
-"Cantonese":{"label": "Cantonese", "bg": "#66C3FF","text": "#1b3b59","border": "#1b3b59"},
-"Mandarin":{"label": "Mandarin", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
-"已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
+"cd":{"label": "CD", "bg": "#00e050","text": "#202020","border": "#202020"},
+"digital":{"label": "Digital", "bg": "#eeee00","text": "#111111","border": "#111111"},
+"sacd":{"label": "SACD", "bg": "#ee9999","text": "#111111","border": "#111111"},
+"bd":{"label": "BD", "bg": "#a5a5DD","text": "#0000FF","border": "#0000FF"}
 }
 },
 "DATA":
 [
+
 {"tag1":1977, "tag2": "English", "tag3": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "tag4": "Washington 華盛頓", "tag5": "Lam Paul", "val1": "1977/11/4 (Fri)", "val2": "The Deep (1977)<BR>《深深深》", "val3": "English", "val4": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "val5": "Washington 華盛頓", "val6": "Lam Paul"},
 {"tag1":1977, "tag2": "English", "tag3": "Horror 恐怖", "tag4": "Rex 文華", "tag5": "Lam Paul; Choi Chi Yung; Yeung Man Fai", "val1": "1977/11/12 (Sat)", "val2": "Exorcist II: The Heretic (1977)<BR>《驅魔人續集》", "val3": "English", "val4": "Horror 恐怖", "val5": "Rex 文華", "val6": "Lam Paul; Choi Chi Yung; Yeung Man Fai"},
 {"tag1":1977, "tag2": "English", "tag3": "Horror 恐怖; Sci-Fi 科幻", "tag4": "Washington 華盛頓", "tag5": "Lam Paul; Choi Chi Yung", "val1": "1977/11/26 (Sat)", "val2": "The Blob (1958)<BR>《星球怪物》", "val3": "English", "val4": "Horror 恐怖; Sci-Fi 科幻", "val5": "Washington 華盛頓", "val6": "Lam Paul; Choi Chi Yung"},
