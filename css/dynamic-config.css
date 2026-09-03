@@ -20,7 +20,8 @@
     box-sizing: border-box !important;
     padding: 3px 3px !important;
     border-bottom: 1px solid #c1c5cb !important;
-    background-color: #eef1f1 !important;
+    /* background-color: #eef1f1 !important; */
+    background-color: #cdf2fa !important; /*adjust slicers bg colour*/
     gap: 2px !important;
 }
 /* 🏷️ FILTER TITLE LABELS: Styled and padded to anchor cleanly with button text */
@@ -211,7 +212,8 @@
     width: 100% !important;
     box-sizing: border-box !important;
     padding: 4px 4px !important;
-    background-color: #aaaaDD !important;
+    /* background-color: #aaaaDD !important; */
+    background-color: #344d80 !important; /*adjust slicer button area bg color*/
     border: 1px solid #6666AA !important;
     border-radius: 4px !important;
     margin-top: 0px !important;
@@ -437,20 +439,25 @@
     flex-wrap: wrap !important;
     gap: 2px !important;
     width: 100% !important;
-    background-color: #f1f5f9 !important;
+    /* background-color: #f1f5f9 !important; */
+    background-color: #eda09d !important; /*adjust slicer tab bg colour*/
     padding: 3px !important;
-    border-bottom: 1px solid #cbd5e1 !important;
+    /* border-bottom: 1px solid #cbd5e1 !important; */
+    border-bottom: 1px solid #000000 !important;/*adjust slicer tab bottom */
     box-sizing: border-box !important;
 }
 
 /* Individual Navigation Alphabet Characters buttons */
 .slicer-alpha-tab-btn {
     background-color: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+    /* border: 1px solid #cbd5e1 !important; */
+    border: 1px solid #843d3a !important; /*adjust slicer tab btn border*/
     color: #475569 !important;
-    font-size: 0.78rem !important;
+    /* font-size: 0.78rem !important; */
+    font-size: 1.0rem !important;
     font-weight: bold !important;
-    padding: 2px 6px !important;
+    /* padding: 2px 6px !important; */
+    padding: 2px 3px !important;
     border-radius: 4px !important;
     cursor: pointer !important;
     display: inline-flex !important;
@@ -481,7 +488,8 @@
 
 /* Tiny inner badge tracking number counts inside character sets */
 .tab-badge-count {
-    font-size: 0.68rem !important;
+    /* font-size: 0.68rem !important; */
+    font-size: 0.8rem !important;
     opacity: 0.75 !important;
     font-weight: normal !important;
 }
