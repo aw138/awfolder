@@ -21,7 +21,7 @@
     padding: 3px 3px !important;
     border-bottom: 1px solid #c1c5cb !important;
     /* background-color: #eef1f1 !important; */
-    background-color: #cdf2fa !important; /*adjust slicers bg colour*/
+    background-color: #d8f7d2 !important; /*adjust slicers bg colour*/
     gap: 2px !important;
 }
 /* 🏷️ FILTER TITLE LABELS: Styled and padded to anchor cleanly with button text */
@@ -213,7 +213,7 @@
     box-sizing: border-box !important;
     padding: 4px 4px !important;
     /* background-color: #aaaaDD !important; */
-    background-color: #344d80 !important; /*adjust slicer button area bg color*/
+    background-color: #b0bdae !important; /*adjust slicer button area bg color*/
     border: 1px solid #6666AA !important;
     border-radius: 4px !important;
     margin-top: 0px !important;
