@@ -7,7 +7,7 @@
 {"jsonKey": "tag2","title": "Artist","useTab":true,"labelWidth":73},
 {"jsonKey": "tag3","title": "Composer","textColor": "#065f46","useTab":true,"labelWidth":73},
 {"jsonKey": "tag4","title": "Release","useTab":false,"labelWidth":73},
-{"jsonKey": "tag5","title": "Keyword","textColor": "#0000e6","useTab":false,"labelWidth":73},
+{"jsonKey": "tag5","title": "Genres","textColor": "#0000e6","useTab":false,"labelWidth":73},
 {"jsonKey": "tag6","title": "Format","useTab":false,"labelWidth":73},
 {"jsonKey": "tag7","title": "Made in","textColor": "#db582d","useTab":false,"labelWidth":73},
 {"jsonKey": "tag8","title": "Added","dataType": "string","useTab":false,"labelWidth":73}
@@ -16,7 +16,7 @@
 {"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
 {"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":100},
 {"label": "Composer","dataType": "string","textColor": "#065f46","isSortable":true, "alignRight":false,"width":100,"minWidth":73},
-{"label": "Keyword","dataType": "string","textColor": "#0000e6","isSortable":true,"width":220,"minWidth":110},
+{"label": "Genres","dataType": "string","textColor": "#0000e6","isSortable":true,"width":220,"minWidth":110},
 {"label": "Release","dataType": "string","isSortable":true,"width":95,"minWidth":80},
 {"label": "Language","dataType": "string","isSortable":true,"width":100,"minWidth":80},
 {"label": "Made in","dataType": "string","textColor": "#db582d","isSortable":true,"width":95,"minWidth":80},
