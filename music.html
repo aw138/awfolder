@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
+    <title>Music</title>
 	<!-- v.7.3 Tabs inside slicers -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
@@ -71,6 +71,7 @@
 			
 			</div>
 		</div>
+
         <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
         <div class="filter-dashboard-panel">
             <div id="horizontalFiltersContainer" class="horizontal-filters-container"></div>
@@ -86,12 +87,15 @@
                                 <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
                             </th>
                             <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
-                            <th class="sortable">Date<span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Title<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Album<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Artist<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Composer<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Keyword<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Release<span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Language<span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Genres<span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Cinema<span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Accompany<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Made in<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Added<span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Format<span class="sort-icon-trigger"></span></th>
                         </tr>
                     </thead>
                     <tbody id="tableBody"></tbody>
@@ -103,7 +107,7 @@
 
     <!-- Sequential Script Dependencies Layer Injection -->
 	<script>
-        window.APP_DATA_SOURCE_URL = "https://aw138.github.io/awfolder/movies-data+config.json";
+        window.APP_DATA_SOURCE_URL = "https://aw138.github.io/awfolder/music-data+config.json";
 	</script>
     <script src="js/ui-core.js"></script>
     <script src="js/ui-slicer-state.js"></script>

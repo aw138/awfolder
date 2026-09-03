@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Data</title>
-	<!-- v.7.2.3 Reorder right DIV -->
+	<!-- v.7.3 Tabs inside slicers -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -14,63 +14,63 @@
 <body>
 
     <div class="app-viewport-wrapper">
-    <!-- CONTAINER 1: SEARCH, FILTERS AND CHECKBOX SELECTION FILTER -->
-    <div class="top-search-panel">
-      
-      <!-- ROW 1: Search & Reset on Left, Page Title in Center, Font & Dashboard Controls on Right -->
-      <div class="panel-row-one">
-        
-        <!-- Row 1 Left DIV (Search Box Container) -->
-        <div class="r1-left-container">
-          <div class="search-wrapper">
-            <input type="text" id="tableSearch" class="search-box" placeholder="Search ...">
-            <button type="button" id="clearSearchBtn" class="custom-clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
-          </div>
-        </div>
-        
-        <!-- Title Slot Centered Automatically -->
-        <div class="panel-row-center-title">
-          <span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
-        </div>
-        
-        <!-- Row 1 Right DIV (Font & Dashboard Collapse Controls) -->
-        <div class="r1-right-container">
-          <div class="font-buttons-subgroup">
-            <button type="button" id="decreaseFontBtn" class="font-ctrl-btn small-a" aria-label="Decrease text size">A-</button>
-            <button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
-          </div>
-          <button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
-        </div>
-        
-      </div>
-      
-      <!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
-      <div class="panel-row-two">
-        
-        <!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
-        <div class="r2-left-container">
-          <div class="manual-check-filter-box">
-            <label id="checkedFilterLabel" class="show-checked-filter-label">
-              <input type="checkbox" id="showCheckedOnlyToggle">
-              <span id="checkedFilterCounterText">Selected (0)</span>
-            </label>
-          </div>
-          <button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
-        </div>
-        
-        <!-- Row 2 Center Badge Slot -->
-        <div class="panel-row-two-center-slot">
-          <!-- Maintained empty for background coordinate baseline rendering layout hooks -->
-        </div>
-        
-        <!-- Row 2 Right DIV (Counter Badge & Expand/Collapse Toggle Button) -->
-        <div class="r2-right-container">
-          <span id="tableResultsCounter" class="results-counter-badge"></span>
-          <button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
-        </div>
-        
-      </div>
-    </div>
+		<!-- CONTAINER 1: SEARCH, FILTERS AND CHECKBOX SELECTION FILTER -->
+		<div class="top-search-panel">
+		  
+			<!-- ROW 1: Search & Reset on Left, Page Title in Center, Font & Dashboard Controls on Right -->
+			<div class="panel-row-one">
+		
+				<!-- Row 1 Left DIV (Search Box Container) -->
+				<div class="r1-left-container">
+					<div class="search-wrapper">
+						<input type="text" id="tableSearch" class="search-box" placeholder="Search ...">
+						<button type="button" id="clearSearchBtn" class="custom-clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+					</div>
+				</div>
+				
+				<!-- Title Slot Centered Automatically -->
+				<div class="panel-row-center-title">
+					<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+				</div>
+				
+				<!-- Row 1 Right DIV (Font & Dashboard Collapse Controls) -->
+				<div class="r1-right-container">
+					<div class="font-buttons-subgroup">
+						<button type="button" id="decreaseFontBtn" class="font-ctrl-btn small-a" aria-label="Decrease text size">A-</button>
+						<button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
+					</div>
+					<button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
+				</div>
+		
+			</div>
+		  
+			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
+			<div class="panel-row-two">
+			
+				<!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
+				<div class="r2-left-container">
+					<div class="manual-check-filter-box">
+						<label id="checkedFilterLabel" class="show-checked-filter-label">
+							<input type="checkbox" id="showCheckedOnlyToggle">
+							<span id="checkedFilterCounterText">Selected (0)</span>
+						</label>
+					</div>
+						<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+				</div>
+				
+				<!-- Row 2 Center Badge Slot -->
+				<div class="panel-row-two-center-slot">
+					<!-- Maintained empty for background coordinate baseline rendering layout hooks -->
+				</div>
+				
+				<!-- Row 2 Right DIV (Counter Badge & Expand/Collapse Toggle Button) -->
+				<div class="r2-right-container">
+					<span id="tableResultsCounter" class="results-counter-badge"></span>
+					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
+				</div>
+			
+			</div>
+		</div>
 
         <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
         <div class="filter-dashboard-panel">
