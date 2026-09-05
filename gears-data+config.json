@@ -15,7 +15,7 @@
 {"label": "Date","dataType": "date","isSortable":true,"width":180,"minWidth":110},
 {"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":95,"minWidth":95},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":95},
-{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":65,"minWidth":65,"isCurrency":false,"precision": 0},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":60,"minWidth":60,"isCurrency":false,"precision": 0},
 {"label": "Description","dataType": "string","isSortable":true, "alignRight":false,"width":155,"minWidth":110},
 {"label": "Camera","dataType": "string","textColor": "#db582d","isSortable":true,"width":90,"minWidth":85},
 {"label": "Lens","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
@@ -24,6 +24,8 @@
 "customSortPriority": {
 "No":999,
 "1.4xIII":999,
+"中國":1,
+"澳門":2,
 "台灣":3
 },
 "statusBadges": {
@@ -33,6 +35,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "Japan", "tag3": "本州", "tag4": "7", "tag5": "B200", "tag6": "CZ50;Pentagon135", "tag7": "Tripod", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "Japan", "val3": "本州", "val4": "7", "val5": "本州迪士尼筑波七天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Tripod"},
 {"tag1": "1987", "tag2": "Thailand", "tag3": "曼谷; 布吉; 巴提雅", "tag4": "7", "tag5": "B200;Ricoh AF50", "tag6": "CZ50;Pentagon135;Tamron28-50", "tag7": "Tripod", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "Thailand", "val3": "曼谷; 布吉; 巴提雅", "val4": "7", "val5": "曼谷，布吉，巴提雅", "val6": "B200;Ricoh AF50", "val7": "CZ50;Pentagon135;Tamron28-50", "val8": "Tripod"},
