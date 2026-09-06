@@ -311,7 +311,7 @@
 /* Row 1 Left DIV: Search Container Bounds */
 .r1-left-container {
     width: 28% !important;       /*adjust search box width %*/
-    min-width: 175px !important; /*adjust search box min-width*/
+    min-width: 130px !important; /*adjust search box min-width*/
     max-width: 215px !important; /*adjust search box max-width*/
     box-sizing: border-box !important;
     display: flex !important;
@@ -383,7 +383,7 @@
 /* Row 2 Right DIV: Counter Badge & Expand/Collapse Toggle Group */
 .r2-right-container {
     width: 17% !important;			/*adjust right width % */
-    min-width: 140px !important;	/*adjust min-width of two btns */
+    min-width: 170px !important;	/*adjust min-width of two btns */
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
@@ -480,7 +480,7 @@
 }
 
 .slicer-alpha-tab-btn:hover {
-    background-color: #e2e8f0 !important;
+    background-color: #d2d8e0 !important; /*Adjust alphabet hover bg color*/
     color: #1e293b !important;
 }
 
