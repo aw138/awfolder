@@ -311,7 +311,7 @@
 /* Row 1 Left DIV: Search Container Bounds */
 .r1-left-container {
     width: 28% !important;       /*adjust search box width %*/
-    min-width: 100px !important; /*adjust search box min-width*/
+    min-width: 175px !important; /*adjust search box min-width*/
     max-width: 215px !important; /*adjust search box max-width*/
     box-sizing: border-box !important;
     display: flex !important;
