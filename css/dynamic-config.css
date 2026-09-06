@@ -171,9 +171,12 @@
 
 /* AND/OR Operator Logic Custom Selector */
 .boolean-logic-toggle-btn {
-    background-color: #ffffff !important;
-    border: 1px solid #748D92 !important;
-    color: #124E66 !important;
+    /* background-color: #ffffff !important; */
+    background-color: #4c913f !important; /*adjust AND toggle btn bg color*/
+    /* border: 1px solid #748D92 !important; */
+    border: 1px solid #005500 !important; /*adjust AND toggle btn border color*/
+    /* color: #124E66 !important; */
+    color: #ffffff !important; /*adjust AND toggle btn color*/
     padding: 3px 6px !important;
     font-size: 0.85rem !important;
     font-weight: 700 !important;
@@ -254,9 +257,10 @@
 /* --- GLOBAL WORKSPACE EXPAND ACCORDION BUTTON --- */
 .global-slicers-expand-btn {
     /* background-color: #ffffff !important; */
-    background-color: #aaaadd !important;
+    /* background-color: #aaaadd !important; */
+    background-color: #a0ad9e !important; /*Adjust Expand all btn bg color*/
     border: 1px solid #748D92 !important;
-    color: #1E2934 !important;
+    color: #1E1924 !important;
     border-radius: 6px !important;
     cursor: pointer !important; /* 🌟 THE FIX: Enforces a clickable finger pointer mouse icon */
     font-weight: bold !important;
@@ -273,8 +277,9 @@
 
 /* Hover Accent Action Glow */
 .global-slicers-expand-btn:hover {
-    background-color: #124E66 !important;
-    color: #ffffff !important;
+    /* background-color: #124E66 !important; */
+    background-color: #a0ad9e !important; /*Adjust expand all btn bg hover color*/
+    color: #ffffff !important;            /*Adjust expand all btn text hover color*/
     border-color: #124E66 !important;
 }
 
@@ -305,7 +310,7 @@
 
 /* Row 1 Left DIV: Search Container Bounds */
 .r1-left-container {
-    width: 25% !important;       /*adjust search box width %*/
+    width: 28% !important;       /*adjust search box width %*/
     min-width: 100px !important; /*adjust search box min-width*/
     max-width: 215px !important; /*adjust search box max-width*/
     box-sizing: border-box !important;
@@ -320,7 +325,7 @@
 
 /* Row 1 Right DIV: Font Size & Arrow Toggle Container */
 .r1-right-container {
-    width: 18% !important; 			/*adjust right width % */
+    width: 17% !important; 			/*adjust right width % */
     min-width: 120px !important;	/*adjust right min-width */
     /* max-width: 160px !important; */
     box-sizing: border-box !important;
@@ -352,7 +357,7 @@
 
 /* Row 2 Left DIV: Checkbox Toggle & Show All Container */
 .r2-left-container {
-    width: 25% !important; /*adjust % width of Row 2 left */
+    width: 28% !important; /*adjust % width of Row 2 left */
     min-width: 170px !important; /*adjust min-width of Row 2 left */
     max-width: 215px !important; /*adjust max-width of Row 2 left */
     box-sizing: border-box !important;
@@ -377,7 +382,7 @@
 
 /* Row 2 Right DIV: Counter Badge & Expand/Collapse Toggle Group */
 .r2-right-container {
-    width: 18% !important;			/*adjust right width % */
+    width: 17% !important;			/*adjust right width % */
     min-width: 140px !important;	/*adjust min-width of two btns */
     box-sizing: border-box !important;
     display: flex !important;
@@ -386,7 +391,7 @@
 }
 /* Counter badge component occupies 50% split width space */
 .r2-right-container .results-counter-badge {
-    width: 50% !important; /*adjust % width of counter badge */
+    width: 55% !important; /*adjust % width of counter badge */
     flex: none !important; /* Wipes out old 1fr stretch blocks to preserve 50% size layout bounds */
     min-width: 0 !important;
     max-width: none !important;
@@ -395,7 +400,7 @@
 }
 /* Global Accordion Expand/Collapse master toggle button occupies exactly 50% split width space */
 .r2-right-container .global-slicers-expand-btn {
-    width: 49% !important; /*adjust % width of Expand btn */
+    width: 44% !important; /*adjust % width of Expand btn */
     height: 29px !important; /*adjust height of Expand btn */
     padding: 0px 1px!important;
     flex-shrink: 0 !important;

@@ -108,14 +108,6 @@ body {
 	box-sizing: border-box !important;
 }
 
-/* MOBILE VIEWS - UPDATE BOTH AT THE SAME BREAKPOINT */
-@media screen and (max-width: 768px) {
-.font-size-controls,
-.row-two-right-group { 
-	width: 20% !important;      /* 👈 Both expand together to 30% on mobile screens */
-	}
-}
-
 .custom-clear-btn { 
     position: absolute; 
     right: 5px; 
