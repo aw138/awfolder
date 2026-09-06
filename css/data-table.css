@@ -23,7 +23,7 @@
 .show-checked-filter-label { 
     display: inline-flex; 
     align-items: center; 
-    gap: 6px; /* Adjust spacing between checkbox and label */
+    gap: 4px; /* Adjust spacing between checkbox and label */
     font-size: 0.93rem; 
     font-weight: 600; 
     color: #1e293b; 
