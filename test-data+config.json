@@ -1,7 +1,7 @@
 {
 "CONFIG":
 {
-"pageTitle": "Test Data",
+"pageTitle": "Test",
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
