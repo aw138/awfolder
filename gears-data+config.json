@@ -1,7 +1,7 @@
 {
 "CONFIG":
 {
-"pageTitle": "Travel Gears",
+"pageTitle": "Gears",
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Country","textColor": "#0000e6","useTab":false,"labelWidth":55},
