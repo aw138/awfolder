@@ -23,20 +23,20 @@
 .show-checked-filter-label { 
     display: inline-flex; 
     align-items: center; 
-    gap: 0px; /* Adjust spacing between checkbox and label */
+    gap: 3px; /* Adjust spacing between checkbox and label */
     font-size: 0.93rem; 
     font-weight: 600; 
     color: #1e293b; 
     cursor: pointer; 
     user-select: none; 
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .show-checked-filter-label input[type="checkbox"] { 
     width: 15px; 
     height: 15px; 
     cursor: pointer; 
-    margin: 0; 
+    margin: 0;
 }
 
 .manual-check-filter-box { 
