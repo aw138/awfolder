@@ -2,6 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "Music",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"OR"
+},
 "filters": [
 {"jsonKey": "tag1","title": "Language","useTab":false,"labelWidth":73},
 {"jsonKey": "tag2","title": "Artist","useTab":true,"labelWidth":73},
@@ -36,6 +40,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "English", "tag2": "Various", "tag3": "", "tag4": "", "tag5": "Oldies;Compilation", "tag6": "Digital", "tag7": "(Unknown)", "tag8": "", "val1": "Popular Favourites Of Yesterday", "val2": "Various", "val3": "", "val4": "Oldies;Compilation", "val5": "", "val6": "English", "val7": "(Unknown)", "val8": "", "val9": "Digital"},
 {"tag1": "English", "tag2": "Various", "tag3": "", "tag4": "", "tag5": "Compilation", "tag6": "Digital", "tag7": "(Unknown)", "tag8": "", "val1": "All My Loving CD 1", "val2": "Various", "val3": "", "val4": "Compilation", "val5": "", "val6": "English", "val7": "(Unknown)", "val8": "", "val9": "Digital"},
