@@ -2,6 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"OR"
+},
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Country","textColor": "#0000e6","useTab":false,"labelWidth":55},
@@ -35,6 +39,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "Japan", "tag3": "本州", "tag4": "7", "tag5": "B200", "tag6": "CZ50;Pentagon135", "tag7": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "7", "val3": "Japan", "val4": "本州", "val5": "本州迪士尼筑波七天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Velbon HG-4"},
 {"tag1": "1987", "tag2": "Thailand", "tag3": "曼谷; 布吉; 巴提雅", "tag4": "7", "tag5": "B200;Ricoh AF50", "tag6": "CZ50;Pentagon135;Tamron28-50", "tag7": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "7", "val3": "Thailand", "val4": "曼谷; 布吉; 巴提雅", "val5": "曼谷，布吉，巴提雅", "val6": "B200;Ricoh AF50", "val7": "CZ50;Pentagon135;Tamron28-50", "val8": "Velbon HG-4"},

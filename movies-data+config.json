@@ -3,6 +3,10 @@
 {
 "pageTitle": "Movies",
 
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"OR"
+},
 "filters": [
 {"jsonKey": "tag1","title": "Watch Year", "labelWidth":70,"useTab":false},
 {"jsonKey": "tag2","title": "Language","textColor": "#0000E6", "labelWidth":70,"useTab":false},
@@ -33,7 +37,6 @@
 },
 "DATA":
 [
-
 
 {"tag1":1977, "tag2": "English", "tag3": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "tag4": "Washington 華盛頓", "tag5": "Lam Paul", "val1": "1977/11/4 (Fri)", "val2": "The Deep (1977)<BR>《深深深》", "val3": "English", "val4": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "val5": "Washington 華盛頓", "val6": "Lam Paul"},
 {"tag1":1977, "tag2": "English", "tag3": "Horror 恐怖", "tag4": "Rex 文華", "tag5": "Lam Paul; Choi Chi Yung; Yeung Man Fai", "val1": "1977/11/12 (Sat)", "val2": "Exorcist II: The Heretic (1977)<BR>《驅魔人續集》", "val3": "English", "val4": "Horror 恐怖", "val5": "Rex 文華", "val6": "Lam Paul; Choi Chi Yung; Yeung Man Fai"},
