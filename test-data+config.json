@@ -2,10 +2,14 @@
 "CONFIG":
 {
 "pageTitle": "Test",
+"defaults": {
+"initialSlicersExpanded":false,
+"defaultBooleanLogicMode":"OR"
+},
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","dataType": "number","useTab":true,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","dataType": "number","useTab":false,"labelWidth":55},
 {"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
 {"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
@@ -36,6 +40,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "7", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿三", "val3": "7", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-7)", "val7": "8 本州迪士尼筑波七天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "8曼谷，布吉，巴提雅"},
