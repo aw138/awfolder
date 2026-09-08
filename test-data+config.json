@@ -3,7 +3,7 @@
 {
 "pageTitle": "Test",
 "defaults": {
-"initialSlicersExpanded":TRUE,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
