@@ -1,3 +1,8 @@
+{
+"CONFIG":
+{
+"pageTitle": "Gears",
+"defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
@@ -36,6 +41,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "7", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "7", "val3": "Japan", "val4": "本州", "val5": "本州迪士尼筑波七天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "7", "val3": "Thailand", "val4": "曼谷; 布吉; 巴提雅", "val5": "曼谷，布吉，巴提雅", "val6": "B200;Ricoh AF50", "val7": "CZ50;Pentagon135;Tamron28-50", "val8": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "2", "val3": "中國", "val4": "廣東", "val5": "深圳香蜜湖渡假村", "val6": "B200", "val7": "0", "val8": "(None)"},
