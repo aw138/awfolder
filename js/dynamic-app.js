@@ -45,6 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
             window.activeFiltersSchema = config.filters || [];
             window.activeColumnsWidthsSchema = config.columns || [];
 
+            // 🎯 THE DYNAMIC UPGRADE: Parse your custom defaults from the JSON schema roof
+            const globalAppDefaults = config.defaults || {};
+            const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
+            
+            // Standardize string entries cleanly to true (AND) or false (OR)
+            const booleanOperatorString = String(globalAppDefaults.defaultBooleanLogicMode || "AND").trim().toUpperCase();
+            const chosenLogicInitialState = booleanOperatorString !== "OR"; 
+
+            // Map variables dynamically onto the window scope filters trackers schema
+            (config.filters || []).forEach(filterConfig => {
+                const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+                
+                // Initialize background variables state blocks using your new JSON defaults
+                if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
+                window.booleanLogicalModes[cleanKey] = chosenLogicInitialState;
+                window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+            });
+
             const configurationTitle = config.pageTitle || "Dashboard";
             document.title = configurationTitle;
 

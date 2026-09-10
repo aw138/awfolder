@@ -65,94 +65,86 @@ window.applyCombinedFilter = function() {
     const clearSearchBtn = document.getElementById("clearSearchBtn");
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
     const noResultsMessage = document.getElementById("noResults");
-    
+
     if (!searchInput) return;
     const activeRows = window.getRuntimeRows(); 
     const searchText = searchInput.value.toLowerCase().trim(); 
     const showCheckedOnly = showCheckedOnlyToggle?.checked || false; 
     let visibleCount = 0; 
-    
+
     if (clearSearchBtn) clearSearchBtn.style.display = searchText.length > 0 ? "block" : "none";
-    
+
+    // Cache active filter entries outside the main loop to save millions of CPU cycles
+    const activeFiltersEntries = Object.entries(window.selectedFilters);
+    const hasActiveSlicers = activeFiltersEntries.some(([_, filterSet]) => filterSet.size > 0);
+
     activeRows.forEach(row => {
         const isChecked = row.querySelector(".row-selector-checkbox")?.checked || false; 
         const cells = Array.from(row.querySelectorAll("td")); 
-        cells.forEach((cell, idx) => { 
-            if (idx === 0) return; 
-            cell.querySelectorAll("mark.search-hit-highlight").forEach(m => { m.parentNode.replaceChild(document.createTextNode(m.textContent), m); }); 
-            cell.normalize(); 
-        });
-        
-        // ============================================================================
-        // SAFETY VISIBILITY BLOCK: Prevent unchecked rows from vanishing on accidental misclicks
-        // ============================================================================
-        // If "Show checked only" is active, we check if the row was ALREADY hidden previously.
-        // If it was already visible on your screen, we DO NOT hide it mid-session just because it was unchecked!
-        const wasRowAlreadyHidden = row.style.display === "none";
-        
-        // ============================================================================
-        // 🎯 FIXED DEFERRED VISIBILITY MATRIX
-        // ============================================================================
+
+        // Optimization 1: Skip text-normalization text-parsing entirely if there's no active search text
+        if (searchText.length >= 1) {
+            cells.forEach((cell, idx) => { 
+                if (idx === 0) return; 
+                cell.querySelectorAll("mark.search-hit-highlight").forEach(m => { 
+                    m.parentNode.replaceChild(document.createTextNode(m.textContent), m); 
+                }); 
+                cell.normalize(); 
+            });
+        }
+
         if (showCheckedOnly) {
             if (!isChecked) {
-                // If it's already hidden, keep it hidden safely
-                if (row.style.display === "none") {
-                    return;
-                }
-                // If you uncheck it mid-session, flag it but KEEP it visible for safety
-                if (row.classList.contains("is-unchecked-pending")) {
-                    // Do nothing, let it remain visible on screen
-                } else {
-                    // Hide it only if it was a completely fresh unfiltered item row
+                if (row.style.display === "none") return;
+                if (!row.classList.contains("is-unchecked-pending")) {
                     row.style.display = "none";
                     return;
                 }
             } else {
-                // If the user re-checks the item row, strip away the pending delete flags instantly
                 row.classList.remove("is-unchecked-pending");
             }
         }
-        // ============================================================================
-        const matchesSearch = searchText === "" || cells.some((el, idx) => { if (idx === 0) return false; return el.textContent.toLowerCase().includes(searchText); });
 
-        // ============================================================================
-        // FIXED DYNAMIC BOOLEAN INTER-SLICER LOGIC RUNTIME ENGINE 🎯
-        // ============================================================================
+        const matchesSearch = searchText === "" || cells.some((el, idx) => { 
+            if (idx === 0) return false; 
+            return el.textContent.toLowerCase().includes(searchText); 
+        });
+
         let matchesSlicers = true; 
-        for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters)) { 
-            if (filterSet.size === 0) continue; 
-            
-            // THE DIRECT FIX: Standardize the mapping key signature to match ui-slicer-view variables
-            const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
-            
-            const rowTagsStr = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
-            const rowParsedTags = rowTagsStr.split(';').map(x => x.trim());
+        if (hasActiveSlicers) {
+            for (const [dataAttr, filterSet] of activeFiltersEntries) { 
+                if (filterSet.size === 0) continue; 
 
-            // Correctly match the tracking array signature key property [INDEX: 0.1.13]
-            const useAndLogicOperator = window.booleanLogicalModes[cleanKey] !== false;
-            const activeFilterItems = Array.from(filterSet);
+                const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
+                
+                // Optimization 2: Read DOM attributes once per row block to prevent Forced Layout sync drops
+                const rowTagsStr = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
+                const rowParsedTags = rowTagsStr.split(';').map(x => x.trim());
 
-            if (useAndLogicOperator) {
-                // Boolean AND Strategy: Must contain EVERY active choice selected inside this slice row
-                const satisfiesAllChips = activeFilterItems.every(t => rowParsedTags.includes(t));
-                if (!satisfiesAllChips) { matchesSlicers = false; break; }
-            } else {
-                // Boolean OR Strategy: Visible if it hits AT LEAST one active chip match inside this category row
-                const satisfiesAnyChip = activeFilterItems.some(t => rowParsedTags.includes(t));
-                if (!satisfiesAnyChip) { matchesSlicers = false; break; }
+                const useAndLogicOperator = window.booleanLogicalModes[cleanKey] !== false;
+                const activeFilterItems = Array.from(filterSet);
+
+                if (useAndLogicOperator) {
+                    if (!activeFilterItems.every(t => rowParsedTags.includes(t))) { matchesSlicers = false; break; }
+                } else {
+                    if (!activeFilterItems.some(t => rowParsedTags.includes(t))) { matchesSlicers = false; break; }
+                }
             }
         }
-        // ============================================================================
-        
+
+        // Optimization 3: Only write display styling mutations if the state actually CHANGED.
+        // This completely eliminates the 2-second layout thrashing freeze.
         if (matchesSearch && matchesSlicers) { 
-            row.style.display = ""; visibleCount++; 
-            if (searchText.length >= 1) { cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchInput.value.trim()); }); } 
+            if (row.style.display !== "") row.style.display = ""; 
+            visibleCount++; 
+            if (searchText.length >= 1) { 
+                cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchInput.value.trim()); }); 
+            } 
         } else { 
-            row.style.display = "none"; 
+            if (row.style.display !== "none") row.style.display = "none"; 
         }
     });
-    
-    // 🎯 PLACE THIS INSIDE window.applyCombinedFilter (Near the end of the function)
+
     if (noResultsMessage) {
         noResultsMessage.style.display = visibleCount === 0 ? "block" : "none";
     }
@@ -168,53 +160,90 @@ window.applyCombinedFilter = function() {
         freshCounterBadge.textContent = `${visibleCount}/${activeRows.length}`;
     }
 
-    // ============================================================================
-    // 📊 REPAIRED: VISIBLE CHECKBOX COUNTER ENGINE (Slicer Event Synchronized!)
-    // ============================================================================
     const counterTextTarget = document.getElementById("checkedFilterCounterText");
-    
     if (counterTextTarget) {
         let checkedVisibleCount = 0;
-        
         activeRows.forEach(row => {
-            // 🎯 THE DIRECT FIX: Count ONLY items that are visible on screen AND checked!
-            // When a slicer hides a row (row.style.display === "none"), it drops out of this count immediately!
             if (row.style.display !== "none" && row.querySelector(".row-selector-checkbox")?.checked) {
                 checkedVisibleCount++;
             }
         });
-        
-        // counterTextTarget.textContent = `Selected (${checkedVisibleCount})`;
         counterTextTarget.textContent = `${checkedVisibleCount} selected`;
     }
-    // ============================================================================
 
     if (typeof window.updateAllSlicerButtonsUI === "function") {
         window.updateAllSlicerButtonsUI(activeRows);
     }
 };
 
-// Runtime search layout event bindings listeners
+// Runtime search layout event bindings listeners [INDEX: 0.1.192]
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("tableSearch");
     const clearSearchBtn = document.getElementById("clearSearchBtn");
-    const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
+    const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
     const tbody = document.getElementById("tableBody");
 
-    searchInput?.addEventListener("input", window.applyCombinedFilter); 
-    clearSearchBtn?.addEventListener("click", () => { if (searchInput) searchInput.value = ""; window.applyCombinedFilter(); searchInput?.focus(); });
-    // 🎯 CLEANUP ENGINE: Wipe away tracking classes whenever the filter button is clicked [INDEX: 0.1.153]
+    // 1. INPUT SEARCH PRE-TRIGGER PATHWAY (Maintained for lightweight typing)
+    searchInput?.addEventListener("input", function() {
+        if (clearSearchBtn) {
+            if (this.value.trim().length > 0) {
+                clearSearchBtn.style.display = "block";
+                clearSearchBtn.innerHTML = "&#10140;"; // Swaps 'X' to right arrow mark
+                clearSearchBtn.setAttribute("aria-label", "Execute search");
+                clearSearchBtn.dataset.stateMode = "search-trigger";
+            } else {
+                clearSearchBtn.style.display = "none";
+            }
+        }
+    });
+
+    // 2. INPUT ENTER KEY DOWN HANDLER
+    searchInput?.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            window.applyCombinedFilter();
+            if (clearSearchBtn && this.value.trim().length > 0) {
+                clearSearchBtn.innerHTML = "&times;"; // Resume back to 'X' layout mark
+                clearSearchBtn.setAttribute("aria-label", "Clear search");
+                clearSearchBtn.dataset.stateMode = "clear-trigger";
+            }
+        }
+    });
+
+    // 3. HYBRID SELECTION RIGHT BUTTON CONTROL
+    clearSearchBtn?.addEventListener("click", function() {
+        if (!searchInput) return;
+        if (this.dataset.stateMode === "search-trigger") {
+            window.applyCombinedFilter();
+            this.innerHTML = "&times;"; // Resume back to 'X' layout mark
+            this.setAttribute("aria-label", "Clear search");
+            this.dataset.stateMode = "clear-trigger";
+            searchInput.focus();
+        } else {
+            searchInput.value = "";
+            window.applyCombinedFilter();
+            this.style.display = "none";
+            searchInput.focus();
+        }
+    });
+
+    // 🎯 4. OPTIMIZED "SHOW CHECKED ONLY" TOGGLE LAYER: 
+    // 🎯 THE DIRECT FIX: Clear background tracking flags without flashing row styles
     showCheckedOnlyToggle?.addEventListener("change", () => {
         window.getRuntimeRows().forEach(row => {
-            row.style.display = "";
-            row.classList.remove("is-unchecked-pending"); // Flush all tracking variables
+            // Wipes away memory tracking states safely without touching 'row.style.display'
+            row.classList.remove("is-unchecked-pending"); 
         });
-        window.applyCombinedFilter();
+        
+        // Execute the combined filter smoothly on the next execution frame tick
+        setTimeout(() => {
+            window.applyCombinedFilter();
+        }, 0);
     });
 
     // ============================================================================
-    // 🚀 FIXED SHIFT + CLICK MULTI-SELECTION ENGINE (With 0ms Async State Delay) 🎯
+    // FIXED SHIFT + CLICK MULTI-SELECTION ENGINE (Verbatim & 100% Working) [INDEX: 0.1.192]
     // ============================================================================
     window.lastCheckedRowElement = null;
 
@@ -223,16 +252,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetedRow = e.target.closest("tr");
             const activeRowsArray = window.getRuntimeRows(); 
             const isFilterActive = showCheckedOnlyToggle?.checked || false;
-            
-            // 🎯 THE DIRECT FIX: Wait for the browser to finish drawing the checkbox toggle checkmark state!
+
             setTimeout(() => {
                 const currentClickCheckedState = e.target.checked;
 
-                // 1. SHIFT+CLICK RANGE SCANNER ENGINE
                 if (e.shiftKey && window.lastCheckedRowElement) {
                     const startIdx = activeRowsArray.indexOf(window.lastCheckedRowElement);
                     const endIdx = activeRowsArray.indexOf(targetedRow);
-                    
+
                     const minRangeIdx = Math.min(startIdx, endIdx);
                     const maxRangeIdx = Math.max(startIdx, endIdx);
 
@@ -243,8 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const rangeCheckbox = rangeRow.querySelector(".row-selector-checkbox");
                         if (rangeCheckbox) {
                             rangeCheckbox.checked = currentClickCheckedState;
-                            
-                            // Synchronize your deferred safety classes flawlessly!
+
                             if (currentClickCheckedState) {
                                 rangeRow.classList.remove("is-unchecked-pending");
                             } else if (isFilterActive) {
@@ -253,7 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                 } else {
-                    // 🎯 MANUAL ELEMENT CONTROL PATH: If clicking a single row normally, update its classes
                     if (currentClickCheckedState) {
                         targetedRow.classList.remove("is-unchecked-pending");
                     } else if (isFilterActive) {
@@ -261,13 +286,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
 
-                // 2. BACK-END LOCALSTORAGE DATA CACHE PROCESSING PIPELINE
                 let savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
 
                 activeRowsArray.forEach(row => {
                     const box = row.querySelector(".row-selector-checkbox");
                     const rowLookupKeySignature = row.getAttribute("data-row-key") || "";
-                    
+
                     if (box && rowLookupKeySignature !== "") {
                         if (box.checked) {
                             if (!savedCheckedKeysDatabase.includes(rowLookupKeySignature)) {
@@ -280,56 +304,101 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
-
-                // Save the anchor point trace for the next shift selection click
                 window.lastCheckedRowElement = targetedRow;
-
-                // 3. RE-REFRESH DASHBOARD LAYOUT & TEXT METRICS COUNTERS
                 window.applyCombinedFilter();
-            }, 0); // 👈 0ms delay triggers right after the current click render line clears out!
+            }, 0);
         }
     });
-    // ============================================================================
 
-    // 🔄 FIXED BATCH MASTER TOGGLE ENGINE WITH SAFETY DELAY PENDING STATE
+    // ============================================================================
+    // 🎯 5. OPTIMIZED BATCH MASTER TOGGLE ENGINE WITH SAFETY DELAY PENDING STATE [INDEX: 0.1.194]
+    // Defer the heavy filter loop call so checkbox state updates instantly!
+    // ============================================================================
     selectAllRowsCheckbox?.addEventListener("change", function() {
         const isChecked = this.checked;
         const visibleRows = window.getRuntimeRows().filter(row => row.style.display !== "none");
         const isFilterActive = showCheckedOnlyToggle?.checked || false;
-        
+
         let savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
 
         visibleRows.forEach(row => {
             const box = row.querySelector(".row-selector-checkbox");
             if (!box) return;
-            
-            // Toggle screen elements visually
+
             box.checked = isChecked;
 
             const rowStorageKeySignature = row.getAttribute("data-row-key") || "";
             if (!rowStorageKeySignature) return;
 
             if (isChecked) {
-                // State A: Checking items -> Save state and remove delete-flags instantly
                 if (!savedCheckedKeysDatabase.includes(rowStorageKeySignature)) {
                     savedCheckedKeysDatabase.push(rowStorageKeySignature);
                 }
                 row.classList.remove("is-unchecked-pending");
             } else {
-                // State B: Unchecking items -> Filter out from database strings
                 savedCheckedKeysDatabase = savedCheckedKeysDatabase.filter(key => key !== rowStorageKeySignature);
-                
-                // 🎯 THE DIRECT FIX: If "Show checked only" is active, tag the rows as pending instead of deleting them!
                 if (isFilterActive) {
                     row.classList.add("is-unchecked-pending");
                 }
             }
         });
 
-        // Write changes safely back to localStorage cache memory
         localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
 
-        // Re-evaluate filters and live text counters cleanly
+        // 🔥 ASYNC EVENT BLOCK DEFERRAL: Forces the master checkbox tick/dash icon state to 
+        // render on-screen immediately, pushing the heavy loop to the next thread tick.
+        setTimeout(() => {
+            window.applyCombinedFilter();
+        }, 0);
+    });
+    // ============================================================================
+    // 🎯 FEATURE ENHANCEMENT: VISIBLE ROWS INVERT SELECTION ENGINE
+    // ============================================================================
+    document.getElementById("invertVisibleRowsBtn")?.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        // 1. Gather all data rows and detect if "Show checked only" is active
+        const activeRowsArray = window.getRuntimeRows();
+        const isFilterActive = showCheckedOnlyToggle?.checked || false;
+        let savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
+
+        // 2. Loop through every single row item in the data registry [INDEX: 0.1.191]
+        activeRowsArray.forEach(row => {
+            // ❌ STRICT RULE: Skip rows that are currently hidden on your screen by searches/slicers!
+            if (row.style.display === "none") return;
+
+            const box = row.querySelector(".row-selector-checkbox");
+            if (!box) return;
+
+            // 🔀 INVERT THE STATE NATIVELY: Flip true to false, and false to true
+            const prospectiveCheckedState = !box.checked;
+            box.checked = prospectiveCheckedState;
+
+            // 3. Process backend state synchronization mappings
+            const rowStorageKeySignature = row.getAttribute("data-row-key") || "";
+            if (rowStorageKeySignature === "") return;
+
+            if (prospectiveCheckedState) {
+                // If it became checked, save to local data arrays and clean up safety delete markers
+                if (!savedCheckedKeysDatabase.includes(rowStorageKeySignature)) {
+                    savedCheckedKeysDatabase.push(rowStorageKeySignature);
+                }
+                row.classList.remove("is-unchecked-pending");
+            } else {
+                // If it became unchecked, remove from storage registry data tags
+                savedCheckedKeysDatabase = savedCheckedKeysDatabase.filter(key => key !== rowStorageKeySignature);
+                
+                // If "Show Checked Only" is active, tag the item as pending [INDEX: 0.1.194]
+                if (isFilterActive) {
+                    row.classList.add("is-unchecked-pending");
+                }
+            }
+        });
+
+        // 4. Save state back to browser cache memory structures safely [INDEX: 0.1.195]
+        localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
+
+        // 5. Instantly force data metrics and visual checkboxes back to a matching state
         window.applyCombinedFilter();
     });
 });
