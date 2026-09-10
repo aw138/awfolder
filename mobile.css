@@ -1,0 +1,53 @@
+/* ============================================================= */
+/* 📱 MOBILE OVERLAP PROTECTION ENGINE (SCREEN WIDTHS <= 768px) */
+/* ============================================================= */
+@media screen and (max-width: 768px) {
+
+    /* 1. Prevent parent row elements from squishing content blocks */
+    .panel-row-one {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 8px !important; /* Forces a safe horizontal air-gap between dividers */
+    }
+
+    /* 2. Balance Left Search container to give the Right buttons breathing room */
+    .r1-left-container {
+        width: 28% !important;        /* Smooth fluid percentage */
+        min-width: 110px !important;   /* Scaled down safe minimum anchor */
+        max-width: none !important;
+    }
+
+    /* 3. THE REFIX: Force Right container to expand smoothly without crashing */
+    .r1-right-container {
+        width: auto !important;       /* Removes rigid % caps so it hugs content */
+        min-width: 0 !important;      /* Destroys old 120px boundary thread locks */
+        flex-shrink: 0 !important;    /* Stops the browser from squishing the buttons */
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;          /* Perfect visual gap between Font and Toggle buttons */
+    }
+
+    /* 4. Allow Font Subgroup to size itself naturally */
+    .font-buttons-subgroup {
+        width: auto !important;       /* Wipes old 80% lock rule */
+        display: flex !important;
+        gap: 2px !important;          /* Tight gap between A- and A+ buttons */
+    }
+
+    /* 5. Set compact touch boundaries for the buttons */
+    .font-buttons-subgroup .font-ctrl-btn {
+        width: 36px !important;       /* Hardcoded clean compact mobile width */
+        height: 28px !important;      /* Slightly shorter vertical line spacing */
+        flex: none !important;
+    }
+
+    /* 6. Ensure the arrow toggle button sits side-by-side cleanly */
+    .r1-right-container .dashboard-arrow-toggle {
+        width: 28px !important;       /* Wipes old 20% lock rule */
+        height: 28px !important;      /* Perfectly matches font buttons height */
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+    }
+}
