@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-	<!-- v.7.3.2 Independent media file -->
+	<!-- v.7.4.3 Boolean & collapse to json -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -85,9 +85,16 @@
                 <table id="dataTable">
                     <thead>
                         <tr>
-                            <th class="checkbox-header-cell">
-                                <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-                            </th>
+							<th class="checkbox-header-cell">
+								<!-- 🎯 THE FIX: Keeps the outer TH cell as a native table element so it stays sticky, 
+									 while this inner wrapper DIV handles the layout stacking safely -->
+								<div class="header-checkbox-stack-wrapper">
+									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+									
+									<!-- The Invert Selection Trigger Symbol Click Hook -->
+									<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
+								</div>
+							</th>
                             <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
                             <th class="sortable">Date<span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Title<span class="sort-icon-trigger"></span></th>
