@@ -3,8 +3,8 @@
 {
 "pageTitle": "Test",
 "defaults": {
-"initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
+"initialSlicersExpanded":false,
+"defaultBooleanLogicMode":"AND"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
