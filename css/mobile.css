@@ -21,8 +21,7 @@
 
     /* 3. THE REFIX: Force Right container to expand smoothly without crashing */
     .r1-right-container {
-        /* width: auto !important;       /* Removes rigid % caps so it hugs content */ */
-        width: 28% !important;       /* Removes rigid % caps so it hugs content */
+        width: auto !important;       /* Removes rigid % caps so it hugs content */
         min-width: 0 !important;      /* Destroys old 120px boundary thread locks */
         flex-shrink: 0 !important;    /* Stops the browser from squishing the buttons */
         display: flex !important;

@@ -57,59 +57,24 @@
     background-color: #212A31 !important; 
 }
 
-/* ============================================================= */
-/* 📌 UNIFIED STICKY TABLE HEADER CODES */
-/* ============================================================= */
-#dataTable thead th { 
+/* ?? FIXED STICKY ENFORCEMENT: Targets the table scope explicitly to freeze all columns [INDEX: 1] */
+#dataTable th.sortable, 
+#dataTable th.checkbox-header-cell { 
     font-size: 1rem !important; 
     color: #ffffff !important; 
     font-weight: 600; 
     padding: 6px 8px !important; 
     text-align: left; 
-    
-    /* 🔥 Freezes ALL headers to the top row line in perfect lockstep */
     position: sticky !important; 
     top: 0 !important; 
     z-index: 100 !important; 
     background-color: #212A31 !important; 
-    
     box-sizing: border-box; 
     vertical-align: top !important; 
 }
 
-/* 🎯 THE FIX: Keep this cell as a standard table-cell format so it STICKS! */
-.checkbox-header-cell {
-    text-align: center !important;
-    width: 33px !important;
-    vertical-align: middle !important;
-}
-
-/* 🎯 THE FIX: This inner layout wrapper handles your vertical stacking safely 
-     without breaking the outer cell's sticky coordinates */
-.header-checkbox-stack-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 3px !important;
-    width: 100% !important;
-    user-select: none !important;
-	min-width: 35px;
-}
-
-/* Styling for the Invert selection symbols text block */
-.table-invert-trigger {
-    font-size: 13px !important; /* adjust checkbox invert symbol */
-	font-weight: 500;  /* adjust checkbox invert symbol */
-    color: rgba(255, 255, 255, 0.6) !important;
-    cursor: pointer !important;
-    line-height: 1 !important;
-    padding: 1px 0px !important;
-    transition: all 0.1s ease !important;
-}
-.table-invert-trigger:hover {
-    color: #ffffff !important;
-    transform: scale(1.1);
+.checkbox-header-cell { 
+    padding-top: 8px !important; 
 }
 
 #dataTable td { 

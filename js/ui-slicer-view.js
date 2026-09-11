@@ -3,7 +3,7 @@
  * Supports switchable conditional Tab layouts based on schema options profiles.
  */
 
-// 1. UNIVERSAL ROW FILTER BUILDER SYSTEM [INDEX: 0.1.221]
+// 1. UNIVERSAL ROW FILTER BUILDER SYSTEM
 window.initHorizontalFilters = function(rows) {
     const container = document.getElementById("horizontalFiltersContainer");
     if (!container) return;
@@ -14,7 +14,6 @@ window.initHorizontalFilters = function(rows) {
     filterSchema.forEach((config, index) => {
         const cleanKey = String(config.jsonKey || "").replace('data-', '').replace('-', '').trim();
 
-        // 🎯 THE REFIX: Only write standard fallbacks if dynamic-app.js failed to initialize them
         if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
         if (window.booleanLogicalModes[cleanKey] === undefined) window.booleanLogicalModes[cleanKey] = true;
         if (window.slicerExpandedStates[cleanKey] === undefined) window.slicerExpandedStates[cleanKey] = false;
@@ -79,17 +78,10 @@ window.initHorizontalFilters = function(rows) {
             window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
             expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
             optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
-            
-            // 🎯 LINK SYNC: Forces the master header button to re-evaluate text states instantly!
-            window.syncGlobalAccordionButtonLabelState();
         };
 
         container.appendChild(rowDiv);
     });
-    
-    // 🎯 INITIAL BOOT LINK: Synchronizes your JSON default config state preferences on startup
-    window.syncGlobalAccordionButtonLabelState();
-    
     window.updateAllSlicerButtonsUI(rows);
 };
 // HYBRID CONDITIONAL UI SLICER ENGINE - PART B (Paste directly beneath Part A)
@@ -399,42 +391,6 @@ window.toggleAllSlicerDrawersGlobal = function() {
         globalBtn.textContent = "Collapse all";
         globalBtn.classList.add("collapse-active-state");
     } else {
-        globalBtn.textContent = "Expand all";
-        globalBtn.classList.remove("collapse-active-state");
-    }
-};
-// =============================================================
-// 🎯 STATE SYNCHRONIZATION MASTER ENGINE
-// Tracks individual row drawer counts to update the global toggle text dynamically
-// =============================================================
-window.syncGlobalAccordionButtonLabelState = function() {
-    const globalBtn = document.getElementById("globalSlicersToggleBtn");
-    if (!globalBtn) return;
-
-    const filterSchema = window.activeFiltersSchema || [];
-    if (filterSchema.length === 0) return;
-
-    let expandedDrawersCount = 0;
-
-    // Loop through all active filters to verify their live background expansion states [INDEX: 0.1.221]
-    filterSchema.forEach(config => {
-        const cleanKey = String(config.jsonKey || "").replace('data-', '').replace('-', '').trim();
-        if (window.slicerExpandedStates[cleanKey] === true) {
-            expandedDrawersCount++;
-        }
-    });
-
-    // 🧠 AUTOMATIC SWITCH LOGIC TRANSITION PATHS [INDEX: 0.1.222]
-    if (expandedDrawersCount === filterSchema.length) {
-        // Condition A: Every single row is open -> Toggle master text to collapse
-        globalBtn.textContent = "Collapse all";
-        globalBtn.classList.add("collapse-active-state");
-    } else if (expandedDrawersCount === 0) {
-        // Condition B: Every single row is closed -> Toggle master text to expand
-        globalBtn.textContent = "Expand all";
-        globalBtn.classList.remove("collapse-active-state");
-    } else {
-        // Condition C: A partial mix of open/closed panels -> Keep it as a safe "Expand all" pass
         globalBtn.textContent = "Expand all";
         globalBtn.classList.remove("collapse-active-state");
     }
