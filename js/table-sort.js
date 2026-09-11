@@ -156,7 +156,7 @@ window.bindSortingTriggers = function() {
     });
 };
 
-// FIXED MASTER RESET ENGINE: "Show all" now clears text, buttons, AND updates UI states smoothly 🎯
+// FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked! 🎯 [INDEX: 0.1.143]
 document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     const searchInput = document.getElementById("tableSearch");
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
@@ -164,19 +164,16 @@ document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     if (searchInput) searchInput.value = "";
     if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
 
-    // 1. Reset category logic variables back to default safe starting rules
+    // 1. Clear ONLY your active data filter selection chips [INDEX: 0.1.143]
     for (const dataAttr in window.selectedFilters) {
         window.selectedFilters[dataAttr].clear();
-        window.booleanLogicalModes[dataAttr] = true; // Reset background variables back to 'AND'
+        // 🎯 THE DIRECT FIX: Removed the line that overwrote window.booleanLogicalModes!
     }
 
-    // 2. 🔥 THE DIRECT FIX: Instantly force the visual HTML buttons to match the background states
-    document.querySelectorAll('.boolean-logic-toggle-btn').forEach(btn => {
-        btn.textContent = 'And';
-        btn.classList.remove('or-state'); // Removes the orange background color accent instantly
-    });
+    // 🎯 THE DIRECT FIX: Completely removed the old loop that forced visual buttons back to 'And' text!
+    // Your buttons will perfectly maintain their existing text labels and active green/orange backgrounds.
 
-    // 3. Clear transient tracking variables and execute a fresh data render recalculation
+    // 2. Clear transient tracking variables and execute a fresh data recalculation [INDEX: 0.1.143]
     window.activeSlicerKey = null;
     window.applyCombinedFilter();
 });

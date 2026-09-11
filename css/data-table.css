@@ -73,8 +73,36 @@
     vertical-align: top !important; 
 }
 
+/* Maintain your original fixed width parameters to anchor columns uniformly [INDEX: 0.1.139] */
 .checkbox-header-cell { 
-    padding-top: 8px !important; 
+    padding: 6px 4px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+/* 🎯 THE WRAPPER LAYER: Handles the visual centering & symbols stacking safely */
+.header-checkbox-stack-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+    width: 100% !important;
+    user-select: none !important;
+}
+
+/* Crisp highlight glow style tracking for the invert selections text node */
+.table-invert-trigger {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.6) !important; /* Soft contrast text */
+    cursor: pointer !important;
+    line-height: 1 !important;
+    padding: 1px 2px !important;
+    transition: all 0.1s ease !important;
+}
+.table-invert-trigger:hover {
+    color: #ffffff !important; /* Glow pure white on hover */
+    transform: scale(1.1);    /* Tiny fluid bounce layout accent */
 }
 
 #dataTable td { 

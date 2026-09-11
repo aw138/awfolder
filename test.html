@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-	<!-- v.7.4 Search optimisation -->
+	<!-- v.7.5.1 Add version number -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -31,11 +31,15 @@
 					</div>
 				</div>
 				
-				<!-- Title Slot Centered Automatically -->
+				<!-- Title Slot Centered Automatically [INDEX: 0.1.123] -->
 				<div class="panel-row-center-title">
-					<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+					<div class="header-title-stacked-wrapper">
+						<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+						<!-- 🎯 THE VERSION HOOK: Injected right below the text string line -->
+						<span id="dynamicDashboardVersion" class="inline-row-dashboard-version"></span>
+					</div>
 				</div>
-				
+								
 				<!-- Row 1 Right DIV (Font & Dashboard Collapse Controls) -->
 				<div class="r1-right-container">
 					<div class="font-buttons-subgroup">
@@ -86,9 +90,15 @@
                 <table id="dataTable">
                     <thead>
                         <tr>
-                            <th class="checkbox-header-cell">
-                                <input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-                            </th>
+							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
+							<th class="checkbox-header-cell">
+								<div class="header-checkbox-stack-wrapper">
+									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+									
+									<!-- Invert Selection Trigger Button Symbol Click Hook -->
+									<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
+								</div>
+							</th>
                             <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
                             <th class="sortable">Date<span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Lunar<span class="sort-icon-trigger"></span></th>

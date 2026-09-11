@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-	<!-- v.7.3.2 Independent media file -->
+	<!-- v.7.5.1 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -31,9 +31,13 @@
 					</div>
 				</div>
 				
-				<!-- Title Slot Centered Automatically -->
+				<!-- Title Slot Centered Automatically [INDEX: 0.1.123] -->
 				<div class="panel-row-center-title">
-					<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+					<div class="header-title-stacked-wrapper">
+						<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+						<!-- 🎯 THE VERSION HOOK: Injected right below the text string line -->
+						<span id="dynamicDashboardVersion" class="inline-row-dashboard-version"></span>
+					</div>
 				</div>
 				
 				<!-- Row 1 Right DIV (Font & Dashboard Collapse Controls) -->

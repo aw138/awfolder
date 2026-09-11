@@ -37,21 +37,45 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!res.ok) throw new Error("Cloud data response failed");
             return res.json();
         })
-        .then(payload => {
-            tbody.innerHTML = "";
+		 .then(payload => {
+			 tbody.innerHTML = "";
 
-            const config = payload.CONFIG || {};
-            window.currentCustomSortPriority = config.customSortPriority || {};
-            window.activeFiltersSchema = config.filters || [];
-            window.activeColumnsWidthsSchema = config.columns || [];
+			 const config = payload.CONFIG || {};
+			 window.currentCustomSortPriority = config.customSortPriority || {};
+			 window.activeFiltersSchema = config.filters || [];
+			 window.activeColumnsWidthsSchema = config.columns || [];
 
-            const configurationTitle = config.pageTitle || "Dashboard";
-            document.title = configurationTitle;
+			 // 🎯 THE JSON CONFIG DEFAULTS ENGINE
+			 const globalAppDefaults = config.defaults || {};
+			 const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
+			 
+			 // Normalize the string logic state indicator safely
+			 const booleanOperatorString = String(globalAppDefaults.defaultBooleanLogicMode || "AND").trim().toUpperCase();
+			 const chosenLogicInitialState = booleanOperatorString !== "OR"; 
 
-            const targetTitleHeader = document.getElementById("dynamicDashboardTitle");
-            if (targetTitleHeader) {
-                targetTitleHeader.textContent = configurationTitle;
-            }
+			 // Setup background tracking structures using your new JSON schema parameters
+			 (config.filters || []).forEach(filterConfig => {
+				 const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+				 if (!window.selectedFilters) window.selectedFilters = {};
+				 
+				 if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
+				 window.booleanLogicalModes[cleanKey] = chosenLogicInitialState;
+				 window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+			 });
+
+			 const configurationTitle = config.pageTitle || "Dashboard";
+			 document.title = configurationTitle;
+
+			 const targetTitleHeader = document.getElementById("dynamicDashboardTitle");
+			 if (targetTitleHeader) {
+				 targetTitleHeader.textContent = configurationTitle;
+			 }
+
+			 // 🎯 LINK UP THE VERSION HOOK: Populates your small sub-digit dynamically from the JSON
+			 const targetVersionHeader = document.getElementById("dynamicDashboardVersion");
+			 if (targetVersionHeader) {
+				 targetVersionHeader.textContent = config.version || "";
+			 }
 
             const records = payload.DATA || [];
             const columnConfigs = config.columns || [];

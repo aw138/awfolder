@@ -92,26 +92,46 @@
     box-sizing: border-box !important; /* Prevents text jumping with border shifts */
 }
 /* ------------------------------------------------------------- */
-/* 🎯 TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE     */
+/* TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE */
 /* ------------------------------------------------------------- */
-/* .panel-row-one { */
-    /* position: relative !important; /* 👈 Step 1: Establishes a spatial coordinate floor */ */
-/* } */
-
-.inline-row-dashboard-title {
-    font-size: 1.4rem !important;
-    font-weight: 700 !important;
-    color: #1e293b !important;
-    user-select: none !important;
-    white-space: nowrap !important;
-    
-    /* 👈 Step 2: Detaches text from flex-push variables to lock into the exact midline of row 1 */
+.panel-row-center-title {
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
-    pointer-events: none !important; /* Prevents invisible block clicks from intercepting inputs */
+    pointer-events: none !important;
+    z-index: 5 !important;
+    height: auto !important; /* Wipes out old 0px layout lock restriction */
+}
+
+/* 🎯 THE WRAPPER CONTAINER: Forces Title and Version to stack vertically */
+.header-title-stacked-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0px !important; /* Zero margin bleed keeps overall height tight */
+    line-height: 1.1 !important;
+}
+
+/* Scaled down slightly to leave plenty of air for the subtitle digit line */
+.inline-row-dashboard-title {
+    font-size: 1.15rem !important; /* Scaled from 1.4rem down for high density */
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    user-select: none !important;
+    white-space: nowrap !important;
+}
+
+/* 🎯 THE NEW SUBTITLE VERSION STYLING PROPERTIES */
+.inline-row-dashboard-version {
+    font-size: 0.68rem !important; /* Tiny micro-digit layout */
+    font-weight: 600 !important;
+    color: #64748b !important;    /* Clean, professional charcoal gray tint */
+    user-select: none !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.5px !important;
 }
 /* --- NEW STRUCTURAL ROW ARCHITECTURE --- */
 
