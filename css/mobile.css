@@ -1,24 +1,64 @@
 /* ============================================================= */
-/* 📱 HIGH-DENSITY MOBILE OVERLAP CONTROL OVERRIDES (<= 768px) */
+/* 📱 SYMMETRICAL MOBILE BALANCE MODIFICATIONS (<= 768px) */
 /* ============================================================= */
 @media screen and (max-width: 768px) {
 
-    /* 1. Remove absolute positioning from the title wrapper to let flexbox calculate spacing naturally */
+    /* 🎯 1. BALANCE THE LEFT CONTAINER */
+    .r1-left-container {
+        width: 26% !important;        /* 🌟 Balanced perfectly to match the right side */
+        min-width: 90px !important;   /* Compact mobile floor size */
+        max-width: none !important;
+        flex: none !important;
+    }
+
+    /* 🎯 2. BALANCE THE RIGHT CONTAINER */
+    .r1-right-container {
+        width: 26% !important;        /* 🌟 Balanced perfectly to match the left side */
+        min-width: 90px !important;   /* Keeps a strict boundary ceiling lock */
+        max-width: none !important;
+        flex-shrink: 0 !important;    /* Stops the browser from crushing your buttons */
+        
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important; /* Flushes buttons to the right edge */
+        gap: 2px !important;          /* Snug spacing between component elements */
+    }
+
+    /* 3. Outer title wrapper sits naturally in the exact center between them */
     .panel-row-center-title {
         position: static !important;
         transform: none !important;
         left: auto !important;
         top: auto !important;
         
-        /* Take up all the middle space left over between the search box and right buttons */
-        flex: 1 !important; 
+        flex: 1 !important; /* Occupies the remaining space right in the middle */
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        padding: 0 4px !important; /* Safe padding barrier to keep title away from buttons */
+        padding: 0 4px !important;
         box-sizing: border-box !important;
     }
 
+    /* 4. Let the inner font buttons subgroup scale down cleanly within its 26% space */
+    .font-buttons-subgroup {
+        width: 70% !important;        /* Takes up 70% of the right container's space */
+        display: flex !important;
+        gap: 2px !important;
+    }
+
+    .font-buttons-subgroup .font-ctrl-btn {
+        flex: 1 !important;
+        height: 28px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* 5. Let the accordion expand/collapse arrow toggle take up its remaining space */
+    .r1-right-container .dashboard-arrow-toggle {
+        width: 30% !important;        /* Takes up the remaining 30% of the right container */
+        height: 28px !important;
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+    }
     /* Keep the stacked layout properties completely snug inside the center flex track */
     .header-title-stacked-wrapper {
         text-align: center !important;
@@ -35,45 +75,4 @@
         display: block !important;
     }
 
-    /* 🎯 2. COMPACT SEARCH CONTAINER WIDTH */
-    .r1-left-container {
-        width: 32% !important;        /* Lock into a compact mobile width space */
-        min-width: 100px !important;   /* Hard floor to keep field usable */
-        max-width: none !important;
-        flex: none !important;
-    }
-
-    /* 🎯 3. THE DIRECT OVERLAP FIX: Lock the right container width parameter strictly! */
-    .r1-right-container {
-        width: 25% !important;        /* 👈 Re-establishes a hard percentage width barrier */
-        min-width: 90px !important;    /* 👈 Absolute structural width ceiling limit */
-        max-width: none !important;
-        flex-shrink: 0 !important;    /* Prevents the browser from squishing your buttons */
-        
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-end !important; /* Flushes buttons cleanly to the right edge */
-        gap: 2px !important;           /* Snug spacing between component elements */
-    }
-
-    /* 4. Let the inner text sizing buttons shrink gracefully to fit their 25% layout block */
-    .font-buttons-subgroup {
-        width: 70% !important;        /* Splits the right block cleanly among sub-buttons */
-        display: flex !important;
-        gap: 2px !important;
-    }
-
-    .font-buttons-subgroup .font-ctrl-btn {
-        flex: 1 !important;
-        height: 28px !important;      /* Snug vertical line height alignment */
-        font-size: 0.85rem !important; /* Compact button text labels */
-    }
-
-    /* 5. Force the drawer accordion expand arrow toggle button to lock to its own corner width */
-    .r1-right-container .dashboard-arrow-toggle {
-        width: 30% !important;        /* Occupies the remaining layout room safely */
-        height: 28px !important;      /* Perfect layout height alignment sync */
-        flex-shrink: 0 !important;
-        display: inline-flex !important;
-    }
 }
