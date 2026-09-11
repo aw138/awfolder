@@ -58,7 +58,6 @@
 
     /* 4. Let the inner text sizing buttons shrink gracefully to fit their 25% layout block */
     .font-buttons-subgroup {
-        /* width: 70% !important;        /* Splits the right block cleanly among sub-buttons */ */
         width: 70% !important;        /* Splits the right block cleanly among sub-buttons */
         display: flex !important;
         gap: 2px !important;
