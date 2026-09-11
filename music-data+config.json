@@ -4,7 +4,7 @@
 "pageTitle": "Music",
 "version": "v. 7.5.1",
 "defaults": {
-"initialSlicersExpanded":true,
+"initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
