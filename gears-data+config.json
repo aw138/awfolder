@@ -2,6 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
+"version": "v. 7.5.1",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
@@ -42,7 +43,7 @@
 "DATA":
 [
 
-{"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "7", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/7 (Sat)", "val2": "7", "val3": "Japan", "val4": "本州", "val5": "本州迪士尼筑波七天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Velbon HG-4"},
+{"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8", "val3": "Japan", "val4": "本州", "val5": "本州迪士尼筑波八天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "7", "val3": "Thailand", "val4": "曼谷; 布吉; 巴提雅", "val5": "曼谷，布吉，巴提雅", "val6": "B200;Ricoh AF50", "val7": "CZ50;Pentagon135;Tamron28-50", "val8": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "2", "val3": "中國", "val4": "廣東", "val5": "深圳香蜜湖渡假村", "val6": "B200", "val7": "0", "val8": "(None)"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國; 澳門", "tag4": "廣東, 澳門", "tag5": "2", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "(None)", "val1": "1988/11/19 (Sat) - 1988/11/20 (Sun)", "val2": "2", "val3": "中國; 澳門", "val4": "廣東, 澳門", "val5": "澳門至中山石岐自由行", "val6": "EOS650", "val7": "EF35-105", "val8": "(None)"},
@@ -237,6 +238,7 @@
 {"tag1": "Cycling", "tag2": "2019", "tag3": "香港", "tag4": "上水", "tag5": "1", "tag6": "5D4", "tag7": "EF24-70", "tag8": "(None)", "val1": "2019/1/1 (Tue)", "val2": "1", "val3": "香港", "val4": "上水", "val5": "Cycling-上水", "val6": "5D4", "val7": "EF24-70", "val8": "(None)"},
 {"tag1": "Cycling", "tag2": "2019", "tag3": "香港", "tag4": "大埔", "tag5": "1", "tag6": "5D4", "tag7": "EF24-70", "tag8": "(None)", "val1": "2019/11/30 (Sat)", "val2": "1", "val3": "香港", "val4": "大埔", "val5": "Cycling-大埔, 科學園", "val6": "5D4", "val7": "EF24-70", "val8": "(None)"},
 {"tag1": "Cycling", "tag2": "2020", "tag3": "香港", "tag4": "上水", "tag5": "1", "tag6": "5D4", "tag7": "EF35", "tag8": "(None)", "val1": "2020/1/1 (Wed)", "val2": "1", "val3": "香港", "val4": "上水", "val5": "Cycling-上水", "val6": "5D4", "val7": "EF35", "val8": "(None)"}
+
 
 ]
 }
