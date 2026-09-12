@@ -2,9 +2,9 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.5.1",
+"version": "v. 7.5.2",
 "defaults": {
-"initialSlicersExpanded":true,
+"initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
