@@ -160,8 +160,8 @@ body {
 	font-size: 14px; 
 	height: 30px; 
 	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
-	min-width: 50px !important;     
-	max-width: 80px !important;     
+	min-width: 50px;
+	max-width: 80px;
 	box-sizing: border-box !important;
 }
 
@@ -169,7 +169,7 @@ body {
 	font-size: 20px; 
 	height: 30px; 
 	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
-	min-width: 50px !important;     
-	max-width: 80px !important;     
+	min-width: 50px;
+	max-width: 80px;
 	box-sizing: border-box !important;
 }
