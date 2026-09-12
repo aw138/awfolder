@@ -163,7 +163,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 tbody.appendChild(tr);
             });
 
-            window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
+			// 🎯 THE RUNTIME OVERHAUL: Dynamic Description Badge Color Mapping Engine
+			const descBadgeSchema = config.descriptionBadges || {};
+			
+			// Scan the freshly built document fragment table body for inline description badges
+			tbody.querySelectorAll(".inline-description-badge").forEach(badgeSpan => {
+				const badgeTypeKey = badgeSpan.getAttribute("data-badge")?.toLowerCase();
+				
+				if (badgeTypeKey && descBadgeSchema[badgeTypeKey]) {
+					const colorsProfile = descBadgeSchema[badgeTypeKey];
+					
+					// Write the style properties dynamically from the JSON payload variables
+					if (colorsProfile.bg) badgeSpan.style.setProperty("background-color", colorsProfile.bg, "important");
+					if (colorsProfile.text) badgeSpan.style.setProperty("color", colorsProfile.text, "important");
+					
+					if (colorsProfile.border) {
+						badgeSpan.style.setProperty("border", `1px solid ${colorsProfile.border}`, "important");
+					} else {
+						badgeSpan.style.setProperty("border", "1px solid transparent", "important");
+					}
+				}
+			});
+
+			window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
 
             // Initialize background calculations and triggers safely
             if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
