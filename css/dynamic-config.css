@@ -529,3 +529,47 @@
     padding: 4px !important;
     box-sizing: border-box !important;
 }
+/* ============================================================= */
+/* 🎯 OPTION C: INLINE CELL DESCRIPTION MIXED BADGE LAYOUTS */
+/* ============================================================= */
+
+/* Base structure for your inline text labels inside table rows */
+.inline-description-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    
+    /* Fine-tuned typography for high-density reading grids */
+    font-size: 0.72rem !important;  
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    
+    /* Sleek compact token boundaries */
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    margin-right: 6px !important; /* Forces a safe horizontal air-gap before text begins */
+    white-space: nowrap !important;
+    user-select: none !important;
+    box-sizing: border-box !important;
+    
+    /* ⚡ THE ESSENTIAL ALIGNMENT FIX: Locks the pill baseline dead-center with row text paragraphs */
+    vertical-align: middle !important;
+    transform: translateY(-1px) !important; 
+}
+
+/* 🔵 OVERSEAS CATEGORY STYLE CAPSULE */
+.inline-description-badge.overseas-badge {
+    background-color: #1e3a8a !important; /* Rich deep navy sapphire hue */
+    border: 1px solid #1e3a8a !important;
+    color: #ffffff !important;
+}
+
+/* 🟢 LOCAL TRANSIT CATEGORY STYLE CAPSULE */
+.inline-description-badge.transit-badge {
+    background-color: #065f46 !important; /* Premium emerald forest green tint */
+    border: 1px solid #065f46 !important;
+    color: #ffffff !important;
+}
