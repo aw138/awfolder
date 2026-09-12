@@ -41,7 +41,7 @@
 "descriptionBadges": {
 "flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
 "hiking":{"bg": "#dee386","text": "#000000","border": "#222222"},
-"cycling":{"bg": "#4ee366","text": "#FFFFFF","border": "#222222"},
+"cycling":{"bg": "#4ee366","text": "#ab3771","border": "#222222"},
 "hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 }
