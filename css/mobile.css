@@ -11,46 +11,52 @@
         flex: none !important;
     }
 
-    /* 2. Symmetrical Right main container block width boundary */
+    /* 🎯 THE MOBILE REFIX: Force a tight, locked boundary width ceiling limit */
     .r1-right-container {
-        width: 26% !important;        /* Balanced perfectly to match the left search window */
-        min-width: 90px !important;   /* Hard boundary constraint lock */
+        width: 26% !important;        /* Strict grid lock symmetry with left search bar */
+        min-width: 0 !important;      /* 🔥 CRITICAL REFIX: Blasts away the desktop 130px structural floor restriction! */
         max-width: none !important;
-        flex-shrink: 0 !important;    
+        flex-shrink: 0 !important;    /* Absolute defensive shield against container crushing */
         
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: space-between !important; /* Distributes buttons perfectly across the full 26% width */
-        gap: 3px !important;          /* Tiny clean visual separation gap between items */
+        justify-content: space-between !important; /* Enforces perfect mathematical distribution edge-to-edge */
+        gap: 2px !important;          /* Tiny clean visual separation gap between items */
     }
 
-    /* ============================================================= */
-    /* 🎯 THE OVERLAP FIX: OBLITERATE DESKTOP CONSTRAINTS ON MOBILE */
-    /* ============================================================= */
-    
-    /* Spreads all 3 buttons evenly across your 26% right container profile block */
-    .r1-right-container #decreaseFontBtn,
-    .r1-right-container #increaseFontBtn {
-        width: 33% !important;        /* Strict 33% horizontal width split allocation */
-        min-width: 0 !important;      /* 🔥 CRITICAL FIX: Overrides the desktop 50px floor constraint */
-        max-width: none !important;   /* Clear desktop caps */
+    /* Strict 33%, 33%, 34% spatial allocation tracking loops */
+    .r1-right-container #decreaseFontBtn {
+        width: 33% !important;        
+        min-width: 0 !important;      
+        max-width: none !important;   
         height: 28px !important;      
-        font-size: 0.8rem !important; /* Slightly smaller button text keeps label scaling safe */
-        padding: 0px 2px !important;  /* Minimize inner air gaps to stop label clipping */
+        font-size: 0.8rem !important; 
+        padding: 0px !important;  
+        flex: 1 1 auto !important;
+    }
+    
+    .r1-right-container #increaseFontBtn {
+        width: 33% !important;        
+        min-width: 0 !important;      
+        max-width: none !important;   
+        height: 28px !important;      
+        font-size: 0.8rem !important; 
+        padding: 0px !important;  
         flex: 1 1 auto !important;
     }
 
     .r1-right-container .dashboard-arrow-toggle {
-        width: 34% !important;        /* 34% split cleanly absorbs the remaining fraction */
-        min-width: 0 !important;      /* 🔥 CRITICAL FIX: Overrides the legacy 15px/30px constraints */
+        width: 34% !important;        /* Absorbs the final rounding fraction cleanly */
+        min-width: 0 !important;      
         max-width: none !important;   
-        height: 28px !important;      /* Perfect vertical line-height alignment */
-        font-size: 13px !important;   /* Clean size scaling for the ▲ symbol */
+        height: 28px !important;      
+        font-size: 13px !important;   
         padding: 0px !important;
         flex: 1 1 auto !important;
         border: 1px solid #748d92 !important; 
         border-radius: 6px !important;
+        display: inline-flex !important;
     }
 
     /* 4. Center Title block automatically sizes itself fluidly right in the middle track */

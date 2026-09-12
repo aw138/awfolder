@@ -86,31 +86,33 @@ body {
     box-shadow: 0 0 0 3px rgba(18, 78, 102, 0.15); 
 }
 
-/* ROW 1 RIGHT MAIN ELEMENT BLOCK CONTAINER [INDEX: 0.1.169] */
+/* ROW 1 RIGHT MAIN ELEMENT BLOCK CONTAINER */
 .r1-right-container { 
     display: flex !important; 
     align-items: center !important; 
     justify-content: flex-end !important;
-    gap: 4px !important; 
+    gap: 6px !important; /* Visual spacing gap between the buttons */
     flex-shrink: 0 !important; 
-    width: 15% !important; /* Preserves matching desktop metrics grid balance */
-    min-width: 130px !important; 
+    width: 18% !important; /* Clean desktop width envelope profile */
+    min-width: 140px !important; /* Clean horizontal desktop floor space */
     box-sizing: border-box !important;
 }
-
 /* 🎯 THE OVERHAUL: Clear the completely removed sub-group selector class properties */
 .font-size-controls,
 .font-buttons-subgroup { 
     display: none !important; /* Safe fallback cleanup */
 }
 
-/* Ensure the layout heights match seamlessly across all three flattened element nodes */
+/* 🎯 THE DESKTOP FIX: Force all 3 flat sibling buttons to share the container space 
+   evenly on desktop (approx 33% each) without using rigid max-width caps */
 .r1-right-container .font-ctrl-btn,
 .r1-right-container .dashboard-arrow-toggle {
+    flex: 1 !important; /* Gives all three identical stretching priority weights */
     height: 30px !important;
+    min-width: 0 !important; /* Wipes out internal text sizing bottlenecks */
+    max-width: none !important; /* 🔥 Overrides the old 30px ceiling rule from filter-panel.css */
     box-sizing: border-box !important;
 }
-
 /* ROW 2 RIGHT WRAPPER */
 .row-two-right-group { 
 	display: flex !important; 
