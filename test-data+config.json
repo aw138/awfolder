@@ -41,11 +41,14 @@
 "descriptionBadges": {
 "flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
 "hiking":{"bg": "#dee386","text": "#000000","border": "#222222"},
+"cycling":{"bg": "#4ee366","text": "#FFFFFF","border": "#222222"},
+"hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 }
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "<span class='inline-description-badge' data-badge='flower'>❀ FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "<span class='inline-description-badge' data-badge='hiking'>🚶‍ HIKING</span>8曼谷，布吉，巴提雅"},
