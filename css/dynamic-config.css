@@ -345,7 +345,7 @@
 
 /* Row 1 Right DIV: Font Size & Arrow Toggle Container */
 .r1-right-container {
-    width: 17% !important; 			/*adjust right width % */
+    width: 25% !important; 			/*adjust right width % */
     min-width: 120px !important;	/*adjust right min-width */
     /* max-width: 160px !important; */
     box-sizing: border-box !important;
