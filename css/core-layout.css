@@ -85,34 +85,46 @@ body {
     border-color: #124E66; 
     box-shadow: 0 0 0 3px rgba(18, 78, 102, 0.15); 
 }
-
-/* ROW 1 RIGHT MAIN ELEMENT BLOCK CONTAINER */
-.r1-right-container { 
-    display: flex !important; 
-    align-items: center !important; 
-    justify-content: flex-end !important;
-    gap: 6px !important; /* Visual spacing gap between the buttons */
-    flex-shrink: 0 !important; 
-    width: 18% !important; /* Clean desktop width envelope profile */
-    min-width: 140px !important; /* Clean horizontal desktop floor space */
-    box-sizing: border-box !important;
-}
 /* 🎯 THE OVERHAUL: Clear the completely removed sub-group selector class properties */
 .font-size-controls,
 .font-buttons-subgroup { 
     display: none !important; /* Safe fallback cleanup */
 }
 
-/* 🎯 THE DESKTOP FIX: Force all 3 flat sibling buttons to share the container space 
-   evenly on desktop (approx 33% each) without using rigid max-width caps */
-.r1-right-container .font-ctrl-btn,
-.r1-right-container .dashboard-arrow-toggle {
-    flex: 1 !important; /* Gives all three identical stretching priority weights */
-    height: 30px !important;
-    min-width: 0 !important; /* Wipes out internal text sizing bottlenecks */
-    max-width: none !important; /* 🔥 Overrides the old 30px ceiling rule from filter-panel.css */
+/* ============================================================= */
+/* 🖥️ UNIFIED DESKTOP CONTROL CONTAINER ARCHITECTURE */
+/* ============================================================= */
+.r1-right-container { 
+    display: flex !important; 
+    flex-direction: row !important;
+    align-items: center !important; 
+    justify-content: space-between !important; /* Force items to fill the box evenly edge-to-edge */
+    gap: 4px !important; 
+    flex-shrink: 0 !important; 
+    width: 18% !important;        /* Crisp desktop layout profile block footprint */
+    min-width: 140px !important;   /* Comfortable horizontal desk padding anchor floor */
     box-sizing: border-box !important;
 }
+
+/* 🎯 THE ABSOLUTE DESKTOP BALANCER: Forces ALL three flat sibling buttons 
+   to share space evenly at all sizes, wiping out any hidden width locks */
+.r1-right-container #decreaseFontBtn,
+.r1-right-container #increaseFontBtn,
+.r1-right-container .dashboard-arrow-toggle {
+    flex: 1 1 0% !important;       /* 🔥 THE FIX: Overrides any hidden min-width or max-width pixel constraints! */
+    width: 33% !important;         /* Force an identical fluid baseline footprint on desktop */
+    min-width: 0 !important;       /* Wipes out hidden text-clipping boundary locks */
+    max-width: none !important;    /* Blasts away any hidden pixel ceiling caps */
+    height: 30px !important;       /* Locked horizontal desk alignment baseline height */
+    box-sizing: border-box !important;
+    padding: 0px 2px !important;   
+}
+
+/* 🎯 FIXED TEXT ARCHITECTURE: Keeps your typography labels perfectly frozen at their original scales */
+.r1-right-container #decreaseFontBtn { font-size: 14px !important; font-weight: bold !important; }
+.r1-right-container #increaseFontBtn { font-size: 20px !important; font-weight: bold !important; }
+.r1-right-container .dashboard-arrow-toggle { font-size: 16px !important; font-weight: bold !important; }
+
 /* ROW 2 RIGHT WRAPPER */
 .row-two-right-group { 
 	display: flex !important; 
