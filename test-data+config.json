@@ -39,8 +39,8 @@
 "japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 },
 "descriptionBadges": {
-"hiking":{"bg": "#35965d","text": "#EEEEEE","border": "#222222"},
-"flower":{"bg": "#c29a0c","text": "#EEEEEE","border": "#222222"},
+"flower":{"bg": "#fc9088","text": "#783935","border": "#222222"},
+"hiking":{"bg": "#c29a0c","text": "#000000","border": "#222222"},
 "travel":{"bg": "#54a8c7","text": "#EEEEEE","border": "#222222"}
 }
 },
