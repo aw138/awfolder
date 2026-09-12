@@ -1,78 +1,75 @@
 /* ============================================================= */
-/* 📱 SYMMETRICAL MOBILE BALANCE MODIFICATIONS (<= 768px) */
+/* 📱 FLATTENED HIGH-DENSITY MOBILE BALANCING ENGINE (<= 768px)  */
 /* ============================================================= */
 @media screen and (max-width: 768px) {
 
-    /* 🎯 1. BALANCE THE LEFT CONTAINER */
+    /* 1. Symmetrical Left Search container lock matching right side spacing layout */
     .r1-left-container {
-        width: 26% !important;        /* 🌟 Balanced perfectly to match the right side */
-        min-width: 90px !important;   /* Compact mobile floor size */
+        width: 26% !important;        
+        min-width: 90px !important;   
         max-width: none !important;
         flex: none !important;
     }
 
-    /* 🎯 2. BALANCE THE RIGHT CONTAINER */
+    /* 2. Symmetrical Right main container block width boundary */
     .r1-right-container {
-        width: 26% !important;        /* 🌟 Balanced perfectly to match the left side */
-        min-width: 90px !important;   /* Keeps a strict boundary ceiling lock */
+        width: 26% !important;        /* Balanced perfectly to match the left search window */
+        min-width: 90px !important;   /* Hard boundary constraint lock */
         max-width: none !important;
-        flex-shrink: 0 !important;    /* Stops the browser from crushing your buttons */
+        flex-shrink: 0 !important;    
         
         display: flex !important;
+        flex-direction: row !important;
         align-items: center !important;
-        justify-content: flex-end !important; /* Flushes buttons to the right edge */
-        gap: 2px !important;          /* Snug spacing between component elements */
+        justify-content: space-between !important; /* Distributes buttons perfectly across the full 26% width */
+        gap: 3px !important;          /* Tiny clean visual separation gap between items */
     }
 
-    /* 3. Outer title wrapper sits naturally in the exact center between them */
+    /* 🎯 3. EQUAL PERCENTAGE PROPORTIONS ENGINE FOR FLAT ELEMENTS */
+    /* Spreads all 3 buttons evenly across your 26% right container profile block */
+    .r1-right-container #decreaseFontBtn,
+    .r1-right-container #increaseFontBtn {
+        width: 33% !important;        /* 33% width split allocation */
+        height: 28px !important;      
+        font-size: 0.82rem !important;
+        flex: 1 1 auto !important;
+    }
+
+    .r1-right-container .dashboard-arrow-toggle {
+        width: 34% !important;        /* 34% width split absorbs the remaining fraction cleanly */
+        height: 28px !important;      /* Perfect height synchronization layout track */
+        font-size: 14px !important;   
+        flex: 1 1 auto !important;
+        border: 1px solid #748d92 !important; /* Retains your custom fine-tuned border profile */
+        border-radius: 6px !important;
+    }
+
+    /* 4. Center Title block automatically sizes itself fluidly right in the middle track */
     .panel-row-center-title {
         position: static !important;
         transform: none !important;
         left: auto !important;
         top: auto !important;
         
-        flex: 1 !important; /* Occupies the remaining space right in the middle */
+        flex: 1 !important;           /* Fluid flex track uses all middle layout real estate safely */
         display: flex !important;
-        justify-content: center !important;
         align-items: center !important;
+        justify-content: center !important;
         padding: 0 4px !important;
         box-sizing: border-box !important;
     }
 
-    /* 4. Let the inner font buttons subgroup scale down cleanly within its 26% space */
-    .font-buttons-subgroup {
-        width: 70% !important;        /* Takes up 70% of the right container's space */
-        display: flex !important;
-        gap: 2px !important;
-    }
-
-    .font-buttons-subgroup .font-ctrl-btn {
-        flex: 1 !important;
-        height: 28px !important;
-        font-size: 0.85rem !important;
-    }
-
-    /* 5. Let the accordion expand/collapse arrow toggle take up its remaining space */
-    .r1-right-container .dashboard-arrow-toggle {
-        width: 30% !important;        /* Takes up the remaining 30% of the right container */
-        height: 28px !important;
-        flex-shrink: 0 !important;
-        display: inline-flex !important;
-    }
-    /* Keep the stacked layout properties completely snug inside the center flex track */
     .header-title-stacked-wrapper {
         text-align: center !important;
         width: 100% !important;
     }
 
-    /* Slightly compress the text scaling if a long song/album title is loaded */
     .inline-row-dashboard-title {
-        font-size: 1.05rem !important; /* Slightly smaller for mobile layout scaling safety */
-        text-overflow: ellipsis !important; /* Truncates long text gracefully with an automatic '...' */
+        font-size: 1.05rem !important; 
+        text-overflow: ellipsis !important; 
         overflow: hidden !important;
         white-space: nowrap !important;
         max-width: 100% !important;
         display: block !important;
     }
-
 }

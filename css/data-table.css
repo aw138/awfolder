@@ -75,8 +75,9 @@
 
 /* Maintain your original fixed width parameters to anchor columns uniformly [INDEX: 0.1.139] */
 .checkbox-header-cell { 
-    padding: 6px 4px !important;
+    /* padding: 6px 4px !important; */
     text-align: center !important;
+	width: 33px !important;
     vertical-align: middle !important;
 }
 
@@ -89,15 +90,17 @@
     gap: 3px !important;
     width: 100% !important;
     user-select: none !important;
+	min-width: 35px; /* adjust checkbox col width */
 }
 
 /* Crisp highlight glow style tracking for the invert selections text node */
 .table-invert-trigger {
-    font-size: 13px !important;
+    font-size: 13px !important; /* adjust checkbox invert symbol */
+	font-weight: 500;  /* adjust checkbox invert symbol */												   
     color: rgba(255, 255, 255, 0.6) !important; /* Soft contrast text */
     cursor: pointer !important;
     line-height: 1 !important;
-    padding: 1px 2px !important;
+    padding: 1px 0px !important;
     transition: all 0.1s ease !important;
 }
 .table-invert-trigger:hover {
