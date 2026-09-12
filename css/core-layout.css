@@ -15,6 +15,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     color: #212A31;
     background-color: #f4f6f6;
+
+    /* 🎯 THE DIRECT FIX: Destroys mobile automatic text deflation/autosizing completely */
+    -webkit-text-size-adjust: 100% !important; /* Locks text scaling on iOS Safari / Chrome */
+    -moz-text-size-adjust: 100% !important;    /* Locks text scaling on Firefox mobile */
+    text-size-adjust: 100% !important;         /* Standard web rule to lock text size */
 }
 
 .app-viewport-wrapper {
