@@ -19,13 +19,13 @@
 ],
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":170,"minWidth":110},
-{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":60,"minWidth":60,"isCurrency":false,"precision": 0},
-{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":90,"minWidth":90},
-{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":90,"minWidth":90},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":50,"minWidth":50,"isCurrency":false,"precision": 0},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":70,"minWidth":70},
+{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":70,"minWidth":70},
 {"label": "Description","dataType": "string","isSortable":true, "alignRight":false,"width":155,"minWidth":110},
-{"label": "Camera","dataType": "string","textColor": "#db582d","isSortable":true,"width":90,"minWidth":85},
+{"label": "Camera","dataType": "string","textColor": "#db582d","isSortable":true,"width":100,"minWidth":85},
 {"label": "Lens","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
-{"label": "Tripod","dataType": "string","isSortable":true,"width":70,"minWidth":70}
+{"label": "Tripod","dataType": "string","isSortable":true,"width":80,"minWidth":70}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -50,6 +50,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8", "val3": "Japan", "val4": "本州", "val5": "<span class='inline-description-badge' data-badge='travel'>✈ Travel</span> 本州迪士尼筑波八天超級豪華團", "val6": "B200", "val7": "CZ50;Pentagon135", "val8": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "7", "val3": "Thailand", "val4": "曼谷; 布吉; 巴提雅", "val5": "<span class='inline-description-badge' data-badge='travel'>✈ Travel</span> 曼谷，布吉，巴提雅", "val6": "B200;Ricoh AF50", "val7": "CZ50;Pentagon135;Tamron28-50", "val8": "Velbon HG-4"},
