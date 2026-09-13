@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Movies",
-"version": "v. 7.5.2",
+"version": "v. 7.5.3",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
@@ -33,6 +33,11 @@
 "Cantonese":{"label": "Cantonese", "bg": "#66C3FF","text": "#1b3b59","border": "#1b3b59"},
 "Mandarin":{"label": "Mandarin", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
 "已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
+},
+"descriptionBadges": {
+"active":{"bg": "#00EE00","text": "#FFFFFF","border": "#222222"},
+"retired":{"bg": "#c29008","text": "#000000","border": "#222222"},
+"disposal":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
 }
 },
 "DATA":
