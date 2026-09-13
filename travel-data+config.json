@@ -40,7 +40,7 @@
 },
 "descriptionBadges": {
 "spring":{"bg": "#72f059","text": "#000000","border": "#444444"},
-"summer":{"bg": "#fa8989","text": "#000000","border": "#444444"},
+"summer":{"bg": "#FAA9A9","text": "#FF0000","border": "#444444"},
 "autumn":{"bg": "#ccbd47","text": "#000000","border": "#444444"},
 "winter":{"bg": "#498aE0","text": "#FFFFFF","border": "#222222"}
 }
