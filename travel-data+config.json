@@ -39,9 +39,9 @@
 "japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 },
 "descriptionBadges": {
-"spring":{"bg": "#72fA59","text": "#007700","border": "#444444"},
-"summer":{"bg": "#FBB9B9","text": "#AA0000","border": "#444444"},
-"autumn":{"bg": "#ccbd47","text": "#5c7d00","border": "#444444"},
+"spring":{"bg": "#72fA59","text": "#006600","border": "#006600"},
+"summer":{"bg": "#FBB9B9","text": "#AA0000","border": "#AA0000"},
+"autumn":{"bg": "#DcCd47","text": "#5c7d00","border": "#5c7d00"},
 "winter":{"bg": "#498aE0","text": "#FFFFFF","border": "#222222"}
 }
 },
