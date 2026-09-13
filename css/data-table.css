@@ -57,7 +57,7 @@
     background-color: #212A31 !important; 
 }
 
-/* ?? FIXED STICKY ENFORCEMENT: Targets the table scope explicitly to freeze all columns [INDEX: 1] */
+/* 📌 FIXED STICKY TABLE HEADER SCOPE CONTAINER */
 #dataTable th.sortable, 
 #dataTable th.checkbox-header-cell { 
     font-size: 1rem !important; 
@@ -70,9 +70,8 @@
     z-index: 100 !important; 
     background-color: #212A31 !important; 
     box-sizing: border-box; 
-    vertical-align: top !important; 
+    vertical-align: top !important; /* Forces all text labels to line up perfectly along the top edge */
 }
-
 /* Maintain your original fixed width parameters to anchor columns uniformly [INDEX: 0.1.139] */
 .checkbox-header-cell { 
     /* padding: 6px 4px !important; */
@@ -116,12 +115,14 @@
     vertical-align: top !important; 
 }
 
+/* Format the sorting icons to behave cleanly on their new line row */
 .sort-icon-trigger { 
-    display: inline-block; 
+    display: inline-block !important; 
     cursor: pointer !important; 
-    padding: 2px 3px; 
+    padding: 2px 4px !important; /* adjust sort icon padding */
+    margin-top: 2px !important; /* Gentle air gap below the text label */
+    line-height: 1 !important;
 }
-
 .sort-icon-trigger::after { 
     /* content: " \2195";  */
     content: " \25B2\25BC"; 
