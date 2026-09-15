@@ -209,14 +209,44 @@ body {
 }
 
 /* --- TYPOGRAPHY WEIGHT FIXED PRESERVES [INDEX: 0.1.87] --- */
-.r1-right-container #decreaseFontBtn { font-size: 14px !important; font-weight: bold !important; }
-.r1-right-container #increaseFontBtn { font-size: 20px !important; font-weight: bold !important; }
-.r1-right-container .dashboard-arrow-toggle { font-size: 16px !important; font-weight: bold !important; }
+.r1-right-container #decreaseFontBtn {
+	font-size: 14px !important;
+	font-weight: bold !important;
+}
+.r1-right-container #increaseFontBtn {
+	font-size: 20px !important;
+	font-weight: bold !important;
+}
+.r1-right-container
+.dashboard-arrow-toggle {
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
 
 /* --- OTHER UTILITIES BASE OVERRIDES [INDEX: 0.1.88] --- */
 .custom-clear-btn { 
-    position: absolute; right: 5px; top: 50%; transform: translateY(-50%); 
-    background: none; border: none; color: #748D92; font-size: 20px; font-weight: bold; cursor: pointer; 
+    position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+    background: none;
+	border: none;
+	color: #748D92;
+	font-size: 18px;
+	font-weight: 500;
+	cursor: pointer; 
 }
-.custom-clear-btn:hover { color: #124E66 !important; }
-.font-ctrl-btn { background-color: #ffffff; border: 1px solid #748D92; color: #2E3944; border-radius: 6px; cursor: pointer; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; }
+.custom-clear-btn:hover {
+	color: #124E66 !important;
+}
+.font-ctrl-btn {
+	background-color: #ffffff;
+	border: 1px solid #748D92;
+	color: #2E3944;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: bold;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
