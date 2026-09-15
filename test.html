@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-	<!-- v.7.5.5 -->
+	<!-- v.7.6.1 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -93,7 +93,6 @@
 							<th class="checkbox-header-cell">
 								<div class="header-checkbox-stack-wrapper">
 									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-									
 									<!-- Invert Selection Trigger Button Symbol Click Hook -->
 									<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
 								</div>
@@ -105,7 +104,10 @@
                             <th class="sortable">Country<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Place<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Agent<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
+							<th class="sortable declarative-toggle-header-alignment">
+								Fav<br><span class="sort-icon-trigger"></span>
+							</th>                            
+							<th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
                         </tr>
                     </thead>
                     <tbody id="tableBody"></tbody>
