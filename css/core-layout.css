@@ -166,7 +166,7 @@ body {
     justify-content: space-between !important; /* Forces items to fill the box evenly edge-to-edge */
     gap: 4px !important; 
     flex-shrink: 0 !important;
-    min-width: 150px !important;   /* 🌟 Eliminates the old 130px indentation gap */
+    min-width: 160px !important;   /* 🌟 Eliminates the old 130px indentation gap */
     box-sizing: border-box !important;
 }
 
