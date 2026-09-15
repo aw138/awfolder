@@ -103,7 +103,7 @@
     
     /* Force your Checkbox counter container card to lock to a strict height */
     .r2-left-container .manual-check-filter-box {
-        height: 30px !important;       /* 🎯 Force exact alignment height with Show all */
+        height: 29px !important;       /* 🎯 Force exact alignment height with Show all */
         box-sizing: border-box !important; /* Compels borders to sit INSIDE the 29px line */
         padding: 0px 8px !important;   /* Snug, centered inner touch padding text slots */
         display: inline-flex !important;
