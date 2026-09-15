@@ -103,7 +103,7 @@ body {
 /* --- ROW 1 LAYOUT SYSTEM GROUPS [INDEX: 0.1.87] --- */
 .r1-left-container {
     width: 35% !important;
-    min-width: 170px !important;
+    min-width: 200px !important;
     /* max-width: 215px !important; */
     box-sizing: border-box !important;
     display: flex !important;
