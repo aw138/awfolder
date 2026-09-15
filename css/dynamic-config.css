@@ -70,13 +70,6 @@
     vertical-align: top !important;
 }
 
-/* Checkbox specific sizing track shortcut */
-.checkbox-header-cell, 
-.checkbox-data-cell {
-    text-align: center !important;
-    width: 33px !important;
-}
-
 /* ------------------------------------------------------------- */
 /* 🎯 DYNAMIC AMORPHOUS STATUS BADGE SPACING SHAPE RULES         */
 /* ------------------------------------------------------------- */
@@ -275,7 +268,7 @@
     white-space: nowrap !important;
 }
 /* --- GLOBAL WORKSPACE EXPAND ACCORDION BUTTON --- */
-.global-slicers-expand-btn {
+.global-slicers-expand-btn {  /*Adjust Expand all btn*/
     /* background-color: #ffffff !important; */
     /* background-color: #aaaadd !important; */
     background-color: #a0ad9e !important; /*Adjust Expand all btn bg color*/
