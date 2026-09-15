@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行社</title>
+	<!-- v.7.5.5 -->
+    <!-- Split CSS Stylesheets Loading Layers -->
+    <link rel="stylesheet" href="css/core-layout.css">
+    <link rel="stylesheet" href="css/filter-panel.css">
+    <link rel="stylesheet" href="css/data-table.css">
+    <link rel="stylesheet" href="css/dynamic-config.css">
+	<!-- 🎯 THE ADVANCED RESPONSIBLE LINK HOOK -->
+	<!-- This loads conditionally and activates ONLY if the browser layout drops below 768px -->
+	<link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
+</head>
+<body>
+
+    <div class="app-viewport-wrapper">
+        <!-- CONTAINER 1: SEARCH, FILTERS AND CHECKBOX SELECTION FILTER -->
+        <div class="top-search-panel">
+            <!-- ROW 1: Search & Reset on Left, Font Size Buttons on Right -->
+			<div class="panel-row-one">
+                <div class="left-controls-group">
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text" id="tableSearch" class="search-box" placeholder="Search ...">
+                            <button type="button" id="clearSearchBtn" class="custom-clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+                        </div>
+                    </div>
+                </div>
+				<div>
+					<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+                </div>
+				<div class="font-size-controls">
+                    <button type="button" id="decreaseFontBtn" class="font-ctrl-btn small-a" aria-label="Decrease text size">A-</button>
+                    <button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
+                </div>
+            </div>
+            <!-- ROW 2: Checkbox on Left, Counter Badge & Collapse Button on Right -->
+			<!-- CONTAINER 1 / ROW 2: Checkbox on Left, Counter Badge & Collapse Button on Right -->
+			<div class="panel-row-two">
+				<div class="manual-check-filter-box">
+					<label id="checkedFilterLabel" class="show-checked-filter-label">
+						<input type="checkbox" id="showCheckedOnlyToggle">
+						<span id="checkedFilterCounterText">Selected only (0)</span>
+					</label>
+				</div>
+                <div class="left-controls-group">
+                    <button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+                </div>
+                <div class="row-two-right-group">
+                    <span id="tableResultsCounter" class="results-counter-badge"></span>
+                    <button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#128897;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
+        <div class="filter-dashboard-panel">
+            <div id="horizontalFiltersContainer" class="horizontal-filters-container"></div>
+        </div>
+
+        <!-- CONTAINER 3: MAIN DATA TABLE -->
+        <div class="table-container">
+            <div class="table-scroll-wrapper">
+                <table id="dataTable">
+					<!-- 🎯 REPLACE THE THEAD BLOCK IN index.html WITH THIS EXACT SEQUENCE: -->
+					<thead>
+						<tr>
+							<th class="checkbox-header-cell">
+								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+							</th>
+							<th class="sortable">Type<span class="sort-icon-trigger"></span></th>
+							<th class="sortable">English<span class="sort-icon-trigger"></span></th>
+							<th class="sortable">Chinese<span class="sort-icon-trigger"></span></th>
+							<th class="sortable">Established<span class="sort-icon-trigger"></span></th>
+							<th class="fav-header-cell">
+								<label class="fav-only-filter-switch">
+									<input type="checkbox" id="showFavsOnlyToggle"> Fav only
+								</label>
+							</th>                                                                                         <!-- 👈 Fav now sits at Index 5 -->
+							<th class="sortable website-header-cell">Web site<span class="sort-icon-trigger"></span></th> <!-- 👈 Website now sits at Index 6 -->
+						</tr>
+					</thead>
+										<tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">No records match your criteria.</div>
+        </div>
+    </div>
+	<script>
+        window.APP_DATA_SOURCE_URL = "https://aw138.github.io/awfolder/agent-data+config.json";
+    </script>
+    <!-- Sequential Script Dependencies Layer Injection -->
+    <script src="js/ui-core.js"></script>
+    <script src="js/ui-slicer-state.js"></script>
+    <script src="js/ui-slicer-view.js"></script>
+    <script src="js/core-search.js"></script>
+    <script src="js/table-sort.js"></script>
+    <script src="js/dynamic-app.js"></script>
+</body>
+</html>
