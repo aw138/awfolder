@@ -11,6 +11,10 @@
     gap: 1px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    border: 1px solid #748D92;
+    border-radius: 6px;
+    background-color: #748D92;
+	overflow: hidden; /* Adjust the rounded corner visible */
 }
 
 .horizontal-filters-container .filter-row {
@@ -34,29 +38,23 @@
     user-select: none !important;
 }
 
-/* 🎴 CHIPS WRAPPER AREA: Fluidly wraps multiple buttons downward cleanly */
-.filter-options-wrapper {
+/* Replaced by .slicer-tabbed-buttons-grid,  */
+/* Since your dashboard now runs entirely on the  */
+/* Module A Tabbed Deck Grid system, the legacy */
+/* .filter-options-wrapper class rules are only utilized  */
+/* if your system falls back to a flat-row configuration  */
+/* profile (Module B) [INDEX: 0.1.38]. To keep your styles  */
+/* clean, it is best to leave it tucked away safely inside  */
+/* dynamic-config.css as a structural fallback layout framework */
+.filter-options-wrapper {  /* Not used for the time being */
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap !important; /* Allows rows to naturally expand downwards */
     gap: 4px !important;
     flex: 1 1 auto !important;
-    padding-left: 12px !important;
+    padding-left: 120px !important;
     padding-right: 0px !important;
 	box-sizing: border-box !important; /* Ensures the padding is calculated inside the fluid row width */    min-width: 0 !important;
-}
-
-/* 🎛️ MULTI BUTTON TOGGLE AREA: Locked to the top right edge of each slicer row */
-.filter-action-toggle-area {
-    display: flex !important;
-    align-items: flex-start !important; /* 🔥 Keeps Multi button top-aligned */
-    justify-content: flex-end !important;
-    min-width: 0 !important;
-    flex-shrink: 0 !important;
-    padding-left: 0px !important;
-	margin-left: 6px !important; /* 👈 This enforces the exact 19px wrapping threshold! */
-    padding-top: 0px !important; /* Matches line margins beautifully */
-    box-sizing: border-box !important;
 }
 
 /* ------------------------------------------------------------- */
@@ -263,31 +261,6 @@
 /* } */
 
 /* Reactivate interaction bounds exclusively on the visible badge card boundaries */
-.results-counter-badge {
-    pointer-events: auto !important;
-    white-space: nowrap !important;
-}
-/* --- GLOBAL WORKSPACE EXPAND ACCORDION BUTTON --- */
-.global-slicers-expand-btn {  /*Adjust Expand all btn*/
-    /* background-color: #ffffff !important; */
-    /* background-color: #aaaadd !important; */
-    background-color: #a0ad9e !important; /*Adjust Expand all btn bg color*/
-    border: 1px solid #748D92 !important;
-    color: #1E1924 !important;
-    border-radius: 6px !important;
-    cursor: pointer !important; /* 🌟 THE FIX: Enforces a clickable finger pointer mouse icon */
-    font-weight: bold !important;
-    height: 29px !important;
-    padding: 0px 6px !important;
-    font-size: 0.88rem !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-	/* width: 88px; */
-}
-
 /* Hover Accent Action Glow */
 .global-slicers-expand-btn:hover {
     /* background-color: #124E66 !important; */
@@ -295,6 +268,7 @@
     color: #ffffff !important;            /*Adjust expand all btn text hover color*/
     border-color: #124E66 !important;
 }
+
 
 /* Collapse Active Status Toggle Style */
 .global-slicers-expand-btn.collapse-active-state {
@@ -306,19 +280,6 @@
 /* ============================================================= */
 /* ?? PRECISION TOOLBAR DIMENSION CONTROL ENGINE */
 /* ============================================================= */
-
-/* --- GLOBAL ROW RE-ALIGNMENT FLEX LINE SYSTEM --- */
-.panel-row-one,
-.panel-row-two {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    position: relative !important; /* Fixed baseline floor for tracking center alignments */
-    box-sizing: border-box !important;
-    height: 34px !important; /* Enforces uniform vertical line mapping heights across rows */
-}
-
 /* --- OPTIONAL PAGE TITLE HOORAY CLEANUP BALANCE --- */
 .panel-row-center-title {
     position: absolute !important;
@@ -419,7 +380,7 @@
     flex-wrap: wrap !important;
     gap: 3px !important;
     width: 100% !important;
-    padding: 4px !important;
+    padding: 3px !important; /* Adjust buttons padding inside tabs */
     box-sizing: border-box !important;
 }
 /* ============================================================= */

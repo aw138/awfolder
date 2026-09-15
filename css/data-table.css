@@ -171,26 +171,6 @@
     gap: 3px !important; 
 }
 
-/* --- ROW 2 ITEMS (COUNTER & TOGGLE BUTTON) --- */
-.results-counter-badge { 
-	font-size: 1.0rem !important; 
-	font-weight: 600; 
-	padding: 4px 20px !important;    /* 👈 Cleared horizontal padding so width dictates size */
-	border-radius: 6px;
-    border: 1px solid #748D92;
-	background-color: #748D92; 
-	color: #ffffff;
-	text-align: center;
-	height: 29px;                   /* 👈 Match font button height */
-	display: inline-flex !important;
-	align-items: center;
-	justify-content: center;
-	flex: 1 !important;             /* 👈 Takes up the exact same 50% flex space as the small-a button! */
-	min-width: 50px !important;     /* 👈 Match small-a min-width */
-	/* max-width: 80px !important;     /* 👈 Match small-a max-width */ */
-	box-sizing: border-box !important;
-}
-
 #dataTable th:nth-child(4) .header-inner-flex { 
     justify-content: flex-end !important; 
 }
