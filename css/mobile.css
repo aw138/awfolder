@@ -6,7 +6,7 @@
     /* 1. Symmetrical Left Search container lock matching right side spacing layout */
     .r1-left-container {
         width: 28% !important;        
-        min-width: 100 !important;   
+        min-width: 0 !important;   
         max-width: none !important;
         flex: none !important;
     }
