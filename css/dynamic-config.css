@@ -285,7 +285,7 @@
     cursor: pointer !important; /* 🌟 THE FIX: Enforces a clickable finger pointer mouse icon */
     font-weight: bold !important;
     height: 29px !important;
-    padding: 0px 3px !important;
+    padding: 0px 6px !important;
     font-size: 0.88rem !important;
     display: inline-flex !important;
     align-items: center !important;
