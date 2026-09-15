@@ -97,96 +97,136 @@ body {
 }
 
 /* ============================================================= */
-/* 🖥️ UNIFIED DESKTOP CONTROL CONTAINER ARCHITECTURE */
+/* 🖥️ UNIFIED DESKTOP CONTROL CONTAINER ARCHITECTURE (ROW 1 & 2) */
 /* ============================================================= */
+
+/* --- ROW 1 LAYOUT SYSTEM GROUPS [INDEX: 0.1.87] --- */
+.r1-left-container {
+    width: 30% !important;
+    min-width: 170px !important;
+    /* max-width: 215px !important; */
+    box-sizing: border-box !important;
+    display: flex !important;
+}
+.r1-left-container .search-wrapper { width: 100% !important; }
+.r1-left-container .search-box { width: 100% !important; }
+
 .r1-right-container { 
     display: flex !important; 
     flex-direction: row !important;
     align-items: center !important; 
-    justify-content: space-between !important; /* Force items to fill the box evenly edge-to-edge */
+    justify-content: space-between !important; 
     gap: 4px !important; 
     flex-shrink: 0 !important; 
-    width: 18% !important;        /* Crisp desktop layout profile block footprint */
-    min-width: 140px !important;   /* Comfortable horizontal desk padding anchor floor */
+    width: 30% !important;        /* Row 1 Right main block width lock */
+    min-width: 140px !important;   
     box-sizing: border-box !important;
 }
-
-/* 🎯 THE ABSOLUTE DESKTOP BALANCER: Forces ALL three flat sibling buttons 
-   to share space evenly at all sizes, wiping out any hidden width locks */
+/* Direct horizontal percentage splits for Row 1 buttons */
 .r1-right-container #decreaseFontBtn,
-.r1-right-container #increaseFontBtn,
-.r1-right-container .dashboard-arrow-toggle {
-    flex: 1 1 0% !important;       /* 🔥 THE FIX: Overrides any hidden min-width or max-width pixel constraints! */
-    width: 33% !important;         /* Force an identical fluid baseline footprint on desktop */
-    min-width: 0 !important;       /* Wipes out hidden text-clipping boundary locks */
-    max-width: none !important;    /* Blasts away any hidden pixel ceiling caps */
-    height: 30px !important;       /* Locked horizontal desk alignment baseline height */
+.r1-right-container #increaseFontBtn {
+    width: 33% !important;         
+    min-width: 0 !important;       
+    max-width: none !important;    
+    height: 30px !important;       
     box-sizing: border-box !important;
     padding: 0px 2px !important;   
 }
+.r1-right-container .dashboard-arrow-toggle {
+    width: 34% !important;         
+    min-width: 0 !important;       
+    max-width: none !important;    
+    height: 30px !important;       
+    box-sizing: border-box !important;
+}
 
-/* 🎯 FIXED TEXT ARCHITECTURE: Keeps your typography labels perfectly frozen at their original scales */
+/* --- ROW 2 LAYOUT SYSTEM GROUPS 🎯 [INDEX: 0.1.88, 0.1.100] --- */
+.r2-left-container {
+    width: 30% !important;        /* 🌟 Exact structural mirror of Row 1 Left */
+    min-width: 170px !important;   
+    /* max-width: 215px !important;    */
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important; 
+}
+.r2-left-container .manual-check-filter-box { width: 60% !important; }
+.r2-left-container .clear-all-btn { width: 40% !important; }
+
+/* Main Right Container Wrapper for Row 2 [INDEX: 0.1.88, 0.1.100] */
+.row-two-right-group,
+.r2-right-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* Forces items to fill the box evenly edge-to-edge */
+    gap: 4px !important; 
+    flex-shrink: 0 !important;
+    width: 30% !important;        /* 🌟 Exact structural mirror of Row 1 Right */
+    min-width: 140px !important;   /* 🌟 Eliminates the old 130px indentation gap */
+    box-sizing: border-box !important;
+}
+
+/* 🎯 CORRECTION: REMOVE MAX-WIDTH BOUNDARIES FOR ROW 2 CONTENT CHIPS */
+.results-counter-badge { 
+    width: 50% !important;         /* 🌟 Your custom percentage split allocation */
+    height: 29px !important; 
+    min-width: 0 !important;
+    max-width: none !important;    /* 🔥 THE FIX: Forcefully breaks the 80px ceiling rule from filter-panel.css! */
+    box-sizing: border-box !important;
+    font-size: 1.0rem !important;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #748D92;
+    background-color: #748D92;
+    color: #ffffff;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 4px !important;   /* Comfortable padding for counts text */
+}
+
+.global-slicers-expand-btn {
+    width: 50% !important;         /* 🌟 Dedicated percentage split weight absorbs the rest */
+    height: 29px !important; 
+    min-width: 0 !important;
+    max-width: none !important;    /* Defends against any other hidden file limits */
+    box-sizing: border-box !important;
+    background-color: #a0ad9e !important;
+    border: 1px solid #748D92 !important;
+    color: #1E1924 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap !important;
+    padding: 0px 2px !important;
+}
+
+/* --- CENTER DECORATION SLOTS ARCHITECTURE [INDEX: 0.1.88, 0.1.100] --- */
+.panel-row-center-title,
+.panel-row-two-center-slot {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+    height: auto !important; 
+}
+
+/* --- TYPOGRAPHY WEIGHT FIXED PRESERVES [INDEX: 0.1.87] --- */
 .r1-right-container #decreaseFontBtn { font-size: 14px !important; font-weight: bold !important; }
 .r1-right-container #increaseFontBtn { font-size: 20px !important; font-weight: bold !important; }
 .r1-right-container .dashboard-arrow-toggle { font-size: 16px !important; font-weight: bold !important; }
 
-/* ROW 2 RIGHT WRAPPER */
-.row-two-right-group { 
-	display: flex !important; 
-	align-items: center !important; 
-	gap: 4px !important;            /* 👈 Match the row 1 wrapper gap precisely */
-	flex-shrink: 0 !important; 
-	width: 15% !important;          /* 👈 Must match row 1 width */
-	min-width: 130px !important;    /* 👈 Must match row 1 min-width */
-	box-sizing: border-box !important;
-}
-
+/* --- OTHER UTILITIES BASE OVERRIDES [INDEX: 0.1.88] --- */
 .custom-clear-btn { 
-    position: absolute; 
-    right: 5px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    background: none; 
-    border: none; 
-    color: #748D92; 
-    font-size: 20px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: color 0.1s ease;
+    position: absolute; right: 5px; top: 50%; transform: translateY(-50%); 
+    background: none; border: none; color: #748D92; font-size: 20px; font-weight: bold; cursor: pointer; 
 }
-
-/* 🎯 NEW OVERRIDE: Gives a crisp highlight glow when hovering over the search arrow symbol */
-.custom-clear-btn:hover {
-    color: #124E66 !important;
-}
-
-.font-ctrl-btn { 
-    background-color: #ffffff; 
-    border: 1px solid #748D92; 
-    color: #2E3944; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-weight: bold; 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-}
-
-/* --- ROW 1 ITEMS (FONT BUTTONS) --- */
-.font-ctrl-btn.small-a { 
-	font-size: 14px; 
-	height: 30px; 
-	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
-	min-width: 50px;
-	max-width: 80px;
-	box-sizing: border-box !important;
-}
-
-.font-ctrl-btn.large-a { 
-	font-size: 20px; 
-	height: 30px; 
-	flex: 1 !important;             /* 👈 Uses half the wrapper width space */
-	min-width: 50px;
-	max-width: 80px;
-	box-sizing: border-box !important;
-}
+.custom-clear-btn:hover { color: #124E66 !important; }
+.font-ctrl-btn { background-color: #ffffff; border: 1px solid #748D92; color: #2E3944; border-radius: 6px; cursor: pointer; font-weight: bold; display: inline-flex; align-items: center; justify-content: center; }
