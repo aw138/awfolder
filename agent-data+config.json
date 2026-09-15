@@ -8,8 +8,8 @@
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
-{"jsonKey": "tag1","title": "旅行社","labelWidth":55"},
-{"jsonKey": "tag2","title": "寶湖分店","labelWidth":55"}
+{"jsonKey": "tag1","title": "旅行社","labelWidth":55},
+{"jsonKey": "tag2","title": "寶湖分店","labelWidth":55}
 ],
 "columns": [
 {"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":110,"minWidth":110},
