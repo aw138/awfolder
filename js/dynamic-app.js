@@ -81,87 +81,123 @@ document.addEventListener("DOMContentLoaded", () => {
             const columnConfigs = config.columns || [];
             const badgeSchema = config.statusBadges || {};
 
-            // CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP 🔄
-            records.forEach(item => {
-                const tr = document.createElement("tr");
+    // CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP 🔄 [INDEX: 0.1.242]
+    records.forEach(item => {
+        const tr = document.createElement("tr");
 
-                // Generate a non-colliding row signature index key
-                const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
-                const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
-                const initialCheckedMemoryState = savedCheckedKeysDatabase.includes(rowStorageKeySignature);
+        // Generate a non-colliding row signature index key [INDEX: 0.1.242]
+        const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
+        const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
+        const initialCheckedMemoryState = savedCheckedKeysDatabase.includes(rowStorageKeySignature);
 
-                tr.setAttribute("data-row-key", rowStorageKeySignature);
+        // Read persistent favorite statuses from local memory cache blocks on page load
+        const savedFavouritesDatabase = JSON.parse(localStorage.getItem("dashboardPersistentFavKeys") || "[]");
+        const isRowCurrentlyFavourited = savedFavouritesDatabase.includes(rowStorageKeySignature);
 
-                // 🚀 THE DYNAMIC INJECTION: Automatically mapping tag attributes straight from your JSON file!
-                (window.activeFiltersSchema || []).forEach(filterConfig => {
-                    const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
-                    if (item[cleanKey] !== undefined) {
-                        tr.setAttribute(cleanKey, item[cleanKey]);
-                    } else if (item.TAGS && item.TAGS[cleanKey] !== undefined) {
-                        tr.setAttribute(cleanKey, item.TAGS[cleanKey]);
-                    } else {
-                        tr.setAttribute(cleanKey, ""); // Safe default boundary fallback
-                    }
-                });
+        tr.setAttribute("data-row-key", rowStorageKeySignature);
 
-                let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
+        // Automatically map tag attributes directly from your JSON parameters [INDEX: 0.1.242]
+        (window.activeFiltersSchema || []).forEach(filterConfig => {
+            const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+            if (item[cleanKey] !== undefined) {
+                tr.setAttribute(cleanKey, item[cleanKey]);
+            } else if (item.TAGS && item.TAGS[cleanKey] !== undefined) {
+                tr.setAttribute(cleanKey, item.TAGS[cleanKey]);
+            } else {
+                tr.setAttribute(cleanKey, "");
+            }
+        });
 
-                let cellsContentHtml = `
-                <td class="checkbox-data-cell">
+        let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
+
+        // Build checkbox column cell first verbatim [INDEX: 0.1.242]
+        let cellsContentHtml = `
+            <td class="checkbox-data-cell">
                 <input type="checkbox" class="row-selector-checkbox" ${checkedAttributeMarker} aria-label="Select row">
-                </td>
+            </td>
+        `;
+
+        // 🧠 THE ENGINE FIX: Counter shifts only on true data keys to keep text columns aligned
+        let sourceDataValueIndexCounter = 1;
+
+        // Loop column schema components dynamically to honor JSON ordering [INDEX: 0.1.242]
+        columnConfigs.forEach((colConf) => {
+            if (colConf.isToggle === true) {
+                // Determine raw text values for sorting strings: "1" for Active, "0" for Inactive
+                const textSortingDataValue = isRowCurrentlyFavourited ? "1" : "0";
+                
+                const buttonLabel = isRowCurrentlyFavourited ? (colConf.activeLabel || "★") : (colConf.inactiveLabel || "☆");
+                const currentColors = isRowCurrentlyFavourited ? colConf.activeColors : colConf.inactiveColors;
+                
+                const customConfigStyles = `
+                    background-color: ${currentColors.bg || '#ffffff'} !important;
+                    color: ${currentColors.text || '#000000'} !important;
+                    border: 1px solid ${currentColors.border || '#cbd5e1'} !important;
+                    border-radius: ${currentColors.borderRadius || '4px'} !important;
+                `.replace(/\s+/g, ' ');
+
+                // 🎯 THE FIX: Inject an invisible text node container holding plain text numbers ("1" or "0")
+                // Your existing table-sort.js will read this text value instantly and group rows flawlessly! [INDEX: 0.1.122]
+                cellsContentHtml += `
+                    <td class="schema-declarative-data-cell" style="width: ${colConf.width || 65}px;">
+                        <span style="display: none !important;">${textSortingDataValue}</span>
+                        <button type="button" class="declarative-saved-toggle-btn" style="${customConfigStyles}">${buttonLabel}</button>
+                    </td>
                 `;
+            } else {
+                // Standard text column logic block remains completely untouched... [INDEX: 0.1.242]
+                // Standard text column logic block: reads data keys sequentially [INDEX: 0.1.242, 0.1.243]
+                const variableKeyString = `val${sourceDataValueIndexCounter}`;
+                const rawValue = (item[variableKeyString] || "").trim();
+                sourceDataValueIndexCounter++; // Step data counters up only on standard value keys
 
-                columnConfigs.forEach((colConf, idx) => {
-                    const variableKey = `val${idx + 1}`;
-                    const rawValue = (item[variableKey] || "").trim();
+                let stylesArray = [];
+                if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
+                if (colConf.alignRight) stylesArray.push(`text-align: right !important;`);
 
-                    let stylesArray = [];
-                    if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
-                    if (colConf.alignRight) stylesArray.push(`text-align: right !important;`);
+                const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
+                let cellDisplayValue = rawValue;
 
-                    const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
-                    let cellDisplayValue = rawValue;
-
-                    if (colConf.isCurrency && rawValue !== "") {
-                        const numericValue = parseFloat(rawValue.replace(/,/g, ''));
-                        if (!isNaN(numericValue)) {
-                            const decimals = typeof colConf.precision !== 'undefined' ? colConf.precision : 2;
-                            cellDisplayValue = "$" + numericValue.toLocaleString('en-US', {
-                                minimumFractionDigits: decimals,
-                                maximumFractionDigits: decimals
-                            });
-                        }
+                if (colConf.isCurrency && rawValue !== "") {
+                    const numericValue = parseFloat(rawValue.replace(/,/g, ''));
+                    if (!isNaN(numericValue)) {
+                        const decimals = typeof colConf.precision !== 'undefined' ? colConf.precision : 2;
+                        cellDisplayValue = "$" + numericValue.toLocaleString('en-US', {
+                            minimumFractionDigits: decimals,
+                            maximumFractionDigits: decimals
+                        });
                     }
+                }
 
-                    if (colConf.format === "uri" && rawValue !== "") {
-                        const targetUrl = rawValue.startsWith("http") ? rawValue : `https://${rawValue}`;
-                        cellDisplayValue = `<a href="${targetUrl}" target="_blank" class="table-cell-hyperlink" style="color: inherit !important;">${rawValue}</a>`;
-                    }
+                if (colConf.format === "uri" && rawValue !== "") {
+                    const targetUrl = rawValue.startsWith("http") ? rawValue : `https://${rawValue}`;
+                    cellDisplayValue = `<a href="${targetUrl}" target="_blank" class="table-cell-hyperlink" style="color: inherit !important;">${rawValue}</a>`;
+                }
 
-                    if (colConf.isStatusBadge) {
-                        const badgeLookupKey = cellDisplayValue.toLowerCase();
-                        let badgeHtml = cellDisplayValue;
+                if (colConf.isStatusBadge) {
+                    const badgeLookupKey = cellDisplayValue.toLowerCase();
+                    let badgeHtml = cellDisplayValue;
 
-                        if (badgeSchema[badgeLookupKey]) {
-                            const badgeRules = badgeSchema[badgeLookupKey];
-                            const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
+                    if (badgeSchema[badgeLookupKey]) {
+                        const badgeRules = badgeSchema[badgeLookupKey];
+                        const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
 
-                            badgeHtml = `
+                        badgeHtml = `
                             <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder}">
-                            ${badgeRules.label || cellDisplayValue}
+                                ${badgeRules.label || cellDisplayValue}
                             </span>
-                            `;
-                        }
-                        cellsContentHtml += `<td ${stylingAttributes}>${badgeHtml}</td>`;
-                    } else {
-                        cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
+                        `;
                     }
-                });
+                    cellsContentHtml += `<td ${stylingAttributes}>${badgeHtml}</td>`;
+                } else {
+                    cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
+                }
+            }
+        });
 
-                tr.innerHTML = cellsContentHtml;
-                tbody.appendChild(tr);
-            });
+        tr.innerHTML = cellsContentHtml;
+        tbody.appendChild(tr);
+    });
 
 			// 🎯 THE RUNTIME OVERHAUL: Dynamic Description Badge Color Mapping Engine
 			const descBadgeSchema = config.descriptionBadges || {};
@@ -197,4 +233,49 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("JSON Pipeline initial load halted:", err);
             tbody.innerHTML = `<tr><td colspan="20" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">無法自雲端載入 JSON 數據。</td></tr>`;
         });
+    // 🎯 ZERO-INTERFERENCE ACTIONS DELEGATOR FOR SAVING TOGGLE FIELDS
+    tbody?.addEventListener("click", function(event) {
+        const toggleBtn = event.target.closest(".declarative-saved-toggle-btn");
+        if (!toggleBtn) return;
+        
+        event.stopPropagation();
+        
+        const parentRowNode = toggleBtn.closest("tr");
+        const targetedRowSignatureKey = parentRowNode.getAttribute("data-row-key");
+        if (!targetedRowSignatureKey) return;
+        
+        // Query the schema array mapping layers dynamically directly on clicks
+        const schemaColumnConfigs = window.activeColumnsWidthsSchema || [];
+        const targetToggleConfig = schemaColumnConfigs.find(c => c.isToggle === true);
+        if (!targetToggleConfig) return;
+        
+        let activeFavKeysDatabase = JSON.parse(localStorage.getItem("dashboardPersistentFavKeys") || "[]");
+        const isCurrentlySaved = activeFavKeysDatabase.includes(targetedRowSignatureKey);
+        
+        if (isCurrentlySaved) {
+            activeFavKeysDatabase = activeFavKeysDatabase.filter(key => key !== targetedRowSignatureKey);
+        } else {
+            activeFavKeysDatabase.push(targetedRowSignatureKey);
+        }
+        
+        // Write the fresh states back to local memory safely
+        localStorage.setItem("dashboardPersistentFavKeys", JSON.stringify(activeFavKeysDatabase));
+        
+        const nextStateSaved = !isCurrentlySaved;
+        const targetColors = nextStateSaved ? targetToggleConfig.activeColors : targetToggleConfig.inactiveColors;
+        
+        // 🎯 THE FIX: Instantly swap the hidden data text string ("1" vs "0") so subsequent sorting clicks evaluate accurately
+        const hiddenDataTracker = parentRowNode.querySelector(".schema-declarative-data-cell span");
+        if (hiddenDataTracker) {
+            hiddenDataTracker.textContent = nextStateSaved ? "1" : "0";
+        }
+        
+        // Re-apply design colors directly from your configurations without triggering re-renders
+        toggleBtn.textContent = nextStateSaved ? (targetToggleConfig.activeLabel || "★") : (targetToggleConfig.inactiveLabel || "☆");
+        toggleBtn.style.setProperty("background-color", targetColors.bg, "important");
+        toggleBtn.style.setProperty("color", targetColors.text, "important");
+        toggleBtn.style.setProperty("border", `1px solid ${targetColors.border}`, "important");
+        toggleBtn.style.setProperty("border-radius", targetColors.borderRadius, "important");
+    });
+
 });
