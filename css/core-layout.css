@@ -102,7 +102,7 @@ body {
 
 /* --- ROW 1 LAYOUT SYSTEM GROUPS [INDEX: 0.1.87] --- */
 .r1-left-container {
-    width: 30% !important;
+    width: 35% !important;
     min-width: 170px !important;
     /* max-width: 215px !important; */
     box-sizing: border-box !important;
@@ -112,13 +112,13 @@ body {
 .r1-left-container .search-box { width: 100% !important; }
 
 .r1-right-container { 
+    width: 35% !important;        /* Row 1 Right main block width lock */
     display: flex !important; 
     flex-direction: row !important;
     align-items: center !important; 
     justify-content: space-between !important; 
     gap: 4px !important; 
     flex-shrink: 0 !important; 
-    width: 30% !important;        /* Row 1 Right main block width lock */
     min-width: 140px !important;   
     box-sizing: border-box !important;
 }
@@ -142,7 +142,7 @@ body {
 
 /* --- ROW 2 LAYOUT SYSTEM GROUPS 🎯 [INDEX: 0.1.88, 0.1.100] --- */
 .r2-left-container {
-    width: 30% !important;        /* 🌟 Exact structural mirror of Row 1 Left */
+    width: 35% !important;        /* 🌟 Exact structural mirror of Row 1 Left */
     min-width: 170px !important;   
     /* max-width: 215px !important;    */
     box-sizing: border-box !important;
@@ -156,13 +156,13 @@ body {
 /* Main Right Container Wrapper for Row 2 [INDEX: 0.1.88, 0.1.100] */
 .row-two-right-group,
 .r2-right-container {
+    width: 35% !important;        /* 🌟 Exact structural mirror of Row 1 Right */
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important; /* Forces items to fill the box evenly edge-to-edge */
     gap: 4px !important; 
     flex-shrink: 0 !important;
-    width: 30% !important;        /* 🌟 Exact structural mirror of Row 1 Right */
     min-width: 140px !important;   /* 🌟 Eliminates the old 130px indentation gap */
     box-sizing: border-box !important;
 }
