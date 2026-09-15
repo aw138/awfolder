@@ -97,3 +97,27 @@
         display: block !important;
     }
 }
+    /* ============================================================= */
+    /* 📱 MOBILE HEIGHT EQUALIZATION MATRIX (<= 768px)               */
+    /* ============================================================= */
+    
+    /* Force your Checkbox counter container card to lock to a strict height */
+    .r2-left-container .manual-check-filter-box {
+        height: 29px !important;       /* 🎯 Force exact alignment height with Show all */
+        box-sizing: border-box !important; /* Compels borders to sit INSIDE the 29px line */
+        padding: 0px 8px !important;   /* Snug, centered inner touch padding text slots */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Force your Show all form button to lock to the exact same grid box */
+    .r2-left-container .clear-all-btn {
+        height: 29px !important;       /* 🎯 Matched verbatim to the check box frame */
+        box-sizing: border-box !important; /* Forces mobile native browser borders inside the 29px room */
+        padding: 0px !important;       /* Removes internal margin padding layout bleed */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        line-height: 1 !important;
+    }
