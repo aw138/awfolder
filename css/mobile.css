@@ -5,7 +5,7 @@
 
     /* 1. Symmetrical Left Search container lock matching right side spacing layout */
     .r1-left-container {
-        width: 26% !important;        
+        width: 30% !important;        
         min-width: 90px !important;   
         max-width: none !important;
         flex: none !important;
@@ -13,7 +13,7 @@
 
     /* 🎯 THE MOBILE REFIX: Force a tight, locked boundary width ceiling limit */
     .r1-right-container {
-        width: 26% !important;        /* Strict grid lock symmetry with left search bar */
+        width: 30% !important;        /* Strict grid lock symmetry with left search bar */
         min-width: 0 !important;      /* 🔥 CRITICAL REFIX: Blasts away the desktop 130px structural floor restriction! */
         max-width: none !important;
         flex-shrink: 0 !important;    /* Absolute defensive shield against container crushing */
