@@ -62,7 +62,8 @@
 /* ------------------------------------------------------------- */
 #dataTable th, 
 #dataTable td {
-    padding: 3px 10px !important;
+    /* padding: 3px 10px !important; */
+    padding: 3px 10px 3px 4px !important; /* Adjust table cell paddings */
     font-size: 0.9rem !important;
     line-height: 1.3 !important;
     vertical-align: top !important;
