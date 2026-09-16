@@ -30,7 +30,7 @@ body {
     position: fixed !important;
     top: 5px !important;
     left: 5px !important;
-    width: calc(100vw - 10px) !important;
+    width: calc(100% - 10px) !important;
     height: calc(100vh - 10px) !important; 
     z-index: 9999 !important;
 }

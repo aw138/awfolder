@@ -14,8 +14,8 @@
 
 .table-scroll-wrapper { 
     width: 100%; 
-    overflow-x: auto; 
-    overflow-y: auto !important; 
+    overflow-x: auto !important;
+    overflow-y: auto !important;
     flex: 1; 
     min-height: 0; 
 }
@@ -232,7 +232,7 @@ mark.search-hit-highlight {
 
 #dataTable {
     width: 100%;
-    /* table-layout: fixed !important;  */
+    table-layout: fixed !important; 
     border-collapse: separate !important; 
     border-spacing: 0 !important;        
 }
