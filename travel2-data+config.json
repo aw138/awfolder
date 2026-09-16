@@ -16,13 +16,13 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":35},
+{"type": "checkbox","width": "6%","minWidth":"140px"},
 {"label": "Date","dataType": "date","isSortable":true,"width": "40%","minWidth":"140px"},
 
 
 
 
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width": "15%","minWidth":"60px"},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width": "19%","minWidth":"60px"},
 {"label": "Country/Place","dataType": "string","isSortable":true,"width": "35%","minWidth":"130px"}
 ],
 "customSortPriority": {
@@ -50,6 +50,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val2": "星晨 (HON-8)", "val3": "<span class='inline-description-badge' data-badge='country'>Japan: 本州</span><br>本州迪士尼筑波八天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='days'>7天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>八月初五 - 八月十一", "val2": "星晨", "val3": "<span class='inline-description-badge' data-badge='country'>Thailand: 曼谷; 布吉; 巴提雅</span><br>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)"},
