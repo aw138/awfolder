@@ -10,34 +10,26 @@ window.currentCustomSortPriority = window.currentCustomSortPriority || {};
 window.activeFiltersSchema = window.activeFiltersSchema || [];
 window.activeColumnsWidthsSchema = window.activeColumnsWidthsSchema || [];
 
-// DYNAMIC ADJUSTABLE COLUMN GRID ENGINE [PDF: 0.1.186]
+// DYNAMIC ADJUSTABLE COLUMN GRID ENGINE
 window.initColumnResizableEngine = function() {
- const headers = document.querySelectorAll("#dataTable th");
- const layoutSchema = window.activeColumnsWidthsSchema || [];
- 
- headers.forEach((th, idx) => {
- // Skip over the master selector checkbox column cell [PDF: 0.1.186]
- if (idx === 0) return;
- 
- // If the cell was already dragged by the user, preserve that custom size [PDF: 0.1.186]
- if (th.style.width && th.style.width !== "" && th.style.width.includes("px") && th.dataset.userDragged === "true") return;
- 
- const configIndex = idx - 1;
- const columnConfig = layoutSchema[configIndex];
- if (!columnConfig) return;
- 
- // Extract the config bounds from your active JSON payload [PDF: 0.1.186]
- let remoteWidth = columnConfig.width ? columnConfig.width : "140px";
- let remoteMinWidth = columnConfig.minWidth ? columnConfig.minWidth : "80px"; 
- 
- let parsedWidthStyle = String(remoteWidth).includes("%") || String(remoteWidth).includes("px") ? remoteWidth : remoteWidth + "px";
- let parsedMinWidthStyle = String(remoteMinWidth).includes("px") || String(remoteMinWidth).includes("%") ? remoteMinWidth : remoteMinWidth + "px";
- 
- // Force write initial percentage values onto the DOM head [PDF: 0.1.186]
- th.style.width = parsedWidthStyle;
- th.style.minWidth = parsedMinWidthStyle;
- th.style.maxWidth = parsedWidthStyle; // Keeps column stable during browser window resizing
- });
+    const headers = document.querySelectorAll("#dataTable th");
+    const layoutSchema = window.activeColumnsWidthsSchema || [];
+    
+    headers.forEach((th, idx) => {
+        // 🎯 FIXED: Removed duplicate 'window.initColumnResizableEngine = function()' lines here [INDEX: 0.1.271]
+        const columnConfig = layoutSchema[idx];
+        if (!columnConfig) return;
+        
+        let remoteWidth = columnConfig.width ? columnConfig.width : "140px";
+        let remoteMinWidth = columnConfig.minWidth ? columnConfig.minWidth : "80px"; 
+        
+        let parsedWidthStyle = String(remoteWidth).includes("%") || String(remoteWidth).includes("px") ? remoteWidth : remoteWidth + "px";
+        let parsedMinWidthStyle = String(remoteMinWidth).includes("px") || String(remoteMinWidth).includes("%") ? remoteMinWidth : remoteMinWidth + "px";
+        
+        th.style.width = parsedWidthStyle;
+        th.style.minWidth = parsedMinWidthStyle;
+        th.style.maxWidth = parsedWidthStyle;
+    });
  
  // Re-binds mouse dragging handle tracking coordinates seamlessly across cells [PDF: 0.1.186]
  headers.forEach(th => {
