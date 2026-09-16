@@ -21,7 +21,7 @@
 
 
 
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":10%","minWidth":"60px"},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width": "10%","minWidth":"60px"},
 {"label": "Country/Place","dataType": "string","isSortable":true,"width": "40%","minWidth":"140px"}
 ],
 "customSortPriority": {
