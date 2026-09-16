@@ -16,13 +16,13 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":200,"minWidth":140},
+{"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":140},
 
 
 
 
 {"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":100,"minWidth":60},
-{"label": "Country/Place","dataType": "string","isSortable":true,"width":300,"minWidth":180}
+{"label": "Country/Place","dataType": "string","isSortable":true,"width":200,"minWidth":180}
 ],
 "customSortPriority": {
 "春季":1,
@@ -40,7 +40,7 @@
 },
 "descriptionBadges": {
 "days":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
-"country":{"bg": "#b5d8f7","text": "#0000ff","border": "#4a6f8f"},
+"country":{"bg": "#b5d8f7","text": "#0000FF","border": "#4a6f8f"},
 "spring":{"bg": "#72fA59","text": "#006600","border": "#006600"},
 "summer":{"bg": "#FBB9B9","text": "#AA0000","border": "#AA0000"},
 "autumn":{"bg": "#DcCd47","text": "#5c7d00","border": "#5c7d00"},
@@ -49,6 +49,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val2": "星晨 (HON-8)", "val3": "<span class='inline-description-badge' data-badge='country'>Japan: 本州</span><br>本州迪士尼筑波八天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='days'>7天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>八月初五 - 八月十一", "val2": "星晨", "val3": "<span class='inline-description-badge' data-badge='country'>Thailand: 曼谷; 布吉; 巴提雅</span><br>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)"},
