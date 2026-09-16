@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-	<!-- v.7.6.3 -->
+	<!-- v.7.6.4 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -90,14 +90,12 @@
                     <thead>
                         <tr>
 							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
-							<th class="checkbox-header-cell">
-								<div class="header-checkbox-stack-wrapper">
-									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-									<!-- Invert Selection Trigger Button Symbol Click Hook -->
-									<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
-								</div>
-							</th>
-                            <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
+							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
+							  <div class="header-checkbox-stack-wrapper">
+								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
+							  </div>
+							</th>                            <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
                             <th class="sortable">Date<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Lunar<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Days<br><span class="sort-icon-trigger"></span></th>
