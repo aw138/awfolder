@@ -15,6 +15,7 @@
 {"jsonKey": "tag5","title": "Accompany", "labelWidth":70,"useTab":true}
 ],
 "columns": [
+{"type": "checkbox","width": "9%","minWidth":"40px"},
 {"label": "Date","dataType": "string","isSortable":true,"width":90,"minWidth":90},
 {"label": "Title","dataType": "string","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lanuage","dataType": "string","textColor": "#0000E6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
@@ -42,6 +43,7 @@
 },
 "DATA":
 [
+
 {"tag1":1977, "tag2": "English", "tag3": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "tag4": "Washington 華盛頓", "tag5": "Lam Paul", "val1": "1977/11/4 (Fri)", "val2": "The Deep (1977)<BR>《深深深》", "val3": "English", "val4": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "val5": "Washington 華盛頓", "val6": "Lam Paul"},
 {"tag1":1977, "tag2": "English", "tag3": "Horror 恐怖", "tag4": "Rex 文華", "tag5": "Lam Paul; Choi Chi Yung; Yeung Man Fai", "val1": "1977/11/12 (Sat)", "val2": "Exorcist II: The Heretic (1977)<BR>《驅魔人續集》", "val3": "English", "val4": "Horror 恐怖", "val5": "Rex 文華", "val6": "Lam Paul; Choi Chi Yung; Yeung Man Fai"},
 {"tag1":1977, "tag2": "English", "tag3": "Horror 恐怖; Sci-Fi 科幻", "tag4": "Washington 華盛頓", "tag5": "Lam Paul; Choi Chi Yung", "val1": "1977/11/26 (Sat)", "val2": "The Blob (1958)<BR>《星球怪物》", "val3": "English", "val4": "Horror 恐怖; Sci-Fi 科幻", "val5": "Washington 華盛頓", "val6": "Lam Paul; Choi Chi Yung"},
