@@ -18,7 +18,7 @@
 "columns": [
 {"label": "Date","dataType": "date","isSortable":true,"width":"30%","minWidth":"30%"},
 {"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":"10%","minWidth":"10%"},
-{"label": "Country/Place","dataType": "string","isSortable":true,"width":"30%","minWidth":"30%"}
+{"label": "Country/Place","dataType": "string","isSortable":true,"width":"25%","minWidth":"25%"}
 ],
 "customSortPriority": {
 "春季":1,
