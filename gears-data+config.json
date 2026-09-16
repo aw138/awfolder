@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.5.3",
+"version": "v. 7.6.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
