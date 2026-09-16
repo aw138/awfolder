@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "旅行紀錄",
-"version": "v. 7.6.3",
+"version": "v. 7.6.4",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
@@ -16,6 +16,7 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
+{"type": "checkbox","width":40,"minWidth":35},
 {"label": "Date","dataType": "date","isSortable":true,"width": "40%","minWidth":"140px"},
 
 
@@ -49,8 +50,6 @@
 },
 "DATA":
 [
-
-
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val2": "星晨 (HON-8)", "val3": "<span class='inline-description-badge' data-badge='country'>Japan: 本州</span><br>本州迪士尼筑波八天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='days'>7天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>八月初五 - 八月十一", "val2": "星晨", "val3": "<span class='inline-description-badge' data-badge='country'>Thailand: 曼谷; 布吉; 巴提雅</span><br>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)"},
 {"tag1": "1988", "tag2": "春季", "tag3": "中國", "tag4": "廣東", "tag5": "自由行", "tag6": "2", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='days'>2天</span><br><span class='inline-description-badge' data-badge='spring'>春</span>正月初一 - 正月初二", "val2": "自由行", "val3": "<span class='inline-description-badge' data-badge='country'>中國: 廣東</span><br>深圳香蜜湖渡假村"},
@@ -102,7 +101,6 @@
 {"tag1": "2026", "tag2": "夏季", "tag3": "中國", "tag4": "浙江", "tag5": "自由行", "tag6": "8", "val1": "2026/5/28 (Thu) - 2026/6/4 (Thu)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='summer'>夏</span>四月十二 - 四月十九", "val2": "自由行", "val3": "<span class='inline-description-badge' data-badge='country'>中國: 浙江</span><br>杭州自由行-西湖，錢塘江"},
 {"tag1": "2026", "tag2": "秋季", "tag3": "中國", "tag4": "內蒙古; 甘肅", "tag5": "大航", "tag6": "8", "val1": "2026/10/9 (Fri) - 2026/10/16 (Fri)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='autumn'>秋</span>八月廿九 - 九月初七", "val2": "大航 (CDNH08E)", "val3": "<span class='inline-description-badge' data-badge='country'>中國: 內蒙古; 甘肅</span><br>一次聯遊:額濟納旗+金塔沙漠胡楊"},
 {"tag1": "2026", "tag2": "冬季", "tag3": "中國", "tag4": "湖南", "tag5": "自由行", "tag6": "8", "val1": "2026/11/23 (Mon) - 2026/11/30 (Mon)<span class='inline-description-badge' data-badge='days'>8天</span><br><span class='inline-description-badge' data-badge='winter'>冬</span>十月十五 - 十月廿二", "val2": "自由行", "val3": "<span class='inline-description-badge' data-badge='country'>中國: 湖南</span><br>湖南長沙八天賞楓自由行"}
-
 
 ]
 }
