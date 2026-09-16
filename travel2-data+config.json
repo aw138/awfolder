@@ -16,9 +16,13 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Date","dataType": "date","isSortable":true,"width":"30%","minWidth":"30%"},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":"10%","minWidth":"10%"},
-{"label": "Country/Place","dataType": "string","isSortable":true,"width":"25%","minWidth":"25%"}
+{"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":140},
+
+
+
+
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":100,"minWidth":60},
+{"label": "Country/Place","dataType": "string","isSortable":true,"width":200,"minWidth":180}
 ],
 "customSortPriority": {
 "春季":1,
