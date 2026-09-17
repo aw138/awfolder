@@ -18,7 +18,7 @@
 {"jsonKey": "tag8","title": "Added","dataType": "string","useTab":false,"labelWidth":73}
 ],
 "columns": [
-{"type": "checkbox","width": "9%","minWidth":"40px"},
+{"type": "checkbox","width":40,"minWidth":33},
 {"label": "Album","dataType": "string","isSortable":true,"width":220,"minWidth":110},
 {"label": "Artist","dataType": "string","isSortable":true,"width":160,"minWidth":100},
 {"label": "Composer","dataType": "string","textColor": "#065f46","isSortable":true, "alignRight":false,"width":100,"minWidth":73},
@@ -45,7 +45,6 @@
 },
 "DATA":
 [
-
 
 {"tag1": "English", "tag2": "Various", "tag3": "", "tag4": "", "tag5": "Oldies;Compilation", "tag6": "Digital", "tag7": "(Unknown)", "tag8": "", "val1": "Popular Favourites Of Yesterday ", "val2": "Various", "val3": "", "val4": "Oldies;Compilation", "val5": "", "val6": "English", "val7": "(Unknown)", "val8": "", "val9": "Digital"},
 {"tag1": "English", "tag2": "Various", "tag3": "", "tag4": "", "tag5": "Compilation", "tag6": "Digital", "tag7": "(Unknown)", "tag8": "", "val1": "All My Loving CD 1 ", "val2": "Various", "val3": "", "val4": "Compilation", "val5": "", "val6": "English", "val7": "(Unknown)", "val8": "", "val9": "Digital"},
