@@ -16,7 +16,7 @@
 {"jsonKey": "tag6","title": "Year","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width": "9%","minWidth":"140px"},
+{"type": "checkbox","width": "9%","minWidth":"33px"},
 {"label": "Date","dataType": "date","isSortable":true,"width":85},
 {"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
 {"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
