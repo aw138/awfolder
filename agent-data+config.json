@@ -39,7 +39,6 @@
 "DATA":
 [
 
-
 {"tag1": "中小型旅行社","tag2": "No", "val1": "中小型旅行社", "val2": "Amsito Travel", "val3": "貴豪旅行社 ", "val4": "1993", "val5": "http://www.amsito.com.hk/index"},
 {"tag1": "中小型旅行社","tag2": "No", "val1": "中小型旅行社", "val2": "Any Tours", "val3": "天洋旅遊 ", "val4": "1978", "val5": "https://anytours.com.hk/zh-hant/"},
 {"tag1": "中小型旅行社","tag2": "No", "val1": "中小型旅行社", "val2": "Best Friends", "val3": "旅友 ", "val4": "2007", "val5": "http://www.bestfriendstravel.com.hk/index.htm"},
@@ -87,6 +86,7 @@
 {"tag1": "新興旅行社","tag2": "Yes", "val1": "新興旅行社", "val2": "Yoyo Enjoy", "val3": "暢遊假期 <span class='inline-description-badge' data-badge='plovercovebranch'>寶湖有分店</span>", "val4": "2025", "val5": "https://yoyoenjoy.hk/"},
 {"tag1": "中小型旅行社","tag2": "Yes", "val1": "中小型旅行社", "val2": "Yummy Holiday", "val3": "美味假期 <span class='inline-description-badge' data-badge='plovercovebranch'>寶湖有分店</span>", "val4": "2012", "val5": "http://www.yummyholiday.net/"},
 {"tag1": "已結業","tag2": "No", "val1": "已結業", "val2": "Mordern China", "val3": "現代中國旅行社 ", "val4": "1983", "val5": "http://www.modernchinatravel.com/"}
+
 
 ]
 }
