@@ -24,7 +24,7 @@
 {"label": "Country/Place/Desc","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":150,"minWidth":100},
 
 
-{"label": "Camera/Lens","dataType": "string","textColor": "#db582d","isSortable":true,"width":90,"minWidth":85},
+{"label": "Camera/Lens","dataType": "string","textColor": "#db582d","isSortable":true,"width":120,"minWidth":85},
 
 {"label": "Tripod","dataType": "string","isSortable":true,"width":80,"minWidth":70}
 ],
@@ -52,6 +52,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200<BR>CZ50;Pentagon135", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200;Ricoh AF50<BR>CZ50;Pentagon135;Tamron28-50", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200<BR>", "val4": "(None)"},
