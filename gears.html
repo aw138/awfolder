@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gears</title>
-	<!-- v.7.6.3 -->
+	<!-- Use structures in Travel2.xls -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -89,7 +89,7 @@
                     <thead>
                         <tr>
 							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
-							<th class="checkbox-header-cell">
+							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
 								<div class="header-checkbox-stack-wrapper">
 									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
 									
@@ -99,12 +99,8 @@
 							</th>
                             <!-- 🎯 ADJUSTED 9-COLUMN STRUCTURE GRID HOOKS -->
                             <th class="sortable">Date<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Days<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Country<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Place<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Camera<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Lens<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Country/Place/Desc<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Camera/Lens<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Tripod<br><span class="sort-icon-trigger"></span></th>
                         </tr>
                     </thead>
