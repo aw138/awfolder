@@ -9,16 +9,17 @@ window.recalculateZebraStriping = function() {
 };
 
 function executeSort(columnIndex, ascending) {
-    const tbody = document.getElementById("tableBody");
-    const activeRows = window.getRuntimeRows();
-    const layoutSchema = window.activeColumnsWidthsSchema || [];
-    if (!tbody) return;
+	const tbody = document.getElementById("tableBody");
+	const activeRows = window.getRuntimeRows();
+	const layoutSchema = window.activeColumnsWidthsSchema || [];
+	if (!tbody) return;
 
-    // Offset the index by -1 to account for the checkbox column row selector cell
-    const schemaConfig = layoutSchema[columnIndex - 1] || {};
-    const assignedDataType = schemaConfig.dataType ? schemaConfig.dataType.toLowerCase() : "string";
+	// 🎯 THE REALIGNMENT HOOK: Your JSON array includes an entry for "checkbox" at index 0.
+	// To map perfectly to your data columns, columnIndex must match index directly without subtracting 1.
+	const schemaConfig = layoutSchema[columnIndex] || {};
+	const assignedDataType = schemaConfig.dataType ? schemaConfig.dataType.toLowerCase() : "string";
 
-    // 🚀 ATTACHED MODULE ENGINE COLLATORS (Lexicographical Dictionary Sort) [INDEX: 0.1.112]
+	// ATTACHED MODULE ENGINE COLLATORS (Lexicographical Dictionary Sort) [INDEX: 0.1.112]
     const enCollator = new Intl.Collator('en-US', { sensitivity: 'base' });
     const zhStrokeCollator = new Intl.Collator('zh-CN-u-co-stroke', { sensitivity: 'base' });
 

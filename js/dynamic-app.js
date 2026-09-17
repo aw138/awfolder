@@ -110,25 +110,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
 
-        // 1. CLEAR THE HARDCODED STARTING ELEMENT: Initialise row cells content tracking as an empty string canvas layer
+        // Initialise row cells content tracking as a blank text canvas layer [▲]
         let cellsContentHtml = "";
 
-        // 🧠 THE ENGINE SWITCH: Counter steps up ONLY when hitting non-toggle standard text value keys
-        let sourceDataValueIndexCounter = 1;
+        // 🎯 THE DIRECT FIX: Use a dedicated data value tracking index counter [▲]
+        // This separates the JSON schema array index from your physical val1, val2 data properties!
+        let dataValueKeyIndexTracker = 1;
 
-        // 2. Loop column schema components dynamically straight from your JSON file! [PDF: 0.1.244]
+        // Loop column schema components dynamically straight from your JSON file! [▲]
         columnConfigs.forEach((colConf) => {
             
-            // 🎯 THE NEW INJECTION SLOT: Is this index track configured as our checkbox?
+            // Is this index track configured as our selector checkbox? [▲]
             if (colConf.type === "checkbox") {
                 cellsContentHtml += `
-                    <td class="checkbox-data-cell" style="width: ${colConf.width || '33px'}; min-width: ${colConf.minWidth || '33px'};">
+                    <td class="checkbox-data-cell" style="width: ${colConf.width || '40px'}; min-width: ${colConf.minWidth || '33px'};">
                         <input type="checkbox" class="row-selector-checkbox" ${checkedAttributeMarker} aria-label="Select row">
                     </td>
                 `;
             }
             else if (colConf.isToggle === true) {
-                // ... (Keep your working Fav button toggle code track exactly verbatim) ...
+                // Keep your working Fav button toggle code track exactly verbatim [▲]
                 const textSortingDataValue = isRowCurrentlyFavourited ? "1" : "0";
                 const buttonLabel = isRowCurrentlyFavourited ? (colConf.activeLabel || "★") : (colConf.inactiveLabel || "☆");
                 const currentColors = isRowCurrentlyFavourited ? colConf.activeColors : colConf.inactiveColors;
@@ -141,16 +142,54 @@ document.addEventListener("DOMContentLoaded", () => {
                     </td>
                 `;
             } else {
-                // ... (Keep your working standard text column fallback cell data code track exactly verbatim) ...
-                const variableKeyString = `val${sourceDataValueIndexCounter}`;
-                const rawValue = (item[variableKeyString] || "").trim();
-                sourceDataValueIndexCounter++;
-                // ... rest of text cell formatting logic remains completely untouched ...
+                // 🎯 THE LOGICAL HOOK: Standard text column cells read properties sequentially using our tracker index [▲]
+                const variableKey = `val${dataValueKeyIndexTracker}`;
+                const rawValue = (item[variableKey] || "").trim();
+                
+                // Increment your data properties tracker ONLY when a standard column cell is generated [▲]
+                dataValueKeyIndexTracker++;
+
                 let stylesArray = [];
                 if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
                 if (colConf.alignRight) stylesArray.push(`text-align: right !important;`);
+
                 const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
-                cellsContentHtml += `<td ${stylingAttributes}>${rawValue}</td>`;
+                let cellDisplayValue = rawValue;
+
+                if (colConf.isCurrency && rawValue !== "") {
+                    const numericValue = parseFloat(rawValue.replace(/,/g, ''));
+                    if (!isNaN(numericValue)) {
+                        const decimals = typeof colConf.precision !== 'undefined' ? colConf.precision : 2;
+                        cellDisplayValue = "\$" + numericValue.toLocaleString('en-US', {
+                            minimumFractionDigits: decimals,
+                            maximumFractionDigits: decimals
+                        });
+                    }
+                }
+
+                if (colConf.format === "uri" && rawValue !== "") {
+                    const targetUrl = rawValue.startsWith("http") ? rawValue : `https://${rawValue}`;
+                    cellDisplayValue = `<a href="${targetUrl}" target="_blank" class="table-cell-hyperlink" style="color: inherit !important;">${rawValue}</a>`;
+                }
+
+                if (colConf.isStatusBadge) {
+                    const badgeLookupKey = cellDisplayValue.toLowerCase();
+                    let badgeHtml = cellDisplayValue;
+
+                    if (badgeSchema[badgeLookupKey]) {
+                        const badgeRules = badgeSchema[badgeLookupKey];
+                        const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
+
+                        badgeHtml = `
+                            <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder}">
+                                ${badgeRules.label || cellDisplayValue}
+                            </span>
+                        `;
+                    }
+                    cellsContentHtml += `<td ${stylingAttributes}>${badgeHtml}</td>`;
+                } else {
+                    cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
+                }
             }
         });
 
