@@ -15,7 +15,7 @@
 {"jsonKey": "tag5","title": "Accompany", "labelWidth":70,"useTab":true}
 ],
 "columns": [
-{"type": "checkbox","width": "9%","minWidth":"40px"},
+{"type": "checkbox","width":40,"minWidth":33},
 {"label": "Date","dataType": "string","isSortable":true,"width":90,"minWidth":90},
 {"label": "Title","dataType": "string","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lanuage","dataType": "string","textColor": "#0000E6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
