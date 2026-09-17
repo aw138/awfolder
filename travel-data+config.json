@@ -16,7 +16,7 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":"40px","minWidth":"33px"},
+{"type": "checkbox","width":40,"minWidth":33},
 {"label": "Date","dataType": "date","isSortable":true,"width":220,"minWidth":110},
 {"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minWidth":80},
 {"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minWidth":73,"isCurrency":false,"precision": 0},
@@ -48,7 +48,6 @@
 },
 "DATA":
 [
-
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span> 七月十七 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "本州迪士尼筑波八天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span> 八月初五 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "曼谷，布吉，巴提雅"},
