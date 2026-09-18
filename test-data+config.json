@@ -39,6 +39,7 @@
 },
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"澳門":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
 "thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
 "malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
 "singapore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
