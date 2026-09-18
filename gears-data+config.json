@@ -1,31 +1,3 @@
-{
-"CONFIG":
-{
-"pageTitle": "Gears",
-"version": "v. 7.6.6",
-"defaults": {
-"initialSlicersExpanded":false,
-"defaultBooleanLogicMode":"OR"
-},
-"filters": [
-{"jsonKey": "tag1","title": "Event","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":false,"labelWidth":55},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":false,"labelWidth":55},
-{"jsonKey": "tag5","title": "Days","dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Camera","useTab":false,"labelWidth":55},
-{"jsonKey": "tag7","title": "Lens","useTab":false,"labelWidth":55},
-{"jsonKey": "tag8","title": "Tripod","useTab":false,"labelWidth":55}
-],
-"columns": [
-{"type": "checkbox","width": 40,"minWidth":33},
-{"label": "Date","dataType": "date","isSortable":true,"width":170,"minWidth":110},
-
-{"label": "Country/Place/Desc","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":150,"minWidth":100},
-
-
-{"label": "Camera/Lens","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":85},
-
 {"label": "Tripod","dataType": "string","isSortable":true,"width":80,"minWidth":70}
 ],
 "customSortPriority": {
@@ -39,7 +11,7 @@
 "statusBadges": {
 "20D":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "5D4":{"label": "20D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"G3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px}
+"G3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
@@ -53,6 +25,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200<BR>CZ50Pentagon135", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200Ricoh AF50<BR>CZ50Pentagon135Tamron28-50", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200<BR>", "val4": "(None)"},
