@@ -69,11 +69,21 @@
     vertical-align: top !important;
 }
 
-/* ------------------------------------------------------------- */
-/* 🎯 DYNAMIC AMORPHOUS STATUS BADGE SPACING SHAPE RULES         */
-/* ------------------------------------------------------------- */
+/* ============================================================= */
+/* ⭐ UNIVERSAL ACCURATE STATUS BADGE ALIGNMENT MATRIX          */
+/* ============================================================= */
+
 .status-badge-token {
-    display: inline-block !important;
+    /* 🚀 THE DIRECT REMEDY: Re-align element structures cleanly using an inline flex centering system [PDF: 0.1.171] */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* 🎯 THE ALIGNMENT PIN: Clears out phantom right-hand letter tracking bounds on Chinese string labels [PDF: 0.1.183] */
+    text-transform: none !important; 
+    letter-spacing: 0px !important;   /* Wipes out uneven letter tracking completely [PDF: 0.1.183] */
+    
+    /* Maintain all your core sizing constraints exactly verbatim [PDF: 0.1.178] */
     padding: 1px 8px !important;
     font-size: 0.82rem !important;
     font-weight: 600 !important;
@@ -81,7 +91,7 @@
     text-align: center !important;
     white-space: nowrap !important;
     min-width: 50px !important;
-    box-sizing: border-box !important; /* Prevents text jumping with border shifts */
+    box-sizing: border-box !important; /* Prevents cell jumping with border shifts [PDF: 0.1.178] */
 }
 /* ------------------------------------------------------------- */
 /* TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE */

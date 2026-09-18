@@ -307,3 +307,100 @@ mark.search-hit-highlight {
     padding: 0px !important;
     box-sizing: border-box !important;
 }
+/* ============================================================= */
+/* STRUCTURAL FAVOURITE ONLY SELECTION TOGGLE COMPONENT ENGINE */
+/* ============================================================= */
+
+.fav-header-stack-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    width: 100% !important;
+    user-select: none !important;
+    box-sizing: border-box !important;
+}
+
+.fav-header-label-text {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+}
+
+.fav-mini-badge {
+    font-size: 0.78rem !important;
+    font-weight: normal !important;
+    color: #fef08a !important; /* High contrast amber text coordinate highlight */
+}
+
+.fav-toggle-action-trigger { /* Adjust Fav button styles */
+    width: 44px !important;   /* Change this raw number value to shrink/widen button width */
+    height: 20px !important;  /* Change this raw number value to shrink/grow button height */
+   
+    /* ⚠️ KEEP THESE VALUES FIXED FOR ZERO INTERFERENCE WITH THE GRID CELL: */
+    min-width: 0 !important;   /* MUST BE 0! A hardcoded min-width higher than 0 forces cells to expand */
+    padding: 0px 4px !important; /* SNUG inner padding scale leaves maximum structural room */
+    
+    font-size: 12px !important; 
+    background-color: #B3C1D5 !important;
+    border: 1px solid #475569 !important;
+    color: #bb0000 !important; 
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease-in-out !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;}
+
+.fav-toggle-action-trigger:hover {
+    background-color: #475569 !important;
+    color: #fef08a !important;
+    border-color: #ca8a04 !important;
+}
+
+/* Activated State matching the style format profiles of checkout configurations */
+.fav-toggle-action-trigger.fav-filter-active-state {
+    background-color: #fef08a !important;
+    color: #db582d !important;
+    border-color: #ca8a04 !important;
+    box-shadow: 0 0 4px rgba(202, 138, 4, 0.4) !important;
+    font-weight: bold !important;
+}
+
+/* Safe fallback override script rules to hide sorting carets from Fav column entirely */
+.custom-fav-header-cell.sort-icon-trigger,
+.custom-fav-header-cell::after,
+.custom-fav-header-cell .sort-icon-trigger {
+    display: none !important;
+    content: "" !important;
+    width: 0 !important;
+}
+/* ============================================================= */
+/* STICKY LOCK ANCHOR ENGINE FOR CUSTOM FILTER TOGGLE CELL */
+/* ============================================================= */
+
+#dataTable th.custom-fav-header-cell {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 101 !important; /* Kept higher than text elements to anchor securely */
+    background-color: #212A31 !important; /* Uniform matching table cell backdrop colour */
+    box-sizing: border-box !important;
+    vertical-align: top !important;
+    padding: 6px 4px !important;
+    border-right: 1px solid #556b70 !important;
+}
+
+/* Ensure child flex container element fits cleanly on scroll frames */
+.fav-header-stack-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
