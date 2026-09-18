@@ -1,45 +1,60 @@
 {
 "CONFIG":
 {
-"pageTitle": "旅行社",
+"pageTitle": "Test",
 "version": "v. 7.6.6",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
-{"jsonKey": "tag1","title": "旅行社","labelWidth":70},
-{"jsonKey": "tag2","title": "寶湖分店","labelWidth":70}
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
-{"label": "Type","dataType": "string","isSortable":true, "isStatusBadge":true,"width":100,"minWidth":110},
-{"label": "English","dataType": "string","textColor": "#000000","isSortable":true,"width":130,"minWidth":90},
-{"label": "Chinese","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":160,"minWidth":90},
-{"label": "成立","dataType": "string","isSortable":true,"width":70,"minWidth":70},
+{"label": "Date","dataType": "date","isSortable":true,"width":200,"minWidth":110},
+{"label": "Lunar","dataType": "string","isSortable":true,"width":160,"minWidth":80},
+{"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":60,"minWidth":73},
+{"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true,"isStatusBadge":false, "isStatusBadge":true,"width":95,"minWidth":95},
+{"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":120,"minWidth":85},
+{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"width":78,"minWidth":74},
 {"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":33},
-{"label": "Web site","dataType": "string","isSortable":true,"format":"uri","width":210,"minWidth":160}
+{"label": "Description","dataType": "string","isSortable":true,"width":300,"minWidth":115}
 ],
 "customSortPriority": {
-"已結業":999,
-"Yes":1,
+"春季":1,
+"夏季":2,
+"秋季":3,
+"(None)":999,
+"自由行":1,
+"中國":1,
+"澳門":2,
 "台灣":3
 },
 "statusBadges": {
-"大型旅行社":{"label": "大型旅行社", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
-"中小型旅行社":{"label": "中小型旅行社", "bg": "#76D3FF","text": "#1b3b59","border": "#1b3b59"},
-"新興旅行社":{"label": "新興旅行社", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
-"已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
+"中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"澳門":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
+"malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
+"singapore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
+"japan":{"label": "Japan", "bg": "#F5F5F5","text": "#FF0000","border": "#333333","borderRadius": ""}
 },
 "descriptionBadges": {
-"plovercovebranch":{"bg": "#FFFF00","text": "#CC0000","border": "#222222"},
+"flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
+"hiking":{"bg": "#dee386","text": "#000000","border": "#222222"},
+"cycling":{"bg": "#4ee366","text": "#ab3771","border": "#222222"},
+"hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 }
 },
 "DATA":
 [
-
-
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
 {"tag1": "1988", "tag2": "春季", "tag3": "中國", "tag4": "廣東", "tag5": "自由行", "tag6": "2", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "100深圳香蜜湖渡假村 - 正月初二", "val3": "2", "val4": "中國", "val5": "廣東", "val6": "自由行", "val7": "2190.536", "val8": "<span class='inline-description-badge' data-badge='travel'>✈&#xFE0E;‍ TRAVEL</span>100深圳香蜜湖渡假村"},
