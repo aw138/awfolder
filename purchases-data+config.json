@@ -24,7 +24,7 @@
 {"label": "Description","dataType": "string","isSortable":true,"width":167},
 {"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
 {"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency":true,"precision": 2},
-{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
+{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":102}
 ],
 "customSortPriority": {
 "Active":1,
@@ -47,7 +47,7 @@
 
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Camera; Lens", "val3": "Canon", "val4": "EOS 650 + EF 35-105 f/3.5-4.5", "val5": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "", "val7": "4370", "val8": "Retired Disposed"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Flash", "val3": "Canon", "val4": "Speedlite 300EZ", "val5": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "Wing Shing", "val7": "800", "val8": "Retired Active"},
-{"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden", "val4": "CA-747S", "val5": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "HK Electronic", "val7": "2190", "val8": "Disposed"},
+{"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden", "val4": "CA-747S", "val5": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "HK Electronic", "val7": "2190", "val8": "Disposed Disposed"},
 {"tag1": "Disposed", "tag2": "Peripherals", "tag3": "Printer", "tag4": "Canon", "tag5": "Witty", "tag6": "1995", "val1": "1995/12/9 (Sat)", "val2": "Printer", "val3": "Canon", "val4": "BJC-4100", "val5": "Colour printer <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "Witty", "val7": "2800", "val8": "Disposed"},
 {"tag1": "Disposed", "tag2": "Storage", "tag3": "Hard Disk", "tag4": "Seagate", "tag5": "PC Buzbuz", "tag6": "1996", "val1": "1996/8/9 (Fri)", "val2": "Hard Disk", "val3": "Seagate", "val4": "ST32140A", "val5": "2GB/7200RPM <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "PC Buzbuz", "val7": "1960", "val8": "Disposed"},
 {"tag1": "Disposed", "tag2": "Peripherals", "tag3": "Scanner", "tag4": "Primax", "tag5": "Country Capital", "tag6": "1996", "val1": "1996/10/24 (Thu)", "val2": "Scanner", "val3": "Primax", "val4": "Easy Photo Reader", "val5": "Parallel port photo scanner <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "Country Capital", "val7": "1600", "val8": "Disposed"},
