@@ -38,7 +38,7 @@
 "台灣":3
 },
 "statusBadges": {
-"china":{"label": "China", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
+"中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
 "thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066"},
 "malaysia":{"label": "Malaysia", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
 "japan":{"label": "Japan", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
