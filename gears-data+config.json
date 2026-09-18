@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.6.4",
+"version": "v. 7.6.6",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
@@ -52,7 +52,6 @@
 },
 "DATA":
 [
-
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200<BR>CZ50;Pentagon135", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200;Ricoh AF50<BR>CZ50;Pentagon135;Tamron28-50", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200<BR>", "val4": "(None)"},
@@ -325,7 +324,6 @@
 {"tag1": "Outing", "tag2": "2021", "tag3": "香港", "tag4": "大埔", "tag5": "1", "tag6": "5D4; M6", "tag7": "EF100L; EF-M28", "tag8": "Gitzo GT1555T", "val1": "2021/4/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>1天</span>", "val2": "香港大埔<BR>大埔海濱公園", "val3": "5D4; M6<BR>EF100L; EF-M28", "val4": "Gitzo GT1555T"},
 {"tag1": "Outing", "tag2": "2021", "tag3": "香港", "tag4": "0", "tag5": "1", "tag6": "5D4", "tag7": "EF24-70", "tag8": "(None)", "val1": "2021/9/5 (Sun)<span class='inline-description-badge' data-badge='daybadge'>1天</span>", "val2": "香港<BR>黃金海岸", "val3": "5D4<BR>EF24-70", "val4": "(None)"},
 {"tag1": "Outing", "tag2": "2021", "tag3": "香港", "tag4": "九龍", "tag5": "1", "tag6": "M6", "tag7": "EF-M11-22", "tag8": "Gitzo GT1555T", "val1": "2021/9/25 (Sat)<span class='inline-description-badge' data-badge='daybadge'>1天</span>", "val2": "香港九龍<BR>Sky100", "val3": "M6<BR>EF-M11-22", "val4": "Gitzo GT1555T"}
-
 
 ]
 }
