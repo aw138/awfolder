@@ -40,7 +40,7 @@
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"ricohaf50":{"label": "Ricoh AF50", "bg": "$444444","text": "#aaaaaa","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"ricohaf50":{"label": "Ricoh AF50", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "g3":{"label": "G3", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "a70":{"label": "A70", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "a570":{"label": "A570", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
