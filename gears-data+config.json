@@ -37,20 +37,22 @@
 "香港":4
 },
 "statusBadges": {
+"b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "5div":{"label": "5DIV", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFFAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "m6":{"label": "M6", "bg": "#666666","text": "#FFFFAA","border": "#000000","borderRadius": "0px 0px 0px 0px"},
 "6d":{"label": "6D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "g3":{"label": "G3", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"ricoh af50":{"label": "Ricoh AF50", "bg": "$444444","text": "#aaaaaa","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "a70":{"label": "A70", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "a570":{"label": "A570", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
-"lf1":{"label": "LF1", "bg": "#FFFFFF","text": "#666666","border": "#666666","borderRadius": "2px 2px 2px 2px"},
+"lf1":{"label": "LF1", "bg": "#FFFFFF","text": "#6666FF","border": "#666666","borderRadius": "2px 2px 2px 2px"},
 "ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef70-200ii":{"label": "E70-200II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "rf24-105":{"label": "R24-105", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"}
-
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
