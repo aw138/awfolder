@@ -159,22 +159,41 @@ window.bindSortingTriggers = function() {
 
 // FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked! 🎯 [INDEX: 0.1.143]
 document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
-    const searchInput = document.getElementById("tableSearch");
+    // 1. Reset standard UI checkbox toggles
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
-
-    if (searchInput) searchInput.value = "";
     if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
-
-    // 1. Clear ONLY your active data filter selection chips [INDEX: 0.1.143]
-    for (const dataAttr in window.selectedFilters) {
-        window.selectedFilters[dataAttr].clear();
-        // 🎯 THE DIRECT FIX: Removed the line that overwrote window.booleanLogicalModes!
+    
+    // 2. Reset our Favorite filter system tracking states and visual handles
+    window.showFavouritesOnlyActive = false;
+    const favToggleBtn = document.getElementById("favFilterToggleBtn");
+    if (favToggleBtn) {
+        favToggleBtn.classList.remove("fav-filter-active-state");
     }
-
-    // 🎯 THE DIRECT FIX: Completely removed the old loop that forced visual buttons back to 'And' text!
-    // Your buttons will perfectly maintain their existing text labels and active green/orange backgrounds.
-
-    // 2. Clear transient tracking variables and execute a fresh data recalculation [INDEX: 0.1.143]
-    window.activeSlicerKey = null;
+    
+    // 3. CRITICAL: Clear all dynamic cross-filter Slicer Sets completely 🎯
+    if (window.selectedFilters) {
+        Object.keys(window.selectedFilters).forEach(attrKey => {
+            window.selectedFilters[attrKey] = new Set();
+        });
+    }
+    
+    // 4. Clean up pending raw table row visibility constraints
+    window.getRuntimeRows().forEach(row => {
+        row.style.display = ""; 
+        row.classList.remove("is-unchecked-pending"); 
+    });
+    
+    // 5. Force the Cross-Filter Render Pipeline to re-evaluate and rebuild visual chips
     window.applyCombinedFilter();
+    
+    // 6. Instantly repaint and synchronize visual active class selections on all slicer deck elements
+    if (typeof window.updateAllSlicerButtonsUI === "function") {
+        window.updateAllSlicerButtonsUI(window.getRuntimeRows());
+    }
+	window.getRuntimeRows().forEach(row => {
+		row.style.display = ""; 
+		row.classList.remove("is-unchecked-pending"); 
+		row.classList.remove("is-unfav-pending"); // Clear favorite pending flags safely 🌟
+	});
+
 });

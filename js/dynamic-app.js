@@ -1,3 +1,26 @@
+// GLOBAL FAVOURITE FILTER SYSTEM STATES 🎯
+window.showFavouritesOnlyActive = false; 
+
+/**
+ * Global macro execution function to toggle the Favorite cross-filtering layer state
+ */
+window.toggleFavouritesOnlyFilterMode = function() {
+    window.showFavouritesOnlyActive = !window.showFavouritesActiveState();
+    
+    // Update structural button UI rendering tokens across viewports
+    const favHeaderButtons = document.querySelectorAll(".fav-toggle-action-trigger");
+    favHeaderButtons.forEach(btn => {
+        btn.classList.toggle("fav-filter-active-state", window.showFavouritesOnlyActive);
+    });
+    
+    // Core pipeline execution block triggers runtime viewport filtration
+    window.applyCombinedFilter();
+};
+
+window.showFavouritesActiveState = function() {
+    return !!window.showFavouritesOnlyActive;
+};
+
 // UNIFIED RUNTIME BOOTLOADER ENGINE (Combines all listeners into one safe thread) 🎯
 document.addEventListener("DOMContentLoaded", () => {
     const tbody = document.getElementById("tableBody");
@@ -173,20 +196,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 if (colConf.isStatusBadge) {
-                    const badgeLookupKey = cellDisplayValue.toLowerCase();
-                    let badgeHtml = cellDisplayValue;
+                    const statusWordsArray = cellDisplayValue.trim().split(/\s+/);
+                    let compiledBadgesHtmlString = "";
 
-                    if (badgeSchema[badgeLookupKey]) {
-                        const badgeRules = badgeSchema[badgeLookupKey];
-                        const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
+                    statusWordsArray.forEach(word => {
+                        const badgeLookupKey = word.toLowerCase();
+                        
+                        if (badgeSchema[badgeLookupKey]) {
+                            const badgeRules = badgeSchema[badgeLookupKey];
+                            const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
+                            
+                            // 🎯 THE FIX: Read your custom border-radius setting from JSON or fall back to your layout default
+                            const targetedRadius = badgeRules.borderRadius ? badgeRules.borderRadius : '4px';
 
-                        badgeHtml = `
-                            <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder}">
-                                ${badgeRules.label || cellDisplayValue}
-                            </span>
-                        `;
-                    }
-                    cellsContentHtml += `<td ${stylingAttributes}>${badgeHtml}</td>`;
+                            compiledBadgesHtmlString += `
+                                <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder} border-radius: ${targetedRadius} !important; margin-right: 4px !important; margin-bottom: 2px !important; display: inline-flex !important;">
+                                    ${badgeRules.label || word}
+                                </span>
+                            `;
+                        } else if (word !== "") {
+                            compiledBadgesHtmlString += `<span style="margin-right: 4px !important;">${word}</span>`;
+                        }
+                    });
+
+                    const multiBadgeWrapperHtml = `
+                        <div style="display: flex !important; flex-wrap: wrap !important; align-items: center !important;">
+                            ${compiledBadgesHtmlString}
+                        </div>
+                    `;
+
+                    cellsContentHtml += `<td ${stylingAttributes}>${multiBadgeWrapperHtml}</td>`;
                 } else {
                     cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
                 }
@@ -261,8 +300,16 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const nextStateSaved = !isCurrentlySaved;
         const targetColors = nextStateSaved ? targetToggleConfig.activeColors : targetToggleConfig.inactiveColors;
-        
-        // 🎯 THE FIX: Instantly swap the hidden data text string ("1" vs "0") so subsequent sorting clicks evaluate accurately
+
+        // 🎯 FIXED: Swapped out foreign index names with correct localized variables
+        if (!nextStateSaved && window.showFavouritesActiveState()) {
+            // If we are un-favoriting a row under active filter mode, mark it as pending
+            parentRowNode.classList.add("is-unfav-pending");
+        } else {
+            // If favoriting or if filter mode is turned off, clear the state
+            parentRowNode.classList.remove("is-unfav-pending");
+        }
+
         const hiddenDataTracker = parentRowNode.querySelector(".schema-declarative-data-cell span");
         if (hiddenDataTracker) {
             hiddenDataTracker.textContent = nextStateSaved ? "1" : "0";
@@ -274,6 +321,43 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleBtn.style.setProperty("color", targetColors.text, "important");
         toggleBtn.style.setProperty("border", `1px solid ${targetColors.border}`, "important");
         toggleBtn.style.setProperty("border-radius", targetColors.borderRadius, "important");
+		// INJECT THIS CALL RIGHT BEFORE CLOSING THE EVENT LISTENER LAYER:
+		window.recalculateRealtimeFavCounters();
+		window.applyCombinedFilter(); // Re-evaluates viewport matching layers instantly
     });
 
 });
+window.recalculateRealtimeFavCounters = function() {
+    const activeRowsArray = window.getRuntimeRows();
+    const favColumnIndex = (window.activeColumnsWidthsSchema || []).findIndex(col => col && col.isToggle === true);
+    
+    if (favColumnIndex === -1) return;
+    
+    let matchedVisibleFavoritesCount = 0;
+    const savedFavouritesDatabase = JSON.parse(localStorage.getItem("dashboardPersistentFavKeys") || "[]");
+    
+    activeRowsArray.forEach(row => {
+        const rowStorageKeySignature = row.getAttribute("data-row-key");
+        const isFav = savedFavouritesDatabase.includes(rowStorageKeySignature);
+        
+        if (isFav) {
+            // Count rows matching active text queries, filters, or checkboxes
+            if (row.style.display !== "none" && !row.classList.contains("is-unchecked-pending")) {
+                matchedVisibleFavoritesCount++;
+            }
+        }
+    });
+    
+    // Update the master column label marker badge element only
+    const columnHeaderCounterSlot = document.getElementById("favColumnCounterBadge");
+    if (columnHeaderCounterSlot) {
+        columnHeaderCounterSlot.textContent = `(${matchedVisibleFavoritesCount})`;
+    }
+    
+    // Keep button label static as "★ only" and use class tracking for highlights
+    const toggleButton = document.getElementById("favFilterToggleBtn");
+    if (toggleButton) {
+        toggleButton.textContent = "★ only";
+        toggleButton.classList.toggle("fav-filter-active-state", window.showFavouritesActiveState());
+    }
+};

@@ -1,3 +1,26 @@
+// GLOBAL FAVOURITE FILTER SYSTEM STATES 🎯
+window.showFavouritesOnlyActive = false; 
+
+/**
+ * Global macro execution function to toggle the Favorite cross-filtering layer state
+ */
+window.toggleFavouritesOnlyFilterMode = function() {
+    window.showFavouritesOnlyActive = !window.showFavouritesActiveState();
+    
+    // Update structural button UI rendering tokens across viewports
+    const favHeaderButtons = document.querySelectorAll(".fav-toggle-action-trigger");
+    favHeaderButtons.forEach(btn => {
+        btn.classList.toggle("fav-filter-active-state", window.showFavouritesOnlyActive);
+    });
+    
+    // Core pipeline execution block triggers runtime viewport filtration
+    window.applyCombinedFilter();
+};
+
+window.showFavouritesActiveState = function() {
+    return !!window.showFavouritesOnlyActive;
+};
+
 // LOGICAL SPLIT 1: TEXT QUERY SEARCH 🎯 & CROSS-FILTER MATCHING ENGINE
 window.getRuntimeRows = function() { 
     const tbody = document.getElementById("tableBody");
@@ -65,11 +88,13 @@ window.applyCombinedFilter = function() {
     const showCheckedOnly = showCheckedOnlyToggle?.checked || false; 
     let visibleCount = 0; 
     
-    if (clearSearchBtn) clearSearchBtn.style.display = searchText.length > 0 ? "block" : "none";
-    
+    const favColumnIndex = (window.activeColumnsWidthsSchema || []).findIndex(col => col && col.isToggle === true);
+
     activeRows.forEach(row => {
         const isChecked = row.querySelector(".row-selector-checkbox")?.checked || false; 
         const cells = Array.from(row.querySelectorAll("td")); 
+        
+        // Clear old highlights safely
         cells.forEach((cell, idx) => { 
             if (idx === 0) return; 
             cell.querySelectorAll("mark.search-hit-highlight").forEach(m => { 
@@ -78,6 +103,7 @@ window.applyCombinedFilter = function() {
             cell.normalize(); 
         });
 
+        // 1. Dashboard Checked Row Visibility Lock Checkbox Constraints
         if (showCheckedOnly) {
             if (!isChecked) {
                 if (row.style.display === "none") return;
@@ -90,11 +116,28 @@ window.applyCombinedFilter = function() {
             }
         }
 
+        // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock 🌟
+        if (window.showFavouritesActiveState() && favColumnIndex !== -1) {
+            const hiddenDataTracker = cells[favColumnIndex]?.querySelector("span");
+            const isRowFav = hiddenDataTracker?.textContent.trim() === "1";
+            const isUnfavPending = row.classList.contains("is-unfav-pending");
+            
+            if (!isRowFav && !isUnfavPending) {
+                row.style.display = "none";
+                return; // Drops row out of downstream filters immediately
+            }
+        } else {
+            // Flush out the temporary structural pending state if filter mode is turned off
+            row.classList.remove("is-unfav-pending");
+        }
+
+        // 3. Core Text Search Validation Boundary
         const matchesSearch = searchText === "" || cells.some((el, idx) => { 
             if (idx === 0) return false; 
             return el.textContent.toLowerCase().includes(searchText); 
         });
 
+        // 4. Sibling Slicer Conflict Scope Analysis
         let matchesSlicers = true; 
         for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters)) { 
             if (filterSet.size === 0) continue; 
@@ -111,8 +154,10 @@ window.applyCombinedFilter = function() {
             }
         }
 
+        // Finalize display attributes
         if (matchesSearch && matchesSlicers) { 
-            row.style.display = ""; visibleCount++; 
+            row.style.display = ""; 
+            visibleCount++; 
             if (searchText.length >= 1) { 
                 cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchInput.value.trim()); }); 
             } 
@@ -123,12 +168,12 @@ window.applyCombinedFilter = function() {
 
     if (noResultsMessage) noResultsMessage.style.display = visibleCount === 0 ? "block" : "none";
     if (typeof window.recalculateZebraStriping === "function") window.recalculateZebraStriping();
-    
     window.updateMasterCheckboxState();
 
     const freshCounterBadge = document.getElementById("tableResultsCounter");
     if (freshCounterBadge) freshCounterBadge.textContent = `${visibleCount}/${activeRows.length}`;
 
+    // Recalculate selected checkboxes total
     const counterTextTarget = document.getElementById("checkedFilterCounterText");
     if (counterTextTarget) {
         let checkedVisibleCount = 0;
@@ -138,7 +183,11 @@ window.applyCombinedFilter = function() {
         counterTextTarget.textContent = `${checkedVisibleCount} selected`;
     }
 
-    if (typeof window.updateAllSlicerButtonsUI === "function") window.updateAllSlicerButtonsUI(activeRows);
+    if (typeof window.updateAllSlicerButtonsUI === "function") {
+        window.updateAllSlicerButtonsUI(activeRows);
+    }
+
+    window.recalculateRealtimeFavCounters();
 };
 // PART C: EVENT LISTENERS & INVERT MACRO CAPTURE HOOKS (Paste directly below Part B)
 
@@ -307,4 +356,11 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
         window.applyCombinedFilter();
     });
+	// Add this simple structural event hook on page boot:
+	document.getElementById("favFilterToggleBtn")?.addEventListener("click", function(e) {
+		e.stopPropagation(); // Prevents cell click events from breaking table geometric constraints
+		e.preventDefault();
+		window.toggleFavouritesOnlyFilterMode();
+	});
+
 });
