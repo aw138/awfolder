@@ -55,6 +55,7 @@
 "ef24-105":{"label": "E24-105", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef35":{"label": "E35", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef40":{"label": "E40", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
+"ef50ii":{"label": "E50II", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef100l":{"label": "E100L", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef16-35":{"label": "E16-35", "bg": "#DDDDFF","text": "#884444","border": "#448844","borderRadius": "999px"},
