@@ -46,9 +46,11 @@
 "a70":{"label": "A70", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "a570":{"label": "A570", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "lf1":{"label": "LF1", "bg": "#FFFFFF","text": "#666666","border": "#666666","borderRadius": "2px 2px 2px 2px"},
-"ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#44FF44","border": "#44FF44","borderRadius": "999px"},
+"ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
+"ef70-200ii":{"label": "E70-200II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "rf24-105":{"label": "R24-105", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"}
+
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
