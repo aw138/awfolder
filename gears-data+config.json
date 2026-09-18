@@ -49,6 +49,8 @@
 "5div":{"label": "5DIV", "bg": "#000000","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "m6":{"label": "M6", "bg": "#666666","text": "#FFFF00","border": "#000000","borderRadius": "0px 0px 0px 0px"},
 "r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"ef24-105":{"label": "E24-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
+"ef70-200":{"label": "E70-200", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef100":{"label": "E100", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef24-105":{"label": "E24-105", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef35":{"label": "E35", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
@@ -56,8 +58,12 @@
 "ef100l":{"label": "E100L", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "ef16-35":{"label": "E16-35", "bg": "#DDDDFF","text": "#884444","border": "#448844","borderRadius": "999px"},
+"e1.4xiii":{"label": "E1.4xIII", "bg": "#FFFF00","text": "#AA0000","border": "#AA0000","borderRadius": "999px"},
 "ef70-200ii":{"label": "E70-200II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
+"ef100-400ii":{"label": "E100-400II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
 "rf24-105":{"label": "R24-105", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"ef-m28":{"label": "M28", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"ef-m11-22":{"label": "M11-22", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"}
 },
 "descriptionBadges": {
