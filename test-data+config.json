@@ -40,7 +40,8 @@
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
 "thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
-"malaysia":{"label": "Malaysia", "bg": "#FF8080","text": "#0000FF","border": "#000066","borderRadius": "999px"},
+"malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
+"singapore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
 "japan":{"label": "Japan", "bg": "#F5F5F5","text": "#FF0000","border": "#333333","borderRadius": ""}
 },
 "descriptionBadges": {
@@ -53,6 +54,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
