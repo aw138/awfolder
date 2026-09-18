@@ -4,7 +4,7 @@
 "pageTitle": "Gears",
 "version": "v. 7.6.6",
 "defaults": {
-"initialSlicersExpanded":false,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
@@ -40,11 +40,15 @@
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "5div":{"label": "5DIV", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFFAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"m6":{"label": "M6", "bg": "#666666","text": "#000000","border": "#000000","borderRadius": "0px 0px 0px 0px"},
+"m6":{"label": "M6", "bg": "#666666","text": "#FFFFAA","border": "#000000","borderRadius": "0px 0px 0px 0px"},
 "6d":{"label": "6D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"g3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
-"a570":{"label": "A570", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
-"ef-m18-150":{"label": "M18-150", "bg": "#FFFFFF","text": "#444444","border": "#444444","borderRadius": "999px"}
+"g3":{"label": "G3", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"a70":{"label": "A70", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"a570":{"label": "A570", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"lf1":{"label": "LF1", "bg": "#FFFFFF","text": "#666666","border": "#666666","borderRadius": "2px 2px 2px 2px"},
+"ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#44FF44","border": "#44FF44","borderRadius": "999px"}
+"rf24-105":{"label": "R24-105", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"}
+"ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
@@ -58,6 +62,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200 <BR> CZ50 Pentagon135", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;Ricoh AF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200 Ricoh AF50 <BR> CZ50 Pentagon135 Tamron28-50", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200 <BR> ", "val4": "(None)"},
