@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅行社</title>
-	<!-- v.7.6.4 -->
+	<!-- v.7.6.6 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -100,9 +100,12 @@
                             <th class="sortable">English<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Chinese<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">成立<br><span class="sort-icon-trigger"></span></th>
-							<th class="sortable declarative-toggle-header-alignment">
-								Fav<br><span class="sort-icon-trigger"></span>
-							</th>                            
+							<th class="declarative-toggle-header-alignment custom-fav-header-cell" style="width: 65px; min-width: 65px;">
+								<div class="fav-header-stack-wrapper">
+									<span class="fav-header-label-text">Fav <span id="favColumnCounterBadge" class="fav-mini-badge">(0)</span></span>
+									<button type="button" id="favFilterToggleBtn" class="fav-toggle-action-trigger" title="Filter by Favorites only" aria-label="Toggle favorites filtration">★</button>
+								</div>
+							</th>
                             <th class="sortable">Website<br><span class="sort-icon-trigger"></span></th>
                         </tr>
                     </thead>
