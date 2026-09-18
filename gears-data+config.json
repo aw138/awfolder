@@ -49,6 +49,7 @@
 "5div":{"label": "5DIV", "bg": "#000000","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "m6":{"label": "M6", "bg": "#666666","text": "#FFFF00","border": "#000000","borderRadius": "0px 0px 0px 0px"},
 "r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"ef35-105":{"label": "E35-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef24-105":{"label": "E24-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef70-200":{"label": "E70-200", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "ef100":{"label": "E100", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
