@@ -37,9 +37,9 @@
 "香港":4
 },
 "statusBadges": {
-"20D":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"5D4":{"label": "20D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
-"G3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"}
+"20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"5d4":{"label": "20D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"g3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
