@@ -41,6 +41,7 @@
 "5div":{"label": "5DIV", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFFAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "m6":{"label": "M6", "bg": "#666666","text": "#000000","border": "#000000","borderRadius": "0px 0px 0px 0px"},
+"6d":{"label": "6D", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "g3":{"label": "G3", "bg": "#999999","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"}
 },
 "descriptionBadges": {
