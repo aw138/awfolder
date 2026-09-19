@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-	<!-- v.7.6.5 -->
+    <title>T</title>
+	<!-- v.7.6.6 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -82,6 +82,11 @@
         <div class="filter-dashboard-panel">
             <div id="horizontalFiltersContainer" class="horizontal-filters-container"></div>
         </div>
+		<!-- 🌟 NEW SLICER REPLACEMENT CONTAINER: GLOBAL MIRROR CHIPS DECK -->
+		<div id="globalMirrorChipsDeck" class="global-mirror-chips-deck" style="display: none;">
+			<div class="mirror-deck-title">Active Filters:</div>
+			<div id="mirrorChipsWrapper" class="mirror-chips-wrapper"></div>
+		</div>
 
         <!-- CONTAINER 3: MAIN DATA TABLE -->
         <div class="table-container">
@@ -103,9 +108,13 @@
                             <th class="sortable">Place<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Agent<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Price<br><span class="sort-icon-trigger"></span></th>
-							<th class="sortable declarative-toggle-header-alignment">
-								Fav<br><span class="sort-icon-trigger"></span>
-							</th>                            
+							<!-- WITH THIS HIGH-DENSITY FILTER BUTTON STACK CELL: -->
+							<th class="declarative-toggle-header-alignment custom-fav-header-cell" style="width: 65px; min-width: 65px;">
+								<div class="fav-header-stack-wrapper">
+									<span class="fav-header-label-text">Fav <span id="favColumnCounterBadge" class="fav-mini-badge">(0)</span></span>
+									<button type="button" id="favFilterToggleBtn" class="fav-toggle-action-trigger" title="Filter by Favorites only" aria-label="Toggle favorites filtration">★</button>
+								</div>
+							</th>
 							<th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
                         </tr>
                     </thead>
