@@ -95,3 +95,115 @@
     background-color: #4444F4; 
     color: #ffffff; 
 }
+/* ============================================================= */
+/* 🌟 SLICER REPLACEMENT CONTAINER: MIRROR CHIPS DECK LAYOUT    */
+/* ============================================================= */
+
+.global-mirror-chips-deck {
+    background-color: #d8f7d2 !important;
+    border: 1px solid #748d92 !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin-bottom: 0px !important; /* adjust the gap between chip and bottom containers */
+}
+
+.mirror-deck-title {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #475569 !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.mirror-chips-wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+/* ============================================================= */
+/* 🎯 UNIFIED ACTIVE CHIPS SYSTEM (CENTRALIZED LAYER)            */
+/* ============================================================= */
+/* Base properties for ALL filter chips on the dashboard */
+.active-selected-chip {
+    /* 🚀 THE 24PX HEIGHT ENGINE: Locks boundaries and forces vertical text alignment */
+    height: 24px !important;
+    box-sizing: border-box !important;
+    /* 🚀 THE BALANCER TRICK: Add +1.5px to the top to counter the font's bottom offset */
+    padding-top: 1.5px !important;    /* Shifts text down slightly to hit the center line */
+    padding-bottom: 0px !important; 
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    
+    /* Original base structural styles [INDEX: 0.1.22] */
+    background-color: #E24E66 !important;
+    color: #ffffff !important;
+    border: 1px solid #643D32 !important;
+    border-radius: 999px !important;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+    user-select: none !important;
+    transition: background-color 0.15s ease;
+}
+
+.active-selected-chip:hover {
+    background-color: #b13438 !important; /* Red hover indicating deletion [INDEX: 0.1.22] */
+}
+/* ------------------------------------------------------------- */
+/* Secondary Style Modifier for projected Mirror Deck Chips ONLY */
+/* ------------------------------------------------------------- */
+.active-selected-chip.mirror-projected-chip {
+    /* Inherits 24px box size from above, but overrides colors for the steel-slate theme */
+    background-color: #e24e66 !important; /* adjust chips in chip container color */
+    border-color: #643d32 !important; /* adjust chips in chip container color */
+    font-size: 0.85rem !important;
+    padding-top: 1.5px !important;    /* Shifts text down slightly to hit the center line */
+    padding-bottom: 0px !important; 
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    /* padding: 2px 6px !important; */
+    border-radius: 999px !important;
+}
+
+.active-selected-chip.mirror-projected-chip:hover {
+    background-color: #b13438 !important; /* adjust chips in chip container color */
+    border-color: #643d32 !important; /* adjust chips in chip container color */
+}
+/* 2. Configure colors for the filter category name (e.g., "Country:") 🏷️ */
+.active-selected-chip.mirror-projected-chip .chip-filter-prefix-label {
+    color: #fef08a !important;        /* adjust chip category color in chip container */
+    font-size: 0.8rem !important;     /* Slightly smaller micro-layout font */
+    font-weight: 700 !important;      /* Extra bold token presentation */
+    margin-right: 4px !important;     /* Air gap spacing separating label and value */
+    user-select: none !important;
+}
+
+/* 3. Configure colors for the actual selected value (e.g., "Japan") 💎 */
+.active-selected-chip.mirror-projected-chip .chip-filter-value-text {
+    color: #ffffff !important;        /* Crisp high-contrast white text color */
+    font-size: 0.85rem !important;    /* Baseline value sizing constraint */
+    font-weight: 500 !important;      /* Medium reading density weight */
+}
+
+/* 4. Keep the close delete "x" icon color clean and balanced */
+.active-selected-chip.mirror-projected-chip .chip-delete-x-trigger {
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-left: 4px !important;
+    font-size: 14px !important;
+}
