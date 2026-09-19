@@ -27,10 +27,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tbody) return;
     window.globalTableRows = [];
 
-    // A. Bind UI Controls Panel Elements safely within the active thread
+    // A. Bind UI Controls Panel Elements safely within the active thread [INDEX: 0.1.217]
     document.getElementById("dashboardToggleBtn")?.addEventListener("click", function() {
         const isCollapsed = document.querySelector(".filter-dashboard-panel")?.classList.toggle("collapsed-state");
         this.innerHTML = isCollapsed ? "&#9660;" : "&#9650;";
+        
+        // 🚀 INJECT THIS CALL TO TRIGGER THE SWAP ON CLICK:
+        if (typeof window.synchronizeMirrorChipsViewport === "function") {
+            window.synchronizeMirrorChipsViewport();
+        }
     });
 
     let fontTrackerSize = 14;
@@ -195,38 +200,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     cellDisplayValue = `<a href="${targetUrl}" target="_blank" class="table-cell-hyperlink" style="color: inherit !important;">${rawValue}</a>`;
                 }
 
-                if (colConf.isStatusBadge) {
-                    const statusWordsArray = cellDisplayValue.trim().split(/\s+/);
-                    let compiledBadgesHtmlString = "";
+				if (colConf.isStatusBadge) {
+					// 🎯 FIX 1: Clean out trailing spaces but keep literal casing matches safe
+					const statusWordsArray = cellDisplayValue.trim().split(/\s+/);
+					let compiledBadgesHtmlString = "";
 
-                    statusWordsArray.forEach(word => {
-                        const badgeLookupKey = word.toLowerCase();
-                        
-                        if (badgeSchema[badgeLookupKey]) {
-                            const badgeRules = badgeSchema[badgeLookupKey];
-                            const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
-                            
-                            // 🎯 THE FIX: Read your custom border-radius setting from JSON or fall back to your layout default
-                            const targetedRadius = badgeRules.borderRadius ? badgeRules.borderRadius : '4px';
+					statusWordsArray.forEach(word => {
+						const badgeLookupKey = word.toLowerCase();
+						
+						// 🎯 FIX 2: Intercept the line-break token block explicitly before badge matching layers execute
+						if (badgeLookupKey === "<br>" || badgeLookupKey === "<br/>" || badgeLookupKey === "<br />") {
+							// Inserting a line-break element with 100% width cleanly forces horizontal flex items to wrap onto the next row line
+							compiledBadgesHtmlString += `<div style="flex-basis: 100%; height: 0; margin: 0; padding: 0;"></div>`;
+						} 
+						else if (badgeSchema[badgeLookupKey]) {
+							const badgeRules = badgeSchema[badgeLookupKey];
+							const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
+							const targetedRadius = badgeRules.borderRadius ? badgeRules.borderRadius : '4px';
 
-                            compiledBadgesHtmlString += `
-                                <span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder} border-radius: ${targetedRadius} !important; margin-right: 4px !important; margin-bottom: 2px !important; display: inline-flex !important;">
-                                    ${badgeRules.label || word}
-                                </span>
-                            `;
-                        } else if (word !== "") {
-                            compiledBadgesHtmlString += `<span style="margin-right: 4px !important;">${word}</span>`;
-                        }
-                    });
+							compiledBadgesHtmlString += `
+								<span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder} border-radius: ${targetedRadius} !important; margin-right: 4px !important; margin-bottom: 2px !important; display: inline-flex !important;">
+									${badgeRules.label || word}
+								</span>
+							`;
+						} else if (word !== "") {
+							compiledBadgesHtmlString += `<span style="margin-right: 4px !important; display: inline-block;">${word}</span>`;
+						}
+					});
 
-                    const multiBadgeWrapperHtml = `
-                        <div style="display: flex !important; flex-wrap: wrap !important; align-items: center !important;">
-                            ${compiledBadgesHtmlString}
-                        </div>
-                    `;
+					const multiBadgeWrapperHtml = `
+						<div style="display: flex !important; flex-wrap: wrap !important; align-items: center !important;">
+							${compiledBadgesHtmlString}
+						</div>
+					`;
 
-                    cellsContentHtml += `<td ${stylingAttributes}>${multiBadgeWrapperHtml}</td>`;
-                } else {
+					cellsContentHtml += `<td ${stylingAttributes}>${multiBadgeWrapperHtml}</td>`;
+                }
+				else {
                     cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
                 }
             }

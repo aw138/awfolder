@@ -203,6 +203,8 @@ window.updateAllSlicerButtonsUI = function(rows) {
         // Redirect safely onto rendering layers
         window.renderTargetedSlicerLayoutGroup(rows, tagsWithAvailability, filterConfig, customTextColor, activeSet, optionsDeck, currentAttr);
     });
+    // 🚀 INJECT THIS CALL AT THE END OF THE LOOP:
+    window.synchronizeMirrorChipsViewport();
 };
 // HYBRID CONDITIONAL UI SLICER ENGINE - PART C (Fully Dynamic Badge Counters Engine)
 
@@ -434,5 +436,75 @@ window.syncGlobalAccordionButtonLabelState = function() {
         // Condition C: A partial mix of open/closed panels -> Keep it as a safe "Expand all" pass
         globalBtn.textContent = "Expand all";
         globalBtn.classList.remove("collapse-active-state");
+    }
+};
+/**
+ * 🌟 DYNAMIC CHIPS REPLACEMENT ORCHESTRATOR
+ * Collects selected chips from hidden rows and projects them into the global mirror container.
+ */
+window.synchronizeMirrorChipsViewport = function() {
+    const mirrorDeck = document.getElementById("globalMirrorChipsDeck");
+    const mirrorWrapper = document.getElementById("mirrorChipsWrapper");
+    const slicerPanel = document.querySelector(".filter-dashboard-panel");
+    
+    if (!mirrorDeck || !mirrorWrapper || !slicerPanel) return;
+    
+    // Check if the slicer control panel is currently hidden
+    const isSlicerAreaHidden = slicerPanel.classList.contains("collapsed-state");
+    
+    // Clear out any old cloned mirror chips from the previous render frame
+    mirrorWrapper.innerHTML = "";
+    
+    let totalActiveSelectionsCount = 0;
+    const activeFiltersRegistry = window.selectedFilters || {};
+    
+    // Loop through all category configuration keys to extract active filter strings
+    Object.keys(activeFiltersRegistry).forEach(categoryKey => {
+        const activeSet = activeFiltersRegistry[categoryKey];
+        if (!activeSet || activeSet.size === 0) return;
+        
+        // Locate the matching display configurations profile from your global schema
+        const filterConfig = (window.activeFiltersSchema || []).find(f => 
+            String(f.jsonKey || "").replace(/data-|-/g, '').trim() === categoryKey
+        );
+        const categoryLabelTitle = filterConfig?.title || categoryKey;
+        
+        activeSet.forEach(chosenValue => {
+            totalActiveSelectionsCount++;
+            
+            // Only generate mirror chips if the slicer panel is collapsed
+            if (isSlicerAreaHidden) {
+                const mirrorChip = document.createElement("button");
+                mirrorChip.type = "button";
+                mirrorChip.className = "active-selected-chip mirror-projected-chip";
+                
+                // Prefixed with category title for clarity since row context labels are hidden
+                // mirrorChip.innerHTML = `<small style="opacity:0.75; font-weight:bold; margin-right:3px;">${categoryLabelTitle}:</small> ${chosenValue} <span>&times;</span>`;
+				mirrorChip.innerHTML = `
+					<span class="chip-filter-prefix-label">${categoryLabelTitle}:</span>
+					<span class="chip-filter-value-text">${chosenValue}</span>
+					<span class="chip-delete-x-trigger">&times;</span>
+				`;                
+                // Allow users to clear filters directly by clicking the mirror chip
+                mirrorChip.onclick = (e) => {
+                    e.stopPropagation();
+                    activeSet.delete(chosenValue);
+                    
+                    // Re-run the global viewport filtering pipeline
+                    window.applyCombinedFilter();
+                };
+                
+                mirrorWrapper.appendChild(mirrorChip);
+            }
+        });
+    });
+    
+    // 🎯 THE DIRECT REFIX: Enforce a strict binary layout block drop 🌟
+    if (isSlicerAreaHidden && totalActiveSelectionsCount > 0) {
+        // Only consume vertical real estate space if slicer panel is hidden AND has chips
+        mirrorDeck.style.setProperty("display", "flex", "important");
+    } else {
+        // Completely destroy layout footprints when empty, preserving the clean 3-container structure
+        mirrorDeck.style.setProperty("display", "none", "important");
     }
 };
