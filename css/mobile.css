@@ -96,6 +96,19 @@
         max-width: 100% !important;
         display: block !important;
     }
+    /* Force the data table to only stretch as wide as the sum of its column elements */
+    #dataTable {
+        width: max-content !important; /* Shrink-wraps the canvas tightly around your 1622px columns */
+        table-layout: fixed !important;
+    }
+    
+    /* Ensure the scroll container handle behaves as an isolated horizontal touch deck */
+    .table-scroll-wrapper {
+        width: 100% !important;
+        overflow-x: auto !important; /* Triggers swipe-scroll ONLY if columns overflow screen bounds */
+        -webkit-overflow-scrolling: touch; /* Guarantees smooth momentum scrolling on iOS Safari */
+    }
+
 }
     /* ============================================================= */
     /* 📱 MOBILE HEIGHT EQUALIZATION MATRIX (<= 768px)               */
