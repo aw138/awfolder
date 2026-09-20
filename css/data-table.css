@@ -1,7 +1,7 @@
 /* ?? DATA TABLE STYLESHEET: Handles scrolling grids, sort icons & sticky elements */
 
 .table-container {
-    background-color: #fff; 
+    background-color: #a0a0a0; /* adjust data table background color */
     border: 1px solid #748D92; 
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
@@ -168,13 +168,19 @@
     color: #FFFFFF !important; 
 }
 
+#dataTable tbody tr td { 
+    background-color: #FFFFFF !important; /* adjust alternate row bg color */
+}
+
 #dataTable tbody tr.visible-even-row td { 
-    background-color: #e7e9e9 !important; 
+    background-color: #e7e9e9 !important; /* adjust alternate row bg color */
 }
 
 #dataTable tbody tr:hover td { 
-    background-color: #ecc0c1 !important; 
-    border-bottom: 1px solid #bdf2f2 !important; 
+    /* background-color: #ecc0c1 !important;  */
+    /* border-bottom: 1px solid #bdf2f2 !important;  */
+    background-color: #b0e0e0 !important; /* adjust hover row bg color */
+    border-bottom: 1px solid #c1c5cb !important; 
 }
 
 .header-inner-flex { 
@@ -200,9 +206,9 @@
 
 .no-results { 
     text-align: center; 
-    color: #748D92; 
+    color: #748D92;
     padding: 20px; 
-    font-style: italic; 
+    font-style: italic;
 }
 
 mark.search-hit-highlight { 
