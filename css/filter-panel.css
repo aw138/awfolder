@@ -103,11 +103,11 @@
     background-color: #d8f7d2 !important;
     border: 1px solid #748d92 !important;
     border-radius: 6px !important;
-    padding: 6px 10px !important;
+    padding: 4px 6px !important; /* adjust padding in chip container */
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 0px !important; /* adjust gap width in chip container */
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
     box-sizing: border-box !important;
     width: 100% !important;
