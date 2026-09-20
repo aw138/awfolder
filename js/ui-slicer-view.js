@@ -24,67 +24,68 @@ window.initHorizontalFilters = function(rows) {
         rowDiv.dataset.attr = cleanKey;
         rowDiv.style.setProperty('order', (index + 1), 'important');
 
-        // ROW 1: HEADER CONTROLS (Label + Selected Chips Wrapper)
-        const headerLine = document.createElement('div');
-        headerLine.className = 'filter-row-header-line';
+		// --- LOCATE LINES 27-71 INSIDE js/ui-slicer-view.js AND REPLACE WITH THIS BLOCK: ---
+		// ROW 1: HEADER CONTROLS (Label + Dropdown Arrow + Selected Chips Wrapper)
+		const headerLine = document.createElement('div');
+		headerLine.className = 'filter-row-header-line';
 
-        const leftGroup = document.createElement('div');
-        leftGroup.className = 'filter-header-left-group';
+		const leftGroup = document.createElement('div');
+		leftGroup.className = 'filter-header-left-group';
 
-        const labelDiv = document.createElement('div');
-        labelDiv.className = 'filter-label';
-        labelDiv.textContent = config.title || "";
-        let customWidth = config.labelWidth ? config.labelWidth : 54;
-        labelDiv.style.setProperty('min-width', customWidth + 'px', 'important');
-        labelDiv.style.setProperty('max-width', customWidth + 'px', 'important');
-        leftGroup.appendChild(labelDiv);
+		const labelDiv = document.createElement('div');
+		labelDiv.className = 'filter-label';
+		labelDiv.textContent = config.title || "";
+		let customWidth = config.labelWidth ? config.labelWidth : 54;
+		labelDiv.style.setProperty('min-width', customWidth + 'px', 'important');
+		labelDiv.style.setProperty('max-width', customWidth + 'px', 'important');
+		leftGroup.appendChild(labelDiv);
 
-        const chipsWrapper = document.createElement('div');
-        chipsWrapper.className = 'filter-selected-chips-wrapper';
-        chipsWrapper.id = `chips-wrapper-${cleanKey}`;
-        leftGroup.appendChild(chipsWrapper);
-        headerLine.appendChild(leftGroup);
+		// 🌟 MOVE 1: Create expand/collapse button and attach it IMMEDIATELY after the filter label text node
+		const expandToggleBtn = document.createElement('button');
+		expandToggleBtn.type = 'button';
+		expandToggleBtn.className = 'row-dropdown-expand-btn';
+		expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
+		leftGroup.appendChild(expandToggleBtn);
 
-        // ROW 1 RIGHT CONTROLS: AND/OR Toggle + Dropdown Arrow
-        const rightControls = document.createElement('div');
-        rightControls.className = 'filter-header-right-controls';
+		// Append chips wrapper to occupy the remaining middle real estate space
+		const chipsWrapper = document.createElement('div');
+		chipsWrapper.className = 'filter-selected-chips-wrapper';
+		chipsWrapper.id = `chips-wrapper-${cleanKey}`;
+		leftGroup.appendChild(chipsWrapper);
+		headerLine.appendChild(leftGroup);
 
-        const logicToggleBtn = document.createElement('button');
-        logicToggleBtn.type = 'button';
-        logicToggleBtn.className = 'boolean-logic-toggle-btn' + (window.booleanLogicalModes[cleanKey] ? '' : ' or-state');
-        logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
-        logicToggleBtn.onclick = () => {
-            window.booleanLogicalModes[cleanKey] = !window.booleanLogicalModes[cleanKey];
-            logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
-            logicToggleBtn.classList.toggle('or-state', !window.booleanLogicalModes[cleanKey]);
-            window.applyCombinedFilter();
-        };
-        rightControls.appendChild(logicToggleBtn);
+		// ROW 1 RIGHT CONTROLS: AND/OR Toggle alone pushes to the far right edge slot
+		const rightControls = document.createElement('div');
+		rightControls.className = 'filter-header-right-controls';
 
-        const expandToggleBtn = document.createElement('button');
-        expandToggleBtn.type = 'button';
-        expandToggleBtn.className = 'row-dropdown-expand-btn';
-        expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
-        rightControls.appendChild(expandToggleBtn);
-        headerLine.appendChild(rightControls);
-        rowDiv.appendChild(headerLine);
+		const logicToggleBtn = document.createElement('button');
+		logicToggleBtn.type = 'button';
+		logicToggleBtn.className = 'boolean-logic-toggle-btn' + (window.booleanLogicalModes[cleanKey] ? '' : ' or-state');
+		logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
+		logicToggleBtn.onclick = () => {
+			window.booleanLogicalModes[cleanKey] = !window.booleanLogicalModes[cleanKey];
+			logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
+			logicToggleBtn.classList.toggle('or-state', !window.booleanLogicalModes[cleanKey]);
+			window.applyCombinedFilter();
+		};
+		rightControls.appendChild(logicToggleBtn);
+		headerLine.appendChild(rightControls);
+		rowDiv.appendChild(headerLine);
 
-        // ROW 2: OPTIONS DRAWER DECK PANEL
-        const optionsDeck = document.createElement('div');
-        optionsDeck.className = 'filter-options-dropdown-deck' + (window.slicerExpandedStates[cleanKey] ? '' : ' hidden-drawer-state');
-        optionsDeck.id = `options-deck-${cleanKey}`;
-        rowDiv.appendChild(optionsDeck);
+		// ROW 2: OPTIONS DRAWER DECK PANEL
+		const optionsDeck = document.createElement('div');
+		optionsDeck.className = 'filter-options-dropdown-deck' + (window.slicerExpandedStates[cleanKey] ? '' : ' hidden-drawer-state');
+		optionsDeck.id = `options-deck-${cleanKey}`;
+		rowDiv.appendChild(optionsDeck);
 
-        expandToggleBtn.onclick = () => {
-            window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
-            expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
-            optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
-            
-            // 🎯 LINK SYNC: Forces the master header button to re-evaluate text states instantly!
-            window.syncGlobalAccordionButtonLabelState();
-        };
+		expandToggleBtn.onclick = () => {
+			window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
+			expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
+			optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
+			window.syncGlobalAccordionButtonLabelState();
+		};
 
-        container.appendChild(rowDiv);
+		container.appendChild(rowDiv);
     });
 	window.syncGlobalAccordionButtonLabelState();
     window.updateAllSlicerButtonsUI(rows);
