@@ -8,14 +8,14 @@
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
-{"jsonKey": "tag1","title": "Language","useTab":false,"labelWidth":40},
-{"jsonKey": "tag2","title": "Artist","useTab":true,"labelWidth":40},
-{"jsonKey": "tag3","title": "Composer","textColor": "#065f46","useTab":true,"labelWidth":40},
-{"jsonKey": "tag4","title": "Release","useTab":false,"labelWidth":40},
-{"jsonKey": "tag5","title": "Keyword","textColor": "#0000e6","useTab":false,"labelWidth":40},
-{"jsonKey": "tag6","title": "Format","useTab":false,"labelWidth":40},
-{"jsonKey": "tag7","title": "Made in","textColor": "#db582d","useTab":false,"labelWidth":40},
-{"jsonKey": "tag8","title": "Added","dataType": "string","useTab":false,"labelWidth":40}
+{"jsonKey": "tag1","title": "語言","useTab":false,"labelWidth":40},
+{"jsonKey": "tag2","title": "演出","useTab":true,"labelWidth":40},
+{"jsonKey": "tag3","title": "作曲","textColor": "#065f46","useTab":true,"labelWidth":40},
+{"jsonKey": "tag4","title": "發行","useTab":false,"labelWidth":40},
+{"jsonKey": "tag5","title": "標籤","textColor": "#0000e6","useTab":false,"labelWidth":40},
+{"jsonKey": "tag6","title": "格式","useTab":false,"labelWidth":40},
+{"jsonKey": "tag7","title": "製造","textColor": "#db582d","useTab":false,"labelWidth":40},
+{"jsonKey": "tag8","title": "加入","dataType": "string","useTab":false,"labelWidth":40}
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
