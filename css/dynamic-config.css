@@ -151,28 +151,27 @@
 /* Left Group inside Row 1: Label + Selected Action Chips Area */
 .filter-header-left-group {
     display: flex !important;
-    align-items: flex-start !important;
-    gap: 0px !important;
+    align-items: center !important; /* Centers the collapse button arrow cleanly with label baseline */
+    gap: 6px !important;            /* 🌟 Precise 6px horizontal space gap right after the label */
     flex: 1 1 auto !important;
     min-width: 0 !important;
 }
-
-/* Selected Active Chips Wrapper */
+/* Ensure chips wrapper takes up remaining space and stays separated [INDEX: 0.1.293] */
 .filter-selected-chips-wrapper {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 4px !important;
     min-width: 0 !important;
+    margin-left: 4px !important;          /* Keeps an intentional layout air-gap before chips wrap */
 }
-
-/* Right Control Group inside Row 1: AND/OR Toggle + Dropdown Arrow */
+/* Right Control Group houses only the isolated AND/OR macro switcher button [INDEX: 0.1.293] */
 .filter-header-right-controls {
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    justify-content: flex-end !important;
     flex-shrink: 0 !important;
+    margin-left: auto !important;          /* 🔥 FORCE-PUSHES the logic button to the far right margin slot */
 }
-
 /* AND/OR Operator Logic Custom Selector */
 .boolean-logic-toggle-btn {
     /* background-color: #ffffff !important; */
@@ -199,15 +198,23 @@
 /* Expand Collapse Slicer Row Dropdown Trigger Arrow */
 .row-dropdown-expand-btn {
     background: none !important;
-    border: none !important;
+    border: 1px solid #748D92 !important; /* Crisp uniform bounding frame border style */
+    border-radius: 4px !important;
     color: #2e3944 !important;
-    font-size: 14px !important;
+    font-size: 11px !important;
     font-weight: bold !important;
     cursor: pointer !important;
-    padding: 4px !important;
+    padding: 0px !important;
+    width: 18px !important;                /* Perfectly compact square collapse button bounding boxes */
+    height: 18px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    flex-shrink: 0 !important;             /* Shield toggle boundary against container shrinkage */
+}
+.row-dropdown-expand-btn:hover {
+    background-color: #d2d8e0 !important;
+    color: #124E66 !important;
 }
 
 /* ROW 2: Selections Deck Drawer Panel occupied at full row width */

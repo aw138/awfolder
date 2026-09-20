@@ -59,9 +59,10 @@
 }
 
 .filter-item-btn:hover { 
-    color: #ffffff; 
+    color: #2e3944; 
     border-color: #2E3944; 
-    background-color: #2E3944; 
+    /* background-color: #2E3944;  */
+    background-color: #d2d8e0; 
 }
 
 .filter-item-btn.active { 
