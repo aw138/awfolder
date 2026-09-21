@@ -22,7 +22,7 @@
 {"label": "Days","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":60,"minWidth":73},
 {"label": "Country","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
 {"label": "Place","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
-{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"width":120,"minWidth":85},
+{"label": "Agent","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"width":120,"minWidth":85},
 {"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"width":78,"minWidth":74},
 {"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":33},
 {"label": "Description","dataType": "string","isSortable":true,"width":300,"minWidth":115}
@@ -57,7 +57,6 @@
 },
 "DATA":
 [
-
 
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
