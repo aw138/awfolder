@@ -45,7 +45,7 @@
 "singapore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
 "自由行":{"label": "自由🚶‍", "bg": "#FFFFFF","text": "#db582d","border": "#db582d","borderRadius": "6px","padding":"0px 8px"},
 "月":{"label": "月", "bg": "#FFFF00","text": "#FF0000","border": "#333333","borderRadius": "999px","padding":"0px 0px"},
-"japan":{"label": "&#32", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
+"japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
 },
 "descriptionBadges": {
 "flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
