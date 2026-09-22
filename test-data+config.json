@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "T",
-"version": "v. 7.6.9",
+"version": "v. 7.7.0",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
