@@ -1,48 +1,94 @@
 {
 "CONFIG":
 {
-"pageTitle": "Purchases",
+"pageTitle": "Gears",
 "version": "v. 7.7.0",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
-{"jsonKey": "tag1","title": "Status","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Division","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Category","textColor": "#065f46","useTab":false,"labelWidth":55},
-{"jsonKey": "tag4","title": "Brand","textColor": "#0000e6","useTab":true,"labelWidth":55},
-{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Year","useTab":false,"labelWidth":55}
+{"jsonKey": "tag1","title": "Event","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":false,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":false,"labelWidth":55},
+{"jsonKey": "tag5","title": "Days","dataType": "number","useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Camera","useTab":false,"labelWidth":55},
+{"jsonKey": "tag7","title": "Lens","useTab":false,"labelWidth":55},
+{"jsonKey": "tag8","title": "Tripod","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":85},
-{"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
-{"label": "Brand","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
-{"label": "Model","jsonKey": "val4","dataType": "string","isSortable":true,"width":120},
-{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":167},
-{"label": "Shop","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
-{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency":true,"precision": 2},
-{"label": "Status","jsonKey": "val8","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
+{"type": "checkbox","width": 40,"minWidth":33},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":170,"minWidth":110},
+
+{"label": "Country/Place/Desc","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":150,"minWidth":100},
+
+
+{"label": "Camera/Lens","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":85},
+
+{"label": "Tripod","jsonKey": "val8","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":70}
 ],
 "customSortPriority": {
-"Active":1,
-"Retired":2
+"(None)":999,
+"EF1.4xIII":999,
+"中國":1,
+"香港":2
 },
 "statusBadges": {
-"active":{"label": "Active", "bg": "#d1fae5","text": "#065f46","border": "#065f46"},
-"retired":{"label": "Retired", "bg": "#ffcc00","text": "#974606","border": "#974606"},
-"disposed":{"label": "Disposed", "bg": "#777777","text": "#f5f5f5","border": "#333333"}
+"b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"ricohaf50":{"label": "Ricoh AF50", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"g3":{"label": "G3", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"a70":{"label": "A70", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"a570":{"label": "A570", "bg": "$AAAAAA","text": "#000000","border": "#000000","borderRadius": "2px 2px 2px 2px"},
+"lf1":{"label": "LF1", "bg": "#FFFFFF","text": "#6666FF","border": "#666666","borderRadius": "2px 2px 2px 2px"},
+"6d":{"label": "6D", "bg": "#000000","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"5div":{"label": "5DIV", "bg": "#000000","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"m6":{"label": "M6", "bg": "#666666","text": "#FFFF00","border": "#000000","borderRadius": "0px 0px 0px 0px"},
+"r5ii":{"label": "R5II", "bg": "#000066","text": "#FFFF00","border": "#000000","borderRadius": "5px 5px 0px 0px"},
+"cz50":{"label": "CZ50", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
+"pentagon135":{"label": "Pentagon135", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
+"tamron28-50":{"label": "Tamron28-50", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
+"ef35-105":{"label": "EF35-105", "bg": "#CCCCEE","text": "#444444","border": "#222222","borderRadius": "999px"},
+"ef100":{"label": "EF100", "bg": "#CCCCEE","text": "#000000","border": "#222222","borderRadius": "999px"},
+"ef35":{"label": "EF35", "bg": "#DDDDFF","text": "#000000","border": "#222222","borderRadius": "999px"},
+"ef40":{"label": "EF40", "bg": "#DDDDFF","text": "#000000","border": "#222222","borderRadius": "999px"},
+"ef50ii":{"label": "EF50II", "bg": "#CCCCEE","text": "#000000","border": "#222222","borderRadius": "999px"},
+"ef17-40":{"label": "EF17-40L", "bg": "#CCCCEE","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef24-105":{"label": "EF24-105L", "bg": "#CCCCEE","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef70-200":{"label": "EF70-200L", "bg": "#CCCCEE","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef100l":{"label": "EF100L", "bg": "#DDDDFF","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef24-70":{"label": "EF24-70L", "bg": "#DDDDFF","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef16-35":{"label": "EF16-35L", "bg": "#DDDDFF","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef70-200ii":{"label": "EF70-200LII", "bg": "#DDDDFF","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef100-400ii":{"label": "EF100-400LII", "bg": "#DDDDFF","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"rf24-105":{"label": "RF24-105L", "bg": "#DDFFDD","text": "#000000","border": "#FF0000","borderRadius": "999px"},
+"ef1.4xiii":{"label": "EF1.4xIII", "bg": "#FFFF00","text": "#AA0000","border": "#AA0000","borderRadius": "999px"},
+"ef-m28":{"label": "EFM28", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"ef-m11-22":{"label": "EFM11-22", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"ef-m18-150":{"label": "EFM18-150", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"g1128mkii":{"label": "G1128Mk2", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gt3542":{"label": "GT3542", "bg": "#555555","text": "#b6e8fa","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"hg-4":{"label": "HG-4", "bg": "#AAAAAA","text": "#000000","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"ultra_maxi-f":{"label": "Ultra Maxi-F", "bg": "#CFA03C","text": "#222222","border": "#222222","borderRadius": "0px 6px 6px 0px"},
+"mefoto_daytrip":{"label": "Daytrip", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gm2561t":{"label": "GM2561T", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gt1555t":{"label": "GT1555T", "bg": "#555555","text": "#FFFFFF","border": "#000000","borderRadius": "0px 6px 6px 0px"}
 },
 "descriptionBadges": {
-"active":{"bg": "#00EE00","text": "#000000","border": "#222222"},
-"retired":{"bg": "#c29008","text": "#000000","border": "#222222"},
-"disposed":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
+"daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
+"cycling":{"bg": "#49fc70","text": "#000000","border": "#444444"},
+"flower":{"bg": "#f6fa8e","text": "#FF0000","border": "#444444"},
+"hiking":{"bg": "#999215","text": "#FFFFFF","border": "#444444"},
+"outing":{"bg": "#65943a","text": "#FFFFFF","border": "#444444"},
+"staycation":{"bg": "#fc49e8","text": "#000000","border": "#444444"},
+"travel":{"bg": "#49f3fc","text": "#000000","border": "#444444"}
 }
 },
 "DATA":
 [
+
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Camera; Lens", "val3": "Canon", "val4": "EOS 650 + EF 35-105 f/3.5-4.5", "val5": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "", "val7": "4370", "val8": "Retired"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Flash", "val3": "Canon", "val4": "Speedlite 300EZ", "val5": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "Wing Shing", "val7": "800", "val8": "Retired"},
 {"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden", "val4": "CA-747S", "val5": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "HK Electronic", "val7": "2190", "val8": "Disposed"},
