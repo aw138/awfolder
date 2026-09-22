@@ -21,12 +21,12 @@
 {"type": "checkbox","width": 40,"minWidth":33},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":170,"minWidth":110},
 
-{"label": "Country/Place/Desc","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":150,"minWidth":100},
+{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":150,"minWidth":100},
 
 
-{"label": "Camera/Lens","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":85},
+{"label": "Camera/Lens","jsonKey": "val3","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":85},
 
-{"label": "Tripod","jsonKey": "val8","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":70}
+{"label": "Tripod","jsonKey": "val4","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":70}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -88,6 +88,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200 <BR> CZ50 Pentagon135", "val4": "HG-4"},
