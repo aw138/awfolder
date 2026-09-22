@@ -4,7 +4,7 @@
 "pageTitle": "Purchases",
 "version": "v. 7.7.0",
 "defaults": {
-"initialSlicersExpanded":false,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
 },
 "filters": [
