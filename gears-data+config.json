@@ -69,7 +69,7 @@
 "ef-m28":{"label": "M28", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m11-22":{"label": "M11-22", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"},
-"gitzo gt1555t":{"label": "Gitzo GT1555T", "bg": "#333333","text": "#AAAAAA","border": "#000000","borderRadius": "999px"}
+"gt1555t":{"label": "Gitzo GT1555T", "bg": "#333333","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
