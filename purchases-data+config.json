@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Purchases",
-"version": "v. 7.6.6",
+"version": "v. 7.7.0",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"OR"
@@ -17,14 +17,14 @@
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
-{"label": "Date","dataType": "date","isSortable":true,"width":85},
-{"label": "Category","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
-{"label": "Brand","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
-{"label": "Model","dataType": "string","isSortable":true,"width":120},
-{"label": "Description","dataType": "string","isSortable":true,"width":167},
-{"label": "Shop","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
-{"label": "Price","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency":true,"precision": 2},
-{"label": "Status","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":85},
+{"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":92},
+{"label": "Brand","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75},
+{"label": "Model","jsonKey": "val4","dataType": "string","isSortable":true,"width":120},
+{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":167},
+{"label": "Shop","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":86},
+{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":74,"isCurrency":true,"precision": 2},
+{"label": "Status","jsonKey": "val8","dataType": "string","isSortable":true, "isStatusBadge":true,"width":82}
 ],
 "customSortPriority": {
 "Active":1,
@@ -43,7 +43,6 @@
 },
 "DATA":
 [
-
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Camera; Lens", "val3": "Canon", "val4": "EOS 650 + EF 35-105 f/3.5-4.5", "val5": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "", "val7": "4370", "val8": "Retired"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Flash", "val3": "Canon", "val4": "Speedlite 300EZ", "val5": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val6": "Wing Shing", "val7": "800", "val8": "Retired"},
 {"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden", "val4": "CA-747S", "val5": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val6": "HK Electronic", "val7": "2190", "val8": "Disposed"},
