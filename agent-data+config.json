@@ -12,13 +12,13 @@
 {"jsonKey": "tag2","title": "寶湖分店","labelWidth":70}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":33},
-{"label": "Type","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true,"width":100,"minWidth":110},
-{"label": "English","jsonKey": "val2","dataType": "string","textColor": "#000000","isSortable":true,"width":130,"minWidth":90},
-{"label": "Chinese","jsonKey": "val3","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":160,"minWidth":90},
-{"label": "成立","jsonKey": "val4","dataType": "string","isSortable":true,"width":70,"minWidth":70},
-{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":33},
-{"label": "Web site","jsonKey": "val5","dataType": "string","isSortable":true,"format":"uri","width":210,"minWidth":160}
+{"type": "checkbox","width":33,"minWidth":33},
+{"label": "Type","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true,"width":50,"minWidth":110},
+{"label": "English","jsonKey": "val2","dataType": "string","textColor": "#000000","isSortable":true,"width":60,"minWidth":90},
+{"label": "Chinese","jsonKey": "val3","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":60,"minWidth":90},
+{"label": "成立","jsonKey": "val4","dataType": "string","isSortable":true,"width":40,"minWidth":70},
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":50,"minWidth":33},
+{"label": "Web site","jsonKey": "val5","dataType": "string","isSortable":true,"format":"uri","width":90,"minWidth":160}
 ],
 "customSortPriority": {
 "已結業":999,
@@ -26,9 +26,9 @@
 "台灣":3
 },
 "statusBadges": {
-"大型旅行社":{"label": "大型旅行社", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
-"中小型旅行社":{"label": "中小型旅行社", "bg": "#76D3FF","text": "#1b3b59","border": "#1b3b59"},
-"新興旅行社":{"label": "新興旅行社", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
+"大型旅行社":{"label": "大型", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
+"中小型旅行社":{"label": "中小型", "bg": "#76D3FF","text": "#1b3b59","border": "#1b3b59"},
+"新興旅行社":{"label": "新興", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
 "已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
 },
 "descriptionBadges": {
