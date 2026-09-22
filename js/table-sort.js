@@ -158,42 +158,49 @@ window.bindSortingTriggers = function() {
 };
 
 // FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked! 🎯 [INDEX: 0.1.143]
+// FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked!
 document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     // 1. Reset standard UI checkbox toggles
     const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
     if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
-    
+
+    // 🚀 NEW THE FIX: Explicitly flush out and reset text search components
+    const searchInput = document.getElementById("tableSearch");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+    if (searchInput) searchInput.value = "";
+    if (clearSearchBtn) {
+        clearSearchBtn.style.display = "none";
+        clearSearchBtn.innerHTML = "&times;";
+        clearSearchBtn.dataset.stateMode = "clear-trigger";
+    }
+    window.lastExecutedSearchQuery = ""; // Unlock search state 🔓
+
     // 2. Reset our Favorite filter system tracking states and visual handles
     window.showFavouritesOnlyActive = false;
     const favToggleBtn = document.getElementById("favFilterToggleBtn");
     if (favToggleBtn) {
         favToggleBtn.classList.remove("fav-filter-active-state");
     }
-    
-    // 3. CRITICAL: Clear all dynamic cross-filter Slicer Sets completely 🎯
+
+    // 3. Clear all dynamic cross-filter Slicer Sets completely
     if (window.selectedFilters) {
         Object.keys(window.selectedFilters).forEach(attrKey => {
             window.selectedFilters[attrKey] = new Set();
         });
     }
-    
+
     // 4. Clean up pending raw table row visibility constraints
     window.getRuntimeRows().forEach(row => {
-        row.style.display = ""; 
-        row.classList.remove("is-unchecked-pending"); 
+        row.style.display = "";
+        row.classList.remove("is-unchecked-pending");
+        row.classList.remove("is-unfav-pending");
     });
-    
+
     // 5. Force the Cross-Filter Render Pipeline to re-evaluate and rebuild visual chips
     window.applyCombinedFilter();
-    
+
     // 6. Instantly repaint and synchronize visual active class selections on all slicer deck elements
     if (typeof window.updateAllSlicerButtonsUI === "function") {
         window.updateAllSlicerButtonsUI(window.getRuntimeRows());
     }
-	window.getRuntimeRows().forEach(row => {
-		row.style.display = ""; 
-		row.classList.remove("is-unchecked-pending"); 
-		row.classList.remove("is-unfav-pending"); // Clear favorite pending flags safely 🌟
-	});
-
 });

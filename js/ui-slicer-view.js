@@ -97,7 +97,8 @@ window.updateAllSlicerButtonsUI = function(rows) {
     const container = document.getElementById("horizontalFiltersContainer");
     if (!container) return;
 
-    const searchCtx = document.getElementById("tableSearch")?.value.toLowerCase().trim() || "";
+    // 🎯 THE REFIX: Sync slicer options using only the locked query search parameter!
+    const searchCtx = (window.lastExecutedSearchQuery !== undefined) ? window.lastExecutedSearchQuery : "";
     const currentFilters = window.selectedFilters || {};
 
     container.querySelectorAll('.filter-row').forEach(rowEl => {
@@ -108,12 +109,17 @@ window.updateAllSlicerButtonsUI = function(rows) {
 
         const activeSet = currentFilters[currentAttr] || new Set();
 
-        // Draw Row 1 Active Removable Chips
+        // Draw Row 1 Active Removable Chips [INDEX: 0.1.303]
         chipsWrapper.innerHTML = "";
         activeSet.forEach(chosenValue => {
             const chip = document.createElement('button');
             chip.type = 'button';
-            chip.className = 'active-selected-chip';
+            
+            // 🎯 THE CONDITIONAL LOGIC CHECK: Read row logic state to assign the correct color token 🌟
+            const isAndLogicActive = window.booleanLogicalModes[currentAttr] !== false;
+            const logicColorClass = isAndLogicActive ? 'chip-logic-and-state' : 'chip-logic-or-state';
+            
+            chip.className = `active-selected-chip ${logicColorClass}`;
             chip.innerHTML = `${chosenValue} <span>&times;</span>`;
             chip.onclick = (e) => {
                 e.stopPropagation();
@@ -473,25 +479,24 @@ window.synchronizeMirrorChipsViewport = function() {
         activeSet.forEach(chosenValue => {
             totalActiveSelectionsCount++;
             
-            // Only generate mirror chips if the slicer panel is collapsed
+            // Only generate mirror chips if the slicer panel is collapsed [INDEX: 0.1.308]
             if (isSlicerAreaHidden) {
                 const mirrorChip = document.createElement("button");
                 mirrorChip.type = "button";
-                mirrorChip.className = "active-selected-chip mirror-projected-chip";
                 
-                // Prefixed with category title for clarity since row context labels are hidden
-                // mirrorChip.innerHTML = `<small style="opacity:0.75; font-weight:bold; margin-right:3px;">${categoryLabelTitle}:</small> ${chosenValue} <span>&times;</span>`;
-				mirrorChip.innerHTML = `
-					<span class="chip-filter-prefix-label">${categoryLabelTitle}:</span>
-					<span class="chip-filter-value-text">${chosenValue}</span>
-					<span class="chip-delete-x-trigger">&times;</span>
-				`;                
-                // Allow users to clear filters directly by clicking the mirror chip
+                // 🎯 THE CONDITIONAL LOGIC CHECK: Pull category's state records straight into mirror layers 🌟
+                const isAndLogicActive = window.booleanLogicalModes[categoryKey] !== false;
+                const logicColorClass = isAndLogicActive ? 'chip-logic-and-state' : 'chip-logic-or-state';
+                
+                mirrorChip.className = `active-selected-chip mirror-projected-chip ${logicColorClass}`;
+                mirrorChip.innerHTML = `
+                    <span class="chip-filter-prefix-label">${categoryLabelTitle}:</span>
+                    <span class="chip-filter-value-text">${chosenValue}</span>
+                    <span class="chip-delete-x-trigger">&times;</span>
+                `; 
                 mirrorChip.onclick = (e) => {
                     e.stopPropagation();
                     activeSet.delete(chosenValue);
-                    
-                    // Re-run the global viewport filtering pipeline
                     window.applyCombinedFilter();
                 };
                 

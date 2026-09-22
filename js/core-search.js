@@ -84,7 +84,10 @@ window.applyCombinedFilter = function() {
     
     if (!searchInput) return;
     const activeRows = window.getRuntimeRows(); 
-    const searchText = searchInput.value.toLowerCase().trim(); 
+    
+    // 🎯 THE DIRECT FIX: Read exclusively from the locked state query, NOT the live value!
+    const searchText = (window.lastExecutedSearchQuery !== undefined) ? window.lastExecutedSearchQuery : "";
+    
     const showCheckedOnly = showCheckedOnlyToggle?.checked || false; 
     let visibleCount = 0; 
     
@@ -116,7 +119,7 @@ window.applyCombinedFilter = function() {
             }
         }
 
-        // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock 🌟
+        // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock
         if (window.showFavouritesActiveState() && favColumnIndex !== -1) {
             const hiddenDataTracker = cells[favColumnIndex]?.querySelector("span");
             const isRowFav = hiddenDataTracker?.textContent.trim() === "1";
@@ -124,14 +127,13 @@ window.applyCombinedFilter = function() {
             
             if (!isRowFav && !isUnfavPending) {
                 row.style.display = "none";
-                return; // Drops row out of downstream filters immediately
+                return; 
             }
         } else {
-            // Flush out the temporary structural pending state if filter mode is turned off
             row.classList.remove("is-unfav-pending");
         }
 
-        // 3. Core Text Search Validation Boundary
+        // 3. Core Text Search Validation Boundary (Evaluates locked query string cleanly)
         const matchesSearch = searchText === "" || cells.some((el, idx) => { 
             if (idx === 0) return false; 
             return el.textContent.toLowerCase().includes(searchText); 
@@ -159,7 +161,8 @@ window.applyCombinedFilter = function() {
             row.style.display = ""; 
             visibleCount++; 
             if (searchText.length >= 1) { 
-                cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchInput.value.trim()); }); 
+                // Highlights words only if they match the locked query text
+                cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchText); }); 
             } 
         } else { 
             row.style.display = "none"; 
@@ -173,7 +176,6 @@ window.applyCombinedFilter = function() {
     const freshCounterBadge = document.getElementById("tableResultsCounter");
     if (freshCounterBadge) freshCounterBadge.textContent = `${visibleCount}/${activeRows.length}`;
 
-    // Recalculate selected checkboxes total
     const counterTextTarget = document.getElementById("checkedFilterCounterText");
     if (counterTextTarget) {
         let checkedVisibleCount = 0;
@@ -198,39 +200,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
     const tbody = document.getElementById("tableBody");
 
+    // 🎯 GLOBAL SEARCH LOCKED STATE STORAGE
+    window.lastExecutedSearchQuery = "";
+
+    // 1. Text input watcher: only updates the clear/arrow icon, does NOT filter!
     searchInput?.addEventListener("input", function() {
         if (clearSearchBtn) {
             if (this.value.trim().length > 0) {
                 clearSearchBtn.style.display = "block";
-                clearSearchBtn.innerHTML = "&#10140;"; // Swaps 'X' to arrow
+                clearSearchBtn.innerHTML = "&#10140;"; // Keep arrow icon '➡' visible while typing
                 clearSearchBtn.setAttribute("aria-label", "Execute search");
                 clearSearchBtn.dataset.stateMode = "search-trigger";
             } else {
                 clearSearchBtn.style.display = "none";
+                window.lastExecutedSearchQuery = ""; // Reset query state instantly if emptied manually
+                window.applyCombinedFilter();
             }
         }
     });
 
+    // 2. keydown watcher: Locks query state only when Enter is pressed!
     searchInput?.addEventListener("keydown", function(e) {
         if (e.key === "Enter") {
-            e.preventDefault(); window.applyCombinedFilter();
+            e.preventDefault(); 
+            window.lastExecutedSearchQuery = this.value.toLowerCase().trim(); // Lock state 🔒
+            window.applyCombinedFilter();
+            
             if (clearSearchBtn && this.value.trim().length > 0) {
-                clearSearchBtn.innerHTML = "&times;"; // Back to 'X'
+                clearSearchBtn.innerHTML = "&times;"; // Turn '➡' into 'X' to signify successful execution
                 clearSearchBtn.setAttribute("aria-label", "Clear search");
                 clearSearchBtn.dataset.stateMode = "clear-trigger";
             }
         }
     });
 
+    // 3. Icon click delegator: Coordinates execution vs flushing based on '➡' or 'X' state
     clearSearchBtn?.addEventListener("click", function() {
         if (!searchInput) return;
         if (this.dataset.stateMode === "search-trigger") {
+            // Clicked '➡' arrow icon: Execute search query state lock
+            window.lastExecutedSearchQuery = searchInput.value.toLowerCase().trim();
             window.applyCombinedFilter();
-            this.innerHTML = "&times;"; this.setAttribute("aria-label", "Clear search");
-            this.dataset.stateMode = "clear-trigger"; searchInput.focus();
+            this.innerHTML = "&times;"; 
+            this.setAttribute("aria-label", "Clear search");
+            this.dataset.stateMode = "clear-trigger"; 
+            searchInput.focus();
         } else {
-            searchInput.value = ""; window.applyCombinedFilter();
-            this.style.display = "none"; searchInput.focus();
+            // Clicked 'X' clear icon: Flush the search query completely
+            searchInput.value = ""; 
+            window.lastExecutedSearchQuery = ""; // Clear state 🔓
+            window.applyCombinedFilter();
+            this.style.display = "none"; 
+            searchInput.focus();
         }
     });
 

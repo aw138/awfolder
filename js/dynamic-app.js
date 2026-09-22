@@ -170,20 +170,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     </td>
                 `;
             } else {
-                // 🎯 THE LOGICAL HOOK: Standard text column cells read properties sequentially using our tracker index [▲]
-                const variableKey = `val${dataValueKeyIndexTracker}`;
-                const rawValue = (item[variableKey] || "").trim();
-                
-                // Increment your data properties tracker ONLY when a standard column cell is generated [▲]
-                dataValueKeyIndexTracker++;
+				// 🎯 THE UNIVERSAL HOOK: Read explicitly from the jsonKey configuration parameter map!
+				// Fall back to a blank string if the database cell field doesn't exist.
+				const variableKey = colConf.jsonKey || "";
+				const rawValue = variableKey ? (item[variableKey] || "").trim() : "";
 
-                let stylesArray = [];
-                if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
-                if (colConf.alignRight) stylesArray.push(`text-align: right !important;`);
+				let stylesArray = [];
+				if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
+				if (colConf.alignRight) stylesArray.push(`text-align: right !important;`);
 
-                const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
-                let cellDisplayValue = rawValue;
-
+				const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
+				let cellDisplayValue = rawValue;
                 if (colConf.isCurrency && rawValue !== "") {
                     const numericValue = parseFloat(rawValue.replace(/,/g, ''));
                     if (!isNaN(numericValue)) {
@@ -201,25 +198,44 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 				if (colConf.isStatusBadge) {
-					// 🎯 FIX 1: Clean out trailing spaces but keep literal casing matches safe
 					const statusWordsArray = cellDisplayValue.trim().split(/\s+/);
 					let compiledBadgesHtmlString = "";
 
 					statusWordsArray.forEach(word => {
 						const badgeLookupKey = word.toLowerCase();
-						
-						// 🎯 FIX 2: Intercept the line-break token block explicitly before badge matching layers execute
+
 						if (badgeLookupKey === "<br>" || badgeLookupKey === "<br/>" || badgeLookupKey === "<br />") {
-							// Inserting a line-break element with 100% width cleanly forces horizontal flex items to wrap onto the next row line
 							compiledBadgesHtmlString += `<div style="flex-basis: 100%; height: 0; margin: 0; padding: 0;"></div>`;
-						} 
+						}
 						else if (badgeSchema[badgeLookupKey]) {
 							const badgeRules = badgeSchema[badgeLookupKey];
-							const boundaryBorder = badgeRules.border ? `border: 1px solid ${badgeRules.border} !important;` : 'border: 1px solid transparent !important;';
-							const targetedRadius = badgeRules.borderRadius ? badgeRules.borderRadius : '4px';
+							
+							// 🚀 CLEAN & LEAN INLINE WRITER: Maps JSON inputs directly without duplicate code strings!
+							let inlineStyles = [];
+							
+							// 🚀 MOVED TO TOP: Map Background/Color modifiers first so they cannot wipe sizing structures!
+							if (badgeRules.background)    inlineStyles.push(`background: ${badgeRules.background} !important;`);
+							if (badgeRules.bg)           inlineStyles.push(`background-color: ${badgeRules.bg} !important;`);
+							if (badgeRules.text)         inlineStyles.push(`color: ${badgeRules.text} !important;`);
+							if (badgeRules.border)       inlineStyles.push(`border: 1px solid ${badgeRules.border} !important;`);
+							if (badgeRules.borderRadius) inlineStyles.push(`border-radius: ${badgeRules.borderRadius} !important;`);
+							if (badgeRules.boxShadow)     inlineStyles.push(`box-shadow: ${badgeRules.boxShadow} !important;`);
+							if (badgeRules.letterSpacing) inlineStyles.push(`letter-spacing: ${badgeRules.letterSpacing} !important;`);
+							if (badgeRules.fontWeight)    inlineStyles.push(`font-weight: ${badgeRules.fontWeight} !important;`);
+							if (badgeRules.fontStyle)     inlineStyles.push(`font-style: ${badgeRules.fontStyle} !important;`);
+
+							// 🚀 MOVED TO BOTTOM: Sizing parameters are evaluated LAST, overriding all shorthand layouts!
+							if (badgeRules.padding)       inlineStyles.push(`padding: ${badgeRules.padding} !important;`);
+							
+							if (badgeRules.minWidth) {
+								inlineStyles.push(`min-width: ${badgeRules.minWidth} !important;`);
+								inlineStyles.push(`width: ${badgeRules.minWidth} !important;`); // Lock width to force compliance
+							}
+
+							const finalInlineStylesString = inlineStyles.length > 0 ? `style="${inlineStyles.join(' ')}"` : '';
 
 							compiledBadgesHtmlString += `
-								<span class="status-badge-token" style="background-color: ${badgeRules.bg} !important; color: ${badgeRules.text} !important; ${boundaryBorder} border-radius: ${targetedRadius} !important; margin-right: 4px !important; margin-bottom: 2px !important; display: inline-flex !important;">
+								<span class="status-badge-token" ${finalInlineStylesString}>
 									${badgeRules.label || word}
 								</span>
 							`;
@@ -235,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					`;
 
 					cellsContentHtml += `<td ${stylingAttributes}>${multiBadgeWrapperHtml}</td>`;
-                }
+				}
 				else {
                     cellsContentHtml += `<td ${stylingAttributes}>${cellDisplayValue}</td>`;
                 }
