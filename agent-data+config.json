@@ -13,12 +13,12 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Type","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true,"width":50,"minWidth":110},
-{"label": "English","jsonKey": "val2","dataType": "string","textColor": "#000000","isSortable":true,"width":60,"minWidth":90},
-{"label": "Chinese","jsonKey": "val3","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":60,"minWidth":90},
-{"label": "成立","jsonKey": "val4","dataType": "string","isSortable":true,"width":40,"minWidth":70},
-{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":50,"minWidth":33},
-{"label": "Web site","jsonKey": "val5","dataType": "string","isSortable":true,"format":"uri","width":90,"minWidth":160}
+{"label": "Type","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true,"width":50,"minWidth":50},
+{"label": "English","jsonKey": "val2","dataType": "string","textColor": "#000000","isSortable":true,"width":60,"minWidth":60},
+{"label": "Chinese","jsonKey": "val3","dataType": "string","textColor": "#000000","isSortable":true, "alignRight":false,"width":60,"minWidth":60},
+{"label": "成立","jsonKey": "val4","dataType": "string","isSortable":true,"width":40,"minWidth":40},
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":50,"minWidth":50},
+{"label": "Web site","jsonKey": "val5","dataType": "string","isSortable":true,"format":"uri","width":90,"minWidth":90}
 ],
 "customSortPriority": {
 "已結業":999,
@@ -38,6 +38,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "中小型旅行社","tag2": "No", "val1": "中小型旅行社", "val2": "Amsito Travel", "val3": "貴豪旅行社 ", "val4": "1993", "val5": "http://www.amsito.com.hk/index"},
