@@ -69,12 +69,13 @@
 "ef-m28":{"label": "M28", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m11-22":{"label": "M11-22", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"},
-"g1128kmkii":{"label": "G1128Mk2", "bg": "#444444","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gt3542":{"label": "GT3542", "bg": "#444444","text": "#dddddd","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"hg-4":{"label": "HG-4", "bg": "#444444","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"mefoto_daytrip":{"label": "Daytrip", "bg": "#444444","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gm2561t":{"label": "GM2561T", "bg": "#444444","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gt1555t":{"label": "Gitzo GT1555T", "bg": "#444444","text": "#ffffff","border": "#000000","borderRadius": "0px 6px 6px 0px"}
+"g1128mkii":{"label": "G1128Mk2", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gt3542":{"label": "GT3542", "bg": "#555555","text": "#9999FF","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"hg-4":{"label": "HG-4", "bg": "#AAAAAA","text": "#000000","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"ultra_maxi-f":{"label": "Ultra Maxi-F", "bg": "#CFA03C","text": "#222222","border": "#222222","borderRadius": "0px 6px 6px 0px"},
+"mefoto_daytrip":{"label": "Daytrip", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gm2561t":{"label": "GM2561T", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
+"gt1555t":{"label": "Gitzo GT1555T", "bg": "#555555","text": "#9999FF","border": "#000000","borderRadius": "0px 6px 6px 0px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
@@ -88,6 +89,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200 <BR> CZ50 Pentagon135", "val4": "HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50", "val4": "HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200 <BR> ", "val4": "(None)"},
