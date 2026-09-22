@@ -74,7 +74,7 @@
 "ultra_maxi-f":{"label": "Ultra Maxi-F", "bg": "#CFA03C","text": "#222222","border": "#222222","borderRadius": "0px 6px 6px 0px"},
 "mefoto_daytrip":{"label": "Daytrip", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
 "gm2561t":{"label": "GM2561T", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gt1555t":{"label": "Gitzo GT1555T", "bg": "#555555","text": "#FFFFFF","border": "#000000","borderRadius": "0px 6px 6px 0px"}
+"gt1555t":{"label": "GT1555T", "bg": "#555555","text": "#FFFFFF","border": "#000000","borderRadius": "0px 6px 6px 0px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
