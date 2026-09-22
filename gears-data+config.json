@@ -26,15 +26,13 @@
 
 {"label": "Camera/Lens","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":85},
 
-{"label": "Tripod","dataType": "string","isSortable":true,"width":80,"minWidth":70}
+{"label": "Tripod","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":70}
 ],
 "customSortPriority": {
 "(None)":999,
 "EF1.4xIII":999,
 "中國":1,
-"澳門":2,
-"台灣":3,
-"香港":4
+"香港":2
 },
 "statusBadges": {
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
@@ -52,26 +50,26 @@
 "cz50":{"label": "CZ50", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "pentagon135":{"label": "Pentagon135", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
 "tamron28-50":{"label": "Tamron28-50", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef35-105":{"label": "E35-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef17-40":{"label": "E17-40", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef24-105":{"label": "E24-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef70-200":{"label": "E70-200", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef100":{"label": "E100", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef24-105":{"label": "E24-105", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef70-200":{"label": "E70-200", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef35":{"label": "E35", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef40":{"label": "E40", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef50ii":{"label": "E50II", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
-"ef100l":{"label": "E100L", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef24-70":{"label": "E24-70", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef16-35":{"label": "E16-35", "bg": "#DDDDFF","text": "#884444","border": "#448844","borderRadius": "999px"},
-"ef1.4xiii":{"label": "E1.4xIII", "bg": "#FFFF00","text": "#AA0000","border": "#AA0000","borderRadius": "999px"},
-"ef70-200ii":{"label": "E70-200II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"ef100-400ii":{"label": "E100-400II", "bg": "#DDDDFF","text": "#448844","border": "#448844","borderRadius": "999px"},
-"rf24-105":{"label": "R24-105", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
+"ef35-105":{"label": "EF35-105", "bg": "#CCCCEE","text": "#444444","border": "#444444","borderRadius": "999px"},
+"ef17-40":{"label": "EF17-40L", "bg": "#CCCCEE","text": "#FF0000","border": "#444444","borderRadius": "999px"},
+"ef24-105":{"label": "EF24-105L", "bg": "#CCCCEE","text": "#FF0000","border": "#444444","borderRadius": "999px"},
+"ef70-200":{"label": "EF70-200L", "bg": "#CCCCEE","text": "#FF0000","border": "#444444","borderRadius": "999px"},
+"ef100":{"label": "EF100", "bg": "#CCCCEE","text": "#000000","border": "#444444","borderRadius": "999px"},
+"ef24-105":{"label": "EF24-105L", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"ef35":{"label": "EF35", "bg": "#DDDDFF","text": "#000000","border": "#448844","borderRadius": "999px"},
+"ef40":{"label": "EF40", "bg": "#DDDDFF","text": "#000000","border": "#448844","borderRadius": "999px"},
+"ef50ii":{"label": "EF50II", "bg": "#CCCCEE","text": "#000000","border": "#444444","borderRadius": "999px"},
+"ef100l":{"label": "EF100L", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"ef24-70":{"label": "EF24-70L", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"ef16-35":{"label": "EF16-35L", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"ef1.4xiii":{"label": "EF1.4xIII", "bg": "#FFFF00","text": "#AA0000","border": "#AA0000","borderRadius": "999px"},
+"ef70-200ii":{"label": "EF70-200LII", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"ef100-400ii":{"label": "EF100-400LII", "bg": "#DDDDFF","text": "#FF0000","border": "#448844","borderRadius": "999px"},
+"rf24-105":{"label": "R24-105L", "bg": "#DDDDFF","text": "#FF0000","border": "#444444","borderRadius": "999px"},
 "ef-m28":{"label": "M28", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m11-22":{"label": "M11-22", "bg": "#DDDDFF","text": "#4444FF","border": "#444444","borderRadius": "999px"},
-"ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"}
+"ef-m18-150":{"label": "M18-150", "bg": "#DDDDFF","text": "#444444","border": "#444444","borderRadius": "999px"},
+"gitzo gt1555t":{"label": "Gitzo GT1555T", "bg": "#333333","text": "#AAAAAA","border": "#000000","borderRadius": "999px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
@@ -85,6 +83,8 @@
 },
 "DATA":
 [
+
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "本州", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "Velbon HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan: 本州<BR>本州迪士尼筑波八天超級豪華團", "val3": "B200 <BR> CZ50 Pentagon135", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "Velbon HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand: 曼谷; 布吉; 巴提雅<BR>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val3": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50", "val4": "Velbon HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國: 廣東<BR>深圳香蜜湖渡假村", "val3": "B200 <BR> ", "val4": "(None)"},
