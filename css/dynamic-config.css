@@ -70,29 +70,36 @@
 }
 
 /* ============================================================= */
-/* ⭐ UNIVERSAL ACCURATE STATUS BADGE ALIGNMENT MATRIX          */
+/* 🎯 STATUS BADGES LAYOUT DECK PANEL (CENTRALIZED ARCHITECTURE) */
 /* ============================================================= */
-
 .status-badge-token {
-    /* 🚀 THE DIRECT REMEDY: Re-align element structures cleanly using an inline flex centering system [PDF: 0.1.171] */
+    /* 1. Structural Flex Alignment System Defaults */
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    
-    /* 🎯 THE ALIGNMENT PIN: Clears out phantom right-hand letter tracking bounds on Chinese string labels [PDF: 0.1.183] */
     text-transform: none !important; 
-    letter-spacing: 0px !important;   /* Wipes out uneven letter tracking completely [PDF: 0.1.183] */
+    white-space: nowrap !important;
     
-    /* Maintain all your core sizing constraints exactly verbatim [PDF: 0.1.178] */
-    padding: 1px 8px !important;
+    /* 2. Air-Gap Separation Spacing Defaults */
+    margin-right: 4px !important;
+    margin-bottom: 2px !important;
+    box-sizing: border-box !important;
+    
+    /* 3. Typography Defaults */
     font-size: 0.82rem !important;
     font-weight: 600 !important;
-    border-radius: 4px !important;
     text-align: center !important;
-    white-space: nowrap !important;
-    min-width: 50px !important;
-    box-sizing: border-box !important; /* Prevents cell jumping with border shifts [PDF: 0.1.178] */
+    letter-spacing: 0px !important;
+
+    /* 🚀 4. FALLBACK BASELINE DEFAULTS (No !important ensures JSON can overwrite them) */
+    padding: 1px 8px; 
+    min-width: 30px;
+    border-radius: 4px;
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid transparent;
 }
+
 /* ------------------------------------------------------------- */
 /* TRUE INLINE HORIZONTAL CENTER SINGLE-ROW TITLE OVERRIDE */
 /* ------------------------------------------------------------- */

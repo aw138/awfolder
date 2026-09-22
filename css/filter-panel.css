@@ -132,15 +132,14 @@
     flex: 1 !important;
 }
 /* ============================================================= */
-/* 🎯 UNIFIED ACTIVE CHIPS SYSTEM (CENTRALIZED LAYER)            */
+/* 🎯 UNIFIED ACTIVE CHIPS SYSTEM (CENTRALIZED FIXED LAYER)     */
 /* ============================================================= */
-/* Base properties for ALL filter chips on the dashboard */
+
+/* Base container bounds for ALL filter chips on the dashboard [INDEX: 0.1.158] */
 .active-selected-chip {
-    /* 🚀 THE 24PX HEIGHT ENGINE: Locks boundaries and forces vertical text alignment */
     height: 24px !important;
     box-sizing: border-box !important;
-    /* 🚀 THE BALANCER TRICK: Add +1.5px to the top to counter the font's bottom offset */
-    padding-top: 1.5px !important;    /* Shifts text down slightly to hit the center line */
+    padding-top: 1.5px !important; /* Shifts text down slightly to hit the center line [INDEX: 0.1.158] */
     padding-bottom: 0px !important; 
     padding-left: 8px !important;
     padding-right: 8px !important;
@@ -149,10 +148,7 @@
     justify-content: center !important;
     line-height: 1 !important;
     
-    /* Original base structural styles [INDEX: 0.1.22] */
-    background-color: #E24E66 !important;
-    color: #ffffff !important;
-    border: 1px solid #643D32 !important;
+    color: #ffffff !important; /* Crisp high-contrast white text color [INDEX: 0.1.158] */
     border-radius: 999px !important;
     font-size: 0.85rem !important;
     font-weight: 400 !important;
@@ -160,49 +156,60 @@
     gap: 4px !important;
     white-space: nowrap !important;
     user-select: none !important;
-    transition: background-color 0.15s ease;
+    transition: all 0.15s ease-in-out !important;
 }
 
-.active-selected-chip:hover {
-    background-color: #b13438 !important; /* Red hover indicating deletion [INDEX: 0.1.22] */
+/* 🟢 CONDITION A: CHIPS RUNNING UNDER DYNAMIC 'AND' LOGIC (GREEN THEME) [INDEX: 0.1.149, 0.1.158] */
+.active-selected-chip.chip-logic-and-state {
+    background-color: #4c913f !important; /* Matches the AND button green exactly [INDEX: 0.1.158] */
+    border: 1px solid #005500 !important;
 }
+
+.active-selected-chip.chip-logic-and-state:hover {
+    background-color: #3d7532 !important; /* Slightly darker green tone on hover [INDEX: 0.1.158] */
+}
+
+/* 🟠 CONDITION B: CHIPS RUNNING UNDER DYNAMIC 'OR' LOGIC (ORANGE THEME) [INDEX: 0.1.149, 0.1.158] */
+.active-selected-chip.chip-logic-or-state {
+    background-color: #e28743 !important; /* Matches the OR button orange exactly [INDEX: 0.1.158] */
+    border: 1px solid #b85d1a !important;
+}
+
+.active-selected-chip.chip-logic-or-state:hover {
+    background-color: #c46a2a !important; /* Slightly darker orange tone on hover [INDEX: 0.1.158] */
+}
+
 /* ------------------------------------------------------------- */
-/* Secondary Style Modifier for projected Mirror Deck Chips ONLY */
+/* Secondary Style Modifier for projected Mirror Deck Chips ONLY [INDEX: 0.1.158] */
 /* ------------------------------------------------------------- */
 .active-selected-chip.mirror-projected-chip {
-    /* Inherits 24px box size from above, but overrides colors for the steel-slate theme */
-    background-color: #e24e66 !important; /* adjust chips in chip container color */
-    border-color: #643d32 !important; /* adjust chips in chip container color */
-    font-size: 0.85rem !important;
-    padding-top: 1.5px !important;    /* Shifts text down slightly to hit the center line */
+    /* 🎯 THE OVERRIDE REMEDY: Removed the static background-color: #e24e66 rule [INDEX: 0.1.159] */
+    /* This allows the dynamic logic color classes to tint the background natively! */
+    border-radius: 4px !important; /* Crisp square-corner token borders overlay */
+    padding-top: 1.5px !important; 
     padding-bottom: 0px !important; 
     padding-left: 8px !important;
     padding-right: 8px !important;
-    /* padding: 2px 6px !important; */
     border-radius: 999px !important;
 }
 
-.active-selected-chip.mirror-projected-chip:hover {
-    background-color: #b13438 !important; /* adjust chips in chip container color */
-    border-color: #643d32 !important; /* adjust chips in chip container color */
-}
-/* 2. Configure colors for the filter category name (e.g., "Country:") 🏷️ */
+/* 2. Configure colors for the filter category name (e.g., "Country:") [INDEX: 0.1.159] */
 .active-selected-chip.mirror-projected-chip .chip-filter-prefix-label {
-    color: #fef08a !important;        /* adjust chip category color in chip container */
-    font-size: 0.8rem !important;     /* Slightly smaller micro-layout font */
-    font-weight: 700 !important;      /* Extra bold token presentation */
-    margin-right: 4px !important;     /* Air gap spacing separating label and value */
+    color: #fef08a !important; /* Adjust chip category color in chip container [INDEX: 0.1.159] */
+    font-size: 0.8rem !important; 
+    font-weight: 700 !important; 
+    margin-right: 4px !important; 
     user-select: none !important;
 }
 
-/* 3. Configure colors for the actual selected value (e.g., "Japan") 💎 */
+/* 3. Configure colors for the actual selected value (e.g., "Japan") [INDEX: 0.1.159] */
 .active-selected-chip.mirror-projected-chip .chip-filter-value-text {
-    color: #ffffff !important;        /* Crisp high-contrast white text color */
-    font-size: 0.85rem !important;    /* Baseline value sizing constraint */
-    font-weight: 500 !important;      /* Medium reading density weight */
+    color: #ffffff !important; 
+    font-size: 0.85rem !important; 
+    font-weight: 500 !important; 
 }
 
-/* 4. Keep the close delete "x" icon color clean and balanced */
+/* 4. Keep the close delete "x" icon color clean and balanced [INDEX: 0.1.159] */
 .active-selected-chip.mirror-projected-chip .chip-delete-x-trigger {
     color: rgba(255, 255, 255, 0.6) !important;
     margin-left: 4px !important;
