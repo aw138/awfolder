@@ -19,14 +19,14 @@
 ],
 "columns": [
 {"type": "checkbox","width": 33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":80,"minWidth":80},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":70,"minWidth":70},
 
-{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":80,"minWidth":80},
+{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":100},
 
 
-{"label": "Camera/Lens","jsonKey": "val3","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":120,"minWidth":120},
 
-{"label": "Tripod","jsonKey": "val4","dataType": "string","isSortable":true, "isStatusBadge":true,"width":70,"minWidth":70}
+
+{"label": "Gears","jsonKey": "val3","dataType": "string","isSortable":true, "isStatusBadge":true,"width":180,"minWidth":180}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -68,13 +68,13 @@
 "ef-m28":{"label": "EFM28", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m11-22":{"label": "EFM11-22", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "ef-m18-150":{"label": "EFM18-150", "bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
-"g1128mkii":{"label": "G1128Mk2", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gt3542":{"label": "GT3542", "bg": "#555555","text": "#b6e8fa","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"hg-4":{"label": "HG-4", "bg": "#AAAAAA","text": "#000000","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"ultra_maxi-f":{"label": "Ultra Maxi-F", "bg": "#CFA03C","text": "#222222","border": "#222222","borderRadius": "0px 6px 6px 0px"},
-"mefoto_daytrip":{"label": "Daytrip", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gm2561t":{"label": "GM2561T", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 6px 6px 0px"},
-"gt1555t":{"label": "GT1555T", "bg": "#555555","text": "#FFFFFF","border": "#000000","borderRadius": "0px 6px 6px 0px"}
+"g1128mkii":{"label": "G1128Mk2", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 8px 8px 0px"},
+"gt3542":{"label": "GT3542", "bg": "#555555","text": "#b6e8fa","border": "#000000","borderRadius": "0px 8px 8px 0px"},
+"hg-4":{"label": "HG-4", "bg": "#AAAAAA","text": "#000000","border": "#000000","borderRadius": "0px 8px 8px 0px"},
+"ultra_maxi-f":{"label": "Ultra Maxi-F", "bg": "#CFA03C","text": "#222222","border": "#222222","borderRadius": "0px 8px 8px 0px"},
+"mefoto_daytrip":{"label": "Daytrip", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 8px 8px 0px"},
+"gm2561t":{"label": "GM2561T", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 8px 8px 0px"},
+"gt1555t":{"label": "GT1555T", "bg": "#555555","text": "#FFFFFF","border": "#000000","borderRadius": "0px 8px 8px 0px"}
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
