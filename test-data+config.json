@@ -2,10 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "T",
-"version": "v. 7.7.2",
+"version": "v. 7.7.3",
 "defaults": {
 "initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
@@ -57,6 +57,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
