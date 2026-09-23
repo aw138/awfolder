@@ -36,8 +36,13 @@
 },
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
+"內蒙古":{"label": "內蒙古", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
+"黑龍江":{"label": "黑龍江", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
 "japan":{"label": "Japan", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
-"singapore; malaysia; thailand":{"label": "Singapore; Malaysia; Thailand", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
+"關東":{"label": "關東", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
+"關西":{"label": "關西", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
+"中部":{"label": "中部", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
+"九州":{"label": "九州", "bg": "#BBBBBB","text": "#444444","border": "#444444","borderRadius": "999px"},
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
@@ -91,6 +96,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "關東;中部;關西", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan 關東;中部;關西 <BR> 關東 茨城;千葉;東京;神奈川<BR> 中部 山梨;靜岡<BR> 關西 京都;大阪;奈良", "val3": "B200 <BR> CZ50 Pentagon135 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand 曼谷; 布吉; 巴提雅 <BR> ", "val3": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國 廣東 <BR> 深圳", "val3": "B200 <BR>  <BR> (None)"},
