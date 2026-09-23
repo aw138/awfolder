@@ -111,7 +111,7 @@
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
-"agentbadge":{"bg": "#49fc70","text": "#FFFF00","border": "#49fc70","borderRadius": "0px 8px 0px 8px"},
+"agentbadge":{"bg": "#49fc70","text": "#000000","border": "#000000"},
 "cycling":{"bg": "#49fc70","text": "#000000","border": "#444444"},
 "flower":{"bg": "#f6fa8e","text": "#FF0000","border": "#444444"},
 "hiking":{"bg": "#999215","text": "#FFFFFF","border": "#444444"},
@@ -122,6 +122,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良", "val3": "本州迪士尼筑波八天超級豪華團 <span class='inline-description-badge' data-badge='agentbadge'>星晨</span>", "val4": "B200 <BR> CZ50 Pentagon135 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand 曼谷  布吉  巴提雅 ", "val3": "曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺) <span class='inline-description-badge' data-badge='agentbadge'>星晨</span>", "val4": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國 廣東 深圳", "val3": "深圳香蜜湖渡假村 <span class='inline-description-badge' data-badge='agentbadge'>自由行</span>", "val4": "B200 <BR>  <BR> (None)"},
