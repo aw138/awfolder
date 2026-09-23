@@ -21,7 +21,7 @@
 {"type": "checkbox","width": 33,"minWidth":33},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":70,"minWidth":70},
 
-{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":130,"minWidth":130},
+{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":130,"minWidth":130},
 
 
 
@@ -35,6 +35,9 @@
 "香港":2
 },
 "statusBadges": {
+"中國":{"label": "中國", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
+"japan":{"label": "Japan", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
+"singapore; malaysia; thailand":{"label": "Singapore; Malaysia; Thailand", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
