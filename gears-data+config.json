@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.7.1",
+"version": "v. 7.7.2",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
@@ -19,7 +19,7 @@
 ],
 "columns": [
 {"type": "checkbox","width": 33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":70,"minWidth":70},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":70},
 
 {"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":130,"minWidth":130},
 
