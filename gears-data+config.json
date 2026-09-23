@@ -111,7 +111,7 @@
 },
 "descriptionBadges": {
 "daybadge":{"bg": "#f7f6b5","text": "#000000","border": "#444444"},
-"agentbadge":{"bg": "#49fc70","text": "#000000","border": "#000000"},
+"agentbadge":{"bg": "#198440","text": "#FFFFFF","border": "#000000"},
 "eventbadge":{"bg": "#dddd55","text": "#884444","border": "#884444"},
 "flower":{"bg": "#f6fa8e","text": "#FF0000","border": "#444444"},
 "hiking":{"bg": "#999215","text": "#FFFFFF","border": "#444444"},
