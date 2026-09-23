@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "T",
-"version": "v. 7.7.0",
+"version": "v. 7.7.2",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"OR"
@@ -21,7 +21,7 @@
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":160,"minWidth":80},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":60,"minWidth":73},
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
-{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
+{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true, "initSort":true, "initsortOrder":"desc","width":95,"minWidth":77},
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"width":120,"minWidth":85},
 {"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"width":78,"minWidth":74},
 {"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":33},
@@ -57,6 +57,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 - 八 月 十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
