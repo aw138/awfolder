@@ -285,7 +285,34 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 
 			window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
-
+            // =============================================================
+            // 🎯 THE INITIAL SORT ENGINE SCANNER DIRECT INJECTION
+            // =============================================================
+            if (typeof window.executeSort === "function" && columnConfigs) {
+                // Find the index offset position mapping your target column
+                const defaultSortColumnIndex = columnConfigs.findIndex(col => col && col.initSort === true);
+                
+                if (defaultSortColumnIndex !== -1) {
+                    const targetSortConfig = columnConfigs[defaultSortColumnIndex];
+                    // Verify if target sort direction is descending; default to ascending true
+                    const isAscendingSortOrder = String(targetSortConfig.initsortOrder).toLowerCase() !== "desc";
+                    
+                    // 🚀 Execute your core sort engine function onto live table elements!
+                    window.executeSort(defaultSortColumnIndex, isAscendingSortOrder);
+                    
+                    // Synchronize visual caret symbols cleanly on the active header cell node
+                    const headerElements = document.querySelectorAll("#dataTable th");
+                    if (headerElements[defaultSortColumnIndex]) {
+                        // Clear old caret indicators across headers to avoid collision errors
+                        document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
+                        
+                        const sortCaretSpan = headerElements[defaultSortColumnIndex].querySelector(".sort-icon-trigger");
+                        if (sortCaretSpan) {
+                            sortCaretSpan.classList.add(isAscendingSortOrder ? "asc" : "desc");
+                        }
+                    }
+                }
+            }
             // Initialize background calculations and triggers safely
             if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
             if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
