@@ -1,31 +1,3 @@
-{
-"CONFIG":
-{
-"pageTitle": "Gears",
-"version": "v. 7.7.1",
-"defaults": {
-"initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
-},
-"filters": [
-{"jsonKey": "tag1","title": "Event","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":false,"labelWidth":55},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":false,"labelWidth":55},
-{"jsonKey": "tag5","title": "Days","dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Camera","useTab":false,"labelWidth":55},
-{"jsonKey": "tag7","title": "Lens","useTab":false,"labelWidth":55},
-{"jsonKey": "tag8","title": "Tripod","useTab":false,"labelWidth":55}
-],
-"columns": [
-{"type": "checkbox","width": 33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":70,"minWidth":70},
-
-{"label": "Country/Place/Desc","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":130,"minWidth":130},
-
-
-
-
 {"label": "Gears","jsonKey": "val3","dataType": "string","isSortable":true, "isStatusBadge":true,"width":147,"minWidth":147}
 ],
 "customSortPriority": {
@@ -37,12 +9,12 @@
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
 "japan":{"label": "Japan", "bg": "#FFFFFF","text": "#AA0000","border": "#AA0000","borderRadius": "3px"},
-"內蒙古":{"label": "內蒙古", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
-"黑龍江":{"label": "黑龍江", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
-"關東":{"label": "關東", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
-"關西":{"label": "關西", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
-"中部":{"label": "中部", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
-"九州":{"label": "九州", "bg": "#CCFFCC","text": "#444444","border": "#444444","borderRadius": "999px"},
+"內蒙古":{"label": "內蒙古", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
+"黑龍江":{"label": "黑龍江", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
+"關東":{"label": "關東", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
+"關西":{"label": "關西", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
+"中部":{"label": "中部", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
+"九州":{"label": "九州", "bg": "#DDFFDD","text": "#444444","border": "#444444","borderRadius": "999px"},
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
@@ -98,11 +70,11 @@
 [
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "關東;中部;關西", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan 關東;中部;關西 <BR> 關東 茨城;千葉;東京;神奈川 <BR> 中部 山梨;靜岡 <BR> 關西 京都;大阪;奈良", "val3": "B200 <BR> CZ50 Pentagon135 <BR> HG-4"},
-{"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand 曼谷; 布吉; 巴提雅 <BR> ", "val3": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50 <BR> HG-4"},
+{"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand 曼谷  布吉  巴提雅 <BR> ", "val3": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "廣東", "tag5": "2", "tag6": "B200", "tag7": "0", "tag8": "(None)", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國 廣東 <BR> 深圳", "val3": "B200 <BR>  <BR> (None)"},
 {"tag1": "Travel", "tag2": "1988", "tag3": "中國", "tag4": "澳門", "tag5": "2", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "(None)", "val1": "1988/11/19 (Sat) - 1988/11/20 (Sun)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國 澳門 <BR> 澳門半島", "val3": "EOS650 <BR> EF35-105 <BR> (None)"},
-{"tag1": "Travel", "tag2": "1989", "tag3": "Singapore; Malaysia; Thailand", "tag4": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "tag5": "8", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "HG-4", "val1": "1989/9/16 (Sat) - 1989/9/23 (Sat)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Singapore; Malaysia; Thailand 曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲 <BR> ", "val3": "EOS650 <BR> EF35-105 <BR> HG-4"},
-{"tag1": "Travel", "tag2": "1990", "tag3": "Sri Lanka; Maldives", "tag4": "可倫坡; 康提; 馬累", "tag5": "8", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "HG-4", "val1": "1990/9/16 (Sun) - 1990/9/23 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Sri Lanka; Maldives 可倫坡; 康提; 馬累 <BR> ", "val3": "EOS650 <BR> EF35-105 <BR> HG-4"},
+{"tag1": "Travel", "tag2": "1989", "tag3": "Singapore; Malaysia; Thailand", "tag4": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "tag5": "8", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "HG-4", "val1": "1989/9/16 (Sat) - 1989/9/23 (Sat)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Singapore; Malaysia; Thailand 曼谷  巴提雅  星加坡  吉隆坡  馬六甲 <BR> ", "val3": "EOS650 <BR> EF35-105 <BR> HG-4"},
+{"tag1": "Travel", "tag2": "1990", "tag3": "Sri Lanka; Maldives", "tag4": "可倫坡; 康提; 馬累", "tag5": "8", "tag6": "EOS650", "tag7": "EF35-105", "tag8": "HG-4", "val1": "1990/9/16 (Sun) - 1990/9/23 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Sri Lanka; Maldives 可倫坡  康提  馬累 <BR> ", "val3": "EOS650 <BR> EF35-105 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "2003", "tag3": "中國", "tag4": "廣東", "tag5": "3", "tag6": "G3", "tag7": "0", "tag8": "(None)", "val1": "2003/8/24 (Sun) - 2003/8/26 (Tue)<span class='inline-description-badge' data-badge='daybadge'>3天</span>", "val2": "中國 廣東 <BR> 番禺", "val3": "G3 <BR>  <BR> (None)"},
 {"tag1": "Travel", "tag2": "2004", "tag3": "中國", "tag4": "澳門", "tag5": "2", "tag6": "G3", "tag7": "0", "tag8": "HG-4", "val1": "2004/7/31 (Sat) - 2004/8/1 (Sun)<span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val2": "中國 澳門 <BR> 澳門半島", "val3": "G3 <BR>  <BR> HG-4"},
 {"tag1": "Travel", "tag2": "2004", "tag3": "中國", "tag4": "廣東", "tag5": "3", "tag6": "20D;G3", "tag7": "EF50II;EF17-40;EF70-200", "tag8": "(None)", "val1": "2004/12/22 (Wed) - 2004/12/24 (Fri)<span class='inline-description-badge' data-badge='daybadge'>3天</span>", "val2": "中國 廣東 <BR> 韶關", "val3": "20D G3 <BR> EF50II EF17-40 EF70-200 <BR> (None)"},
