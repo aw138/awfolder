@@ -17,10 +17,10 @@
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":40},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":110,"minWidth":110},
-{"label": "Time","jsonKey": "val2","dataType": "string","isSortable":true,"width":50,"minWidth":50},
-{"label": "Activity","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":80,"minWidth":80},
-{"label": "Venue","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":80,"minWidth":80}
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":120,"minWidth":120},
+{"label": "Time","jsonKey": "val2","dataType": "string","isSortable":true,"width":45,"minWidth":45},
+{"label": "Activity","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":75,"minWidth":75},
+{"label": "Venue","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":75,"minWidth":75}
 ],
 "customSortPriority": {
 "Sun":1,
