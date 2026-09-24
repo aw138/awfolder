@@ -24,8 +24,13 @@
 {"label": "Sessions","jsonKey": "val5","dataType": "string","isSortable":true,"width":50,"minWidth":50}
 ],
 "customSortPriority": {
-"(None)":999,
-"台灣":1
+"Sun":1,
+"Mon":2,
+"Tue":3,
+"Wed":4,
+"Thu":5,
+"Fri":6,
+"Sat":7
 },
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
@@ -38,6 +43,7 @@
 },
 "DATA":
 [
+
 
 {"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"Mon;Thu","tag6":"10","val1":"2023/1/30 (Mon) - 2023/3/30 (Thu)","val2":"10-11","val3":"長者徒手健體訓練班","val4":"車公廟體育館","val5":"10"},
 {"tag1":"2023","tag2":"長者器械健體訓練班","tag3":"沙田","tag4":"圓洲角體育館","tag5":"Wed;Fri","tag6":"15","val1":"2023/1/11 (Wed) - 2023/2/22 (Wed)","val2":"15-16","val3":"長者器械健體訓練班","val4":"圓洲角體育館","val5":"10"},
