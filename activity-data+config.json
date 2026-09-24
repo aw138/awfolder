@@ -1,0 +1,60 @@
+{
+"CONFIG":
+{
+"pageTitle": "Activity",
+"version": "v. 7.7.2",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"OR"
+},
+"filters": [
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":70},
+{"jsonKey": "tag2","title": "Activity","textColor": "#0000e6","useTab":false,"labelWidth":70},
+{"jsonKey": "tag3","title": "District","useTab":false,"labelWidth":70},
+{"jsonKey": "tag4","title": "Venue","textColor": "#065f46","useTab":false,"labelWidth":70},
+{"jsonKey": "tag5","title": "Day","useTab":false,"labelWidth":70},
+{"jsonKey": "tag6","title": "Start Time","dataType": "number","useTab":false,"labelWidth":70}
+],
+"columns": [
+{"type": "checkbox","width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":80,"minWidth":80},
+{"label": "Time","jsonKey": "val3","dataType": "string","isSortable":true,"isStatusBadge":true,"width":50,"minWidth":50},
+{"label": "Activity","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true,"width":80,"minWidth":80},
+{"label": "Venue","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":80,"minWidth":80},
+{"label": "Sessions","jsonKey": "val6","dataType": "string","isSortable":true,"width":50,"minWidth":50}
+],
+"customSortPriority": {
+"(None)":999,
+"台灣":1
+},
+"statusBadges": {
+"中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
+},
+"descriptionBadges": {
+"day":{"bg": "#FFFFFF","text": "#44FF44","border": "#44FF44"},
+"travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
+}
+},
+"DATA":
+[
+{"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"10","tag6":"10", "val1": "2023/1/30 (Mon) - 2023/3/30 (Thu)", "val2": "10-11", "val3": "長者徒手健體訓練班", "val4": "車公廟體育館", "val5": "10"},
+{"tag1":"2023","tag2":"長者器械健體訓練班","tag3":"沙田","tag4":"圓洲角體育館","tag5":"10","tag6":"15", "val1": "2023/1/11 (Wed) - 2023/2/22 (Wed)", "val2": "15-16", "val3": "長者器械健體訓練班", "val4": "圓洲角體育館", "val5": "10"},
+{"tag1":"2023","tag2":"長者門球訓練班","tag3":"大埔","tag4":"大埔海濱公園","tag5":"10","tag6":"09", "val1": "2023/4/4 (Tue) - 2023/5/23 (Tue)", "val2": "09-11", "val3": "長者門球訓練班", "val4": "大埔海濱公園", "val5": "10"},
+{"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"源禾路體育館","tag5":"10","tag6":"10", "val1": "2023/6/1 (Thu) - 2023/7/20 (Thu)", "val2": "10-11", "val3": "長者徒手健體訓練班", "val4": "源禾路體育館", "val5": "10"},
+{"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"粉嶺","tag4":"聯和墟體育館","tag5":"10","tag6":"09", "val1": "2023/6/9 (Fri) - 2023/7/26 (Wed)", "val2": "09-10", "val3": "長者徒手健體訓練班", "val4": "聯和墟體育館", "val5": "10"},
+{"tag1":"2023","tag2":"乒乓球訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"10","tag6":"15", "val1": "2023/7/11 (Tue) - 2023/9/12 (Tue)", "val2": "15-17", "val3": "乒乓球訓練班", "val4": "車公廟體育館", "val5": "10"},
+{"tag1":"2023","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"10","tag6":"09", "val1": "2023/9/13 (Wed) - 2023/10/13 (Fri)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "大埔體育館", "val5": "10"},
+{"tag1":"2023","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"10","tag6":"09", "val1": "2023/10/20 (Fri) - 2023/11/22 (Wed)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "大埔體育館", "val5": "10"},
+{"tag1":"2023","tag2":"乒乓球訓練班","tag3":"粉嶺","tag4":"聯和墟體育館","tag5":"10","tag6":"10", "val1": "2023/11/2 (Thu) - 2023/12/5 (Tue)", "val2": "10-12", "val3": "乒乓球訓練班", "val4": "聯和墟體育館", "val5": "10"},
+{"tag1":"2023","tag2":"長者康樂旅行","tag3":"港島","tag4":"海防博物館、石澳","tag5":"1","tag6":"09", "val1": "2023/11/7 (Tue)", "val2": "09-17", "val3": "長者康樂旅行", "val4": "海防博物館、石澳", "val5": "1"},
+{"tag1":"2024","tag2":"乒乓球訓練班","tag3":"上水","tag4":"龍琛路體育館","tag5":"10","tag6":"17", "val1": "2024/1/25 (Thu) - 2024/3/28 (Thu)", "val2": "17-19", "val3": "乒乓球訓練班", "val4": "龍琛路體育館", "val5": "10"},
+{"tag1":"2025","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"10","tag6":"09", "val1": "2025/1/8 (Wed) - 2025/2/14 (Fri)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "大埔體育館", "val5": "10"},
+{"tag1":"2026","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"10","tag6":"09", "val1": "2026/4/14 (Tue) - 2026/5/14 (Thu)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "大埔體育館", "val5": "10"},
+{"tag1":"2026","tag2":"乒乓球訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"10","tag6":"15", "val1": "2026/4/14 (Tue) - 2026/6/16 (Tue)", "val2": "15-17", "val3": "乒乓球訓練班", "val4": "車公廟體育館", "val5": "10"},
+{"tag1":"2026","tag2":"乒乓球訓練班","tag3":"上水","tag4":"龍琛路體育館","tag5":"10","tag6":"17", "val1": "2026/7/20 (Mon) - 2026/8/19 (Wed)", "val2": "17-19", "val3": "乒乓球訓練班", "val4": "龍琛路體育館", "val5": "10"},
+{"tag1":"2026","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"10","tag6":"09", "val1": "2026/10/13 (Tue) - 2026/11/12 (Thu)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "大埔體育館", "val5": "10"},
+{"tag1":"2026","tag2":"乒乓球訓練班","tag3":"粉嶺","tag4":"聯和墟體育館","tag5":"10","tag6":"09", "val1": "2026/10/21 (Wed) - 2026/11/20 (Fri)", "val2": "09-11", "val3": "乒乓球訓練班", "val4": "聯和墟體育館", "val5": "10"}
+
+]
+}
