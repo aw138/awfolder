@@ -43,7 +43,6 @@
 "DATA":
 [
 
-
 {"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"Mon;Thu","tag6":"10","val1":"2023/1/30 (Mon) - 2023/3/30 (Thu)","val2":"10-11 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"長者徒手健體訓練班","val4":"車公廟體育館","val5":"10"},
 {"tag1":"2023","tag2":"長者器械健體訓練班","tag3":"沙田","tag4":"圓洲角體育館","tag5":"Wed;Fri","tag6":"15","val1":"2023/1/11 (Wed) - 2023/2/22 (Wed)","val2":"15-16 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"長者器械健體訓練班","val4":"圓洲角體育館","val5":"10"},
 {"tag1":"2023","tag2":"長者門球訓練班","tag3":"大埔","tag4":"大埔海濱公園","tag5":"Tue","tag6":"09","val1":"2023/4/4 (Tue) - 2023/5/23 (Tue)","val2":"09-11 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"長者門球訓練班","val4":"大埔海濱公園","val5":"10"},
@@ -61,7 +60,6 @@
 {"tag1":"2026","tag2":"乒乓球訓練班","tag3":"上水","tag4":"龍琛路體育館","tag5":"Mon;Wed","tag6":"17","val1":"2026/7/20 (Mon) - 2026/8/19 (Wed)","val2":"17-19 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"乒乓球訓練班","val4":"龍琛路體育館","val5":"10"},
 {"tag1":"2026","tag2":"乒乓球訓練班","tag3":"大埔","tag4":"大埔體育館","tag5":"Tue;Thu","tag6":"09","val1":"2026/10/13 (Tue) - 2026/11/12 (Thu)","val2":"09-11 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"乒乓球訓練班","val4":"大埔體育館","val5":"10"},
 {"tag1":"2026","tag2":"乒乓球訓練班","tag3":"粉嶺","tag4":"聯和墟體育館","tag5":"Wed;Fri","tag6":"09","val1":"2026/10/21 (Wed) - 2026/11/20 (Fri)","val2":"09-11 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"乒乓球訓練班","val4":"聯和墟體育館","val5":"10"}
-026","tag2":"乒乓球訓練班","tag3":"粉嶺","tag4":"聯和墟體育館","tag5":"Wed;Fri","tag6":"09","val1":"2026/10/21 (Wed) - 2026/11/20 (Fri)","val2":"09-11<BR><span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"乒乓球訓練班","val4":"聯和墟體育館","val5":"10"}
 
 ]
 }
