@@ -441,35 +441,41 @@ window.executeRealtimeTableStatistics = function() {
         calculatedStandardDeviation = Math.sqrt(sumSquaredDifferences / totalCountItems);
     }
 
-    // Lookup column configurations profile mapping straight from the JSON payload metadata arrays [INDEX: 0.1.265]
+    // Lookup structural configurations profile mapping straight from column rules and global root variables
     const columnConfigProfile = widthsSchema[columnIndex] || {};
-    const jsonStatsSchema = columnConfigProfile.statisticsConfig || {};
+    
+    // 🎯 STEP 1: PARSE DICTIONARY DATA CODES TWO LEVELS HIGHER FROM THE ROOT LEVEL SCHEMA
+    const columnSlickKey = activeTargetKey;
+    const rootStatsProfileRegistry = window.globalStatisticsConfigSchema || {};
+    const targetJsonStatsSchema = rootStatsProfileRegistry[columnSlickKey] || {};
 
-    // 🎯 STEP 1: PARSE SEPARATE TARGET FORMATS DYNAMICALLY FROM THE JSON PAYLOAD
-    // Full fallback protection: If specific sub-keys are missing in JSON, it uses column defaults
+    // Generate fallback mapping matrix defaults if elements are not present inside your JSON configurations
     const statsMetricsConfigMatrix = {
         mean: {
-            precision: (jsonStatsSchema.mean && jsonStatsSchema.mean.precision !== undefined) 
-                ? parseInt(jsonStatsSchema.mean.precision, 10) 
+            label: targetJsonStatsSchema.mean?.label || "Mean:",
+            precision: (targetJsonStatsSchema.mean && targetJsonStatsSchema.mean.precision !== undefined) 
+                ? parseInt(targetJsonStatsSchema.mean.precision, 10) 
                 : ((columnConfigProfile.precision !== undefined) ? parseInt(columnConfigProfile.precision, 10) : 2),
-            isCurrency: (jsonStatsSchema.mean && jsonStatsSchema.mean.isCurrency !== undefined)
-                ? jsonStatsSchema.mean.isCurrency === true
+            isCurrency: (targetJsonStatsSchema.mean && targetJsonStatsSchema.mean.isCurrency !== undefined)
+                ? targetJsonStatsSchema.mean.isCurrency === true
                 : (columnConfigProfile.isCurrency === true)
         },
         sd: {
-            precision: (jsonStatsSchema.sd && jsonStatsSchema.sd.precision !== undefined) 
-                ? parseInt(jsonStatsSchema.sd.precision, 10) 
-                : 2, // Standard deviation typically defaults safely to 2
-            isCurrency: (jsonStatsSchema.sd && jsonStatsSchema.sd.isCurrency !== undefined)
-                ? jsonStatsSchema.sd.isCurrency === true
-                : false // Standard deviation is typically not displayed as currency
+            label: targetJsonStatsSchema.sd?.label || "SD:",
+            precision: (targetJsonStatsSchema.sd && targetJsonStatsSchema.sd.precision !== undefined) 
+                ? parseInt(targetJsonStatsSchema.sd.precision, 10) 
+                : 2,
+            isCurrency: (targetJsonStatsSchema.sd && targetJsonStatsSchema.sd.isCurrency !== undefined)
+                ? targetJsonStatsSchema.sd.isCurrency === true
+                : false
         },
         total: {
-            precision: (jsonStatsSchema.total && jsonStatsSchema.total.precision !== undefined) 
-                ? parseInt(jsonStatsSchema.total.precision, 10) 
+            label: targetJsonStatsSchema.total?.label || "Total:",
+            precision: (targetJsonStatsSchema.total && targetJsonStatsSchema.total.precision !== undefined) 
+                ? parseInt(targetJsonStatsSchema.total.precision, 10) 
                 : ((columnConfigProfile.precision !== undefined) ? parseInt(columnConfigProfile.precision, 10) : 0),
-            isCurrency: (jsonStatsSchema.total && jsonStatsSchema.total.isCurrency !== undefined)
-                ? jsonStatsSchema.total.isCurrency === true
+            isCurrency: (targetJsonStatsSchema.total && targetJsonStatsSchema.total.isCurrency !== undefined)
+                ? targetJsonStatsSchema.total.isCurrency === true
                 : (columnConfigProfile.isCurrency === true)
         }
     };
@@ -479,7 +485,7 @@ window.executeRealtimeTableStatistics = function() {
         const formattingOptions = {
             minimumFractionDigits: targetConfig.precision,
             maximumFractionDigits: targetConfig.precision,
-            useGrouping: true // Natively handles thousand separator commas cleanly
+            useGrouping: true
         };
 
         if (targetConfig.isCurrency) {
@@ -490,20 +496,22 @@ window.executeRealtimeTableStatistics = function() {
         const formatter = new Intl.NumberFormat("en-US", formattingOptions);
         let outputString = formatter.format(value);
 
-        if (targetConfig.isCurrency && !outputString.startsWith("$")) {
-            outputString = "$" + outputString;
+        if (targetConfig.isCurrency && !outputString.startsWith("\$")) {
+            outputString = "\$" + outputString;
         }
 
         return outputString;
     };
-    // 🎯 INSERT THIS DIRECTLY BEFORE UPDATING MEAN/SD/TOTAL CELLS (Inside js/core-search.js):
-    const titleSlot = document.getElementById("statFieldActiveColumnTitle");
-    if (titleSlot) {
-        // Formats label cleanly as "Price Stats" or "Days Stats" based on JSON header config
-        titleSlot.textContent = `${columnConfigProfile.label || "Column"}:`;
-    }
 
-    // 🎯 STEP 3: OUTPUT COORDINATES STRAIGHT TO THE GRAPHICAL CARD WRAPPER ELEMENTS
+    // 🎯 STEP 3: OUTPUT DYNAMIC CONFIG LABELS AND VALUES TO CONTAINER CHIPS
+    document.getElementById("statFieldActiveColumnTitle").textContent = `${columnConfigProfile.label || "Column"} Stats |`;
+    
+    // Inject labels dynamically (e.g. "μ:", "σ:", "∑:")
+    document.getElementById("statLabelMean").textContent = statsMetricsConfigMatrix.mean.label;
+    document.getElementById("statLabelSD").textContent = statsMetricsConfigMatrix.sd.label;
+    document.getElementById("statLabelTotal").textContent = statsMetricsConfigMatrix.total.label;
+
+    // Inject calculated mathematical string numeric parameters values
     document.getElementById("statFieldMeanValue").textContent = formatIndividualStatItem(meanCalculatedValue, statsMetricsConfigMatrix.mean);
     document.getElementById("statFieldSDValue").textContent = formatIndividualStatItem(calculatedStandardDeviation, statsMetricsConfigMatrix.sd);
     document.getElementById("statFieldTotalValue").textContent = formatIndividualStatItem(grandSumTotal, statsMetricsConfigMatrix.total);

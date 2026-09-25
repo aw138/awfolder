@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			 window.currentCustomSortPriority = config.customSortPriority || {};
 			 window.activeFiltersSchema = config.filters || [];
 			 window.activeColumnsWidthsSchema = config.columns || [];
+			 window.globalStatisticsConfigSchema = config.statisticsConfig || {};
 
 			 // 🎯 THE JSON CONFIG DEFAULTS ENGINE
 			 const globalAppDefaults = config.defaults || {};
