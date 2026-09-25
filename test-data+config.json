@@ -54,14 +54,14 @@
 },
 "statisticsConfig": {
 "val3":{
-"mean":{"label":"μ","precision":1,"isCurrency":false},
-"sd":{"label":"σ","precision":3,"isCurrency":false},
-"total":{"label":"∑","precision":1,"isCurrency":false}
+"mean":{"label":"μ =","precision":1,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑ =","precision":1,"isCurrency":false}
 },
 "val7":{
-"mean":{"label":"μ","precision":2,"isCurrency":false},
-"sd":{"label":"σ","precision":3,"isCurrency":false},
-"total":{"label":"∑","precision":2,"isCurrency":false}
+"mean":{"label":"μ =","precision":2,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑ =","precision":2,"isCurrency":false}
 }
 }
 },
