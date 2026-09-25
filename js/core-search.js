@@ -496,6 +496,12 @@ window.executeRealtimeTableStatistics = function() {
 
         return outputString;
     };
+    // 🎯 INSERT THIS DIRECTLY BEFORE UPDATING MEAN/SD/TOTAL CELLS (Inside js/core-search.js):
+    const titleSlot = document.getElementById("statFieldActiveColumnTitle");
+    if (titleSlot) {
+        // Formats label cleanly as "Price Stats" or "Days Stats" based on JSON header config
+        titleSlot.textContent = `${columnConfigProfile.label || "Column"}:`;
+    }
 
     // 🎯 STEP 3: OUTPUT COORDINATES STRAIGHT TO THE GRAPHICAL CARD WRAPPER ELEMENTS
     document.getElementById("statFieldMeanValue").textContent = formatIndividualStatItem(meanCalculatedValue, statsMetricsConfigMatrix.mean);

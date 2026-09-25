@@ -318,6 +318,33 @@ document.addEventListener("DOMContentLoaded", () => {
             if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
             if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
             if (typeof window.initColumnResizableEngine === "function") window.initColumnResizableEngine();
+			const layoutColumnsSchema = window.activeColumnsWidthsSchema || [];
+			const defaultStatColumnProfile = layoutColumnsSchema.find(col => col && col.isStatistics === true && col.isStatMode === true);
+
+			if (defaultStatColumnProfile) {
+				// Assign the default active tracking key to global window variables
+				window.activeStatisticsColumnJsonKey = defaultStatColumnProfile.jsonKey;
+				
+				// Locate the rendered header trigger button component using its attribute matches
+				const targetHeaderCells = document.querySelectorAll("#dataTable th");
+				let matchingStatBtnElement = null;
+
+				targetHeaderCells.forEach((th, idx) => {
+					if (layoutColumnsSchema[idx] && layoutColumnsSchema[idx].jsonKey === defaultStatColumnProfile.jsonKey) {
+						matchingStatBtnElement = th.querySelector(".header-column-stat-trigger-btn");
+					}
+				});
+
+				// If the button component exists, visually toggle its operational active class layout properties
+				if (matchingStatBtnElement) {
+					matchingStatBtnElement.classList.add("active-panel-visible");
+				}
+
+				// Trigger real-time math evaluation calculation loops instantly on initial page load bounds
+				if (typeof window.executeRealtimeTableStatistics === "function") {
+					window.executeRealtimeTableStatistics();
+				}
+			}
         })
         .catch(err => {
             console.error("JSON Pipeline initial load halted:", err);
