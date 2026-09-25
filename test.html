@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T</title>
-	<!-- v.7.7.6 -->
+	<!-- v.7.7.7 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -92,11 +92,20 @@
 	<!-- 🎯 REPLACE VERBATIM WITH THIS UPDATED BLOCK Layer: -->
 		<!-- NEW MODULE HOOK: REAL-TIME ANALYTICAL STATS ROW CONTROLLER -->
 		<div id="tableStatisticsDeckPanel" class="table-statistics-deck-panel" style="display: none;">
-        <!-- Injected: Dynamic context label field token slot -->
-        <div id="statFieldActiveColumnTitle" class="stat-panel-active-column-title">Statistics</div>
-			<div class="stat-metric-card-block"><span class="metric-card-label">Mean:</span> <span id="statFieldMeanValue">0.00</span></div>
-			<div class="stat-metric-card-block"><span class="metric-card-label">SD:</span> <span id="statFieldSDValue">0.00</span></div>
-			<div class="stat-metric-card-block"><span class="metric-card-label">Total:</span> <span id="statFieldTotalValue">0.00</span></div>
+			<div id="statFieldActiveColumnTitle" class="stat-panel-active-column-title">Stats |</div>
+			
+			<div class="stat-metric-card-block">
+				<span id="statLabelMean" class="metric-card-label">Mean:</span> 
+				<span id="statFieldMeanValue">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelSD" class="metric-card-label">SD:</span> 
+				<span id="statFieldSDValue">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelTotal" class="metric-card-label">Total:</span> 
+				<span id="statFieldTotalValue">0.00</span>
+			</div>
 		</div>
 
 		<!-- CONTAINER 3: MAIN DATA TABLE -->
