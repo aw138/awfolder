@@ -17,7 +17,7 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initsortOrder":"asc","width":60},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":60, "initSort":true, "initsortOrder":"asc"},
 {"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":40},
 {"label": "Brand","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":50},
 {"label": "Model","jsonKey": "val4","dataType": "string","isSortable":true,"width":50},
