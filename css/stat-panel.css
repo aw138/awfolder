@@ -62,3 +62,14 @@
     border-color: #1a5d7c !important;
     color: #FFFFFF !important;
 }
+/* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
+.stat-panel-active-column-title {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    padding-left: 6px !important;
+    padding-right: 12px !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
