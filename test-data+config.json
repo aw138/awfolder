@@ -19,7 +19,7 @@
 {"type": "checkbox","width":40,"minWidth":33},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":110},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":80},
-{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"statisticsConfig": {"mean": {"precision":2,"isCurrency":false},"sd": {"precision":3,"isCurrency":false},"total": {"precision":0,"isCurrency":true}},"width":60,"minWidth":73},
+{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"statisticsConfig": {"mean": {"precision":2,"isCurrency":false},"sd": {"precision":3,"isCurrency":false}},"width":60,"minWidth":73},
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
 {"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"width":120,"minWidth":85},
