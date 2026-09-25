@@ -34,8 +34,8 @@
 "Sat":7
 },
 "statusBadges": {
-"中籤":{"label": "中籤", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px"},
-"公開報名":{"label": "公開報名", "bg": "#a0a0FF","text": "#303088","border": "#303088","borderRadius": "4px"}
+"中籤":{"label": "中籤", "bg": "#FFC0C0","text": "#883030","border": "#883030","borderRadius": "4px"},
+"公開報名":{"label": "公開報名", "bg": "#C0C0FF","text": "#303088","border": "#303088","borderRadius": "4px"}
 },
 "descriptionBadges": {
 "day":{"bg": "#FFFFFF","text": "#883333","border": "#883333"},
@@ -44,6 +44,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"Mon;Thu","tag6":"10","tag7":"中籤","val1":"2023/1/30 (Mon) - 2023/3/30 (Thu)","val2":"10-11 <span class='inline-description-badge' data-badge='day'>10 堂</span>","val3":"長者徒手健體訓練班","val4":"車公廟體育館","val5":"中籤"},
