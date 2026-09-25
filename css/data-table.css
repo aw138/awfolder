@@ -132,6 +132,12 @@
     color: #ffffff !important; /* Glow pure white on hover */
     transform: scale(1.1);    /* Tiny fluid bounce layout accent */
 }
+#dataTable th {
+	/* padding: 3px 10px !important; */
+	font-size: 0.9rem !important;
+	vertical-align: top !important;
+}
+
 
 #dataTable td { 
     font-size: 0.93rem !important; 
@@ -139,6 +145,8 @@
     word-break: break-word; 
     box-sizing: border-box; 
     vertical-align: top !important; 
+	line-height: 1.3 !important;
+	padding: 3px 10px 3px 4px !important; /* Adjust table cell paddings */
 }
 
 /* Format the sorting icons to behave cleanly on their new line row */

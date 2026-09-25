@@ -29,8 +29,8 @@
 	border-radius: 6px;
 	/* color: #2E3944;  */
 	color: #2E3944; /* Adjust dashboard toggle btn color */
-	font-size: 16px; 
-	font-weight: bold; 
+	font-size: 16px !important;
+	font-weight: bold !important;
 	cursor: pointer; 
 	height: 30px;                   /* 👈 Match height */
 	flex: 1 !important;             /* 👈 Takes up the exact same 50% flex space as the large-a button! */

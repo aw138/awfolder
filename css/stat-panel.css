@@ -1,0 +1,64 @@
+/* ============================================================================ */
+/* 📊 DYNAMIC REAL-TIME COLUMN STATISTICS CONTAINER DECK PANELS */
+/* ============================================================================ */
+.table-statistics-deck-panel {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 4px !important;
+    padding: 6px !important;
+    background-color: #E2E8F0 !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+}
+
+.stat-metric-card-block {
+    flex: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #94A3B8 !important;
+    border-radius: 4px !important;
+    height: 32px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #1E293B !important;
+    gap: 6px !important;
+}
+
+.stat-metric-card-block .metric-card-label {
+    color: #64748B !important;
+    font-weight: 700 !important;
+}
+
+/* Header nested Stat button trigger style layer hooks */
+.header-column-stat-trigger-btn {
+    background: #475569 !important;
+    border: 1px solid #64748B !important;
+    color: #F8FAFC !important;
+    font-size: 11px !important;
+    font-weight: bold !important;
+    border-radius: 3px !important;
+    padding: 1px 4px !important;
+    cursor: pointer !important;
+    margin-top: 3px !important;
+    display: inline-block !important;
+    line-height: 1.2 !important;
+    transition: all 0.15s ease-in-out !important;
+}
+
+.header-column-stat-trigger-btn:hover {
+    background: #1E293B !important;
+    color: #fef08a !important;
+    border-color: #ca8a04 !important;
+}
+
+.header-column-stat-trigger-btn.active-panel-visible {
+    background: #227EA8 !important;
+    border-color: #1a5d7c !important;
+    color: #FFFFFF !important;
+}
