@@ -23,7 +23,7 @@
 
 {"label": "Description","jsonKey": "val4","dataType": "string","isSortable":true,"width":80},
 {"label": "Shop","jsonKey": "val5","dataType": "string","textColor": "#db582d","isSortable":true,"width":40},
-{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":60,"isCurrency":true,"precision": 2,"isStatistics": true,"statisticsConfig": {"mean": {"precision":3,"isCurrency":false},"sd": {"precision":3,"isCurrency":false},"total": {"precision":2,"isCurrency":true}}}
+{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":60,"isCurrency":true,"precision": 2,"isStatistics": true,"statisticsConfig": {"mean": {"precision":2,"isCurrency":true},"sd": {"precision":3,"isCurrency":false},"total": {"precision":2,"isCurrency":true}}}
 
 ],
 "customSortPriority": {
