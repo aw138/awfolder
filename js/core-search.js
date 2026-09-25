@@ -189,7 +189,13 @@ window.applyCombinedFilter = function() {
         window.updateAllSlicerButtonsUI(activeRows);
     }
 
+	// 🎯 REPLACE VERBATIM WITH THIS INJECTION:
     window.recalculateRealtimeFavCounters();
+    
+    // Auto-update analytics calculation values if a stat row panel is currently active on screen
+    if (typeof window.executeRealtimeTableStatistics === "function") {
+        window.executeRealtimeTableStatistics();
+    }
 };
 // PART C: EVENT LISTENERS & INVERT MACRO CAPTURE HOOKS (Paste directly below Part B)
 
@@ -385,3 +391,137 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 });
+// ============================================================================
+// 📊 REAL-TIME MATHEMATICAL COLUMN STATS EVALUATION PIPELINE
+// ============================================================================
+window.executeRealtimeTableStatistics = function() {
+    const activeTargetKey = window.activeStatisticsColumnJsonKey;
+    const panel = document.getElementById("tableStatisticsDeckPanel");
+    if (!panel) return;
+
+    if (!activeTargetKey) {
+        panel.style.setProperty("display", "none", "important");
+        return;
+    }
+
+    // Locate column structural configuration constraints profile mapping indexes profile
+    const widthsSchema = window.activeColumnsWidthsSchema || [];
+    const columnIndex = widthsSchema.findIndex(col => col && col.jsonKey === activeTargetKey);
+    if (columnIndex === -1) return;
+
+    const visibleRows = window.getRuntimeRows().filter(row => row.style.display !== "none");
+    const numericalValuesArray = [];
+    let grandSumTotal = 0;
+
+    visibleRows.forEach(row => {
+        const targetCell = row.querySelectorAll("td")[columnIndex];
+        if (!targetCell) return;
+        
+        // Strip text down to raw float coordinate parameters (removes currency symbols, whitespace)
+        const rawCleanString = String(targetCell.textContent || "").replace(/[^\d.-]/g, "").trim();
+        const parsedFloatVal = parseFloat(rawCleanString);
+        if (!isNaN(parsedFloatVal)) {
+            numericalValuesArray.push(parsedFloatVal);
+            grandSumTotal += parsedFloatVal;
+        }
+    });
+
+    const totalCountItems = numericalValuesArray.length;
+    let meanCalculatedValue = 0;
+    let calculatedStandardDeviation = 0;
+
+    if (totalCountItems > 0) {
+        meanCalculatedValue = grandSumTotal / totalCountItems;
+        
+        // Standard Deviation: Mean of square variances arithmetic steps
+        let sumSquaredDifferences = 0;
+        numericalValuesArray.forEach(val => {
+            sumSquaredDifferences += Math.pow(val - meanCalculatedValue, 2);
+        });
+        calculatedStandardDeviation = Math.sqrt(sumSquaredDifferences / totalCountItems);
+    }
+
+    // Lookup column configurations profile mapping straight from the JSON payload metadata arrays [INDEX: 0.1.265]
+    const columnConfigProfile = widthsSchema[columnIndex] || {};
+    const jsonStatsSchema = columnConfigProfile.statisticsConfig || {};
+
+    // 🎯 STEP 1: PARSE SEPARATE TARGET FORMATS DYNAMICALLY FROM THE JSON PAYLOAD
+    // Full fallback protection: If specific sub-keys are missing in JSON, it uses column defaults
+    const statsMetricsConfigMatrix = {
+        mean: {
+            precision: (jsonStatsSchema.mean && jsonStatsSchema.mean.precision !== undefined) 
+                ? parseInt(jsonStatsSchema.mean.precision, 10) 
+                : ((columnConfigProfile.precision !== undefined) ? parseInt(columnConfigProfile.precision, 10) : 2),
+            isCurrency: (jsonStatsSchema.mean && jsonStatsSchema.mean.isCurrency !== undefined)
+                ? jsonStatsSchema.mean.isCurrency === true
+                : (columnConfigProfile.isCurrency === true)
+        },
+        sd: {
+            precision: (jsonStatsSchema.sd && jsonStatsSchema.sd.precision !== undefined) 
+                ? parseInt(jsonStatsSchema.sd.precision, 10) 
+                : 2, // Standard deviation typically defaults safely to 2
+            isCurrency: (jsonStatsSchema.sd && jsonStatsSchema.sd.isCurrency !== undefined)
+                ? jsonStatsSchema.sd.isCurrency === true
+                : false // Standard deviation is typically not displayed as currency
+        },
+        total: {
+            precision: (jsonStatsSchema.total && jsonStatsSchema.total.precision !== undefined) 
+                ? parseInt(jsonStatsSchema.total.precision, 10) 
+                : ((columnConfigProfile.precision !== undefined) ? parseInt(columnConfigProfile.precision, 10) : 0),
+            isCurrency: (jsonStatsSchema.total && jsonStatsSchema.total.isCurrency !== undefined)
+                ? jsonStatsSchema.total.isCurrency === true
+                : (columnConfigProfile.isCurrency === true)
+        }
+    };
+
+    // 🎯 STEP 2: RENDER INTERNALS USING THE INTL FORMATTING ENGINE
+    const formatIndividualStatItem = (value, targetConfig) => {
+        const formattingOptions = {
+            minimumFractionDigits: targetConfig.precision,
+            maximumFractionDigits: targetConfig.precision,
+            useGrouping: true // Natively handles thousand separator commas cleanly
+        };
+
+        if (targetConfig.isCurrency) {
+            formattingOptions.style = "currency";
+            formattingOptions.currency = "USD";
+        }
+
+        const formatter = new Intl.NumberFormat("en-US", formattingOptions);
+        let outputString = formatter.format(value);
+
+        if (targetConfig.isCurrency && !outputString.startsWith("$")) {
+            outputString = "$" + outputString;
+        }
+
+        return outputString;
+    };
+
+    // 🎯 STEP 3: OUTPUT COORDINATES STRAIGHT TO THE GRAPHICAL CARD WRAPPER ELEMENTS
+    document.getElementById("statFieldMeanValue").textContent = formatIndividualStatItem(meanCalculatedValue, statsMetricsConfigMatrix.mean);
+    document.getElementById("statFieldSDValue").textContent = formatIndividualStatItem(calculatedStandardDeviation, statsMetricsConfigMatrix.sd);
+    document.getElementById("statFieldTotalValue").textContent = formatIndividualStatItem(grandSumTotal, statsMetricsConfigMatrix.total);
+    
+    panel.style.setProperty("display", "flex", "important");
+};
+
+// Global toggle utility configuration execution macro trigger mapping hook parameters profile pipeline steps
+window.toggleColumnStatisticsDisplayView = function(jsonKey, buttonElement) {
+    const previousActiveKey = window.activeStatisticsColumnJsonKey;
+    
+    // Clear styling classes from all alternate dashboard column elements inside the header tree nodes
+    document.querySelectorAll(".header-column-stat-trigger-btn").forEach(btn => {
+        btn.classList.remove("active-panel-visible");
+    });
+
+    if (previousActiveKey === jsonKey) {
+        // Condition A: Clicked an already open panel -> Close it
+        window.activeStatisticsColumnJsonKey = null;
+    } else {
+        // Condition B: Clicked a new column metric -> Activate it
+        window.activeStatisticsColumnJsonKey = jsonKey;
+        if (buttonElement) buttonElement.classList.add("active-panel-visible");
+    }
+
+    window.executeRealtimeTableStatistics();
+};

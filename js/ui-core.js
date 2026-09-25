@@ -29,9 +29,42 @@ window.initColumnResizableEngine = function() {
         // 🎯 THE FIX Part 1: Strip "px" clean so raw numerical values are preserved on the element dataset cache for drag trackers
         th.dataset.minWidthPixels = parseFloat(remoteMinWidth) || 40;
         
+// 🎯 REPLACE VERBATIM WITH THIS CONDITIONAL STAT BUTTON INJECTOR INSIDE THE LOOP:
         th.style.width = parsedWidthStyle;
         th.style.minWidth = parsedMinWidthStyle;
         th.style.maxWidth = parsedWidthStyle;
+
+        // 🌟 Injected: Append a "Stat" trigger button ONLY if it doesn't already exist
+        if (columnConfig.isStatistics === true && columnConfig.dataType === "number") {
+            
+            // 🎯 THE FIX: Check if this header th cell already contains a Stat button
+            let existingStatBtn = th.querySelector(".header-column-stat-trigger-btn");
+            
+            if (!existingStatBtn) {
+                const statButton = document.createElement("button");
+                statButton.type = "button";
+                statButton.className = "header-column-stat-trigger-btn";
+                statButton.textContent = "Stat";
+                statButton.title = "Toggle metrics data summary calculation metrics description logs row";
+                
+                // Defend cell click event captures hierarchy chain bubbles up triggers
+                statButton.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    if (typeof window.toggleColumnStatisticsDisplayView === "function") {
+                        window.toggleColumnStatisticsDisplayView(columnConfig.jsonKey, statButton);
+                    }
+                });
+                th.appendChild(statButton);
+            } else {
+                // 🔄 OPTIONAL SAFETY: If the button already exists, re-sync its active class state
+                if (window.activeStatisticsColumnJsonKey === columnConfig.jsonKey) {
+                    existingStatBtn.classList.add("active-panel-visible");
+                } else {
+                    existingStatBtn.classList.remove("active-panel-visible");
+                }
+            }
+        }
     });
     
     // Re-binds mouse dragging handle tracking coordinates seamlessly across cells [✦]
