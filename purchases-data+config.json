@@ -12,7 +12,7 @@
 {"jsonKey": "tag2","title": "Division","useTab":false,"labelWidth":55},
 {"jsonKey": "tag3","title": "Category","textColor": "#065f46","useTab":false,"labelWidth":55},
 {"jsonKey": "tag4","title": "Brand","textColor": "#0000e6","useTab":true,"labelWidth":55},
-{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","useTab":false,"labelWidth":55},
+{"jsonKey": "tag5","title": "Shop","textColor": "#db582d","useTab":true,"labelWidth":55},
 {"jsonKey": "tag6","title": "Year","useTab":false,"labelWidth":55}
 ],
 "columns": [
