@@ -2,10 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "Music",
-"version": "v. 7.7.0",
+"version": "v. 7.7.9",
 "defaults": {
 "initialSlicersExpanded":false,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "語言","useTab":false,"labelWidth":40},

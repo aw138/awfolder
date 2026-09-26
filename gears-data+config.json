@@ -2,10 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.7.2",
+"version": "v. 7.7.9",
 "defaults": {
 "initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Event","useTab":false,"labelWidth":55},
@@ -122,6 +122,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良", "val3": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span> 本州迪士尼筑波八天超級豪華團", "val4": "B200 <BR> CZ50 Pentagon135 <BR> HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "7", "tag6": "B200;RicohAF50", "tag7": "CZ50;Pentagon135;Tamron28-50", "tag8": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)<span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val2": "Thailand 曼谷  布吉  巴提雅 ", "val3": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span> 曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val4": "B200 RicohAF50 <BR> CZ50 Pentagon135 Tamron28-50 <BR> HG-4"},
