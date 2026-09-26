@@ -38,7 +38,7 @@
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
 "statisticsConfig": {
-"val5":{
+"val6":{
 "panelTitle":"",
 "mean":{"label":"μ =","precision":2,"isCurrency":false},
 "sd":{"label":"σ =","precision":3,"isCurrency":false},
