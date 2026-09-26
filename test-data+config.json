@@ -4,8 +4,8 @@
 "pageTitle": "T-778",
 "version": "v. 7.7.8",
 "defaults": {
-"initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"ONLY"
+"initialSlicersExpanded":false,
+"defaultBooleanLogicMode":"OR"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
@@ -69,6 +69,7 @@
 },
 "DATA":
 [
+
 
 
 
