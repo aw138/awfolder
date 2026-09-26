@@ -38,7 +38,7 @@
 },
 "statisticsConfig": {
 "val5":{
-"panelTitle":"",
+"panelTitle":"Stats",
 "mean":{"label":"μ =","precision":2,"isCurrency":false},
 "sd":{"label":"σ =","precision":3,"isCurrency":false},
 "total":{"label":"∑ =","precision":2,"isCurrency":false}
@@ -47,6 +47,7 @@
 },
 "DATA":
 [
+
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "機票", "val1": "2019/06/04 (Tue)", "val2": "機票", "val3": "自由行", "val4": "Air ticket-港龍", "val5": "5398"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "酒店", "val1": "2019/06/24 (Mon)", "val2": "酒店", "val3": "自由行", "val4": "Hotel", "val5": "2568.7"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "雜項", "val1": "2019/06/27 (Thu)", "val2": "雜項", "val3": "自由行", "val4": "SIM card", "val5": "40"},
