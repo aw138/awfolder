@@ -193,39 +193,6 @@
     color: #ffffff !important;
     border-color: #e28743 !important;
 }
-/* ============================================================================ */
-/* 🌟 THE ADVANCED BLUE THEME FOR EXCLUSIVITY 'ONLY' SELECTION LOGIC MODULES */
-/* ============================================================================ */
-.boolean-logic-toggle-btn.logic-mode-only {
-    background-color: #227EA8 !important;
-    color: #FFFFFF !important;
-    border-color: #1A5D7C !important;
-}
-/* ============================================================================ */
-/* 🟠 RESTORE THE ORANGE THEME FOR 'OR' LOGIC STATE MODULES */
-/* ============================================================================ */
-.boolean-logic-toggle-btn.logic-mode-or {
-    background-color: #E28743 !important; /* Rich Orange */
-    color: #FFFFFF !important;
-    border-color: #B85D1A !important;
-}
-
-/* Ensure the selector button drops text alignment correctly */
-.boolean-logic-toggle-btn.logic-mode-and {
-    background-color: #4C913F !important; /* Green Theme Balance */
-    color: #FFFFFF !important;
-    border-color: #005500 !important;
-}
-
-/* Active option tokens running under ONLY filtration limits */
-.active-selected-chip.chip-logic-only-state {
-    background-color: #227EA8 !important;
-    border: 1px solid #1A5D7C !important;
-}
-
-.active-selected-chip.chip-logic-only-state:hover {
-    background-color: #1A5D7C !important;
-}
 
 /* Expand Collapse Slicer Row Dropdown Trigger Arrow */
 .row-dropdown-expand-btn {
