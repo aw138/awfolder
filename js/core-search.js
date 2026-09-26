@@ -146,7 +146,8 @@ window.applyCombinedFilter = function() {
             const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
             const rowTagsStr = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
             const rowParsedTags = rowTagsStr.split(';').map(x => x.trim());
-            const useAndLogicOperator = window.booleanLogicalModes[cleanKey] !== false;
+			// 🎯 REPLACE VERBATIM WITH THIS ALIGNED PROPERTY KEYLOOK:
+			const useAndLogicOperator = window.booleanLogicalModes[cleanKey] === "AND";
             const activeFilterItems = Array.from(filterSet);
 
             if (useAndLogicOperator) {

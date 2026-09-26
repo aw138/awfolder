@@ -78,19 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
 			 const globalAppDefaults = config.defaults || {};
 			 const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
 			 
-			 // Normalize the string logic state indicator safely
-			 const booleanOperatorString = String(globalAppDefaults.defaultBooleanLogicMode || "AND").trim().toUpperCase();
-			 const chosenLogicInitialState = booleanOperatorString !== "OR"; 
+			// 🎯 NEW TRIPLE-STATE STRING INDICATOR DECODER
+			const defaultGlobalMode = String(globalAppDefaults.defaultBooleanLogicMode || "OR").trim().toUpperCase();
 
-			 // Setup background tracking structures using your new JSON schema parameters
-			 (config.filters || []).forEach(filterConfig => {
-				 const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
-				 if (!window.selectedFilters) window.selectedFilters = {};
-				 
-				 if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
-				 window.booleanLogicalModes[cleanKey] = chosenLogicInitialState;
-				 window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
-			 });
+			(config.filters || []).forEach(filterConfig => {
+				const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+				if (!window.selectedFilters) window.selectedFilters = {};
+
+				if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
+				
+				// Reads customized row default logic mode from JSON, falls back onto global configuration rules
+				const initialModeSetting = filterConfig.booleanLogicMode || defaultGlobalMode;
+				window.booleanLogicalModes[cleanKey] = String(initialModeSetting).toUpperCase();
+				
+				window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+			});
 
 			 const configurationTitle = config.pageTitle || "Dashboard";
 			 document.title = configurationTitle;
