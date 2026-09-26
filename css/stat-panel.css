@@ -8,8 +8,10 @@
     justify-content: space-between !important;
     width: 100% !important;
     gap: 4px !important;
+	height: 40px !important;
     padding: 6px !important;
-    background-color: #E2E8F0 !important;
+    /* background-color: #E2E8F0 !important; */
+    background-color: #227EA8 !important; /*adjust stat panel bg color */
     border: 1px solid #CBD5E1 !important;
     border-radius: 6px !important;
     box-sizing: border-box !important;
@@ -23,7 +25,7 @@
     background-color: #FFFFFF !important;
     border: 1px solid #94A3B8 !important;
     border-radius: 4px !important;
-    height: 32px !important;
+    height: 25px !important;
     font-size: 0.95rem !important;
     font-weight: 600 !important;
     color: #1E293B !important;
@@ -43,7 +45,7 @@
     font-size: 11px !important;
     font-weight: bold !important;
     border-radius: 3px !important;
-    padding: 1px 4px !important;
+    padding: 1px 4px !important; /* adjust Stat btn label */
     cursor: pointer !important;
     margin-top: 3px !important;
     display: inline-block !important;
@@ -63,13 +65,13 @@
     color: #FFFFFF !important;
 }
 /* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
-.stat-panel-active-column-title {
+.stat-panel-active-column-title { /* adjust stat panel label */
     font-size: 0.9rem !important;
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     color: #1e293b !important;
-    padding-left: 6px !important;
-    padding-right: 12px !important;
+    padding-left: 4px !important;
+    padding-right: 2px !important;
     white-space: nowrap !important;
-    text-transform: uppercase !important;
+    /* text-transform: uppercase !important; */
     letter-spacing: 0.5px !important;
 }
