@@ -1,8 +1,8 @@
 {
 "CONFIG":
 {
-"pageTitle": "T-777",
-"version": "v. 7.7.7",
+"pageTitle": "T-778",
+"version": "v. 7.7.8",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
@@ -19,7 +19,7 @@
 {"type": "checkbox","width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":160},
-{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":80,"minWidth":80},
+{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":78,"minWidth":78},
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
 {"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":95},
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"width":120,"minWidth":120},
@@ -54,11 +54,13 @@
 },
 "statisticsConfig": {
 "val3":{
+"panelTitle":"D",
 "mean":{"label":"μ =","precision":1,"isCurrency":false},
 "sd":{"label":"σ =","precision":3,"isCurrency":false},
 "total":{"label":"∑ =","precision":1,"isCurrency":false}
 },
 "val7":{
+"panelTitle":"P",
 "mean":{"label":"μ =","precision":2,"isCurrency":false},
 "sd":{"label":"σ =","precision":3,"isCurrency":false},
 "total":{"label":"∑ =","precision":2,"isCurrency":false}
@@ -67,6 +69,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
