@@ -10,16 +10,16 @@
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Country","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Trip","textColor": "#0000e6","useTab":false,"labelWidth":55},
 {"jsonKey": "tag4","title": "Agent","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Trip","textColor": "#0000e6","useTab":false,"labelWidth":55},
 {"jsonKey": "tag5","title": "Cat","textColor": "#065f46","useTab":false,"labelWidth":55}
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":200},
 {"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":60,"minWidth":78},
-{"label": "Trip","jsonKey": "val3","dataType": "string","isSortable":true,"width":80,"minWidth":160},
-{"label": "Category","jsonKey": "val4","dataType": "string","isSortable":true,"width":60,"minWidth":160},
+{"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":80,"minWidth":160},
+{"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":60,"minWidth":160},
 {"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":120,"minWidth":78},
 {"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":70,"minWidth":78}
 ],
@@ -48,6 +48,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "機票", "val1": "2019/06/04 (Tue)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "機票", "val5": "Air ticket-港龍", "val6": "5398"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "酒店", "val1": "2019/06/24 (Mon)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "酒店", "val5": "Hotel", "val6": "2568.7"},
