@@ -2,10 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "Activity",
-"version": "v. 7.7.5",
+"version": "v. 7.7.9",
 "defaults": {
 "initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":70},
