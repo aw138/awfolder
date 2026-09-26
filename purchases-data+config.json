@@ -17,7 +17,7 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":50, "initSort":true, "initsortOrder":"asc"},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":55, "initSort":true, "initsortOrder":"asc"},
 {"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":40},
 {"label": "Brand/Model","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":70},
 
@@ -50,6 +50,7 @@
 },
 "DATA":
 [
+
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Camera; Lens", "val3": "Canon<BR>EOS 650 + EF 35-105 f/3.5-4.5", "val4": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val5": "", "val6": "4370"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Flash", "val3": "Canon<BR>Speedlite 300EZ", "val4": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val5": "Wing Shing", "val6": "800"},
 {"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden<BR>CA-747S", "val4": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val5": "HK Electronic", "val6": "2190"},
