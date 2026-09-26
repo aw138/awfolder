@@ -23,7 +23,7 @@
 
 {"label": "Description","jsonKey": "val4","dataType": "string","isSortable":true,"width":80},
 {"label": "Shop/Price","jsonKey": "val5","dataType": "string","textColor": "#db582d","isSortable":true,"width":70},
-{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":60,"isCurrency":true,"precision": 2,"isStatistics": true,"statisticsConfig": {"mean": {"precision":2,"isCurrency":true},"sd": {"precision":3,"isCurrency":false},"total": {"precision":2,"isCurrency":true}}}
+{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":60,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true}
 
 ],
 "customSortPriority": {
@@ -39,10 +39,18 @@
 "active":{"bg": "#00EE00","text": "#000000","border": "#222222"},
 "retired":{"bg": "#c29008","text": "#000000","border": "#222222"},
 "disposed":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
+},
+"statisticsConfig": {
+"val6":{
+"mean":{"label":"μ =","precision":2,"isCurrency":true},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑ =","precision":2,"isCurrency":true}
+}
 }
 },
 "DATA":
 [
+
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Camera; Lens", "val3": "Canon<BR>EOS 650 + EF 35-105 f/3.5-4.5", "val4": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val5": "<BR>4370"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Flash", "val3": "Canon<BR>Speedlite 300EZ", "val4": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>", "val5": "Wing Shing<BR>800"},
 {"tag1": "Disposed", "tag2": "Mobile", "tag3": "PDA", "tag4": "Golden", "tag5": "HK Electronic", "tag6": "1993", "val1": "1993/6/2 (Wed)", "val2": "PDA", "val3": "Golden<BR>CA-747S", "val4": "Dictionary with PDA <span class='inline-description-badge' data-badge='disposed'>Disposed</span>", "val5": "HK Electronic<BR>2190"},
