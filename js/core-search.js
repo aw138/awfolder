@@ -503,18 +503,18 @@ window.executeRealtimeTableStatistics = function() {
         return outputString;
     };
 
-    // 🎯 STEP 3: OUTPUT DYNAMIC CONFIG LABELS AND VALUES TO CONTAINER CHIPS [INDEX: 0.1.265]
+    // 🎯 STEP 3: OUTPUT DYNAMIC CONFIG LABELS AND VALUES TO CONTAINER CHIPS
     const activeColumnTitleSlot = document.getElementById("statFieldActiveColumnTitle");
     if (activeColumnTitleSlot) {
-        // 🎯 FIX: Check strictly if the parameter is defined in JSON, allowing empty strings "" to pass through natively
+																														   
         if (targetJsonStatsSchema.panelTitle !== undefined) {
-            activeColumnTitleSlot.textContent = targetJsonStatsSchema.panelTitle;
+            // Trim whitespace checks to ensure a truly blank target cell clears DOM logs completely
+            activeColumnTitleSlot.textContent = String(targetJsonStatsSchema.panelTitle).trim();
         } else {
-            // Default fallback calculation string if the key does not exist at all in JSON
+																						   
             activeColumnTitleSlot.textContent = `${columnConfigProfile.label || "Column"} Stats |`;
         }
-    }
-    
+    }    
     // Inject labels dynamically from your JSON setup matrix profiles (e.g. "μ", "σ", "∑") [INDEX: 0.1.265]
     document.getElementById("statLabelMean").textContent = statsMetricsConfigMatrix.mean.label;
     document.getElementById("statLabelSD").textContent = statsMetricsConfigMatrix.sd.label;
