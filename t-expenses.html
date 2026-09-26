@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/filter-panel.css">
     <link rel="stylesheet" href="css/data-table.css">
     <link rel="stylesheet" href="css/dynamic-config.css">
-	<link rel="stylesheet" href="css/stat-panel.css">
+    <link rel="stylesheet" href="css/stat-panel.css">
 	<!-- 🎯 THE ADVANCED RESPONSIBLE LINK HOOK -->
 	<!-- This loads conditionally and activates ONLY if the browser layout drops below 768px -->
 	<link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
@@ -89,18 +89,37 @@
 			<div id="mirrorChipsWrapper" class="mirror-chips-wrapper"></div>
 		</div>
 
-        <!-- CONTAINER 3: MAIN DATA TABLE -->
-        <div class="table-container">
+	<!-- 🎯 REPLACE VERBATIM WITH THIS UPDATED BLOCK Layer: -->
+		<!-- NEW MODULE HOOK: REAL-TIME ANALYTICAL STATS ROW CONTROLLER -->
+		<div id="tableStatisticsDeckPanel" class="table-statistics-deck-panel" style="display: none;">
+			<div id="statFieldActiveColumnTitle" class="stat-panel-active-column-title">Stats |</div>
+			
+			<div class="stat-metric-card-block">
+				<span id="statLabelMean" class="metric-card-label">Mean:</span> 
+				<span id="statFieldMeanValue">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelSD" class="metric-card-label">SD:</span> 
+				<span id="statFieldSDValue">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelTotal" class="metric-card-label">Total:</span> 
+				<span id="statFieldTotalValue">0.00</span>
+			</div>
+		</div>
+
+		<!-- CONTAINER 3: MAIN DATA TABLE -->
+		<div class="table-container">
             <div class="table-scroll-wrapper">
                 <table id="dataTable">
                     <thead>
                         <tr>
 							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
 							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
-								<div class="header-checkbox-stack-wrapper">
-									<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-									<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
-								</div>
+							  <div class="header-checkbox-stack-wrapper">
+								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
+							  </div>
 							</th>
                             <th class="sortable">Date<br><span class="sort-icon-trigger"></span></th>
                             <th class="sortable">Category<br><span class="sort-icon-trigger"></span></th>
