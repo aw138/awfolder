@@ -2,10 +2,10 @@
 "CONFIG":
 {
 "pageTitle": "T-expenses",
-"version": "v. 7.7.8",
+"version": "v. 7.7.9",
 "defaults": {
 "initialSlicersExpanded":true,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
@@ -48,6 +48,7 @@
 },
 "DATA":
 [
+
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "機票", "val1": "2019/06/04 (Tue)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "機票", "val5": "Air ticket-港龍", "val6": "5398"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "酒店", "val1": "2019/06/24 (Mon)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "酒店", "val5": "Hotel", "val6": "2568.7"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "雜項", "val1": "2019/06/27 (Thu)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "雜項", "val5": "SIM card", "val6": "40"},
