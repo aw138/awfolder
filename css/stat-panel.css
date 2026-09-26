@@ -5,12 +5,14 @@
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    /* 🎯 TRICK 1: Clear space distribution bounds; make cards use uniform air-gaps */
+    justify-content: flex-start !important; 
     width: 100% !important;
-    gap: 4px !important;
-	height: 40px !important;
-    padding: 6px !important;
-    /* background-color: #E2E8F0 !important; */
+    /* 🎯 TRICK 2: Clean symmetrical 6px edge borders padding track bounds */
+    gap: 4px !important; /* Uniform horizontal space between ALL items natively */
+	height: 40px !important; /* adjust stat container height */
+    padding: 6px !important; 
+			  
     background-color: #227EA8 !important; /*adjust stat panel bg color */
     border: 1px solid #CBD5E1 !important;
     border-radius: 6px !important;
@@ -34,7 +36,14 @@
 
 .stat-metric-card-block .metric-card-label {
     color: #64748B !important;
+								 
     font-weight: 700 !important;
+							  
+																							  
+								   
+								   
+										 
+									 
 }
 
 /* Header nested Stat button trigger style layer hooks */
@@ -65,13 +74,18 @@
     color: #FFFFFF !important;
 }
 /* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
+/* 🎯 TRICK 4: CSS pseudo-selector to hide the title cell if it is completely empty */
+.stat-panel-active-column-title:empty {
+    display: none !important;
+}
+/* 🎯 TRICK 3: Refined title style bounds with auto-collapsing footprint safeguards */
 .stat-panel-active-column-title { /* adjust stat panel label */
     font-size: 0.9rem !important;
     font-weight: 500 !important;
-    /* color: #1e293b !important; */
+									
     color: #FFFFFF !important; /* adjust stat panel label text color */
-    padding-left: 2px !important;
-    padding-right: 2px !important;
+    /* Removed padding-left entirely so it relies strictly on the container's 6px grid line */
+    padding-right: 6px !important; 
     white-space: nowrap !important;
     /* text-transform: uppercase !important; */
     letter-spacing: 0.5px !important;
