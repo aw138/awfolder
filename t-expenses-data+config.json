@@ -39,7 +39,7 @@
 },
 "statisticsConfig": {
 "val5":{
-"panelTitle":"",
+"panelTitle":" ",
 "mean":{"label":"μ =","precision":2,"isCurrency":false},
 "sd":{"label":"σ =","precision":3,"isCurrency":false},
 "total":{"label":"∑ =","precision":2,"isCurrency":false}
