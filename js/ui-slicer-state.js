@@ -41,7 +41,8 @@ window.getTagAvailabilityList = function(currentAttr, uniqueTags, rows, searchCt
                     const nestedTagsArray = nestedTagsStr.split(';').map(x => x.trim());
                     
                     // Respect alternate row structural logical state constraints
-                    const useAndLogicOperator = window.booleanLogicalModes[otherAttr] !== false;
+					// 🎯 REPLACE VERBATIM WITH THIS ALIGNED PAIR LOOKUP:
+					const useAndLogicOperator = window.booleanLogicalModes[otherAttr] === "AND";
                     const criteriaSetItems = Array.from(otherFilterSet);
 
                     if (useAndLogicOperator) {

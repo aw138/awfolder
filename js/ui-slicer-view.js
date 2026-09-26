@@ -58,16 +58,32 @@ window.initHorizontalFilters = function(rows) {
 		const rightControls = document.createElement('div');
 		rightControls.className = 'filter-header-right-controls';
 
-		const logicToggleBtn = document.createElement('button');
-		logicToggleBtn.type = 'button';
-		logicToggleBtn.className = 'boolean-logic-toggle-btn' + (window.booleanLogicalModes[cleanKey] ? '' : ' or-state');
-		logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
-		logicToggleBtn.onclick = () => {
-			window.booleanLogicalModes[cleanKey] = !window.booleanLogicalModes[cleanKey];
-			logicToggleBtn.textContent = window.booleanLogicalModes[cleanKey] ? 'And' : 'Or';
-			logicToggleBtn.classList.toggle('or-state', !window.booleanLogicalModes[cleanKey]);
-			window.applyCombinedFilter();
-		};
+        // 🎯 THREE-STATE INTERACTIVE LOOP CYCLE (ONLY -> OR -> AND)
+        const logicToggleBtn = document.createElement('button');
+        logicToggleBtn.type = 'button';
+        
+        const activeStateMode = window.booleanLogicalModes[cleanKey];
+        logicToggleBtn.className = `boolean-logic-toggle-btn logic-mode-${activeStateMode.toLowerCase()}`;
+        logicToggleBtn.textContent = activeStateMode;
+
+        logicToggleBtn.onclick = () => {
+            let nextMode = "ONLY";
+            if (window.booleanLogicalModes[cleanKey] === "ONLY") nextMode = "OR";
+            else if (window.booleanLogicalModes[cleanKey] === "OR") nextMode = "AND";
+
+            window.booleanLogicalModes[cleanKey] = nextMode;
+            logicToggleBtn.textContent = nextMode;
+            logicToggleBtn.className = `boolean-logic-toggle-btn logic-mode-${nextMode.toLowerCase()}`;
+
+            // Enforce single active selection ceiling if switching down onto ONLY mode channel
+            if (nextMode === "ONLY" && window.selectedFilters[cleanKey].size > 1) {
+                const preservedItem = Array.from(window.selectedFilters[cleanKey])[0];
+                window.selectedFilters[cleanKey].clear();
+                window.selectedFilters[cleanKey].add(preservedItem);
+            }
+
+            window.applyCombinedFilter();
+        };
 		rightControls.appendChild(logicToggleBtn);
 		headerLine.appendChild(rightControls);
 		rowDiv.appendChild(headerLine);
@@ -115,9 +131,9 @@ window.updateAllSlicerButtonsUI = function(rows) {
             const chip = document.createElement('button');
             chip.type = 'button';
             
-            // 🎯 THE CONDITIONAL LOGIC CHECK: Read row logic state to assign the correct color token 🌟
-            const isAndLogicActive = window.booleanLogicalModes[currentAttr] !== false;
-            const logicColorClass = isAndLogicActive ? 'chip-logic-and-state' : 'chip-logic-or-state';
+			// 🎯 Replace verbatim with this dynamic string template reference mapping:
+			const currentSlicerChoiceMode = window.booleanLogicalModes[currentAttr] || "OR";
+			const logicColorClass = `chip-logic-${currentSlicerChoiceMode.toLowerCase()}-state`;
             
             chip.className = `active-selected-chip ${logicColorClass}`;
             chip.innerHTML = `${chosenValue} <span>&times;</span>`;
@@ -333,12 +349,20 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
                 btn.style.setProperty('border-color', customTextColor, 'important');
             }
             
-            btn.onclick = () => {
-                window.activeSlicerKey = currentAttr;
-                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); 
-                else activeSet.add(tagObj.value);
-                window.applyCombinedFilter();
-            };
+			// 🎯 AMEND VERBATIM TO THIS UPDATED ACTION BLOCK:
+			btn.onclick = () => {
+				window.activeSlicerKey = currentAttr;
+				if (activeSet.has(tagObj.value)) {
+					activeSet.delete(tagObj.value);
+				} else {
+					// 🚨 Enforce single item selection ceiling if row is active under ONLY logic mode
+					if (window.booleanLogicalModes[currentAttr] === "ONLY") {
+						activeSet.clear();
+					}
+					activeSet.add(tagObj.value);
+				}
+				window.applyCombinedFilter();
+			};
             buttonsContainerNode.appendChild(btn);
         });
         optionsDeck.appendChild(buttonsContainerNode);
@@ -356,10 +380,18 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
                 btn.style.setProperty('border-color', customTextColor, 'important');
             }
             
+			// 🎯 AMEND VERBATIM TO THIS RE-ALIGNED DECK ACTION BLOCK:
             btn.onclick = () => {
                 window.activeSlicerKey = currentAttr;
-                if (activeSet.has(tagObj.value)) activeSet.delete(tagObj.value); 
-                else activeSet.add(tagObj.value);
+                if (activeSet.has(tagObj.value)) {
+                    activeSet.delete(tagObj.value);
+                } else {
+                    // 🚨 Enforce single item selection ceiling if row is active under ONLY logic mode
+                    if (window.booleanLogicalModes[currentAttr] === "ONLY") {
+                        activeSet.clear();
+                    }
+                    activeSet.add(tagObj.value);
+                }
                 window.applyCombinedFilter();
             };
             optionsDeck.appendChild(btn);
@@ -484,9 +516,9 @@ window.synchronizeMirrorChipsViewport = function() {
                 const mirrorChip = document.createElement("button");
                 mirrorChip.type = "button";
                 
-                // 🎯 THE CONDITIONAL LOGIC CHECK: Pull category's state records straight into mirror layers 🌟
-                const isAndLogicActive = window.booleanLogicalModes[categoryKey] !== false;
-                const logicColorClass = isAndLogicActive ? 'chip-logic-and-state' : 'chip-logic-or-state';
+				// 🎯 Replace verbatim with:
+				const currentCategoryMode = window.booleanLogicalModes[categoryKey] || "OR";
+				const logicColorClass = `chip-logic-${currentCategoryMode.toLowerCase()}-state`;
                 
                 mirrorChip.className = `active-selected-chip mirror-projected-chip ${logicColorClass}`;
                 mirrorChip.innerHTML = `
