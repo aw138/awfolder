@@ -503,15 +503,19 @@ window.executeRealtimeTableStatistics = function() {
         return outputString;
     };
 
-    // 🎯 STEP 3: OUTPUT DYNAMIC CONFIG LABELS AND VALUES TO CONTAINER CHIPS
-    document.getElementById("statFieldActiveColumnTitle").textContent = `${columnConfigProfile.label || "Column"} Stats |`;
+    // 🎯 STEP 3: OUTPUT DYNAMIC CONFIG LABELS AND VALUES TO CONTAINER CHIPS [INDEX: 0.1.265]
+    const activeColumnTitleSlot = document.getElementById("statFieldActiveColumnTitle");
+    if (activeColumnTitleSlot) {
+        // 🎯 FIX: Pull the panel header text directly from JSON with a clean column label fallback
+        activeColumnTitleSlot.textContent = targetJsonStatsSchema.panelTitle || `${columnConfigProfile.label || "Column"} Stats |`;
+    }
     
-    // Inject labels dynamically (e.g. "μ:", "σ:", "∑:")
+    // Inject labels dynamically from your JSON setup matrix profiles (e.g. "μ", "σ", "∑") [INDEX: 0.1.265]
     document.getElementById("statLabelMean").textContent = statsMetricsConfigMatrix.mean.label;
     document.getElementById("statLabelSD").textContent = statsMetricsConfigMatrix.sd.label;
     document.getElementById("statLabelTotal").textContent = statsMetricsConfigMatrix.total.label;
 
-    // Inject calculated mathematical string numeric parameters values
+    // Inject calculated mathematical values with independent layout formatting [INDEX: 0.1.265]
     document.getElementById("statFieldMeanValue").textContent = formatIndividualStatItem(meanCalculatedValue, statsMetricsConfigMatrix.mean);
     document.getElementById("statFieldSDValue").textContent = formatIndividualStatItem(calculatedStandardDeviation, statsMetricsConfigMatrix.sd);
     document.getElementById("statFieldTotalValue").textContent = formatIndividualStatItem(grandSumTotal, statsMetricsConfigMatrix.total);
