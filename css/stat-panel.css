@@ -9,7 +9,7 @@
     justify-content: flex-start !important; 
     width: 100% !important;
     /* 🎯 TRICK 2: Clean symmetrical 6px edge borders padding track bounds */
-    gap: 4px !important; /* Uniform horizontal space between ALL items natively */
+    gap: 6px !important; /* Uniform horizontal space between ALL items natively */
 	height: 40px !important; /* adjust stat container height */
     padding: 6px !important; 
 			  
@@ -23,7 +23,7 @@
     flex: 1 !important;
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     background-color: #FFFFFF !important;
     border: 1px solid #94A3B8 !important;
     border-radius: 4px !important;
@@ -32,20 +32,48 @@
     font-weight: 600 !important;
     color: #1E293B !important; /*adjust stat figures color*/
     gap: 6px !important;
+    box-sizing: border-box !important;
+/* 🎯 GIVES BREATHING ROOM: Ensures text doesn't touch the box walls */
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
 .stat-metric-card-block .metric-card-label {
     color: #64748B !important;
 								 
     font-weight: 700 !important;
-							  
+    text-align: left !important;
+/* 🎯 ALIGN VALUE RIGHT: Figures format neatly flush rightwards */
+.stat-metric-value-span {
+    text-align: right !important;
+    font-family: inherit !important;
+    color: #1E293B !important;
+}
 																							  
 								   
 								   
 										 
 									 
+/* 🎯 TRICK 3: Refined title style bounds with auto-collapsing footprint safeguards */
+.stat-panel-active-column-title { /* adjust stat panel label */
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+									
+    color: #FFFFFF !important; /* adjust stat panel label text color */
+    /* Removed padding-left entirely so it relies strictly on the container's 6px grid line */
+    padding-right: 6px !important; 
+    white-space: nowrap !important;
+    /* text-transform: uppercase !important; */
+    letter-spacing: 0.5px !important;
 }
 
+}
+
+/* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
+/* 🎯 TRICK 4: CSS pseudo-selector to hide the title cell if it is completely empty */
+.stat-panel-active-column-title:empty {
+    display: none !important;
+}
 /* Header nested Stat button trigger style layer hooks */
 .header-column-stat-trigger-btn {
     background: #475569 !important;
@@ -72,21 +100,4 @@
     background: #227EA8 !important;
     border-color: #1a5d7c !important;
     color: #FFFFFF !important;
-}
-/* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
-/* 🎯 TRICK 4: CSS pseudo-selector to hide the title cell if it is completely empty */
-.stat-panel-active-column-title:empty {
-    display: none !important;
-}
-/* 🎯 TRICK 3: Refined title style bounds with auto-collapsing footprint safeguards */
-.stat-panel-active-column-title { /* adjust stat panel label */
-    font-size: 0.9rem !important;
-    font-weight: 500 !important;
-									
-    color: #FFFFFF !important; /* adjust stat panel label text color */
-    /* Removed padding-left entirely so it relies strictly on the container's 6px grid line */
-    padding-right: 6px !important; 
-    white-space: nowrap !important;
-    /* text-transform: uppercase !important; */
-    letter-spacing: 0.5px !important;
 }
