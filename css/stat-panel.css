@@ -28,7 +28,7 @@
     height: 25px !important;
     font-size: 0.95rem !important;
     font-weight: 600 !important;
-    color: #1E293B !important;
+    color: #1E293B !important; /*adjust stat figures color*/
     gap: 6px !important;
 }
 
@@ -45,7 +45,7 @@
     font-size: 11px !important;
     font-weight: bold !important;
     border-radius: 3px !important;
-    padding: 1px 4px !important; /* adjust Stat btn label */
+    padding: 1px 5px !important; /* adjust Stat btn label */
     cursor: pointer !important;
     margin-top: 3px !important;
     display: inline-block !important;
@@ -68,7 +68,8 @@
 .stat-panel-active-column-title { /* adjust stat panel label */
     font-size: 0.9rem !important;
     font-weight: 500 !important;
-    color: #1e293b !important;
+    /* color: #1e293b !important; */
+    color: #FFFFFF !important; /* adjust stat panel label text color */
     padding-left: 4px !important;
     padding-right: 2px !important;
     white-space: nowrap !important;
