@@ -1,11 +1,11 @@
 {
 "CONFIG":
 {
-"pageTitle": "T-778",
-"version": "v. 7.7.8",
+"pageTitle": "T-780",
+"version": "v. 7.8.0",
 "defaults": {
 "initialSlicersExpanded":false,
-"defaultBooleanLogicMode":"OR"
+"defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
@@ -41,6 +41,7 @@
 "thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
 "malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
 "singapore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
+"ef*":{"bg": "#FFFFFF","text": "#DD0000","border": "#00aa00","borderRadius": "8px"},
 "自由行":{"label": "自由🚶‍", "bg": "#FFFFFF","text": "#db582d","border": "#db582d","borderRadius": "6px","padding":"0px 8px"},
 "月":{"label": "月", "bg": "#FFFF00","text": "#FF0000","border": "#333333","borderRadius": "999px","padding":"0px 0px"},
 "japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
@@ -70,19 +71,16 @@
 "DATA":
 [
 
-
-
-
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
-{"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 - 八 月 十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
-{"tag1": "1988", "tag2": "春季", "tag3": "中國", "tag4": "廣東", "tag5": "自由行", "tag6": "", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "100深圳香蜜湖渡假村 - 正月初二", "val3": "", "val4": "中國", "val5": "廣東", "val6": "自由行", "val7": "2190.536", "val8": "<span class='inline-description-badge' data-badge='travel'>✈&#xFE0E;‍ TRAVEL</span>100深圳香蜜湖渡假村"},
+{"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 EF100L - 八 月 十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
+{"tag1": "1988", "tag2": "春季", "tag3": "中國", "tag4": "廣東", "tag5": "自由行", "tag6": "2", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "100深圳香蜜湖渡假村 - 正月初二", "val3": "2", "val4": "中國", "val5": "廣東", "val6": "自由行", "val7": "2190.536", "val8": "<span class='inline-description-badge' data-badge='travel'>✈&#xFE0E;‍ TRAVEL</span>100深圳香蜜湖渡假村"},
 {"tag1": "1988", "tag2": "冬季", "tag3": "中國", "tag4": "(None)", "tag5": "自由行", "tag6": "2", "val1": "1988/11/19 (Sat) - 1988/11/20 (Sun)", "val2": "100 澳門至中山石岐自由行 - 十月廿三", "val3": "2", "val4": "中國", "val5": "(None)", "val6": "自由行", "val7": "2800", "val8": "<span class='inline-description-badge' data-badge='hotel'>🛏&#xFE0E;‍ STAYCATION</span>100 澳門至中山石岐自由行"},
-{"tag1": "1989", "tag2": "秋季", "tag3": "Singapore; Malaysia; Thailand", "tag4": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "tag5": "康泰", "tag6": "8", "val1": "1989/9/16 (Sat) - 1989/9/23 (Sat)", "val2": "AA 泰國→星加坡→馬來西亞 八天團 - 八 月 廿四", "val3": "8", "val4": "Singapore  Malaysia  Thailand", "val5": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "val6": "康泰", "val7": "666.666666666667", "val8": "<span class='inline-description-badge' data-badge='cycling'>🚲‍ CYCLING</span>AA 泰國→星加坡→馬來西亞 八天團"},
+{"tag1": "1989", "tag2": "秋季", "tag3": "Singapore; Malaysia; Thailand", "tag4": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "tag5": "康泰", "tag6": "8", "val1": "1989/9/16 (Sat) - 1989/9/23 (Sat)", "val2": "AA 泰國→星加坡→馬來西亞 八天團 EF16-35 - 八 月 廿四", "val3": "8", "val4": "Singapore  Malaysia  Thailand", "val5": "曼谷; 巴提雅; 星加坡; 吉隆坡; 馬六甲", "val6": "康泰", "val7": "666.666666666667", "val8": "<span class='inline-description-badge' data-badge='cycling'>🚲‍ CYCLING</span>AA 泰國→星加坡→馬來西亞 八天團"},
 {"tag1": "1990", "tag2": "秋季", "tag3": "Sri Lanka; Maldives", "tag4": "可倫坡; 康提; 馬累", "tag5": "大關", "tag6": "8", "val1": "1990/9/16 (Sun) - 1990/9/23 (Sun)", "val2": "AA斯里蘭卡:西畿利亞古城, 佛牙寺; 馬爾代夫 - 八月初五", "val3": "8", "val4": "Sri Lanka  Maldives", "val5": "可倫坡; 康提; 馬累", "val6": "大關", "val7": "1600", "val8": "<span class='inline-description-badge' data-badge='travel'>✈‍ TRAVEL</span>AA斯里蘭卡:西畿利亞古城, 佛牙寺; 馬爾代夫"},
 {"tag1": "2003", "tag2": "秋季", "tag3": "中國", "tag4": "廣東", "tag5": "永安", "tag6": "3", "val1": "2003/8/24 (Sun) - 2003/8/26 (Tue)", "val2": "DD廣州長隆3天團 - 七月廿九", "val3": "3", "val4": "中國", "val5": "廣東", "val6": "永安", "val7": "670.25", "val8": "<span class='inline-description-badge' data-badge='hotel'>🛏‍ STAYCATION</span>DD廣州長隆3天團"},
-{"tag1": "2004", "tag2": "夏季", "tag3": "澳門", "tag4": "澳門", "tag5": "自由行", "tag6": "2", "val1": "2004/7/31 (Sat) - 2004/8/1 (Sun)", "val2": "DD 澳門2天自由行 - 六月十六", "val3": "2", "val4": "澳門", "val5": "澳門", "val6": "自由行", "val7": "111.111111111111", "val8": "<span class='inline-description-badge' data-badge='hiking'>&#128694;‍ HIKING</span>DD 澳門2天自由行"},
+{"tag1": "2004", "tag2": "夏季", "tag3": "澳門", "tag4": "澳門", "tag5": "自由行", "tag6": "2", "val1": "2004/7/31 (Sat) - 2004/8/1 (Sun)", "val2": "DD 澳門2天自由行 EF35 - 六月十六", "val3": "2", "val4": "澳門", "val5": "澳門", "val6": "自由行", "val7": "111.111111111111", "val8": "<span class='inline-description-badge' data-badge='hiking'>&#128694;‍ HIKING</span>DD 澳門2天自由行"},
 {"tag1": "2004", "tag2": "冬季", "tag3": "中國", "tag4": "廣東", "tag5": "中旅社", "tag6": "3", "val1": "2004/12/22 (Wed) - 2004/12/24 (Fri)", "val2": "80韶關，曹溪溫泉，乳源大峽谷，南華禪寺 - 十一月十三", "val3": "3", "val4": "中國", "val5": "廣東", "val6": "中旅社", "val7": "3430", "val8": "<span class='inline-description-badge' data-badge='flower'>❀ FLOWER</span>80韶關，曹溪溫泉，乳源大峽谷，南華禪寺"},
-{"tag1": "2005", "tag2": "秋季", "tag3": "中國", "tag4": "廣東", "tag5": "中旅社", "tag6": "2", "val1": "2005/8/6 (Sat) - 2005/8/7 (Sun)", "val2": "英德寶晶宮茶趣園 - 七月初三", "val3": "2", "val4": "中國", "val5": "廣東", "val6": "中旅社", "val7": "7640", "val8": "英德寶晶宮茶趣園"},
+{"tag1": "2005", "tag2": "秋季", "tag3": "中國", "tag4": "廣東", "tag5": "中旅社", "tag6": "2", "val1": "2005/8/6 (Sat) - 2005/8/7 (Sun)", "val2": "EF 英德寶晶宮茶趣園 - 七月初三", "val3": "2", "val4": "中國", "val5": "廣東", "val6": "中旅社", "val7": "7640", "val8": "英德寶晶宮茶趣園"},
 {"tag1": "2005", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷", "tag5": "嘉禾", "tag6": "4", "val1": "2005/10/14 (Fri) - 2005/10/17 (Mon)", "val2": "嘉禾泰國4天團 - 九月十五", "val3": "4", "val4": "Thailand", "val5": "曼谷", "val6": "嘉禾", "val7": "270", "val8": "嘉禾泰國4天團"},
 {"tag1": "2006", "tag2": "秋季", "tag3": "Thailand", "tag4": "布吉", "tag5": "永安", "tag6": "5", "val1": "2006/8/9 (Wed) - 2006/8/13 (Sun)", "val2": "400 - 七月二十", "val3": "5", "val4": "Thailand", "val5": "布吉", "val6": "永安 (HXX05)", "val7": "8.5", "val8": "400"},
 {"tag1": "2006", "tag2": "冬季", "tag3": "中國", "tag4": "廣東", "tag5": "康泰", "tag6": "3", "val1": "2006/12/12 (Tue) - 2006/12/14 (Thu)", "val2": "德慶盤龍峽，金林水鄉，燕岩，竹海大觀3天團 - 十月廿四", "val3": "3", "val4": "中國", "val5": "廣東", "val6": "康泰 (WAA03-SPC)", "val7": "1560", "val8": "德慶盤龍峽，金林水鄉，燕岩，竹海大觀3天團"},
