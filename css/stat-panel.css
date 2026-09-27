@@ -2,7 +2,8 @@
 /* 📊 DYNAMIC REAL-TIME COLUMN STATISTICS CONTAINER DECK PANELS */
 /* ============================================================================ */
 .table-statistics-deck-panel {
-    display: flex !important;
+    /* display: flex !important; */
+    display: none !important;  /* Strictly invisible on absolute initial browser canvas render frames */
     flex-direction: row !important;
     align-items: center !important;
     /* 🎯 TRICK 1: Clear space distribution bounds; make cards use uniform air-gaps */
@@ -36,25 +37,30 @@
 /* 🎯 GIVES BREATHING ROOM: Ensures text doesn't touch the box walls */
     padding-left: 10px !important;
     padding-right: 10px !important;
+	line-height: 1 !important;
+
 }
 
 .stat-metric-card-block .metric-card-label {
     color: #64748B !important;
-								 
     font-weight: 700 !important;
     text-align: left !important;
-/* 🎯 ALIGN VALUE RIGHT: Figures format neatly flush rightwards */
+    /* 🎯 VERTICAL SYMMETRY: Sync text line tracker boundaries explicitly */
+    line-height: 1 !important;
+    display: inline-block !important;
+}
+
 .stat-metric-value-span {
     text-align: right !important;
     font-family: inherit !important;
     color: #1E293B !important;
+    /* 🎯 VERTICAL SYMMETRY: Sync numeric text line tracking perfectly */
+    line-height: 1 !important;
+    display: inline-block !important;
 }
 																							  
-								   
-								   
-										 
-									 
 /* 🎯 TRICK 3: Refined title style bounds with auto-collapsing footprint safeguards */
+
 .stat-panel-active-column-title { /* adjust stat panel label */
     font-size: 0.9rem !important;
     font-weight: 500 !important;
@@ -65,8 +71,6 @@
     white-space: nowrap !important;
     /* text-transform: uppercase !important; */
     letter-spacing: 0.5px !important;
-}
-
 }
 
 /* 🎯 APPEND THIS TO THE BOTTOM OF stat-panel.css: */
