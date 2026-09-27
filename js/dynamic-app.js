@@ -210,8 +210,24 @@ document.addEventListener("DOMContentLoaded", () => {
 						if (badgeLookupKey === "<br>" || badgeLookupKey === "<br/>" || badgeLookupKey === "<br />") {
 							compiledBadgesHtmlString += `<div style="flex-basis: 100%; height: 0; margin: 0; padding: 0;"></div>`;
 						}
-						else if (badgeSchema[badgeLookupKey]) {
-							const badgeRules = badgeSchema[badgeLookupKey];
+						// 🎯 NEW WILDCARD-ENABLED BADGE RESOLVER
+						else if (Object.keys(badgeSchema).some(key => {
+							if (key.endsWith('*')) {
+								const prefix = key.slice(0, -1).toLowerCase();
+								return badgeLookupKey.startsWith(prefix);
+							}
+							return key === badgeLookupKey;
+						})) {
+							// Find the rule key that matched (either an exact string or a wildcard prefix)
+							const matchedKey = Object.keys(badgeSchema).find(key => {
+								if (key.endsWith('*')) {
+									const prefix = key.slice(0, -1).toLowerCase();
+									return badgeLookupKey.startsWith(prefix);
+								}
+								return key === badgeLookupKey;
+							});
+							
+							const badgeRules = badgeSchema[matchedKey];
 							
 							// 🚀 CLEAN & LEAN INLINE WRITER: Maps JSON inputs directly without duplicate code strings!
 							let inlineStyles = [];
