@@ -1,170 +1,149 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"></meta>
-    <title>Symbol Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+	<!-- v.7.7.9 -->
+    <!-- Split CSS Stylesheets Loading Layers -->
+    <link rel="stylesheet" href="css/core-layout.css">
+    <link rel="stylesheet" href="css/filter-panel.css">
+    <link rel="stylesheet" href="css/data-table.css">
+    <link rel="stylesheet" href="css/dynamic-config.css">
+    <link rel="stylesheet" href="css/stat-panel.css">
+	<!-- 🎯 THE ADVANCED RESPONSIBLE LINK HOOK -->
+	<!-- This loads conditionally and activates ONLY if the browser layout drops below 768px -->
+	<link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
 </head>
 <body>
-<table style="border: 1px solid black;">
-    <thead>
-        <tr>
-            <th>Code</th>
-            <th>Symbol</th>
-            <th>90<br>Deg;</th>
-            <th>180 Deg;</th>     
-        </tr>
-    </thead>
-    <tbody>
 
-<tr><td>9633,8646,9634</td><td style="text-align: center;">&#9633&#8646&#9634</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9633&#8646&#9634</td></tr>
-<tr><td>9633,8651,9634</td><td style="text-align: center;">&#9633&#8651&#9634</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9633&#8651&#9634</td></tr>
-<tr><td>9644,8646,9645</td><td style="text-align: center;">&#9644&#8646&#9645</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9644&#8646&#9645</td></tr>
-<tr><td>9644,8651,9645</td><td style="text-align: center;">&#9644&#8651&#9645</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9644&#8651&#9645</td></tr>
-<tr><td>9723,8646,9724</td><td style="text-align: center;">&#9723&#8646&#9724</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9723&#8646&#9724</td></tr>
-<tr><td>9723,8651,9724</td><td style="text-align: center;">&#9723&#8651&#9724</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9723&#8651&#9724</td></tr>
-<tr><td>9725,8646,9726</td><td style="text-align: center;">&#9725&#8646&#9726</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9725&#8646&#9726</td></tr>
-<tr><td>9725,8651,9726</td><td style="text-align: center;">&#9725&#8651&#9726</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9725&#8651&#9726</td></tr>
-<tr><td>9744,8646,9745</td><td style="text-align: center;">&#9744&#8646&#9745</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9744&#8646&#9745</td></tr>
-<tr><td>9744,8651,9745</td><td style="text-align: center;">&#9744&#8651&#9745</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9744&#8651&#9745</td></tr>
-<tr><td>10003,8646,10007</td><td style="text-align: center;">&#10003&#8646&#10007</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10003&#8646&#10007</td></tr>
-<tr><td>10003,8651,10007</td><td style="text-align: center;">&#10003&#8651&#10007</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10003&#8651&#10007</td></tr>
-<tr><td>10004,8646,10006</td><td style="text-align: center;">&#10004&#8646&#10006</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10004&#8646&#10006</td></tr>
-<tr><td>10004,8651,10006</td><td style="text-align: center;">&#10004&#8651&#10006</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10004&#8651&#10006</td></tr>
-<tr><td>10063,8646,10064</td><td style="text-align: center;">&#10063&#8646&#10064</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10063&#8646&#10064</td></tr>
-<tr><td>10063,8651,10064</td><td style="text-align: center;">&#10063&#8651&#10064</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#10063&#8651&#10064</td></tr>
-<tr><td>8722,61,8801</td><td style="text-align: center;">&#8722&#61&#8801</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#8722&#61&#8801</td></tr>
-<tr><td>8722,9868,8803</td><td style="text-align: center;">&#8722&#9868&#8803</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#8722&#9868&#8803</td></tr>
-<tr><td>9866,822,839,8211,8722,61,831,9868,8801,8803</td><td style="text-align: center;">&#9866&#822&#839&#8211&#8722&#61&#831&#9868&#8801&#8803</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9866&#822&#839&#8211&#8722&#61&#831&#9868&#8801&#8803</td></tr>
-<tr><td>61,9745</td><td style="text-align: center;">&#61&#9745</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#61&#9745</td></tr>
-<tr><td>9745,61</td><td style="text-align: center;">&#9745 &#61 nil</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#9745 &#61 nil</td></tr>
-<tr><td>61,9989</td><td style="text-align: center;">&#61&#9989</td><td style="rotate: 90deg; text-align: center;"></td><td style="rotate: 180deg; text-align: center;">&#61&#9989</td></tr>
-<tr><td>43</td><td style="text-align: center;">&#43</td><td style="rotate: 90deg; text-align: center;">&#43</td><td style="rotate: 180deg; text-align: center;">&#43</td></tr>
-<tr><td>61</td><td style="text-align: center;">&#61</td><td style="rotate: 90deg; text-align: center;">&#61</td><td style="rotate: 180deg; text-align: center;">&#61</td></tr>
-<tr><td>171</td><td style="text-align: center;">&#171</td><td style="rotate: 90deg; text-align: center;">&#171</td><td style="rotate: 180deg; text-align: center;">&#171</td></tr>
-<tr><td>187</td><td style="text-align: center;">&#187</td><td style="rotate: 90deg; text-align: center;">&#187</td><td style="rotate: 180deg; text-align: center;">&#187</td></tr>
-<tr><td>581</td><td style="text-align: center;">&#581</td><td style="rotate: 90deg; text-align: center;">&#581</td><td style="rotate: 180deg; text-align: center;">&#581</td></tr>
-<tr><td>652</td><td style="text-align: center;">&#652</td><td style="rotate: 90deg; text-align: center;">&#652</td><td style="rotate: 180deg; text-align: center;">&#652</td></tr>
-<tr><td>708</td><td style="text-align: center;">&#708</td><td style="rotate: 90deg; text-align: center;">&#708</td><td style="rotate: 180deg; text-align: center;">&#708</td></tr>
-<tr><td>709</td><td style="text-align: center;">&#709</td><td style="rotate: 90deg; text-align: center;">&#709</td><td style="rotate: 180deg; text-align: center;">&#709</td></tr>
-<tr><td>822</td><td style="text-align: center;">&#822</td><td style="rotate: 90deg; text-align: center;">&#822</td><td style="rotate: 180deg; text-align: center;">&#822</td></tr>
-<tr><td>831</td><td style="text-align: center;">&#831</td><td style="rotate: 90deg; text-align: center;">&#831</td><td style="rotate: 180deg; text-align: center;">&#831</td></tr>
-<tr><td>8211</td><td style="text-align: center;">&#8211</td><td style="rotate: 90deg; text-align: center;">&#8211</td><td style="rotate: 180deg; text-align: center;">&#8211</td></tr>
-<tr><td>8593</td><td style="text-align: center;">&#8593</td><td style="rotate: 90deg; text-align: center;">&#8593</td><td style="rotate: 180deg; text-align: center;">&#8593</td></tr>
-<tr><td>8595</td><td style="text-align: center;">&#8595</td><td style="rotate: 90deg; text-align: center;">&#8595</td><td style="rotate: 180deg; text-align: center;">&#8595</td></tr>
-<tr><td>8597</td><td style="text-align: center;">&#8597</td><td style="rotate: 90deg; text-align: center;">&#8597</td><td style="rotate: 180deg; text-align: center;">&#8597</td></tr>
-<tr><td>8645</td><td style="text-align: center;">&#8645</td><td style="rotate: 90deg; text-align: center;">&#8645</td><td style="rotate: 180deg; text-align: center;">&#8645</td></tr>
-<tr><td>8646</td><td style="text-align: center;">&#8646</td><td style="rotate: 90deg; text-align: center;">&#8646</td><td style="rotate: 180deg; text-align: center;">&#8646</td></tr>
-<tr><td>8657</td><td style="text-align: center;">&#8657</td><td style="rotate: 90deg; text-align: center;">&#8657</td><td style="rotate: 180deg; text-align: center;">&#8657</td></tr>
-<tr><td>8657</td><td style="text-align: center;">&#8657</td><td style="rotate: 90deg; text-align: center;">&#8657</td><td style="rotate: 180deg; text-align: center;">&#8657</td></tr>
-<tr><td>8659</td><td style="text-align: center;">&#8659</td><td style="rotate: 90deg; text-align: center;">&#8659</td><td style="rotate: 180deg; text-align: center;">&#8659</td></tr>
-<tr><td>8659</td><td style="text-align: center;">&#8659</td><td style="rotate: 90deg; text-align: center;">&#8659</td><td style="rotate: 180deg; text-align: center;">&#8659</td></tr>
-<tr><td>8661</td><td style="text-align: center;">&#8661</td><td style="rotate: 90deg; text-align: center;">&#8661</td><td style="rotate: 180deg; text-align: center;">&#8661</td></tr>
-<tr><td>8679</td><td style="text-align: center;">&#8679</td><td style="rotate: 90deg; text-align: center;">&#8679</td><td style="rotate: 180deg; text-align: center;">&#8679</td></tr>
-<tr><td>8681</td><td style="text-align: center;">&#8681</td><td style="rotate: 90deg; text-align: center;">&#8681</td><td style="rotate: 180deg; text-align: center;">&#8681</td></tr>
-<tr><td>8691</td><td style="text-align: center;">&#8691</td><td style="rotate: 90deg; text-align: center;">&#8691</td><td style="rotate: 180deg; text-align: center;">&#8691</td></tr>
-<tr><td>8722</td><td style="text-align: center;">&#8722</td><td style="rotate: 90deg; text-align: center;">&#8722</td><td style="rotate: 180deg; text-align: center;">&#8722</td></tr>
-<tr><td>8732</td><td style="text-align: center;">&#8732</td><td style="rotate: 90deg; text-align: center;">&#8732</td><td style="rotate: 180deg; text-align: center;">&#8732</td></tr>
-<tr><td>8743</td><td style="text-align: center;">&#8743</td><td style="rotate: 90deg; text-align: center;">&#8743</td><td style="rotate: 180deg; text-align: center;">&#8743</td></tr>
-<tr><td>8744</td><td style="text-align: center;">&#8744</td><td style="rotate: 90deg; text-align: center;">&#8744</td><td style="rotate: 180deg; text-align: center;">&#8744</td></tr>
-<tr><td>8745</td><td style="text-align: center;">&#8745</td><td style="rotate: 90deg; text-align: center;">&#8745</td><td style="rotate: 180deg; text-align: center;">&#8745</td></tr>
-<tr><td>8746</td><td style="text-align: center;">&#8746</td><td style="rotate: 90deg; text-align: center;">&#8746</td><td style="rotate: 180deg; text-align: center;">&#8746</td></tr>
-<tr><td>8801</td><td style="text-align: center;">&#8801</td><td style="rotate: 90deg; text-align: center;">&#8801</td><td style="rotate: 180deg; text-align: center;">&#8801</td></tr>
-<tr><td>8803</td><td style="text-align: center;">&#8803</td><td style="rotate: 90deg; text-align: center;">&#8803</td><td style="rotate: 180deg; text-align: center;">&#8803</td></tr>
-<tr><td>8862</td><td style="text-align: center;">&#8862</td><td style="rotate: 90deg; text-align: center;">&#8862</td><td style="rotate: 180deg; text-align: center;">&#8862</td></tr>
-<tr><td>8863</td><td style="text-align: center;">&#8863</td><td style="rotate: 90deg; text-align: center;">&#8863</td><td style="rotate: 180deg; text-align: center;">&#8863</td></tr>
-<tr><td>8891</td><td style="text-align: center;">&#8891</td><td style="rotate: 90deg; text-align: center;">&#8891</td><td style="rotate: 180deg; text-align: center;">&#8891</td></tr>
-<tr><td>8893</td><td style="text-align: center;">&#8893</td><td style="rotate: 90deg; text-align: center;">&#8893</td><td style="rotate: 180deg; text-align: center;">&#8893</td></tr>
-<tr><td>8896</td><td style="text-align: center;">&#8896</td><td style="rotate: 90deg; text-align: center;">&#8896</td><td style="rotate: 180deg; text-align: center;">&#8896</td></tr>
-<tr><td>8897</td><td style="text-align: center;">&#8897</td><td style="rotate: 90deg; text-align: center;">&#8897</td><td style="rotate: 180deg; text-align: center;">&#8897</td></tr>
-<tr><td>8963</td><td style="text-align: center;">&#8963</td><td style="rotate: 90deg; text-align: center;">&#8963</td><td style="rotate: 180deg; text-align: center;">&#8963</td></tr>
-<tr><td>8964</td><td style="text-align: center;">&#8964</td><td style="rotate: 90deg; text-align: center;">&#8964</td><td style="rotate: 180deg; text-align: center;">&#8964</td></tr>
-<tr><td>9013</td><td style="text-align: center;">&#9013</td><td style="rotate: 90deg; text-align: center;">&#9013</td><td style="rotate: 180deg; text-align: center;">&#9013</td></tr>
-<tr><td>9632</td><td style="text-align: center;">&#9632</td><td style="rotate: 90deg; text-align: center;">&#9632</td><td style="rotate: 180deg; text-align: center;">&#9632</td></tr>
-<tr><td>9644</td><td style="text-align: center;">&#9644</td><td style="rotate: 90deg; text-align: center;">&#9644</td><td style="rotate: 180deg; text-align: center;">&#9644</td></tr>
-<tr><td>9645</td><td style="text-align: center;">&#9645</td><td style="rotate: 90deg; text-align: center;">&#9645</td><td style="rotate: 180deg; text-align: center;">&#9645</td></tr>
-<tr><td>9646</td><td style="text-align: center;">&#9646</td><td style="rotate: 90deg; text-align: center;">&#9646</td><td style="rotate: 180deg; text-align: center;">&#9646</td></tr>
-<tr><td>9647</td><td style="text-align: center;">&#9647</td><td style="rotate: 90deg; text-align: center;">&#9647</td><td style="rotate: 180deg; text-align: center;">&#9647</td></tr>
-<tr><td>9650</td><td style="text-align: center;">&#9650</td><td style="rotate: 90deg; text-align: center;">&#9650</td><td style="rotate: 180deg; text-align: center;">&#9650</td></tr>
-<tr><td>9651</td><td style="text-align: center;">&#9651</td><td style="rotate: 90deg; text-align: center;">&#9651</td><td style="rotate: 180deg; text-align: center;">&#9651</td></tr>
-<tr><td>9652</td><td style="text-align: center;">&#9652</td><td style="rotate: 90deg; text-align: center;">&#9652</td><td style="rotate: 180deg; text-align: center;">&#9652</td></tr>
-<tr><td>9653</td><td style="text-align: center;">&#9653</td><td style="rotate: 90deg; text-align: center;">&#9653</td><td style="rotate: 180deg; text-align: center;">&#9653</td></tr>
-<tr><td>9660</td><td style="text-align: center;">&#9660</td><td style="rotate: 90deg; text-align: center;">&#9660</td><td style="rotate: 180deg; text-align: center;">&#9660</td></tr>
-<tr><td>9661</td><td style="text-align: center;">&#9661</td><td style="rotate: 90deg; text-align: center;">&#9661</td><td style="rotate: 180deg; text-align: center;">&#9661</td></tr>
-<tr><td>9662</td><td style="text-align: center;">&#9662</td><td style="rotate: 90deg; text-align: center;">&#9662</td><td style="rotate: 180deg; text-align: center;">&#9662</td></tr>
-<tr><td>9663</td><td style="text-align: center;">&#9663</td><td style="rotate: 90deg; text-align: center;">&#9663</td><td style="rotate: 180deg; text-align: center;">&#9663</td></tr>
-<tr><td>9709</td><td style="text-align: center;">&#9709</td><td style="rotate: 90deg; text-align: center;">&#9709</td><td style="rotate: 180deg; text-align: center;">&#9709</td></tr>
-<tr><td>9710</td><td style="text-align: center;">&#9710</td><td style="rotate: 90deg; text-align: center;">&#9710</td><td style="rotate: 180deg; text-align: center;">&#9710</td></tr>
-<tr><td>9725</td><td style="text-align: center;">&#9725</td><td style="rotate: 90deg; text-align: center;">&#9725</td><td style="rotate: 180deg; text-align: center;">&#9725</td></tr>
-<tr><td>9726</td><td style="text-align: center;">&#9726</td><td style="rotate: 90deg; text-align: center;">&#9726</td><td style="rotate: 180deg; text-align: center;">&#9726</td></tr>
-<tr><td>9733</td><td style="text-align: center;">&#9733</td><td style="rotate: 90deg; text-align: center;">&#9733</td><td style="rotate: 180deg; text-align: center;">&#9733</td></tr>
-<tr><td>9734</td><td style="text-align: center;">&#9734</td><td style="rotate: 90deg; text-align: center;">&#9734</td><td style="rotate: 180deg; text-align: center;">&#9734</td></tr>
-<tr><td>9744</td><td style="text-align: center;">&#9744</td><td style="rotate: 90deg; text-align: center;">&#9744</td><td style="rotate: 180deg; text-align: center;">&#9744</td></tr>
-<tr><td>9745</td><td style="text-align: center;">&#9745</td><td style="rotate: 90deg; text-align: center;">&#9745</td><td style="rotate: 180deg; text-align: center;">&#9745</td></tr>
-<tr><td>9746</td><td style="text-align: center;">&#9746</td><td style="rotate: 90deg; text-align: center;">&#9746</td><td style="rotate: 180deg; text-align: center;">&#9746</td></tr>
-<tr><td>9825</td><td style="text-align: center;">&#9825</td><td style="rotate: 90deg; text-align: center;">&#9825</td><td style="rotate: 180deg; text-align: center;">&#9825</td></tr>
-<tr><td>9829</td><td style="text-align: center;">&#9829</td><td style="rotate: 90deg; text-align: center;">&#9829</td><td style="rotate: 180deg; text-align: center;">&#9829</td></tr>
-<tr><td>9866</td><td style="text-align: center;">&#9866</td><td style="rotate: 90deg; text-align: center;">&#9866</td><td style="rotate: 180deg; text-align: center;">&#9866</td></tr>
-<tr><td>9868</td><td style="text-align: center;">&#9868</td><td style="rotate: 90deg; text-align: center;">&#9868</td><td style="rotate: 180deg; text-align: center;">&#9868</td></tr>
-<tr><td>9914</td><td style="text-align: center;">&#9914</td><td style="rotate: 90deg; text-align: center;">&#9914</td><td style="rotate: 180deg; text-align: center;">&#9914</td></tr>
-<tr><td>9915</td><td style="text-align: center;">&#9915</td><td style="rotate: 90deg; text-align: center;">&#9915</td><td style="rotate: 180deg; text-align: center;">&#9915</td></tr>
-<tr><td>9947</td><td style="text-align: center;">&#9947</td><td style="rotate: 90deg; text-align: center;">&#9947</td><td style="rotate: 180deg; text-align: center;">&#9947</td></tr>
-<tr><td>9989</td><td style="text-align: center;">&#9989</td><td style="rotate: 90deg; text-align: center;">&#9989</td><td style="rotate: 180deg; text-align: center;">&#9989</td></tr>
-<tr><td>10003</td><td style="text-align: center;">&#10003</td><td style="rotate: 90deg; text-align: center;">&#10003</td><td style="rotate: 180deg; text-align: center;">&#10003</td></tr>
-<tr><td>10004</td><td style="text-align: center;">&#10004</td><td style="rotate: 90deg; text-align: center;">&#10004</td><td style="rotate: 180deg; text-align: center;">&#10004</td></tr>
-<tr><td>10006</td><td style="text-align: center;">&#10006</td><td style="rotate: 90deg; text-align: center;">&#10006</td><td style="rotate: 180deg; text-align: center;">&#10006</td></tr>
-<tr><td>10007</td><td style="text-align: center;">&#10007</td><td style="rotate: 90deg; text-align: center;">&#10007</td><td style="rotate: 180deg; text-align: center;">&#10007</td></tr>
-<tr><td>10008</td><td style="text-align: center;">&#10008</td><td style="rotate: 90deg; text-align: center;">&#10008</td><td style="rotate: 180deg; text-align: center;">&#10008</td></tr>
-<tr><td>10060</td><td style="text-align: center;">&#10060</td><td style="rotate: 90deg; text-align: center;">&#10060</td><td style="rotate: 180deg; text-align: center;">&#10060</td></tr>
-<tr><td>10062</td><td style="text-align: center;">&#10062</td><td style="rotate: 90deg; text-align: center;">&#10062</td><td style="rotate: 180deg; text-align: center;">&#10062</td></tr>
-<tr><td>10063</td><td style="text-align: center;">&#10063</td><td style="rotate: 90deg; text-align: center;">&#10063</td><td style="rotate: 180deg; text-align: center;">&#10063</td></tr>
-<tr><td>10064</td><td style="text-align: center;">&#10064</td><td style="rotate: 90deg; text-align: center;">&#10064</td><td style="rotate: 180deg; text-align: center;">&#10064</td></tr>
-<tr><td>10084</td><td style="text-align: center;">&#10084</td><td style="rotate: 90deg; text-align: center;">&#10084</td><td style="rotate: 180deg; text-align: center;">&#10084</td></tr>
-<tr><td>10085</td><td style="text-align: center;">&#10085</td><td style="rotate: 90deg; text-align: center;">&#10085</td><td style="rotate: 180deg; text-align: center;">&#10085</td></tr>
-<tr><td>10190</td><td style="text-align: center;">&#10190</td><td style="rotate: 90deg; text-align: center;">&#10190</td><td style="rotate: 180deg; text-align: center;">&#10190</td></tr>
-<tr><td>10191</td><td style="text-align: center;">&#10191</td><td style="rotate: 90deg; text-align: center;">&#10191</td><td style="rotate: 180deg; text-align: center;">&#10191</td></tr>
-<tr><td>10208</td><td style="text-align: center;">&#10208</td><td style="rotate: 90deg; text-align: center;">&#10208</td><td style="rotate: 180deg; text-align: center;">&#10208</td></tr>
-<tr><td>10701</td><td style="text-align: center;">&#10701</td><td style="rotate: 90deg; text-align: center;">&#10701</td><td style="rotate: 180deg; text-align: center;">&#10701</td></tr>
-<tr><td>10710</td><td style="text-align: center;">&#10710</td><td style="rotate: 90deg; text-align: center;">&#10710</td><td style="rotate: 180deg; text-align: center;">&#10710</td></tr>
-<tr><td>10711</td><td style="text-align: center;">&#10711</td><td style="rotate: 90deg; text-align: center;">&#10711</td><td style="rotate: 180deg; text-align: center;">&#10711</td></tr>
-<tr><td>10728</td><td style="text-align: center;">&#10728</td><td style="rotate: 90deg; text-align: center;">&#10728</td><td style="rotate: 180deg; text-align: center;">&#10728</td></tr>
-<tr><td>10729</td><td style="text-align: center;">&#10729</td><td style="rotate: 90deg; text-align: center;">&#10729</td><td style="rotate: 180deg; text-align: center;">&#10729</td></tr>
-<tr><td>10799</td><td style="text-align: center;">&#10799</td><td style="rotate: 90deg; text-align: center;">&#10799</td><td style="rotate: 180deg; text-align: center;">&#10799</td></tr>
-<tr><td>10809</td><td style="text-align: center;">&#10809</td><td style="rotate: 90deg; text-align: center;">&#10809</td><td style="rotate: 180deg; text-align: center;">&#10809</td></tr>
-<tr><td>10810</td><td style="text-align: center;">&#10810</td><td style="rotate: 90deg; text-align: center;">&#10810</td><td style="rotate: 180deg; text-align: center;">&#10810</td></tr>
-<tr><td>10835</td><td style="text-align: center;">&#10835</td><td style="rotate: 90deg; text-align: center;">&#10835</td><td style="rotate: 180deg; text-align: center;">&#10835</td></tr>
-<tr><td>10836</td><td style="text-align: center;">&#10836</td><td style="rotate: 90deg; text-align: center;">&#10836</td><td style="rotate: 180deg; text-align: center;">&#10836</td></tr>
-<tr><td>11014</td><td style="text-align: center;">&#11014</td><td style="rotate: 90deg; text-align: center;">&#11014</td><td style="rotate: 180deg; text-align: center;">&#11014</td></tr>
-<tr><td>11015</td><td style="text-align: center;">&#11015</td><td style="rotate: 90deg; text-align: center;">&#11015</td><td style="rotate: 180deg; text-align: center;">&#11015</td></tr>
-<tr><td>11032</td><td style="text-align: center;">&#11032</td><td style="rotate: 90deg; text-align: center;">&#11032</td><td style="rotate: 180deg; text-align: center;">&#11032</td></tr>
-<tr><td>11033</td><td style="text-align: center;">&#11033</td><td style="rotate: 90deg; text-align: center;">&#11033</td><td style="rotate: 180deg; text-align: center;">&#11033</td></tr>
-<tr><td>11109</td><td style="text-align: center;">&#11109</td><td style="rotate: 90deg; text-align: center;">&#11109</td><td style="rotate: 180deg; text-align: center;">&#11109</td></tr>
-<tr><td>11145</td><td style="text-align: center;">&#11145</td><td style="rotate: 90deg; text-align: center;">&#11145</td><td style="rotate: 180deg; text-align: center;">&#11145</td></tr>
-<tr><td>11147</td><td style="text-align: center;">&#11147</td><td style="rotate: 90deg; text-align: center;">&#11147</td><td style="rotate: 180deg; text-align: center;">&#11147</td></tr>
-<tr><td>11161</td><td style="text-align: center;">&#11161</td><td style="rotate: 90deg; text-align: center;">&#11161</td><td style="rotate: 180deg; text-align: center;">&#11161</td></tr>
-<tr><td>11163</td><td style="text-align: center;">&#11163</td><td style="rotate: 90deg; text-align: center;">&#11163</td><td style="rotate: 180deg; text-align: center;">&#11163</td></tr>
-<tr><td>11165</td><td style="text-align: center;">&#11165</td><td style="rotate: 90deg; text-align: center;">&#11165</td><td style="rotate: 180deg; text-align: center;">&#11165</td></tr>
-<tr><td>11167</td><td style="text-align: center;">&#11167</td><td style="rotate: 90deg; text-align: center;">&#11167</td><td style="rotate: 180deg; text-align: center;">&#11167</td></tr>
-<tr><td>11193</td><td style="text-align: center;">&#11193</td><td style="rotate: 90deg; text-align: center;">&#11193</td><td style="rotate: 180deg; text-align: center;">&#11193</td></tr>
-<tr><td>11205</td><td style="text-align: center;">&#11205</td><td style="rotate: 90deg; text-align: center;">&#11205</td><td style="rotate: 180deg; text-align: center;">&#11205</td></tr>
-<tr><td>11206</td><td style="text-align: center;">&#11206</td><td style="rotate: 90deg; text-align: center;">&#11206</td><td style="rotate: 180deg; text-align: center;">&#11206</td></tr>
-<tr><td>128897</td><td style="text-align: center;">&#128897</td><td style="rotate: 90deg; text-align: center;">&#128897</td><td style="rotate: 180deg; text-align: center;">&#128897</td></tr>
-<tr><td>128899</td><td style="text-align: center;">&#128899</td><td style="rotate: 90deg; text-align: center;">&#128899</td><td style="rotate: 180deg; text-align: center;">&#128899</td></tr>
-<tr><td>8544</td><td style="text-align: center;">&#8544</td><td style="rotate: 90deg; text-align: center;">&#8544</td><td style="rotate: 180deg; text-align: center;">&#8544</td></tr>
-<tr><td>8545</td><td style="text-align: center;">&#8545</td><td style="rotate: 90deg; text-align: center;">&#8545</td><td style="rotate: 180deg; text-align: center;">&#8545</td></tr>
-<tr><td>8546</td><td style="text-align: center;">&#8546</td><td style="rotate: 90deg; text-align: center;">&#8546</td><td style="rotate: 180deg; text-align: center;">&#8546</td></tr>
-<tr><td>8694</td><td style="text-align: center;">&#8694</td><td style="rotate: 90deg; text-align: center;">&#8694</td><td style="rotate: 180deg; text-align: center;">&#8694</td></tr>
-<tr><td>8648</td><td style="text-align: center;">&#8648</td><td style="rotate: 90deg; text-align: center;">&#8648</td><td style="rotate: 180deg; text-align: center;">&#8648</td></tr>
-<tr><td>8650</td><td style="text-align: center;">&#8650</td><td style="rotate: 90deg; text-align: center;">&#8650</td><td style="rotate: 180deg; text-align: center;">&#8650</td></tr>
-<tr><td>8666</td><td style="text-align: center;">&#8666</td><td style="rotate: 90deg; text-align: center;">&#8666</td><td style="rotate: 180deg; text-align: center;">&#8666</td></tr>
-<tr><td>8667</td><td style="text-align: center;">&#8667</td><td style="rotate: 90deg; text-align: center;">&#8667</td><td style="rotate: 180deg; text-align: center;">&#8667</td></tr>
-<tr><td>11057</td><td style="text-align: center;">&#11057</td><td style="rotate: 90deg; text-align: center;">&#11057</td><td style="rotate: 180deg; text-align: center;">&#11057</td></tr>
-<tr><td>9866</td><td style="text-align: center;">&#9866</td><td style="rotate: 90deg; text-align: center;">&#9866</td><td style="rotate: 180deg; text-align: center;">&#9866</td></tr>
-<tr><td>9868</td><td style="text-align: center;">&#9868</td><td style="rotate: 90deg; text-align: center;">&#9868</td><td style="rotate: 180deg; text-align: center;">&#9868</td></tr>
-<tr><td>9776</td><td style="text-align: center;">&#9776</td><td style="rotate: 90deg; text-align: center;">&#9776</td><td style="rotate: 180deg; text-align: center;">&#9776</td></tr>
+    <div class="app-viewport-wrapper">
+		<!-- CONTAINER 1: SEARCH, FILTERS AND CHECKBOX SELECTION FILTER -->
+		<div class="top-search-panel">
+		  
+			<!-- ROW 1: Search & Reset on Left, Page Title in Center, Font & Dashboard Controls on Right -->
+			<div class="panel-row-one">
+		
+				<!-- Row 1 Left DIV (Search Box Container) -->
+				<div class="r1-left-container">
+					<div class="search-wrapper">
+						<input type="text" id="tableSearch" class="search-box" placeholder="Search ...">
+						<button type="button" id="clearSearchBtn" class="custom-clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+					</div>
+				</div>
+				
+				<!-- Title Slot Centered Automatically [INDEX: 0.1.123] -->
+				<div class="panel-row-center-title">
+					<div class="header-title-stacked-wrapper">
+						<span id="dynamicDashboardTitle" class="inline-row-dashboard-title"></span>
+						<!-- 🎯 THE VERSION HOOK: Injected right below the text string line -->
+						<span id="dynamicDashboardVersion" class="inline-row-dashboard-version"></span>
+					</div>
+				</div>
+								
+				<!-- Row 1 Right DIV (Font & Dashboard Collapse Controls) [INDEX: 0.1.166] -->
+				<div class="r1-right-container">
+					<!-- 🎯 ALL THREE ELEMENT KEYS NOW LIVE ON THE SAME STRUCTURAL LEVEL -->
+					<button type="button" id="decreaseFontBtn" class="font-ctrl-btn small-a" aria-label="Decrease text size">A-</button>
+					<button type="button" id="increaseFontBtn" class="font-ctrl-btn large-a" aria-label="Increase text size">A+</button>
+					<button type="button" id="dashboardToggleBtn" class="dashboard-arrow-toggle" aria-label="Toggle filters panel">&#9650;</button>
+				</div>
+		
+			</div>
+		  
+			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
+			<div class="panel-row-two">
+			
+				<!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
+				<div class="r2-left-container">
+					<div class="manual-check-filter-box">
+						<label id="checkedFilterLabel" class="show-checked-filter-label">
+							<input type="checkbox" id="showCheckedOnlyToggle">
+							<span id="checkedFilterCounterText">Selected (0)</span>
+						</label>
+					</div>
+						<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+				</div>
+				
+				<!-- Row 2 Center Badge Slot -->
+				<div class="panel-row-two-center-slot">
+					<!-- Maintained empty for background coordinate baseline rendering layout hooks -->
+				</div>
+				
+				<!-- Row 2 Right DIV (Counter Badge & Expand/Collapse Toggle Button) -->
+				<div class="r2-right-container">
+					<span id="tableResultsCounter" class="results-counter-badge"></span>
+					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
+				</div>
+			
+			</div>
+		</div>
 
-</tbody>
-</table>
+        <!-- CONTAINER 2: DEDICATED SLICER FILTERS DECK PANEL -->
+        <div class="filter-dashboard-panel">
+            <div id="horizontalFiltersContainer" class="horizontal-filters-container"></div>
+        </div>
+		<!-- 🌟 NEW SLICER REPLACEMENT CONTAINER: GLOBAL MIRROR CHIPS DECK -->
+		<div id="globalMirrorChipsDeck" class="global-mirror-chips-deck" style="display: none;">
+			<div class="mirror-deck-title"></div>  <!-- Chip container label here -->
+			<div id="mirrorChipsWrapper" class="mirror-chips-wrapper"></div>
+		</div>
 
+		<!-- 🎯 REPLACE VERBATIM WITH THIS UPDATED BLOCK Layer: -->
+		<!-- NEW MODULE HOOK: REAL-TIME ANALYTICAL STATS ROW CONTROLLER -->
+		<div id="tableStatisticsDeckPanel" class="table-statistics-deck-panel" style="display: none;">
+			<div id="statFieldActiveColumnTitle" class="stat-panel-active-column-title">Stats |</div>
+			
+			<div class="stat-metric-card-block">
+				<span id="statLabelMean" class="metric-card-label">Mean:</span> 
+				<span id="statFieldMeanValue" class="stat-metric-value-span">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelSD" class="metric-card-label">SD:</span> 
+				<span id="statFieldSDValue" class="stat-metric-value-span">0.00</span>
+			</div>
+			<div class="stat-metric-card-block">
+				<span id="statLabelTotal" class="metric-card-label">Total:</span> 
+				<span id="statFieldTotalValue" class="stat-metric-value-span">0.00</span>
+			</div>
+		</div>
 
+		<!-- CONTAINER 3: MAIN DATA TABLE -->
+		<div class="table-container">
+            <div class="table-scroll-wrapper">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
+							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
+							  <div class="header-checkbox-stack-wrapper">
+								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
+								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
+							  </div>
+							</th>
+                            <th class="sortable">Group<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Number<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">Code<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">90-Deg<br><span class="sort-icon-trigger"></span></th>
+                            <th class="sortable">180-Deg<br><span class="sort-icon-trigger"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">No records match your criteria.</div>
+        </div>
+    </div>
+
+    <!-- Sequential Script Dependencies Layer Injection -->
+	<script>
+        window.APP_DATA_SOURCE_URL = "https://aw138.github.io/awfolder/symbol-data+config.json";
+	</script>
+    <script src="js/ui-core.js"></script>
+    <script src="js/ui-slicer-state.js"></script>
+    <script src="js/ui-slicer-view.js"></script>
+    <script src="js/core-search.js"></script>
+    <script src="js/table-sort.js"></script>
+    <script src="js/dynamic-app.js"></script>
 </body>
 </html>
