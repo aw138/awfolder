@@ -1,8 +1,8 @@
 {
 "CONFIG":
 {
-"pageTitle": "T-781",
-"version": "v. 7.8.1",
+"pageTitle": "T-780",
+"version": "v. 7.8.0",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
