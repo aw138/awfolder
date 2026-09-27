@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Gears",
-"version": "v. 7.7.9",
+"version": "v. 7.8.0",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -118,6 +118,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "8", "tag6": "B200", "tag7": "CZ50;Pentagon135", "tag8": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)<span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val2": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良", "val3": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span> 本州迪士尼筑波八天超級豪華團", "val4": "B200 <BR> CZ50 Pentagon135 <BR> HG-4"},
