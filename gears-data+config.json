@@ -94,7 +94,7 @@
 "ef24*":{"bg": "#444444","text": "#FFFFFF","border": "#FF0000","borderRadius": "999px"},
 "ef100l":{"label": "EF100L", "bg": "#444444","text": "#FFFFFF","border": "#FF0000","borderRadius": "999px"},
 "ef16-35l":{"label": "EF16-35L", "bg": "#444444","text": "#FFFFFF","border": "#FF0000","borderRadius": "999px"},
-"rf24-105l":{"label": "RF24-105L", "bg": "#444444","text": "#DDDDFF","border": "#FF0000","borderRadius": "999px"},
+"rf24-105l":{"label": "RF24-105L", "bg": "#444444","text": "#99DD99","border": "#FF0000","borderRadius": "999px"},
 "ef1.4xiii":{"label": "EF1.4xIII", "bg": "#FFFF00","text": "#AA0000","border": "#AA0000","borderRadius": "999px"},
 "ef-m*":{"bg": "#FFFFDD","text": "#4444FF","border": "#444444","borderRadius": "999px"},
 "g1128mkii":{"label": "G1128Mk2", "bg": "#555555","text": "#AAAAAA","border": "#000000","borderRadius": "0px 8px 8px 0px"},
