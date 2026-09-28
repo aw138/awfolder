@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T</title>
-	<!-- v.7.7.7 -->
+	<!-- v.7.8.2 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -112,32 +112,10 @@
 		<div class="table-container">
             <div class="table-scroll-wrapper">
                 <table id="dataTable">
-                    <thead>
-                        <tr>
-							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
-							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
-							  <div class="header-checkbox-stack-wrapper">
-								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
-							  </div>
-							</th>
-                            <th class="sortable">Date<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Lunar<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Days<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Country<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Place<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Agent<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Price<br><span class="sort-icon-trigger"></span></th>
-							<!-- WITH THIS HIGH-DENSITY FILTER BUTTON STACK CELL: -->
-							<th class="declarative-toggle-header-alignment custom-fav-header-cell" style="width: 65px; min-width: 65px;">
-								<div class="fav-header-stack-wrapper">
-									<span class="fav-header-label-text">Fav <span id="favColumnCounterBadge" class="fav-mini-badge">(0)</span></span>
-									<button type="button" id="favFilterToggleBtn" class="fav-toggle-action-trigger" title="Filter by Favorites only" aria-label="Toggle favorites filtration">★</button>
-								</div>
-							</th>
-							<th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
-                        </tr>
-                    </thead>
+						<!-- 🎯 REPLACE VERBATIM WITH THIS PURE EMPTY PLACEHOLDER CONTAINER: -->
+						<thead>
+							<tr></tr>
+						</thead>
                     <tbody id="tableBody"></tbody>
                 </table>
             </div>

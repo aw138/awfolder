@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-expenses</title>
-	<!-- v.7.7.8 -->
+	<!-- v.7.8.2 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -113,21 +113,7 @@
             <div class="table-scroll-wrapper">
                 <table id="dataTable">
                     <thead>
-                        <tr>
-							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
-							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
-							  <div class="header-checkbox-stack-wrapper">
-								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
-							  </div>
-							</th>
-                            <th class="sortable">Date<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Agent<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Trip<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Category<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Description<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">Amount<br><span class="sort-icon-trigger"></span></th>
-                        </tr>
+                        <tr></tr>
                     </thead>
                     <tbody id="tableBody"></tbody>
                 </table>

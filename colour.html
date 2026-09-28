@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colour</title>
-	<!-- v.7.8.0 -->
+	<!-- v.7.8.2 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -113,25 +113,7 @@
             <div class="table-scroll-wrapper">
                 <table id="dataTable">
                     <thead>
-                        <tr>
-							<!-- 🎯 THE FIX: Nest inside a wrapper DIV to preserve table cell geometry so it STICKS -->
-							<th class="checkbox-header-cell" style="width: 40px; min-width: 40px;">
-							  <div class="header-checkbox-stack-wrapper">
-								<input type="checkbox" id="selectAllRowsCheckbox" aria-label="Select all rows">
-								<div id="invertVisibleRowsBtn" class="table-invert-trigger" title="Invert visible selection">&#9744;&#8651;&#9745;</div>
-							  </div>
-							</th>
-                            <th class="sortable">Bg<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx0000<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx0080<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx00FF<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx8000<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx8080<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xx80FF<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xxFF00<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xxFF80<br><span class="sort-icon-trigger"></span></th>
-                            <th class="sortable">xxFFFF<br><span class="sort-icon-trigger"></span></th>
-                        </tr>
+                        <tr></tr>
                     </thead>
                     <tbody id="tableBody"></tbody>
                 </table>
