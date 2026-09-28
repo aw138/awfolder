@@ -12,7 +12,7 @@
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
-{"label": "Bg","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":50},
+{"label": "Bg","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"desc","width":70,"minWidth":50},
 {"label": "xx0000","jsonKey": "val2","dataType": "string","isSortable":true,"width":70,"minWidth":50},
 {"label": "xx0080","jsonKey": "val3","dataType": "string","isSortable":true,"width":70,"minWidth":50},
 {"label": "xx00FF","jsonKey": "val4","dataType": "string","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":50},
