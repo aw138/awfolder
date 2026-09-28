@@ -332,40 +332,49 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             }
-            // Initialize background calculations and triggers safely
-            if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
-            if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
-            if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
-            if (typeof window.initColumnResizableEngine === "function") window.initColumnResizableEngine();
-			const layoutColumnsSchema = window.activeColumnsWidthsSchema || [];
-			const defaultStatColumnProfile = layoutColumnsSchema.find(col => col && col.isStatistics === true && col.isStatMode === true);
+	// 🎯 REPLACE THAT INITIALIZATION TRACK VERBATIM WITH THIS PRECISE ENGINE BOOTLOADER:
+			// 🔄 STEP 1: Generate your data table columns dynamically from your JSON configurations first
+			if (typeof window.initColumnResizableEngine === "function") {
+				window.initColumnResizableEngine();
+			}
+			
+			// 🔄 STEP 2: Initiate filter slicer nodes and compute initial dataset displays
+			if (typeof window.initHorizontalFilters === "function") {
+				window.initHorizontalFilters(window.globalTableRows);
+			}
+			if (typeof window.applyCombinedFilter === "function") {
+				window.applyCombinedFilter();
+			}
+			if (typeof window.bindSortingTriggers === "function") {
+				window.bindSortingTriggers();
+			}
+
+			// 📊 STEP 3: Auto-Trigger default statistics panel view on boot if configured in columns schema
+			const dynamicSchemaProfile = config.columns || [];
+			const defaultStatColumnProfile = dynamicSchemaProfile.find(col => col && col.isStatistics === true && col.isStatMode === true);
 
 			if (defaultStatColumnProfile) {
-				// Assign the default active tracking key to global window variables
 				window.activeStatisticsColumnJsonKey = defaultStatColumnProfile.jsonKey;
 				
-				// Locate the rendered header trigger button component using its attribute matches
-				const targetHeaderCells = document.querySelectorAll("#dataTable th");
+				const freshHeaderCells = document.querySelectorAll("#dataTable th");
 				let matchingStatBtnElement = null;
 
-				targetHeaderCells.forEach((th, idx) => {
-					if (layoutColumnsSchema[idx] && layoutColumnsSchema[idx].jsonKey === defaultStatColumnProfile.jsonKey) {
+				freshHeaderCells.forEach((th, idx) => {
+					if (dynamicSchemaProfile[idx] && dynamicSchemaProfile[idx].jsonKey === defaultStatColumnProfile.jsonKey) {
 						matchingStatBtnElement = th.querySelector(".header-column-stat-trigger-btn");
 					}
 				});
 
-				// If the button component exists, visually toggle its operational active class layout properties
 				if (matchingStatBtnElement) {
 					matchingStatBtnElement.classList.add("active-panel-visible");
 				}
 
-				// Trigger real-time math evaluation calculation loops instantly on initial page load bounds
 				if (typeof window.executeRealtimeTableStatistics === "function") {
 					window.executeRealtimeTableStatistics();
 				}
 			}
-        })
-        .catch(err => {
+		})
+		.catch(err => {
             console.error("JSON Pipeline initial load halted:", err);
             tbody.innerHTML = `<tr><td colspan="20" style="text-align:center;color:#D13438;font-weight:bold;padding:20px;">無法自雲端載入 JSON 數據。</td></tr>`;
         });

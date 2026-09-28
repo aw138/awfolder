@@ -126,34 +126,42 @@ function compareValues(a, b) {
     window.recalculateZebraStriping();
 }
 
+// 🎯 REPLACE YOUR ENTIRE window.bindSortingTriggers BLOCK VERBATIM WITH:
 window.bindSortingTriggers = function() {
-    const table = document.getElementById("dataTable");
-    if (!table) return;
+    // Look up headers directly from the active DOM tree layout
+    const sortableHeaders = document.querySelectorAll("#dataTable th.sortable");
+    
+    sortableHeaders.forEach((th) => {
+        th.onclick = null; // Flush old handlers to prevent memory leaks
+        
+        th.onclick = function(e) {
+            // Intercept clicks on nested Stat buttons so they don't trigger column sorting
+            if (e.target.classList.contains("header-column-stat-trigger-btn")) return;
+            
+            // 🎯 FIXED TRACKING CALCULATOR: Find index within ALL table header columns
+            const totalHeadersArray = Array.from(document.querySelectorAll("#dataTable th"));
+            const absoluteColumnIndex = totalHeadersArray.indexOf(th);
+            
+            if (absoluteColumnIndex === -1) return;
 
-    table.querySelectorAll("th.sortable").forEach(thCell => {
-        const trigger = thCell.querySelector(".sort-icon-trigger") || thCell;
-        const freshTrigger = trigger.cloneNode(true);
-
-        if (thCell.querySelector(".sort-icon-trigger")) {
-            trigger.parentNode.replaceChild(freshTrigger, trigger);
-        } else {
-            thCell.parentNode.replaceChild(freshTrigger, thCell);
-        }
-
-        freshTrigger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const index = Array.from(thCell.parentNode.children).indexOf(thCell);
-            let currentIcon = thCell.querySelector(".sort-icon-trigger") || freshTrigger;
-            let currentSortAscending = !currentIcon.classList.contains("asc");
-
-            table.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
-            currentIcon.classList.add(currentSortAscending ? "asc" : "desc");
-            executeSort(index, currentSortAscending);
-
-            if (typeof window.initColumnResizableEngine === "function") {
-                window.initColumnResizableEngine();
+            let isAscending = true;
+            const caretSpan = th.querySelector(".sort-icon-trigger");
+            
+            if (caretSpan && caretSpan.classList.contains("asc")) {
+                isAscending = false;
             }
-        });
+            
+            // Execute the sorting process using the accurate global column index
+            if (typeof window.executeSort === "function") {
+                window.executeSort(absoluteColumnIndex, isAscending);
+            }
+            
+            // Synchronize the look of the sorting carets (arrows) across columns
+            document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
+            if (caretSpan) {
+                caretSpan.classList.add(isAscending ? "asc" : "desc");
+            }
+        };
     });
 };
 

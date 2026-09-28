@@ -28,10 +28,11 @@ window.getRuntimeRows = function() {
     window.globalTableRows : (tbody ? Array.from(tbody.querySelectorAll("tr")) : []); 
 };
 
+// 🎯 REPLACE VERBATIM WITH THIS DELEGATED INPUT ENGINE INSIDE js/core-search.js:
 window.updateMasterCheckboxState = function() {
     const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
     if (!selectAllRowsCheckbox) return;
-    
+ 
     const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
     if (visibleRows.length === 0) { 
         selectAllRowsCheckbox.checked = false; 
@@ -55,6 +56,48 @@ window.updateMasterCheckboxState = function() {
         selectAllRowsCheckbox.indeterminate = true;
     }
 };
+
+// ⚡ GLOBAL EVENT DELEGATOR: Guarantees dynamic checkboxes respond instantly to clicks
+document.addEventListener("click", function(event) {
+    // 1. Intercept Selection Invert Trigger Button Click Scope
+    if (event.target && event.target.id === "invertVisibleRowsBtn") {
+        event.stopPropagation();
+        event.preventDefault();
+        
+        const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
+        visibleRows.forEach(row => {
+            const chk = row.querySelector(".row-selector-checkbox");
+            if (chk) {
+                chk.checked = !chk.checked;
+                row.classList.toggle("is-checked-state", chk.checked);
+            }
+        });
+        
+        // Synchronize counters and master element checkboxes layout states
+        if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
+        if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
+        if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
+    }
+
+    // 2. Intercept Master Select All Checkbox Click Scope
+    if (event.target && event.target.id === "selectAllRowsCheckbox") {
+        event.stopPropagation();
+        const masterStateValue = event.target.checked;
+        const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
+        
+        visibleRows.forEach(row => {
+            const chk = row.querySelector(".row-selector-checkbox");
+            if (chk) {
+                chk.checked = masterStateValue;
+                row.classList.toggle("is-checked-state", masterStateValue);
+            }
+        });
+
+        if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
+        if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
+        if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
+    }
+});
 
 function escapeRegExp(string) { return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
