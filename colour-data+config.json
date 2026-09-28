@@ -8,7 +8,7 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag1","title": "Group","labelWidth":70,"textColor": "#2222DD"}
+{"jsonKey": "tag1","title": "xx=","labelWidth":70,"textColor": "#2222DD"}
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
