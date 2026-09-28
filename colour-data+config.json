@@ -13,9 +13,15 @@
 "columns": [
 {"type": "checkbox","width":40,"minWidth":33},
 {"label": "Bg","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":50},
-{"label": "R","jsonKey": "val2","dataType": "string","isSortable":true,"width":70,"minWidth":50},
-{"label": "G","jsonKey": "val3","dataType": "string","isSortable":true,"width":70,"minWidth":50},
-{"label": "Bg","jsonKey": "val5","dataType": "string","isSortable":true,"width":70,"minWidth":90}
+{"label": "xx0000","jsonKey": "val2","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xx0080","jsonKey": "val3","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xx00FF","jsonKey": "val4","dataType": "string","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"asc","width":70,"minWidth":50},
+{"label": "xx8000","jsonKey": "val5","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xx8080","jsonKey": "val6","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xx80FF","jsonKey": "val7","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xxFF00","jsonKey": "val8","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xxFF80","jsonKey": "val9","dataType": "string","isSortable":true,"width":70,"minWidth":50},
+{"label": "xxFFFF","jsonKey": "val10","dataType": "string","isSortable":true,"width":70,"minWidth":90}
 ],
 "customSortPriority": {
 "已結業":999,
@@ -32,6 +38,7 @@
 },
 "DATA":
 [
+
 
 {"tag1":"00","tag2":"00","tag3":"00","val2":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #000000; text-align: center; line-height: 20px; background-color: #000000; color: #000000;\">Ab</span>","val3":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #000080; text-align: center; line-height: 20px; background-color: #000000; color: #000080;\">Ab</span>","val4":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #0000FF; text-align: center; line-height: 20px; background-color: #000000; color: #0000FF;\">Ab</span>","val5":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #008000; text-align: center; line-height: 20px; background-color: #000000; color: #008000;\">Ab</span>","val6":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #008080; text-align: center; line-height: 20px; background-color: #000000; color: #008080;\">Ab</span>","val7":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #0080FF; text-align: center; line-height: 20px; background-color: #000000; color: #0080FF;\">Ab</span>","val8":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FF00; text-align: center; line-height: 20px; background-color: #000000; color: #00FF00;\">Ab</span>","val9":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FF80; text-align: center; line-height: 20px; background-color: #000000; color: #00FF80;\">Ab</span>","val10":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FFFF; text-align: center; line-height: 20px; background-color: #000000; color: #00FFFF;\">Ab</span>"},
 {"tag1":"00","tag2":"00","tag3":"80","val2":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #000000; text-align: center; line-height: 20px; background-color: #000080; color: #000000;\">Ab</span>","val3":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #000080; text-align: center; line-height: 20px; background-color: #000080; color: #000080;\">Ab</span>","val4":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #0000FF; text-align: center; line-height: 20px; background-color: #000080; color: #0000FF;\">Ab</span>","val5":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #008000; text-align: center; line-height: 20px; background-color: #000080; color: #008000;\">Ab</span>","val6":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #008080; text-align: center; line-height: 20px; background-color: #000080; color: #008080;\">Ab</span>","val7":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #0080FF; text-align: center; line-height: 20px; background-color: #000080; color: #0080FF;\">Ab</span>","val8":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FF00; text-align: center; line-height: 20px; background-color: #000080; color: #00FF00;\">Ab</span>","val9":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FF80; text-align: center; line-height: 20px; background-color: #000080; color: #00FF80;\">Ab</span>","val10":"<span style=\"display: inline-block; width: 30px; height: 15px; border: 1px solid #00FFFF; text-align: center; line-height: 20px; background-color: #000080; color: #00FFFF;\">Ab</span>"},
