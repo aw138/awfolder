@@ -20,7 +20,7 @@
 {"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":89,"minWidth":89},
 {"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":139,"minWidth":139},
 {"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":87,"minWidth":87},
-{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":149,"minWidth":149},
+{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":151,"minWidth":151},
 {"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":101,"minWidth":101}
 ],
 "customSortPriority": {
