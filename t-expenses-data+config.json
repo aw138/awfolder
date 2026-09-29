@@ -16,12 +16,12 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":133,"minWidth":133},
-{"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":90,"minWidth":90},
-{"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":140,"minWidth":140},
-{"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":90,"minWidth":90},
-{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":160,"minWidth":160},
-{"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":102,"minWidth":102}
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":132,"minWidth":132},
+{"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":89,"minWidth":89},
+{"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":139,"minWidth":139},
+{"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":89,"minWidth":89},
+{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":159,"minWidth":159},
+{"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":101,"minWidth":101}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -48,7 +48,6 @@
 },
 "DATA":
 [
-
 
 
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "機票", "val1": "2019/06/04 (Tue)", "val2": "自由行", "val3": "山東青島 (4天)", "val4": "機票", "val5": "Air ticket-港龍", "val6": "5398"},
