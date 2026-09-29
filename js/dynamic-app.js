@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             }
-	// 🎯 REPLACE THAT INITIALIZATION TRACK VERBATIM WITH THIS PRECISE ENGINE BOOTLOADER:
+	// 🎯 REPLACE VERBATIM WITH THIS Lifecyle INITIALIZER PASS:
 			// 🔄 STEP 1: Generate your data table columns dynamically from your JSON configurations first
 			if (typeof window.initColumnResizableEngine === "function") {
 				window.initColumnResizableEngine();
@@ -347,6 +347,22 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 			if (typeof window.bindSortingTriggers === "function") {
 				window.bindSortingTriggers();
+			}
+
+			// 🔄 STEP 2.5: SYNCHRONIZE DEFAULT INITIAL VISUAL SORT CARATED INDICATOR SYMBOLS
+			const initialSortColumnConfig = (config.columns || []).find(col => col && col.initSort === true);
+			if (initialSortColumnConfig) {
+				const allHeaderElements = document.querySelectorAll("#dataTable th");
+				const targetSortOrderStyleClass = String(initialSortColumnConfig.initsortOrder || "asc").toLowerCase();
+				
+				(config.columns || []).forEach((col, idx) => {
+					if (col && col.jsonKey === initialSortColumnConfig.jsonKey && allHeaderElements[idx]) {
+						const targetCaretSpan = allHeaderElements[idx].querySelector(".sort-icon-trigger");
+						if (targetCaretSpan) {
+							targetCaretSpan.classList.add(targetSortOrderStyleClass);
+						}
+					}
+				});
 			}
 
 			// 📊 STEP 3: Auto-Trigger default statistics panel view on boot if configured in columns schema

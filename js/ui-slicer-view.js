@@ -66,7 +66,9 @@ window.initHorizontalFilters = function(rows) {
         logicToggleBtn.className = `boolean-logic-toggle-btn logic-mode-${activeStateMode.toLowerCase()}`;
         logicToggleBtn.textContent = activeStateMode;
 
-        logicToggleBtn.onclick = () => {
+		/* 🎯 REPLACE VERBATIM WITH THIS PREVENTATIVE SCOPE: */
+        logicToggleBtn.onclick = (e) => {
+            e.stopPropagation(); // ⚡ Stops the click from bubbling up and toggling the green area
             let nextMode = "ONLY";
             if (window.booleanLogicalModes[cleanKey] === "ONLY") nextMode = "OR";
             else if (window.booleanLogicalModes[cleanKey] === "OR") nextMode = "AND";
@@ -94,12 +96,15 @@ window.initHorizontalFilters = function(rows) {
 		optionsDeck.id = `options-deck-${cleanKey}`;
 		rowDiv.appendChild(optionsDeck);
 
-		expandToggleBtn.onclick = () => {
-			window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
-			expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
-			optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
-			window.syncGlobalAccordionButtonLabelState();
-		};
+		/* 🎯 REPLACE VERBATIM WITH THIS EXPANDED CONTAINER CONTROLLER: */
+        // Make the entire green banner strip show a pointer cursor and handle clicks
+        headerLine.style.cursor = 'pointer';
+        headerLine.onclick = () => {
+            window.slicerExpandedStates[cleanKey] = !window.slicerExpandedStates[cleanKey];
+            expandToggleBtn.innerHTML = window.slicerExpandedStates[cleanKey] ? '&#8722;' : '&#43;';
+            optionsDeck.classList.toggle('hidden-drawer-state', !window.slicerExpandedStates[cleanKey]);
+            window.syncGlobalAccordionButtonLabelState();
+        };
 
 		container.appendChild(rowDiv);
     });
