@@ -29,6 +29,36 @@
 {"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":40},
 {"label": "Description","jsonKey": "val8","dataType": "string","isSortable":true,"width":300,"minWidth":300}
 ]
+},
+{
+"id": "B",
+"buttonLabel": "Profile B",
+"pageTitle": "T-800b",
+"version": "v. 8.0.0b",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"OR"
+},
+"filters": [
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
+],
+"columns": [
+{"type": "checkbox","width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":200,"minWidth":200},
+
+
+{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
+{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":95},
+
+{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":78,"minWidth":78},
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":0,"inactiveColors":0,"width":40,"minWidth":40},
+{"label": "Description","jsonKey": "val8","dataType": "string","isSortable":true,"width":300,"minWidth":300}
+]
 }
 ],
 "customSortPriority": {
@@ -124,7 +154,6 @@
 {"tag1": "2026", "tag2": "夏季", "tag3": "中國", "tag4": "浙江", "tag5": "自由行", "tag6": "8", "val1": "2026/5/28 (Thu) - 2026/6/4 (Thu)", "val2": "四月十二 - 四月十九", "val3": "8", "val4": "中國", "val5": "浙江", "val6": "自由行", "val7": "255", "val8": "杭州自由行-西湖，錢塘江"},
 {"tag1": "2026", "tag2": "秋季", "tag3": "中國", "tag4": "內蒙古; 甘肅", "tag5": "大航", "tag6": "8", "val1": "2026/10/9 (Fri) - 2026/10/16 (Fri)", "val2": "八月廿九 - 九月初七", "val3": "8", "val4": "中國", "val5": "內蒙古; 甘肅", "val6": "大航 (CDNH08E)", "val7": "50", "val8": "一次聯遊:額濟納旗+金塔沙漠胡楊"},
 {"tag1": "2026", "tag2": "冬季", "tag3": "中國", "tag4": "湖南", "tag5": "自由行", "tag6": "8", "val1": "2026/11/23 (Mon) - 2026/11/30 (Mon)", "val2": "十月十五 - 十月廿二", "val3": "8", "val4": "中國", "val5": "湖南", "val6": "自由行", "val7": "100000", "val8": "湖南長沙八天賞楓自由行"}
-
 
 ]
 }
