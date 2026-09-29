@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Symbol",
-"version": "v. 7.8.0",
+"version": "v. 7.8.2",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
@@ -33,6 +33,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Math","val1":"43", "val2": "Math","val3":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px;\">&#43","val4":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px; transform: rotate(90deg);\">&#43","val5":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px; transform: rotate(180deg);\">&#43</span>"},
 {"tag1": "Math","val1":"61", "val2": "Math","val3":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px;\">&#61","val4":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px; transform: rotate(90deg);\">&#61","val5":"<span style=\"display: inline-block; width: 20px; height: 20px; border: 1px solid black; text-align: center; line-height: 20px; transform: rotate(180deg);\">&#61</span>"},
