@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "旅行紀錄",
-"version": "v. 7.8.0",
+"version": "v. 7.8.2",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
@@ -16,14 +16,14 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":220,"minWidth":110},
-{"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"width":160,"minWidth":80},
-{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"width":73,"minWidth":73,"isCurrency":false,"precision": 0},
-{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":100,"minWidth":95},
-{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":77},
-{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":125,"minWidth":85},
-{"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true,"width":300,"minWidth":115}
+{"type": "checkbox","width":33,"minWidth":33},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":143,"minWidth":143},
+{"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"width":104,"minWidth":104},
+{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":47,"minWidth":47},
+{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":65,"minWidth":65},
+{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":62,"minWidth":62},
+{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":81,"minWidth":81},
+{"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true,"width":195,"minWidth":195}
 ],
 "customSortPriority": {
 "春季":1,
@@ -48,6 +48,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "關東; 中部; 關西<BR>茨城; 東京; 神奈川; 山梨; 靜岡; 京都; 大阪; 奈良", "val6": "星晨 (HON-8)", "val7": "本州迪士尼筑波八天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span>八月初五 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)"},
