@@ -16,12 +16,12 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":120,"minWidth":120},
-{"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":70,"minWidth":70},
-{"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":120,"minWidth":120},
-{"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":70,"minWidth":70},
-{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":130,"minWidth":130},
-{"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":80,"minWidth":80}
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":140,"minWidth":140},
+{"label": "Agent","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true,"width":90,"minWidth":90},
+{"label": "Trip","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":140,"minWidth":140},
+{"label": "Category","jsonKey": "val4","dataType": "string","textColor": "#065f46","isSortable":true,"width":90,"minWidth":90},
+{"label": "Description","jsonKey": "val5","dataType": "string","isSortable":true,"width":160,"minWidth":160},
+{"label": "Amount","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":102,"minWidth":102}
 ],
 "customSortPriority": {
 "(None)":999,
