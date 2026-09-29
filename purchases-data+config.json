@@ -2,7 +2,7 @@
 "CONFIG":
 {
 "pageTitle": "Purchases",
-"version": "v. 7.7.9",
+"version": "v. 7.8.2",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -17,13 +17,13 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":55, "initSort":true, "initsortOrder":"asc"},
-{"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":40},
-{"label": "Brand/Model","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":70},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":72, "initSort":true, "initsortOrder":"asc"},
+{"label": "Category","jsonKey": "val2","dataType": "string","textColor": "#065f46","isSortable":true,"width":52},
+{"label": "Brand/Model","jsonKey": "val3","dataType": "string","textColor": "#0000e6","isSortable":true,"width":91},
 
-{"label": "Description","jsonKey": "val4","dataType": "string","isSortable":true,"width":80},
-{"label": "Shop","jsonKey": "val5","dataType": "string","textColor": "#db582d","isSortable":true,"width":40},
-{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":65,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true}
+{"label": "Description","jsonKey": "val4","dataType": "string","isSortable":true,"width":110},
+{"label": "Shop","jsonKey": "val5","dataType": "string","textColor": "#db582d","isSortable":true,"width":52},
+{"label": "Price","jsonKey": "val6","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"width":80,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true}
 
 ],
 "customSortPriority": {
