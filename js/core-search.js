@@ -227,6 +227,8 @@ window.applyCombinedFilter = function() {
             if (row.style.display !== "none" && row.querySelector(".row-selector-checkbox")?.checked) checkedVisibleCount++;
         });
         counterTextTarget.textContent = `${checkedVisibleCount} selected`;
+        // counterTextTarget.textContent = `${String.fromCodePoint(9989)} (${checkedVisibleCount})`;
+        // counterTextTarget.textContent = `\u{2705} (${checkedVisibleCount})`;
     }
 
     if (typeof window.updateAllSlicerButtonsUI === "function") {
