@@ -82,7 +82,8 @@ window.initColumnResizableEngine = function() {
 
         // CASE 3: STANDARD SORTABLE COLUMNS
         th.className = "sortable";
-        if (columnConfig.alignRight) th.style.textAlign = "right";
+        // Below line is to adjust header alignment if data aligned right
+		if (columnConfig.alignRight) th.style.textAlign = "center";
 
         th.appendChild(document.createTextNode(columnConfig.label || ""));
         th.appendChild(document.createElement("br"));
