@@ -338,7 +338,8 @@ mark.search-hit-highlight {
 }
 
 .fav-header-label-text {
-    font-size: 0.95rem !important;
+    /* font-size: 0.95rem !important; */
+    font-size: 15px !important; /*adjust Fav column label*/
     font-weight: 600 !important;
     color: #ffffff !important;
     white-space: nowrap !important;
@@ -346,7 +347,8 @@ mark.search-hit-highlight {
 
 .fav-mini-badge {
     font-size: 0.78rem !important;
-    font-weight: normal !important;
+    /* font-weight: normal !important; */
+    font-weight: Bold !important;
     color: #fef08a !important; /* High contrast amber text coordinate highlight */
 }
 
