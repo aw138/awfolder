@@ -60,57 +60,72 @@ document.addEventListener("DOMContentLoaded", () => {
     // B. Initiate Cloud Data Connection Pipeline
     const targetSourceUrl = window.APP_DATA_SOURCE_URL || "js/fallback-data.json";
 
-    fetch(targetSourceUrl)
-        .then(res => {
-            if (!res.ok) throw new Error("Cloud data response failed");
-            return res.json();
-        })
-		 .then(payload => {
-			 tbody.innerHTML = "";
+	// Centralized global profile configuration storage structures tracking memory cache pointers
+	window.globalCachedFullPayloadConfig = null;
+	window.currentActiveProfileKeyName = "DEFAULT";
 
-			 const config = payload.CONFIG || {};
-			 window.currentCustomSortPriority = config.customSortPriority || {};
-			 window.activeFiltersSchema = config.filters || [];
-			 window.activeColumnsWidthsSchema = config.columns || [];
-			 window.globalStatisticsConfigSchema = config.statisticsConfig || {};
+	fetch(targetSourceUrl)
+		.then(res => {
+			if (!res.ok) throw new Error("Cloud data response failed");
+			return res.json();
+		})
+		.then(payload => {
+			// Cache the master payload globally for lookups across profile swaps
+			window.globalCachedFullPayloadConfig = payload;
+			window.currentCustomSortPriority = payload.customSortPriority || {};
 
-			 // 🎯 THE JSON CONFIG DEFAULTS ENGINE
-			 const globalAppDefaults = config.defaults || {};
-			 const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
-			 
-			// 🎯 NEW TRIPLE-STATE STRING INDICATOR DECODER
-			const defaultGlobalMode = String(globalAppDefaults.defaultBooleanLogicMode || "OR").trim().toUpperCase();
-
-			(config.filters || []).forEach(filterConfig => {
-				const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
-				if (!window.selectedFilters) window.selectedFilters = {};
-
-				if (!window.selectedFilters[cleanKey]) window.selectedFilters[cleanKey] = new Set();
+			// ====================================================================
+			// 🎛️ DYNAMIC KEY-VALUE PROFILE SWITCHER ENGINE
+			// ====================================================================
+			window.executeSwitchToActiveProfile = function(profileKey) {
+				window.currentActiveProfileKeyName = profileKey;
 				
-				// Reads customized row default logic mode from JSON, falls back onto global configuration rules
-				const initialModeSetting = filterConfig.booleanLogicMode || defaultGlobalMode;
-				window.booleanLogicalModes[cleanKey] = String(initialModeSetting).toUpperCase();
+				// Resolve the configuration profile from the key dictionary layout structure
+				let activeProfile = null;
+				if (payload.PROFILES && payload.PROFILES[profileKey]) {
+					activeProfile = payload.PROFILES[profileKey];
+				} else {
+					activeProfile = payload.CONFIG || {};
+				}
+
+				// 1. Re-map internal data schema descriptors references
+				window.activeFiltersSchema = activeProfile.filters || [];
+				window.activeColumnsWidthsSchema = activeProfile.columns || [];
+				window.globalStatisticsConfigSchema = payload.statisticsConfig || activeProfile.statisticsConfig || {};
+
+				// 2. Clear out active filtering tokens states to preserve context integrity
+				window.selectedFilters = {};
+				window.booleanLogicalModes = {};
+				window.slicerExpandedStates = {};
+
+				const globalAppDefaults = activeProfile.defaults || {};
+				const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
+				const defaultGlobalMode = String(globalAppDefaults.defaultBooleanLogicMode || "OR").trim().toUpperCase();
+
+				window.activeFiltersSchema.forEach(filterConfig => {
+					const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+					window.selectedFilters[cleanKey] = new Set();
+					
+					const initialModeSetting = filterConfig.booleanLogicMode || defaultGlobalMode;
+					window.booleanLogicalModes[cleanKey] = String(initialModeSetting).toUpperCase();
+					window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+				});
+
+				// 3. Sync page text headings indicators fields
+				const configurationTitle = activeProfile.pageTitle || "Dashboard";
+				document.title = configurationTitle;
 				
-				window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
-			});
+				const targetTitleHeader = document.getElementById("dynamicDashboardTitle");
+				if (targetTitleHeader) targetTitleHeader.textContent = configurationTitle;
 
-			 const configurationTitle = config.pageTitle || "Dashboard";
-			 document.title = configurationTitle;
+				const targetVersionHeader = document.getElementById("dynamicDashboardVersion");
+				if (targetVersionHeader) targetVersionHeader.textContent = activeProfile.version || "";
 
-			 const targetTitleHeader = document.getElementById("dynamicDashboardTitle");
-			 if (targetTitleHeader) {
-				 targetTitleHeader.textContent = configurationTitle;
-			 }
-
-			 // 🎯 LINK UP THE VERSION HOOK: Populates your small sub-digit dynamically from the JSON
-			 const targetVersionHeader = document.getElementById("dynamicDashboardVersion");
-			 if (targetVersionHeader) {
-				 targetVersionHeader.textContent = config.version || "";
-			 }
-
-            const records = payload.DATA || [];
-            const columnConfigs = config.columns || [];
-            const badgeSchema = config.statusBadges || {};
+				// 4. Reset table rendering content canvas
+				tbody.innerHTML = "";
+				const records = payload.DATA || [];
+				const columnConfigs = activeProfile.columns || [];
+				const badgeSchema = payload.statusBadges || activeProfile.statusBadges || {};
 
     // CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP 🔄 [INDEX: 0.1.242]
     records.forEach(item => {
@@ -282,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 			// 🎯 THE RUNTIME OVERHAUL: Dynamic Description Badge Color Mapping Engine
-			const descBadgeSchema = config.descriptionBadges || {};
+			const descBadgeSchema = payload.descriptionBadges || activeProfile.descriptionBadges || {};
 			
 			// Scan the freshly built document fragment table body for inline description badges
 			tbody.querySelectorAll(".inline-description-badge").forEach(badgeSpan => {
@@ -332,63 +347,66 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             }
-	// 🎯 REPLACE VERBATIM WITH THIS Lifecyle INITIALIZER PASS:
-			// 🔄 STEP 1: Generate your data table columns dynamically from your JSON configurations first
-			if (typeof window.initColumnResizableEngine === "function") {
-				window.initColumnResizableEngine();
-			}
-			
-			// 🔄 STEP 2: Initiate filter slicer nodes and compute initial dataset displays
-			if (typeof window.initHorizontalFilters === "function") {
-				window.initHorizontalFilters(window.globalTableRows);
-			}
-			if (typeof window.applyCombinedFilter === "function") {
-				window.applyCombinedFilter();
-			}
-			if (typeof window.bindSortingTriggers === "function") {
-				window.bindSortingTriggers();
-			}
+				window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
 
-			// 🔄 STEP 2.5: SYNCHRONIZE DEFAULT INITIAL VISUAL SORT CARATED INDICATOR SYMBOLS
-			const initialSortColumnConfig = (config.columns || []).find(col => col && col.initSort === true);
-			if (initialSortColumnConfig) {
-				const allHeaderElements = document.querySelectorAll("#dataTable th");
-				const targetSortOrderStyleClass = String(initialSortColumnConfig.initsortOrder || "asc").toLowerCase();
-				
-				(config.columns || []).forEach((col, idx) => {
-					if (col && col.jsonKey === initialSortColumnConfig.jsonKey && allHeaderElements[idx]) {
-						const targetCaretSpan = allHeaderElements[idx].querySelector(".sort-icon-trigger");
-						if (targetCaretSpan) {
-							targetCaretSpan.classList.add(targetSortOrderStyleClass);
+				// Re-initialize layouts and filter view grids components dynamically
+				if (typeof window.initColumnResizableEngine === "function") window.initColumnResizableEngine();
+				if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
+				if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
+				if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
+
+				// Build sorting visual caret arrows indicators directly onto headers
+				if (typeof window.executeSort === "function" && columnConfigs) {
+					const defaultSortIdx = columnConfigs.findIndex(col => col && col.initSort === true);
+					if (defaultSortIdx !== -1) {
+						const isAscendingSortOrder = String(columnConfigs[defaultSortIdx].initsortOrder).toLowerCase() !== "desc";
+						window.executeSort(defaultSortIdx, isAscendingSortOrder);
+						const headerElements = document.querySelectorAll("#dataTable th");
+						if (headerElements[defaultSortIdx]) {
+							document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
+							headerElements[defaultSortIdx].querySelector(".sort-icon-trigger")?.classList.add(isAscendingSortOrder ? "asc" : "desc");
 						}
 					}
+				}
+
+				// Synchronize active navigation indicator tracking states across buttons layout
+				document.querySelectorAll(".profile-switch-action-btn").forEach(btn => {
+					btn.classList.toggle("active-profile-state", btn.dataset.profileKey === profileKey);
 				});
-			}
+			};
 
-			// 📊 STEP 3: Auto-Trigger default statistics panel view on boot if configured in columns schema
-			const dynamicSchemaProfile = config.columns || [];
-			const defaultStatColumnProfile = dynamicSchemaProfile.find(col => col && col.isStatistics === true && col.isStatMode === true);
-
-			if (defaultStatColumnProfile) {
-				window.activeStatisticsColumnJsonKey = defaultStatColumnProfile.jsonKey;
+			// ====================================================================
+			// ⚡ GENERATE MANAGEMENT CONTROL SELECTION BUTTONS DECK
+			// ====================================================================
+			const switchButtonsWrapperNode = document.getElementById("profileSwitcherContainerDeck");
+			if (switchButtonsWrapperNode) {
+				switchButtonsWrapperNode.innerHTML = "";
 				
-				const freshHeaderCells = document.querySelectorAll("#dataTable th");
-				let matchingStatBtnElement = null;
+				const targetProfilesRegistry = payload.PROFILES || {};
+				const profileKeysArray = Object.keys(targetProfilesRegistry);
 
-				freshHeaderCells.forEach((th, idx) => {
-					if (dynamicSchemaProfile[idx] && dynamicSchemaProfile[idx].jsonKey === defaultStatColumnProfile.jsonKey) {
-						matchingStatBtnElement = th.querySelector(".header-column-stat-trigger-btn");
-					}
-				});
-
-				if (matchingStatBtnElement) {
-					matchingStatBtnElement.classList.add("active-panel-visible");
-				}
-
-				if (typeof window.executeRealtimeTableStatistics === "function") {
-					window.executeRealtimeTableStatistics();
+				// Only construct buttons panel if more than 1 layout profile key name exists
+				if (profileKeysArray.length > 1) {
+					profileKeysArray.forEach(key => {
+						const profileItem = targetProfilesRegistry[key];
+						const btn = document.createElement("button");
+						btn.type = "button";
+						btn.className = "profile-switch-action-btn";
+						btn.dataset.profileKey = key;
+						btn.textContent = profileItem.buttonLabel || key;
+						
+						btn.onclick = (e) => {
+							e.stopPropagation();
+							window.executeSwitchToActiveProfile(key);
+						};
+						switchButtonsWrapperNode.appendChild(btn);
+					});
 				}
 			}
+
+			// Load your JSON's configured fallback tracking profile on boot launch frame
+			const bootstrapBootProfileKeyName = payload.CURRENT_ACTIVE_PROFILE || "DEFAULT";
+			window.executeSwitchToActiveProfile(bootstrapBootProfileKeyName);
 		})
 		.catch(err => {
             console.error("JSON Pipeline initial load halted:", err);
