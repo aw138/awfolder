@@ -51,7 +51,7 @@
 		
 			</div>
 		  
-			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
+			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Profile Buttons + Global Expand Right -->
 			<div class="panel-row-two">
 			
 				<!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
@@ -65,14 +65,14 @@
 						<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
 				</div>
 				
-				<!-- Row 2 Center Badge Slot -->
+				<!-- Row 2 Center Badge Slot: Moved results‑counter‑badge here -->
 				<div class="panel-row-two-center-slot">
-					<!-- Maintained empty for background coordinate baseline rendering layout hooks -->
+					<span id="tableResultsCounter" class="results-counter-badge"></span>
 				</div>
 				
-				<!-- Row 2 Right DIV (Counter Badge & Expand/Collapse Toggle Button) -->
+				<!-- Row 2 Right DIV: Profile switch container + Global Expand button -->
 				<div class="r2-right-container">
-					<span id="tableResultsCounter" class="results-counter-badge"></span>
+					<div id="profileSwitcherContainerDeck" class="profile-switcher-deck"></div>
 					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
 				</div>
 			
