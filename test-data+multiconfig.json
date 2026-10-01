@@ -1,0 +1,145 @@
+{
+"CURRENT_ACTIVE_PROFILE":"MINIMAL",
+"PROFILES":{
+"DEFAULT":{
+"pageTitle": "T-800b Def",
+"version": "v. 8.0.0b",
+"defaults": {
+"initialSlicersExpanded":false,
+"defaultBooleanLogicMode":"ONLY"
+},
+"filters": [
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
+],
+"columns": [
+{"type": "checkbox","width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
+{"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":160},
+{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":78,"minWidth":78},
+{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
+{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":95},
+{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"width":120,"minWidth":120},
+{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":78,"minWidth":78},
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"width":40,"minWidth":40},
+{"label": "Description","jsonKey": "val8","dataType": "string","isSortable":true,"width":300,"minWidth":300}
+],
+"customSortPriority": {
+"春季":1,
+"夏季":2,
+"秋季":3,
+"(None)":999,
+"自由行":1,
+"中國":1
+},
+"statusBadges": {
+"中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"a":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
+"malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
+"sing a pore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
+"ef*":{"bg": "#FFFFFF","text": "#DD0000","border": "#00aa00","borderRadius": "8px"},
+"自由行":{"label": "自由🚶‍", "bg": "#FFFFFF","text": "#db582d","border": "#db582d","borderRadius": "6px","padding":"0px 8px"},
+"月":{"label": "月", "bg": "#FFFF00","text": "#FF0000","border": "#333333","borderRadius": "999px","padding":"0px 0px"},
+"japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
+},
+"descriptionBadges": {
+"flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
+"hiking":{"bg": "#dee386","text": "#000000","border": "#222222"},
+"cycling":{"bg": "#4ee366","text": "#ab3771","border": "#222222"},
+"hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
+"travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
+},
+"statisticsConfig": {
+"val3":{
+"panelTitle":"D",
+"mean":{"label":"μ =","precision":1,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑","precision":1,"isCurrency":false}
+},
+"val7":{
+"panelTitle":"P",
+"mean":{"label":"μ =","precision":2,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑","precision":2,"isCurrency":false}
+}
+}
+},
+"MINIMAL":{
+"pageTitle": "T-800b Min",
+"version": "v. 8.0.0b",
+"defaults": {
+"initialSlicersExpanded":false,
+"defaultBooleanLogicMode":"ONLY"
+},
+"filters": [
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
+],
+"columns": [
+{"type": "checkbox","width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":200,"minWidth":200},
+
+
+{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
+{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":95,"minWidth":95},
+
+
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":0,"inactiveColors":0,"width":40,"minWidth":40},
+{"label": "Description","jsonKey": "val8","dataType": "string","isSortable":true,"width":300,"minWidth":300}
+],
+"customSortPriority": {
+"春季":1,
+"夏季":2,
+"秋季":3,
+"(None)":999,
+"自由行":1,
+"中國":1
+},
+"statusBadges": {
+"中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"a":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
+"malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
+"sing a pore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
+"ef*":{"bg": "#FFFFFF","text": "#DD0000","border": "#00aa00","borderRadius": "8px"},
+"自由行":{"label": "自由🚶‍", "bg": "#FFFFFF","text": "#db582d","border": "#db582d","borderRadius": "6px","padding":"0px 8px"},
+"月":{"label": "月", "bg": "#FFFF00","text": "#FF0000","border": "#333333","borderRadius": "999px","padding":"0px 0px"},
+"japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
+},
+"descriptionBadges": {
+"flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
+"hiking":{"bg": "#dee386","text": "#000000","border": "#222222"},
+"cycling":{"bg": "#4ee366","text": "#ab3771","border": "#222222"},
+"hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
+"travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
+},
+"statisticsConfig": {
+"val3":{
+"panelTitle":"D",
+"mean":{"label":"μ =","precision":1,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑","precision":1,"isCurrency":false}
+},
+"val7":{
+"panelTitle":"P",
+"mean":{"label":"μ =","precision":2,"isCurrency":false},
+"sd":{"label":"σ =","precision":3,"isCurrency":false},
+"total":{"label":"∑","precision":2,"isCurrency":false}
+}
+}
+}
+},
+"DATA":
+[
+
+]
+}
