@@ -73,11 +73,18 @@ document.addEventListener("click", function(event) {
             }
         });
         
-        // Synchronize counters and master element checkboxes layout states
-        if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
-        if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
-        if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
-    }
+		// Synchronize counters and master element checkboxes layout states
+		if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
+		if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
+		
+		// Calculate and sync selection counters directly without triggering a row filtration update pass 🎯
+		const visibleRowsArr = window.getRuntimeRows();
+		const checkedRowsNum = visibleRowsArr.filter(r => r.querySelector(".row-selector-checkbox")?.checked).length;
+		const counterLabelSlot = document.getElementById("checkedFilterCounterText");
+		if (counterLabelSlot) {
+			counterLabelSlot.textContent = `${checkedRowsNum} selected`;
+		}
+	}
 
     // 2. Intercept Master Select All Checkbox Click Scope
     if (event.target && event.target.id === "selectAllRowsCheckbox") {
@@ -426,9 +433,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
-        window.applyCombinedFilter();
-    });
+		localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
+	
+		// Direct counter update pass keeps your interface synchronized without changing row visibility 🎯
+		if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
+		if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
+	});
 	// Add this simple structural event hook on page boot:
 	document.getElementById("favFilterToggleBtn")?.addEventListener("click", function(e) {
 		e.stopPropagation(); // Prevents cell click events from breaking table geometric constraints

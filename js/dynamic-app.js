@@ -93,22 +93,29 @@ document.addEventListener("DOMContentLoaded", () => {
 				window.activeColumnsWidthsSchema = activeProfile.columns || [];
 				window.globalStatisticsConfigSchema = payload.statisticsConfig || activeProfile.statisticsConfig || {};
 
-				// 2. Clear out active filtering tokens states to preserve context integrity
-				window.selectedFilters = {};
-				window.booleanLogicalModes = {};
-				window.slicerExpandedStates = {};
+				// 2. NON-DESTRUCTIVE RECONCILIATION LAYER: Safely retains active filters on view swap
+				if (!window.selectedFilters) window.selectedFilters = {};
+				if (!window.booleanLogicalModes) window.booleanLogicalModes = {};
+				if (!window.slicerExpandedStates) window.slicerExpandedStates = {};
 
 				const globalAppDefaults = activeProfile.defaults || {};
 				const shouldExpandDrawersOnBoot = globalAppDefaults.initialSlicersExpanded === true;
 				const defaultGlobalMode = String(globalAppDefaults.defaultBooleanLogicMode || "OR").trim().toUpperCase();
 
+				// Register configuration parameters seamlessly without wiping existing filter settings
 				window.activeFiltersSchema.forEach(filterConfig => {
 					const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
-					window.selectedFilters[cleanKey] = new Set();
 					
-					const initialModeSetting = filterConfig.booleanLogicMode || defaultGlobalMode;
-					window.booleanLogicalModes[cleanKey] = String(initialModeSetting).toUpperCase();
-					window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+					if (!window.selectedFilters[cleanKey]) {
+						window.selectedFilters[cleanKey] = new Set();
+					}
+					if (!window.booleanLogicalModes[cleanKey]) {
+						const initialModeSetting = filterConfig.booleanLogicMode || defaultGlobalMode;
+						window.booleanLogicalModes[cleanKey] = String(initialModeSetting).toUpperCase();
+					}
+					if (window.slicerExpandedStates[cleanKey] === undefined) {
+						window.slicerExpandedStates[cleanKey] = shouldExpandDrawersOnBoot;
+					}
 				});
 
 				// 3. Sync page text headings indicators fields
@@ -369,14 +376,14 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 				}
 
-				// Synchronize active navigation indicator tracking states across buttons layout
+				// Synchronize active indicator highlight flags across layout buttons
 				document.querySelectorAll(".profile-switch-action-btn").forEach(btn => {
 					btn.classList.toggle("active-profile-state", btn.dataset.profileKey === profileKey);
 				});
 			};
 
 			// ====================================================================
-			// ⚡ GENERATE MANAGEMENT CONTROL SELECTION BUTTONS DECK
+			// ⚡ GENERATE ROW 2 PROFILE SELECTION SWITCHER TOOLBAR
 			// ====================================================================
 			const switchButtonsWrapperNode = document.getElementById("profileSwitcherContainerDeck");
 			if (switchButtonsWrapperNode) {
@@ -385,14 +392,20 @@ document.addEventListener("DOMContentLoaded", () => {
 				const targetProfilesRegistry = payload.PROFILES || {};
 				const profileKeysArray = Object.keys(targetProfilesRegistry);
 
-				// Only construct buttons panel if more than 1 layout profile key name exists
-				if (profileKeysArray.length > 1) {
+				// If there is only 1 profile configured, hide the container row completely
+				if (profileKeysArray.length <= 1) {
+					switchButtonsWrapperNode.style.display = "none";
+				} else {
+					switchButtonsWrapperNode.style.display = "flex";
+					
 					profileKeysArray.forEach(key => {
 						const profileItem = targetProfilesRegistry[key];
 						const btn = document.createElement("button");
 						btn.type = "button";
 						btn.className = "profile-switch-action-btn";
 						btn.dataset.profileKey = key;
+						
+						// Read custom string name from buttonLabel, fallback to profile key name
 						btn.textContent = profileItem.buttonLabel || key;
 						
 						btn.onclick = (e) => {

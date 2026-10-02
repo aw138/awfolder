@@ -97,7 +97,8 @@ window.initColumnResizableEngine = function() {
             const statButton = document.createElement("button");
             statButton.type = "button";
             statButton.className = "header-column-stat-trigger-btn";
-            statButton.textContent = "Stat";
+            // statButton.textContent = "Stat";
+            statButton.textContent = "∑";
             statButton.title = "Toggle metrics summary calculation metrics description logs row";
             
             statButton.addEventListener("click", (event) => {
