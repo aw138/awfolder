@@ -73,7 +73,7 @@
 {"label": "Category","jsonKey": "val3","dataType": "string","textColor": "#065f46","isSortable":true,"width":80,"minWidth":80},
 {"label": "Brand/Model","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true,"width":138,"minWidth":138},
 
-{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":169,"minWidth":169},
+{"label": "Description","jsonKey": "val12","dataType": "string","isSortable":true,"width":169,"minWidth":169},
 {"label": "Shop","jsonKey": "val8","dataType": "string","textColor": "#db582d","isSortable":true,"width":80,"minWidth":80},
 {"label": "Price","jsonKey": "val9","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":120,"minWidth":120}
 
