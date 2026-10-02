@@ -43,7 +43,7 @@
 "disposed":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
 },
 "statisticsConfig": {
-"val6":{
+"val9":{
 "panelTitle":"",
 "mean":{"label":"μ","precision":2,"isCurrency":false},
 "sd":{"label":"σ","precision":3,"isCurrency":false},
@@ -93,7 +93,7 @@
 "disposed":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
 },
 "statisticsConfig": {
-"val6":{
+"val9":{
 "panelTitle":"",
 "mean":{"label":"μ","precision":2,"isCurrency":false},
 "sd":{"label":"σ","precision":3,"isCurrency":false},
@@ -155,6 +155,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Camera; Lens", "tag4": "Canon", "tag5": "", "tag6": "1988", "val1": "1988/10/27 (Thu)", "val2": "Photography", "val3": "Camera; Lens", "val4": "Canon", "val5": "EOS 650 + EF 35-105 f/3.5-4.5", "val6": "EOS 650 + EF 35-105 f/3.5-4.5", "val7": "Retired", "val8": "", "val9": "4370", "val10": "", "val11": "Canon<BR>EOS 650 + EF 35-105 f/3.5-4.5", "val12": "EOS 650 + EF 35-105 f/3.5-4.5 <span class='inline-description-badge' data-badge='retired'>Retired</span>"},
 {"tag1": "Retired", "tag2": "Photography", "tag3": "Flash", "tag4": "Canon", "tag5": "Wing Shing", "tag6": "1988", "val1": "1988/11/11 (Fri)", "val2": "Photography", "val3": "Flash", "val4": "Canon", "val5": "Speedlite 300EZ", "val6": "A-TTL Flash for EOS", "val7": "Retired", "val8": "Wing Shing", "val9": "800", "val10": "", "val11": "Canon<BR>Speedlite 300EZ", "val12": "A-TTL Flash for EOS <span class='inline-description-badge' data-badge='retired'>Retired</span>"},
