@@ -82,7 +82,7 @@ document.addEventListener("click", function(event) {
 		const checkedRowsNum = visibleRowsArr.filter(r => r.querySelector(".row-selector-checkbox")?.checked).length;
 		const counterLabelSlot = document.getElementById("checkedFilterCounterText");
 		if (counterLabelSlot) {
-			counterLabelSlot.textContent = `${checkedRowsNum} selected`;
+			counterLabelSlot.textContent = `\u{2705}(${checkedRowsNum})`;
 		}
 	}
 
@@ -233,9 +233,9 @@ window.applyCombinedFilter = function() {
         activeRows.forEach(row => {
             if (row.style.display !== "none" && row.querySelector(".row-selector-checkbox")?.checked) checkedVisibleCount++;
         });
-        counterTextTarget.textContent = `${checkedVisibleCount} selected`;
+        // counterTextTarget.textContent = `${checkedVisibleCount} selected`;
         // counterTextTarget.textContent = `${String.fromCodePoint(9989)} (${checkedVisibleCount})`;
-        // counterTextTarget.textContent = `\u{2705} (${checkedVisibleCount})`;
+        counterTextTarget.textContent = `\u{2705} (${checkedVisibleCount})`;
     }
 
     if (typeof window.updateAllSlicerButtonsUI === "function") {
@@ -314,12 +314,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    showCheckedOnlyToggle?.addEventListener("change", () => {
-        window.getRuntimeRows().forEach(row => {
-            row.style.display = ""; row.classList.remove("is-unchecked-pending"); 
-        });
-        window.applyCombinedFilter();
-    });
+	// Listen directly to the native checkbox click event pass frame 🎯
+	showCheckedOnlyToggle?.addEventListener("click", function(e) {
+		// Stop event bubbling to protect layout constraints execution boundaries
+		e.stopPropagation();
+		
+		const toggleBoxElement = this.closest(".manual-check-filter-box");
+		if (toggleBoxElement) {
+			toggleBoxElement.classList.toggle("active-toggle-state", this.checked);
+		}
+		
+		window.getRuntimeRows().forEach(row => {
+			row.style.display = ""; 
+			row.classList.remove("is-unchecked-pending"); 
+		});
+		window.applyCombinedFilter();
+	});
 
     // ============================================================================
     // FIXED SHIFT + CLICK MULTI-SELECTION ENGINE 🚀
