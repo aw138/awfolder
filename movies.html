@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-	<!-- v.7.8.2 -->
+	<!-- v.8.0.2 -->
     <!-- Split CSS Stylesheets Loading Layers -->
     <link rel="stylesheet" href="css/core-layout.css">
     <link rel="stylesheet" href="css/filter-panel.css">
@@ -54,26 +54,24 @@
 			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
 			<div class="panel-row-two">
 			
-				<!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
+				<!-- Row 2 Left DIV houses the 3 compact control tools from left to right -->
 				<div class="r2-left-container">
-					<div class="manual-check-filter-box">
-						<label id="checkedFilterLabel" class="show-checked-filter-label">
-							<input type="checkbox" id="showCheckedOnlyToggle">
-							<span id="checkedFilterCounterText">Selected (0)</span>
-						</label>
-					</div>
-						<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
+					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">++</button>
+					<label class="manual-check-filter-box" id="checkedFilterLabel" for="showCheckedOnlyToggle">
+						<input type="checkbox" id="showCheckedOnlyToggle" style="display: none !important;">
+						<span id="checkedFilterCounterText" class="show-checked-filter-label">✅(0)</span>
+					</label>
+					<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">C</button>
 				</div>
 				
-				<!-- Row 2 Center Badge Slot -->
+				<!-- Row 2 Center Badge Slot holds our relocated counter chip -->
 				<div class="panel-row-two-center-slot">
-					<!-- Maintained empty for background coordinate baseline rendering layout hooks -->
+					<span id="tableResultsCounter" class="results-counter-badge"></span>
 				</div>
 				
-				<!-- Row 2 Right DIV (Counter Badge & Expand/Collapse Toggle Button) -->
+				<!-- Row 2 Right DIV houses switcher buttons only -->
 				<div class="r2-right-container">
-					<span id="tableResultsCounter" class="results-counter-badge"></span>
-					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
+					<div id="profileSwitcherContainerDeck" class="profile-switcher-container-deck"></div>
 				</div>
 			
 			</div>
