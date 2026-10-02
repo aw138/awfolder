@@ -51,7 +51,7 @@
 		
 			</div>
 		  
-			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Profile Buttons + Global Expand Right -->
+			<!-- ROW 2: Checkboxes/Filters Left, Results Badge Center, Global Expand Buttons Right -->
 			<div class="panel-row-two">
 			
 				<!-- Row 2 Left DIV (Checkbox Filter & Show All Container) -->
@@ -65,14 +65,15 @@
 						<button type="button" id="clearAllFiltersBtn" class="clear-all-btn">Show all</button>
 				</div>
 				
-				<!-- Row 2 Center Badge Slot: Moved results‑counter‑badge here -->
+				<!-- Row 2 Center Badge Slot holds our relocated counter chip -->
 				<div class="panel-row-two-center-slot">
 					<span id="tableResultsCounter" class="results-counter-badge"></span>
 				</div>
 				
-				<!-- Row 2 Right DIV: Profile switch container + Global Expand button -->
+				<!-- Row 2 Right DIV houses switcher buttons first, followed by Expand All button -->
 				<div class="r2-right-container">
-					<div id="profileSwitcherContainerDeck" class="profile-switcher-deck"></div>
+					<!-- 🔄 NEW PROFILE HOT-SWITCH CONTAINER HOOK MOVED HERE -->
+					<div id="profileSwitcherContainerDeck" class="profile-switcher-container-deck"></div>
 					<button type="button" id="globalSlicersToggleBtn" class="global-slicers-expand-btn">Expand all</button>
 				</div>
 			
