@@ -28,7 +28,7 @@
 	border: 1px solid #748d92; /* Adjust dashboard toggle btn border */
 	border-radius: 6px;
 	/* color: #2E3944;  */
-	color: #2E3944; /* Adjust dashboard toggle btn color */
+	color: #2e3944; /* Adjust dashboard toggle btn color */
 	font-size: 16px !important;
 	font-weight: bold !important;
 	cursor: pointer; 
@@ -234,7 +234,8 @@
     background-color: #FFFFFF !important;
     border: 1px solid #748D92 !important;
     color: #2E3944 !important;
-    font-size: 0.85rem !important;
+    /* font-size: 0.85rem !important; */
+    font-size: 1.2rem !important;
     font-weight: bold !important;
     border-radius: 6px !important;
     cursor: pointer !important;
@@ -243,7 +244,12 @@
     align-items: center !important;
     justify-content: center !important;
     white-space: nowrap !important;
-    padding: 0px 4px !important;
+    /* padding: 0px 4px !important; */
+    line-height: 27px !important; 
+    padding-top: 1px !important; /* Fine-tuned micro adjustment to level Roman numerals perfectly */
+    padding-bottom: 0px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
     box-sizing: border-box !important;
 }
 

@@ -143,18 +143,41 @@ body {
     box-sizing: border-box !important;
 }
 
-/* --- ROW 2 LAYOUT SYSTEM GROUPS 🎯 [INDEX: 0.1.88, 0.1.100] --- */
+/* --- ROW 2 LAYOUT SYSTEM GROUPS (EXACT MIRROR OF ROW 1 PARAMS) 🎯 --- */
 .r2-left-container {
-    width: 35% !important;        /* 🌟 Exact structural mirror of Row 1 Left */
-    min-width: 170px !important;   
-    /* max-width: 215px !important;    */
-    box-sizing: border-box !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 4px !important; 
+ width: 35% !important; /* Strict geometric mirror lock */
+ min-width: 140px !important; /* Standardized floor parameter matching Row 1 */
+ box-sizing: border-box !important;
+ display: flex !important;
+ align-items: center !important;
+ justify-content: space-between !important;
+ gap: 4px !important; 
 }
-.r2-left-container .manual-check-filter-box { width: 60% !important; }
-.r2-left-container .clear-all-btn { width: 40% !important; }
+
+/* Force all 3 structural child elements to distribute space inside the 35% left container */
+.r2-left-container .global-slicers-expand-btn,
+.r2-left-container .manual-check-filter-box,
+.r2-left-container .clear-all-btn {
+ flex: 1 1 0% !important;
+ width: 33.33% !important;
+ min-width: 0 !important;
+ max-width: none !important;
+}
+
+/* Main Right Container Wrapper for Row 2 */
+.row-two-right-group,
+.r2-right-container {
+ width: 35% !important; /* Strict geometric mirror lock */
+ display: flex !important;
+ flex-direction: row !important;
+ align-items: center !important;
+ justify-content: space-between !important; /* Matches Row 1 distribution system */
+ gap: 4px !important; 
+ flex-shrink: 0 !important;
+ min-width: 140px !important; /* Standardized floor parameter matching Row 1 */
+ box-sizing: border-box !important;
+ height: 29px !important;
+}
 
 /* Center Slot holds our relocated counter chip perfectly in the middle of Row 2 */
 .panel-row-two-center-slot {
@@ -170,31 +193,16 @@ body {
   pointer-events: auto !important;
 }
 
-/* Main Right Container houses our new profile button switcher grid */
-.row-two-right-group,
-.r2-right-container {
-  width: 35% !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: 4px !important; 
-  flex-shrink: 0 !important;
-  min-width: 160px !important;
-  box-sizing: border-box !important;
-  height: 29px !important;
-}
-
 /* Centralized uniform parameters for the results count badge */
 .results-counter-badge { 
   height: 29px !important; 
   width: auto !important;
-  min-width: 80px !important;
+  min-width: 76px !important;
   box-sizing: border-box !important;
-  font-size: 0.95rem !important;
+  font-size: 1.0rem !important;
   font-weight: 600;
   border-radius: 6px;
-  border: 1px solid #748D92;
+  border: 1px solid #344D52;
   background-color: #748D92;
   color: #ffffff;
   display: inline-flex !important;
@@ -209,7 +217,8 @@ body {
     min-width: 0 !important;
     max-width: none !important;    /* Defends against any other hidden file limits */
     box-sizing: border-box !important;
-    background-color: #a0ad9e !important;
+    /* background-color: #a0ad9e !important; */
+    background-color: #d8F7d2 !important; /* adjust expand all btn bg color */
     border: 1px solid #748D92 !important;
     color: #1E1924 !important;
     border-radius: 6px !important;
