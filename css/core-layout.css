@@ -156,41 +156,55 @@ body {
 .r2-left-container .manual-check-filter-box { width: 60% !important; }
 .r2-left-container .clear-all-btn { width: 40% !important; }
 
-/* Main Right Container Wrapper for Row 2 [INDEX: 0.1.88, 0.1.100] */
+/* Center Slot holds our relocated counter chip perfectly in the middle of Row 2 */
+.panel-row-two-center-slot {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 10 !important;
+  height: 29px !important;
+  pointer-events: auto !important;
+}
+
+/* Main Right Container houses our new profile button switcher grid */
 .row-two-right-group,
 .r2-right-container {
-    width: 35% !important;        /* 🌟 Exact structural mirror of Row 1 Right */
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important; /* Forces items to fill the box evenly edge-to-edge */
-    gap: 4px !important; 
-    flex-shrink: 0 !important;
-    min-width: 160px !important;   /* 🌟 Eliminates the old 130px indentation gap */
-    box-sizing: border-box !important;
+  width: 35% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important; 
+  flex-shrink: 0 !important;
+  min-width: 160px !important;
+  box-sizing: border-box !important;
+  height: 29px !important;
 }
 
-/* 🎯 CORRECTION: REMOVE MAX-WIDTH BOUNDARIES FOR ROW 2 CONTENT CHIPS */
+/* Centralized uniform parameters for the results count badge */
 .results-counter-badge { 
-    width: 50% !important;         /* 🌟 Your custom percentage split allocation */
-    height: 29px !important; 
-    min-width: 0 !important;
-    max-width: none !important;    /* 🔥 THE FIX: Forcefully breaks the 80px ceiling rule from filter-panel.css! */
-    box-sizing: border-box !important;
-    font-size: 1.0rem !important;
-    font-weight: 600;
-    border-radius: 6px;
-    border: 1px solid #748D92;
-    background-color: #748D92;
-    color: #ffffff;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 4px !important;   /* Comfortable padding for counts text */
+  height: 29px !important; 
+  width: auto !important;
+  min-width: 80px !important;
+  box-sizing: border-box !important;
+  font-size: 0.95rem !important;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #748D92;
+  background-color: #748D92;
+  color: #ffffff;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px !important;
 }
-
 .global-slicers-expand-btn {
-    width: 50% !important;         /* 🌟 Dedicated percentage split weight absorbs the rest */
+    width: auto !important;         /* 🌟 Dedicated percentage split weight absorbs the rest */
+	flex-shrink: 0 !important;
     height: 29px !important; 
     min-width: 0 !important;
     max-width: none !important;    /* Defends against any other hidden file limits */

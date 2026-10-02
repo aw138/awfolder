@@ -109,7 +109,7 @@
         -webkit-overflow-scrolling: touch; /* Guarantees smooth momentum scrolling on iOS Safari */
     }
 
-}
+
     /* ============================================================= */
     /* 📱 MOBILE HEIGHT EQUALIZATION MATRIX (<= 768px)               */
     /* ============================================================= */
@@ -134,3 +134,4 @@
         justify-content: center !important;
         line-height: 1 !important;
     }
+}

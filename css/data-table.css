@@ -339,7 +339,7 @@ mark.search-hit-highlight {
 
 .fav-header-label-text {
     /* font-size: 0.95rem !important; */
-    font-size: 15px !important; /*adjust Fav column label*/
+    font-size: 14px !important; /*adjust Fav column label*/
     font-weight: 600 !important;
     color: #ffffff !important;
     white-space: nowrap !important;
@@ -353,13 +353,13 @@ mark.search-hit-highlight {
 }
 
 .fav-toggle-action-trigger { /* Adjust Fav button styles */
-    width: 44px !important;   /* Change this raw number value to shrink/widen button width */
+    width: 50px !important;   /* Change this raw number value to shrink/widen button width */
     height: 20px !important;  /* Change this raw number value to shrink/grow button height */
    
     /* ⚠️ KEEP THESE VALUES FIXED FOR ZERO INTERFERENCE WITH THE GRID CELL: */
     min-width: 0 !important;   /* MUST BE 0! A hardcoded min-width higher than 0 forces cells to expand */
     padding: 0px 4px !important; /* SNUG inner padding scale leaves maximum structural room */
-    
+    font-weight: 600 !important;    
     font-size: 12px !important; 
     background-color: #B3C1D5 !important;
     border: 1px solid #475569 !important;
@@ -371,7 +371,10 @@ mark.search-hit-highlight {
     justify-content: center !important;
     transition: all 0.15s ease-in-out !important;
     box-sizing: border-box !important;
-    white-space: nowrap !important;}
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+	
+	}
 
 .fav-toggle-action-trigger:hover {
     background-color: #475569 !important;
