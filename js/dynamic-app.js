@@ -91,7 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				// 1. Re-map internal data schema descriptors references
 				window.activeFiltersSchema = activeProfile.filters || [];
 				window.activeColumnsWidthsSchema = activeProfile.columns || [];
-				window.globalStatisticsConfigSchema = payload.statisticsConfig || activeProfile.statisticsConfig || {};
+
+				// 🎯 THE MATCHING LOCK: Binds your JSON priority schema directly to the engine register key
+				window.currentCustomSortPriority = activeProfile.customSortPriority || {};
+				window.globalStatisticsConfigSchema = activeProfile.statisticsConfig || {};
 
 				// 2. NON-DESTRUCTIVE RECONCILIATION LAYER: Safely retains active filters on view swap
 				if (!window.selectedFilters) window.selectedFilters = {};
