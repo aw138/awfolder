@@ -272,20 +272,23 @@
 }
 
 .global-slicers-expand-btn:hover {
-    /* background-color: #124E66 !important; */
-    background-color: #a0ad9e !important; /*Adjust expand all btn bg hover color*/
-    color: #ffffff !important;            /*Adjust expand all btn text hover color*/
-    border-color: #124E66 !important;
+ background-color: #D2D8E0 !important; /* Standardizes hover bg token color matching calculator keys */
+ color: #124E66 !important; 
+ border-color: #124E66 !important;
 }
 
-
-/* Collapse Active Status Toggle Style */
+/* Collapse Active Status Toggle Style (The Minus State) */
 .global-slicers-expand-btn.collapse-active-state {
-    background-color: #d8f7d2 !important; /* adjust "Collapse All" btn bg color */
-    /* background-color: #2E3944 !important; */
-    /* background-color: #5E69A4 !important; */
-    color: #ffffff !important;
-    border-color: #2E3944 !important;
+ background-color: #d8f7d2 !important; 
+ color: #1E1924 !important;
+ border-color: #748D92 !important;
+}
+
+/* 🎯 THE OVERRIDE REMEDY: Restores the fluid hover color change transition during the Minus state */
+.global-slicers-expand-btn.collapse-active-state:hover {
+ background-color: #D2D8E0 !important;
+ color: #124E66 !important;
+ border-color: #124E66 !important;
 }
 /* ============================================================= */
 /* ?? PRECISION TOOLBAR DIMENSION CONTROL ENGINE */
