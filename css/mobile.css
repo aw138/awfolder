@@ -122,6 +122,11 @@
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
+        width: 35% !important;        
+        min-width: 0 !important;   
+        max-width: none !important;
+        flex: none !important;
+		
     }
 
     /* Force your Show all form button to lock to the exact same grid box */
@@ -134,4 +139,17 @@
         justify-content: center !important;
         line-height: 1 !important;
     }
+    .r2-right-container {
+        width: 35% !important;        /* Strict grid lock symmetry with left search bar */
+        min-width: 0 !important;      /* 🔥 CRITICAL REFIX: Blasts away the desktop 130px structural floor restriction! */
+        max-width: none !important;
+        flex-shrink: 0 !important;    /* Absolute defensive shield against container crushing */
+        
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important; /* Enforces perfect mathematical distribution edge-to-edge */
+        gap: 2px !important;          /* Tiny clean visual separation gap between items */
+    }
+
 }
