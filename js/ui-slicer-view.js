@@ -440,11 +440,11 @@ window.toggleAllSlicerDrawersGlobal = function() {
     // 4. Toggle the Master Toggle Label State visually [INDEX: 0.1.222]
     if (shouldExpandAll) {
         // globalBtn.textContent = "Collapse all", ;(25B3=&#9651)
-        globalBtn.textContent = "\u{2796}\u{2796}";
+        globalBtn.textContent = "\u{2796}";
         globalBtn.classList.add("collapse-active-state");
     } else {
         // globalBtn.textContent = "Expand all", ;(25BD=&#9661)
-        globalBtn.textContent = "\u{2795}\u{2795}";
+        globalBtn.textContent = "\u{2795}";
         globalBtn.classList.remove("collapse-active-state");
     }
 };
@@ -473,17 +473,17 @@ window.syncGlobalAccordionButtonLabelState = function() {
     if (expandedDrawersCount === filterSchema.length) {
         // Condition A: Every single row is open -> Toggle master text to collapse
         // globalBtn.textContent = "Collapse all";
-        globalBtn.textContent = "\u{2796}\u{2796}";
+        globalBtn.textContent = "\u{2796}";
         globalBtn.classList.add("collapse-active-state");
     } else if (expandedDrawersCount === 0) {
         // Condition B: Every single row is closed -> Toggle master text to expand
         // globalBtn.textContent = "Expand all";
-        globalBtn.textContent = "\u{2795}\u{2795}";
+        globalBtn.textContent = "\u{2795}";
         globalBtn.classList.remove("collapse-active-state");
     } else {
         // Condition C: A partial mix of open/closed panels -> Keep it as a safe "Expand all" pass
         // globalBtn.textContent = "Expand all";
-        globalBtn.textContent = "\u{2795}\u{2795}";
+        globalBtn.textContent = "\u{2795}";
         globalBtn.classList.remove("collapse-active-state");
     }
 };

@@ -235,7 +235,7 @@ window.applyCombinedFilter = function() {
         });
         // counterTextTarget.textContent = `${checkedVisibleCount} selected`;
         // counterTextTarget.textContent = `${String.fromCodePoint(9989)} (${checkedVisibleCount})`;
-        counterTextTarget.textContent = `\u{2705} (${checkedVisibleCount})`;
+        counterTextTarget.textContent = `\u{2705} ${checkedVisibleCount}`;
     }
 
     if (typeof window.updateAllSlicerButtonsUI === "function") {
