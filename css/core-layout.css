@@ -39,11 +39,11 @@ body {
     background-color: #D3D9D4;
     border: 1px solid #748D92;
     border-radius: 6px;
-    padding: 4px 6px;
+    padding: 2px 4px; /* adjust top container items paddings */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     display: flex !important;
     flex-direction: column !important;
-    gap: 4px; 
+    gap: 1px; /* adjust top container gap between rows */
 }
 
 .panel-row-one,
@@ -120,7 +120,7 @@ body {
     flex-direction: row !important;
     align-items: center !important; 
     justify-content: space-between !important; 
-    gap: 4px !important; 
+    gap: 4px !important; /* adjust r1 right buttons gap */
     flex-shrink: 0 !important; 
     min-width: 140px !important;   
     box-sizing: border-box !important;

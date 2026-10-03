@@ -40,52 +40,52 @@
 }
 
 .manual-check-filter-box { 
- display: inline-flex; 
- align-items: center; 
- justify-content: center; 
- background-color: #FFFFFF !important; 
- border: 1px solid #748D92 !important; 
- color: #2E3944 !important;
- border-radius: 6px; 
- padding: 0px 12px !important; 
- height: 29px !important;
- box-shadow: none !important;
- margin-left: auto; 
- margin-right: auto; 
- box-sizing: border-box; 
- cursor: pointer !important;
- transition: all 0.1s ease-in-out !important;
- user-select: none !important;
+	display: inline-flex; 
+	align-items: center; 
+	justify-content: center; 
+	background-color: #FFFFFF !important; 
+	border: 1px solid #748D92 !important; 
+	color: #2E3944 !important;
+	border-radius: 6px; 
+	padding: 0px 12px !important; 
+	height: 29px !important;
+	box-shadow: none !important;
+	margin-left: auto; 
+	margin-right: auto; 
+	box-sizing: border-box; 
+	cursor: pointer !important;
+	transition: all 0.1s ease-in-out !important;
+	user-select: none !important;
 }
 
 .manual-check-filter-box:hover {
- background-color: #D2D8E0 !important;
- color: #124E66 !important;
- border-color: #124E66 !important;
+	background-color: #D2D8E0 !important;
+	color: #124E66 !important;
+	border-color: #124E66 !important;
 }
 
 /* Match profile button active color frame state (#124E66) exactly when active */
 .manual-check-filter-box.active-toggle-state {
- background-color: #124E66 !important;
- border-color: #124E66 !important;
- color: #FFFFFF !important;
+	background-color: #124E66 !important;
+	border-color: #124E66 !important;
+	color: #FFFFFF !important;
 }
 
 /* 🎯 THE OVERRIDE REMEDY: Forces inner text label to switch onto pure white text natively */
 .manual-check-filter-box.active-toggle-state .show-checked-filter-label {
- color: #FFFFFF !important;
+	color: #FFFFFF !important;
 }
 
 /* Ensure child labels fill the interactive area naturally and use the pointer finger cursor */
-.show-checked-filter-label {
- cursor: pointer !important;
- display: inline-flex !important;
- align-items: center !important;
- justify-content: center !important;
- width: 100% !important;
- height: 100% !important;
- font-size: 1.0rem !important;
- font-weight: bold !important;
+.show-checked-filter-label { /* adjust selected filter button */
+	cursor: pointer !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 100% !important;
+	height: 100% !important;
+	font-size: 1.0rem !important;
+	/* font-weight: bold !important; */
 }
 
 
@@ -156,7 +156,7 @@
     color: rgba(255, 255, 255, 0.6) !important; /* Soft contrast text */
     cursor: pointer !important;
     line-height: 1 !important;
-    padding: 1px 0px !important;
+    padding: 3px 0px !important;
     transition: all 0.1s ease !important;
     display: inline-block !important;
     width: 100% !important;        /* Fill the cell area uniformly [PDF: 0.1.255] */
@@ -397,9 +397,10 @@ mark.search-hit-highlight {
     padding: 0px 4px !important; /* SNUG inner padding scale leaves maximum structural room */
     font-weight: 600 !important;    
     font-size: 12px !important; 
-    background-color: #B3C1D5 !important;
-    border: 1px solid #475569 !important;
-    color: #bb0000 !important; 
+    /* background-color: #B3C1D5 !important; */
+    background-color: #BBBBBB !important; /* adjust Fav btn color */
+    border: 1px solid #FFFFFF !important;
+    color: #FF0000 !important; 
     border-radius: 4px !important;
     cursor: pointer !important;
     display: inline-flex !important;

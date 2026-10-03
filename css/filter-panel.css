@@ -4,9 +4,10 @@
     background-color: #ffffff; 
     border: 1px solid #D13438; 
     color: #D13438; 
-    /* padding: 7px 14px 5px 14px; */
-    font-size: 0.93rem !important; 
-    font-weight: 600; 
+    /* padding: 7px 14px 15px 14px; */
+    /* font-size: 0.93rem !important;  */
+    /* font-size: 1.2rem !important;  */
+    font-weight: 700; /* adjust Show all btn text */
     border-radius: 6px; 
     cursor: pointer;
     transition: all 0.15s ease; 

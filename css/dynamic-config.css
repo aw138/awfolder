@@ -234,12 +234,12 @@
     border-radius: 4px !important;
     /* color: #2e3944 !important; */
     color: #2e3944 !important;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: bold !important;
     cursor: pointer !important;
     padding: 0px !important;
-    width: 18px !important;                /* Perfectly compact square collapse button bounding boxes */
-    height: 18px !important;
+    width: 20px !important;                /* Perfectly compact square collapse button bounding boxes */
+    height: 20px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -270,31 +270,7 @@
 .filter-options-dropdown-deck.hidden-drawer-state {
     display: none !important;
 }
-/* --- ROW 2 CONTAINER STRUCTURAL HOOKS --- */
-/* .panel-row-two { */
-    /* display: flex !important; */
-    /* justify-content: space-between !important; */
-    /* align-items: center !important; */
-    /* width: 100% !important; */
-    /* gap: 8px !important; */
-    /* position: relative !important; /* Establishes baseline plane floor layout boundaries */ */
-/* } */
 
-/* 🎯 THE CENTERING FIX: Locks the counter slot dead-center within Row 2 without extending panels */
-/* .panel-row-two-center-slot { /* seems no effect */ */
-    /* position: absolute !important; */
-    /* left: 10% !important; */
-    /* top: 10% !important; */
-    /* transform: translate(-50%, -50%) !important; */
-    /* display: inline-flex !important; */
-    /* justify-content: center !important; */
-    /* align-items: center !important; */
-    /* pointer-events: none !important; /* Shuts down layout layer bounding boxes so they never block data table scrolling clicks */ */
-    /* z-index: 5 !important; */
-/* } */
-
-/* Reactivate interaction bounds exclusively on the visible badge card boundaries */
-/* Hover Accent Action Glow */
 .global-slicers-expand-btn:hover {
     /* background-color: #124E66 !important; */
     background-color: #a0ad9e !important; /*Adjust expand all btn bg hover color*/
