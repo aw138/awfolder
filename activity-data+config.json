@@ -2,7 +2,7 @@
 "CURRENT_ACTIVE_PROFILE":"TWO",
 "PROFILES":{
 "ONE":{
-"buttonLabel": "I",
+"buttonLabel": "精簡",
 "pageTitle": "Activity",
 "version": "v. 8.0.2",
 "defaults": {
@@ -45,7 +45,7 @@
 }
 },
 "TWO":{
-"buttonLabel": "II",
+"buttonLabel": "詳細",
 "pageTitle": "Activity",
 "version": "v. 8.0.2",
 "defaults": {
