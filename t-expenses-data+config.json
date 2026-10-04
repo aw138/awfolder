@@ -21,9 +21,9 @@
 {"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
 
 
-{"label": "Category","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":48,"minWidth":48},
-{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":121,"minWidth":121},
-{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":81,"minWidth":81}
+{"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":48,"minWidth":48},
+{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":114,"minWidth":114},
+{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":80,"minWidth":80}
 ],
 "customSortPriority": {
 "(None)":999,
