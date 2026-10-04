@@ -17,13 +17,13 @@
 {"jsonKey": "tag5","title": "Cat","textColor": "#065f46","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":51,"minWidth":51},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":202,"minWidth":202},
+{"type": "checkbox","width":33,"minWidth":33},
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
 
 
-{"label": "Category","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":92,"minWidth":92},
-{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":231,"minWidth":231},
-{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":154,"minWidth":154}
+{"label": "Category","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":48,"minWidth":48},
+{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":121,"minWidth":121},
+{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":81,"minWidth":81}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -99,6 +99,7 @@
 },
 "DATA":
 [
+
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "機票", "val1": "2019/06/04 (Tue)", "val2": "中國", "val3": "自由行", "val4": "山東青島 (4天)", "val5": "機票", "val6": "Air ticket-港龍", "val7": "5190"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "保險", "val1": "2019/06/04 (Tue)", "val2": "中國", "val3": "自由行", "val4": "山東青島 (4天)", "val5": "保險", "val6": "Zurich自由行基本(經永安)", "val7": "208"},
 {"tag1": "2019", "tag2": "中國", "tag3": "山東青島 (4天)", "tag4": "自由行", "tag5": "酒店", "val1": "2019/06/24 (Mon)", "val2": "中國", "val3": "自由行", "val4": "山東青島 (4天)", "val5": "酒店", "val6": "Hotel", "val7": "2568.7"},
