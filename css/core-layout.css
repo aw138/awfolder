@@ -105,7 +105,7 @@ body {
 
 /* --- ROW 1 LAYOUT SYSTEM GROUPS [INDEX: 0.1.87] --- */
 .r1-left-container {
-    width: 35% !important;
+    width: 37% !important;
     min-width: 200px !important;
     /* max-width: 215px !important; */
     box-sizing: border-box !important;
@@ -115,7 +115,7 @@ body {
 .r1-left-container .search-box { width: 100% !important; }
 
 .r1-right-container { 
-    width: 35% !important;        /* Row 1 Right main block width lock */
+    width: 37% !important;        /* Row 1 Right main block width lock */
     display: flex !important; 
     flex-direction: row !important;
     align-items: center !important; 
@@ -136,7 +136,7 @@ body {
     padding: 0px 2px !important;   
 }
 .r1-right-container .dashboard-arrow-toggle {
-    width: 34% !important;         
+    width: 33% !important;         
     min-width: 0 !important;       
     max-width: none !important;    
     height: 30px !important;       
@@ -145,21 +145,31 @@ body {
 
 /* --- ROW 2 LAYOUT SYSTEM GROUPS (EXACT MIRROR OF ROW 1 PARAMS) 🎯 --- */
 .r2-left-container {
- width: 35% !important; /* Strict geometric mirror lock */
+ width: 37% !important; /* Strict geometric mirror lock */
  min-width: 140px !important; /* Standardized floor parameter matching Row 1 */
  box-sizing: border-box !important;
  display: flex !important;
  align-items: center !important;
  justify-content: space-between !important;
- gap: 4px !important; 
+ gap: 2px !important; 
 }
 
 /* Force all 3 structural child elements to distribute space inside the 35% left container */
-.r2-left-container .global-slicers-expand-btn,
-.r2-left-container .manual-check-filter-box,
+.r2-left-container .global-slicers-expand-btn{
+ /* flex: 1 1 0% !important; */
+ width: 26% !important;
+ min-width: 0 !important;
+ max-width: none !important;
+}
+.r2-left-container .manual-check-filter-box{
+ /* flex: 1 1 0% !important; */
+ width: 48% !important;
+ min-width: 0 !important;
+ max-width: none !important;
+}
 .r2-left-container .clear-all-btn {
- flex: 1 1 0% !important;
- width: 33.33% !important;
+ /* flex: 1 1 0% !important; */
+ width: 26% !important;
  min-width: 0 !important;
  max-width: none !important;
 }
@@ -167,7 +177,7 @@ body {
 /* Main Right Container Wrapper for Row 2 */
 .row-two-right-group,
 .r2-right-container {
- width: 35% !important; /* Strict geometric mirror lock */
+ width: 37% !important; /* Strict geometric mirror lock */
  display: flex !important;
  flex-direction: row !important;
  align-items: center !important;
@@ -208,7 +218,7 @@ body {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  padding: 0px 10px !important;
+  padding: 0px 5px !important;
 }
 .global-slicers-expand-btn {
     width: auto !important;         /* 🌟 Dedicated percentage split weight absorbs the rest */
