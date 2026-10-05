@@ -59,51 +59,70 @@ window.updateMasterCheckboxState = function() {
 
 // ⚡ GLOBAL EVENT DELEGATOR: Guarantees dynamic checkboxes respond instantly to clicks
 document.addEventListener("click", function(event) {
-    // 1. Intercept Selection Invert Trigger Button Click Scope
-    if (event.target && event.target.id === "invertVisibleRowsBtn") {
-        event.stopPropagation();
-        event.preventDefault();
-        
-        const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
-        visibleRows.forEach(row => {
-            const chk = row.querySelector(".row-selector-checkbox");
-            if (chk) {
-                chk.checked = !chk.checked;
-                row.classList.toggle("is-checked-state", chk.checked);
-            }
-        });
-        
+	// Internal helper to safely compile and save all checked keys to localStorage immediately 🎯
+	const executeImmediateLocalStorageSave = () => {
+		let savedCheckedKeysDatabase = [];
+		window.getRuntimeRows().forEach(row => {
+			const box = row.querySelector(".row-selector-checkbox");
+			const signatureKey = row.getAttribute("data-row-key") || "";
+			if (box && box.checked && signatureKey !== "") {
+				savedCheckedKeysDatabase.push(signatureKey);
+			}
+		});
+		localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
+	};
+
+	// 1. Intercept Selection Invert Trigger Button Click Scope
+	if (event.target && event.target.id === "invertVisibleRowsBtn") {
+		event.stopPropagation();
+		event.preventDefault();
+		
+		const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
+		visibleRows.forEach(row => {
+			const chk = row.querySelector(".row-selector-checkbox");
+			if (chk) {
+				chk.checked = !chk.checked;
+				row.classList.toggle("is-checked-state", chk.checked);
+			}
+		});
+		
 		// Synchronize counters and master element checkboxes layout states
 		if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
 		if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
 		
-		// Calculate and sync selection counters directly without triggering a row filtration update pass 🎯
+		// Calculate and sync selection counters directly without triggering a row filtration update pass
 		const visibleRowsArr = window.getRuntimeRows();
 		const checkedRowsNum = visibleRowsArr.filter(r => r.querySelector(".row-selector-checkbox")?.checked).length;
 		const counterLabelSlot = document.getElementById("checkedFilterCounterText");
 		if (counterLabelSlot) {
-			counterLabelSlot.textContent = `\u{2705}(${checkedRowsNum})`;
+			counterLabelSlot.textContent = `✅(${checkedRowsNum})`;
 		}
+		
+		// Force save event right after status change 💾
+		executeImmediateLocalStorageSave();
 	}
-
-    // 2. Intercept Master Select All Checkbox Click Scope
-    if (event.target && event.target.id === "selectAllRowsCheckbox") {
-        event.stopPropagation();
-        const masterStateValue = event.target.checked;
-        const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
-        
-        visibleRows.forEach(row => {
-            const chk = row.querySelector(".row-selector-checkbox");
-            if (chk) {
-                chk.checked = masterStateValue;
-                row.classList.toggle("is-checked-state", masterStateValue);
-            }
-        });
-
-        if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
-        if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
-        if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
-    }
+	
+	// 2. Intercept Master Select All Checkbox Click Scope
+	if (event.target && event.target.id === "selectAllRowsCheckbox") {
+		event.stopPropagation();
+		const masterStateValue = event.target.checked;
+		const visibleRows = window.getRuntimeRows().filter(r => r.style.display !== "none");
+		
+		visibleRows.forEach(row => {
+			const chk = row.querySelector(".row-selector-checkbox");
+			if (chk) {
+				chk.checked = masterStateValue;
+				row.classList.toggle("is-checked-state", masterStateValue);
+			}
+		});
+		
+		if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
+		if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
+		if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
+		
+		// Force save event right after status change 💾
+		executeImmediateLocalStorageSave();
+	}
 });
 
 function escapeRegExp(string) { return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
@@ -253,14 +272,34 @@ window.applyCombinedFilter = function() {
 // PART C: EVENT LISTENERS & INVERT MACRO CAPTURE HOOKS (Paste directly below Part B)
 
 document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("tableSearch");
-    const clearSearchBtn = document.getElementById("clearSearchBtn");
-    const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
-    const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
-    const tbody = document.getElementById("tableBody");
+	const searchInput = document.getElementById("tableSearch");
+	const clearSearchBtn = document.getElementById("clearSearchBtn");
+	const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
+	const selectAllRowsCheckbox = document.getElementById("selectAllRowsCheckbox");
+	const tbody = document.getElementById("tableBody");
 
-    // 🎯 GLOBAL SEARCH LOCKED STATE STORAGE
-    window.lastExecutedSearchQuery = "";
+	// GLOBAL SEARCH LOCKED STATE STORAGE 🎯
+	window.lastExecutedSearchQuery = "";
+
+	// 🎯 THE BOOT RESTORATION LAYER: Restores your checkbox states from localStorage automatically on page load
+	const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
+	if (savedCheckedKeysDatabase.length > 0) {
+		// Set a tiny macro-task delay to allow your active profile row-builder scripts to finish rendering table elements
+		setTimeout(() => {
+			window.getRuntimeRows().forEach(row => {
+				const dataRowLookupSignatureKey = row.getAttribute("data-row-key") || "";
+				if (dataRowLookupSignatureKey !== "" && savedCheckedKeysDatabase.includes(String(dataRowLookupSignatureKey))) {
+					const targetCheckboxInput = row.querySelector(".row-selector-checkbox");
+					if (targetCheckboxInput) {
+						targetCheckboxInput.checked = true;
+						row.classList.add("is-checked-state");
+					}
+				}
+			});
+			// Force a counter synchronization refresh to update your ✅(xx) toolbar badges right away
+			if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
+		}, 50);
+	}
 
     // 1. Text input watcher: only updates the clear/arrow icon, does NOT filter!
     searchInput?.addEventListener("input", function() {
