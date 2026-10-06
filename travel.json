@@ -72,7 +72,7 @@
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"width":80,"minWidth":80},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":40,"minWidth":40},
-{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":80,"minWidth":80},
+{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":60,"minWidth":60},
 {"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true,"width":120,"minWidth":120}
@@ -88,8 +88,13 @@
 },
 "statusBadges": {
 "自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
-"thailand":{"label": "THAILAND", "bg": "#FF8080","text": "#0000FF","border": "#000066"},
-"japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
+"中國":{"label": "中國", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"thailand":{"label": "Thailand", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"singapore":{"label": "Singapore", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"malaysia":{"label": "Malaysia", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"srilanka":{"label": "Srilanka", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"maldives":{"label": "Maldives", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
+"japan":{"label": "Japan", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000"}
 },
 "descriptionBadges": {
 "countrybadge":{"bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
@@ -102,6 +107,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "關東; 中部; 關西<BR>(茨城; 東京; 神奈川; 山梨; 靜岡; 京都; 大阪; 奈良)", "val6": "星晨 (HON-8)", "val7": "本州迪士尼筑波八天超級豪華團", "val8": "1985/09/01 <span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val9": "Japan<BR>關東; 中部; 關西", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span>本州迪士尼筑波八天超級豪華團", "val11": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良"},
