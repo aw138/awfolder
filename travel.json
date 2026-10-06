@@ -42,8 +42,8 @@
 "japan":{"label": "JAPAN", "bg": "#F5F5F5","text": "#FF0000","border": "#333333"}
 },
 "descriptionBadges": {
-"daybadge":{"bg": "#FFFFFF","text": "#006600","border": "#006600"},
-"agentbadge":{"bg": "#72fA59","text": "#006600","border": "#006600"},
+"daybadge":{"bg": "#FFFFFF","text": "#880000","border": "#880000"},
+"agentbadge":{"bg": "#A2fAA9","text": "#006600","border": "#006600"},
 "countrybadge":{"bg": "#FFFF00","text": "#FF0000","border": "#FF0000"},
 "spring":{"bg": "#72fA59","text": "#006600","border": "#006600"},
 "summer":{"bg": "#FBB9B9","text": "#AA0000","border": "#AA0000"},
@@ -72,7 +72,7 @@
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"width":80,"minWidth":80},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":40,"minWidth":40},
-{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":false,"width":80,"minWidth":80},
+{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":60,"minWidth":60},
 {"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true,"width":120,"minWidth":120}
@@ -102,6 +102,7 @@
 },
 "DATA":
 [
+
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "關東; 中部; 關西", "tag5": "星晨", "tag6": "8", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span>七月十七 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "關東; 中部; 關西<BR>(茨城; 東京; 神奈川; 山梨; 靜岡; 京都; 大阪; 奈良)", "val6": "星晨 (HON-8)", "val7": "本州迪士尼筑波八天超級豪華團", "val8": "1985/09/01 <span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val9": "<span class='inline-description-badge' data-badge='agentbadge'>Japan</span><BR>關東; 中部; 關西", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span>本州迪士尼筑波八天超級豪華團", "val11": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "曼谷; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "<span class='inline-description-badge' data-badge='autumn'>秋</span>八月初五 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val8": "1987/09/27 <span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val9": "<span class='inline-description-badge' data-badge='agentbadge'>Thailand</span><BR>曼谷; 布吉; 巴提雅", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val11": "<span class='inline-description-badge' data-badge='agentbadge'>Thailand</span><BR>曼谷; 布吉; 巴提雅"},
 {"tag1": "1988", "tag2": "春季", "tag3": "中國", "tag4": "廣東", "tag5": "自由行", "tag6": "2", "val1": "1988/2/17 (Wed) - 1988/2/18 (Thu)", "val2": "<span class='inline-description-badge' data-badge='spring'>春</span>正月初一 - 正月初二", "val3": "2", "val4": "中國", "val5": "廣東<BR>(深圳)", "val6": "自由行", "val7": "深圳香蜜湖渡假村", "val8": "1988/02/17 <span class='inline-description-badge' data-badge='daybadge'>2天</span>", "val9": "<span class='inline-description-badge' data-badge='agentbadge'>中國</span><BR>廣東", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>自由行</span>深圳香蜜湖渡假村", "val11": "<span class='inline-description-badge' data-badge='agentbadge'>中國</span><BR>廣東"},
