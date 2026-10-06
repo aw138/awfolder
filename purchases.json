@@ -19,14 +19,14 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":83,"minWidth":83},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":85,"minWidth":85},
 
-{"label": "Brand/Model","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true,"width":120,"minWidth":120},
+{"label": "Brand/Model","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true,"width":115,"minWidth":115},
 
 
 
 {"label": "Price","jsonKey": "val9","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":80,"minWidth":80},
-{"label": "Status","jsonKey": "val7","dataType": "string","isSortable":true, "isStatusBadge":true,"width":68,"minWidth":68}
+{"label": "Status","jsonKey": "val7","dataType": "string","isSortable":true, "isStatusBadge":true,"width":65,"minWidth":65}
 ],
 "customSortPriority": {
 "Active":1,
