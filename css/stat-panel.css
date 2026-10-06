@@ -21,24 +21,27 @@
 }
 
 .stat-metric-card-block {
-    flex: 1 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    background-color: #FFFFFF !important;
-    border: 1px solid #94A3B8 !important;
-    border-radius: 4px !important;
-    height: 25px !important;
-    font-size: 0.95rem !important;
-    font-weight: 600 !important;
-    color: #1E293B !important; /*adjust stat figures color*/
-    gap: 6px !important;
-    box-sizing: border-box !important;
-/* 🎯 GIVES BREATHING ROOM: Ensures text doesn't touch the box walls */
-    padding-left: 6px !important; /* adjust stat box padding */
-    padding-right: 6px !important; /* adjust stat box padding */
+	/* 🎯 THE FLUID REMEDY: Forces box widths to size themselves dynamically based on the numbers inside */
+	flex: 1 1 auto !important;
+	width: auto !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	
+	/* 🎯 EQUAL SPACING LOCK: Pushes the label and number side-by-side using a fixed uniform gap */
+	justify-content: flex-start !important;
+	
+	background-color: #FFFFFF !important;
+	border: 1px solid #94A3B8 !important;
+	border-radius: 4px !important;
+	height: 25px !important;
+	font-size: 0.95rem !important;
+	font-weight: 600 !important;
+	color: #1E293B !important; /*adjust stat figures color*/
+	gap: 6px !important; 
+	box-sizing: border-box !important;
+	padding-left: 6px !important; /* adjust stat box padding */ 
+	padding-right: 6px !important; /* adjust stat box padding */ 
 	line-height: 1 !important;
-
 }
 
 .stat-metric-card-block .metric-card-label {
