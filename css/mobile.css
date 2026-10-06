@@ -22,7 +22,7 @@
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important; /* Enforces perfect mathematical distribution edge-to-edge */
-        gap: 4px !important;          /* Tiny clean visual separation gap between items */
+        gap: 2px !important;          /* Tiny clean visual separation gap between items */
     }
 
     /* Spreads all 3 buttons evenly across your 26% right container profile block [INDEX: 0.1.151] */

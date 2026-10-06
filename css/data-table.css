@@ -20,16 +20,20 @@
     min-height: 0; 
 }
 
-.show-checked-filter-label { 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 3px; /* Adjust spacing between checkbox and label */
-    font-size: 0.93rem; 
-    font-weight: 600; 
-    color: #1e293b; 
-    cursor: pointer; 
-    user-select: none; 
-    white-space: nowrap;
+.show-checked-filter-label { /* adjust selected filter button */	
+	gap: 3px; /* Adjust spacing between checkbox and label */
+	font-weight: 600;
+	color: #1e293b;
+	cursor: pointer !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 100% !important;
+	height: 100% !important;
+	font-size: 1.0rem !important;
+	user-select: none;
+	white-space: nowrap;
+	/* font-weight: bold !important; */
 }
 
 .show-checked-filter-label input[type="checkbox"] { 
@@ -76,18 +80,6 @@
 	color: #FFFFFF !important;
 }
 
-/* Ensure child labels fill the interactive area naturally and use the pointer finger cursor */
-.show-checked-filter-label { /* adjust selected filter button */
-	cursor: pointer !important;
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	width: 100% !important;
-	height: 100% !important;
-	font-size: 1.0rem !important;
-	/* font-weight: bold !important; */
-}
-
 
 #dataTable theAD tr { 
     background-color: #212A31 !important; 
@@ -124,12 +116,12 @@
 
 /* Maintain your original fixed width parameters to anchor columns uniformly [INDEX: 0.1.139] */
 .checkbox-header-cell {
-    padding: 6px 0px !important;
+    padding: 4px 0px !important;
     text-align: center !important;
 	/* width: 33px !important; */
     box-sizing: border-box !important;
     vertical-align: middle !important;
-	padding: 3px 2px !important;
+	/* padding: 5px 2px !important; */
 }
 .checkbox-data-cell {
     text-align: center !important;
@@ -151,12 +143,12 @@
 
 /* Crisp highlight glow style tracking for the invert selections text node */
 .table-invert-trigger {
-    font-size: 13px !important; /* adjust checkbox invert symbol */
+    font-size: 14px !important; /* adjust checkbox invert symbol */
 	font-weight: 500;  /* adjust checkbox invert symbol */												   
     color: rgba(255, 255, 255, 0.6) !important; /* Soft contrast text */
     cursor: pointer !important;
     line-height: 1 !important;
-    padding: 3px 0px !important;
+    padding: 1px 0px !important;
     transition: all 0.1s ease !important;
     display: inline-block !important;
     width: 100% !important;        /* Fill the cell area uniformly [PDF: 0.1.255] */
