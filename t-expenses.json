@@ -4,7 +4,7 @@
 "ONE":{
 "buttonLabel": "I",
 "pageTitle": "T-expenses",
-"version": "v. 8.0.2",
+"version": "v. 8.0",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
@@ -18,7 +18,7 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":95,"minWidth":95},
 
 
 {"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":48,"minWidth":48},
@@ -51,7 +51,7 @@
 "TWO":{
 "buttonLabel": "II",
 "pageTitle": "T-expenses",
-"version": "v. 8.0.2",
+"version": "v. 8.0",
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
@@ -65,13 +65,13 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":132,"minWidth":132},
-{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"width":89,"minWidth":89},
-{"label": "Agent","jsonKey": "val3","dataType": "string","isSortable":true,"isStatusBadge":true,"width":89,"minWidth":89},
-{"label": "Trip","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true,"width":139,"minWidth":139},
-{"label": "Category","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":87,"minWidth":87},
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":110,"minWidth":110},
+{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"width":70,"minWidth":70},
+{"label": "Agent","jsonKey": "val3","dataType": "string","isSortable":true,"isStatusBadge":true,"width":70,"minWidth":70},
+{"label": "Trip","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true,"width":110,"minWidth":110},
+{"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":40,"minWidth":40},
 {"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":150,"minWidth":150},
-{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":100,"minWidth":100}
+{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":90,"minWidth":90}
 ],
 "customSortPriority": {
 "(None)":999,
@@ -1390,7 +1390,10 @@
 {"tag1": "2026", "tag2": "中國", "tag3": "浙江杭州 (8天)", "tag4": "自由行", "tag5": "鐵路", "val1": "2026/06/04 (Thu)", "val2": "中國", "val3": "自由行", "val4": "浙江杭州 (8天)", "val5": "鐵路", "val6": "鐵路 (錢江世紀城 > 奧體中心)", "val7": "2.33"},
 {"tag1": "2026", "tag2": "中國", "tag3": "浙江杭州 (8天)", "tag4": "自由行", "tag5": "購物", "val1": "2026/06/04 (Thu)", "val2": "中國", "val3": "自由行", "val4": "浙江杭州 (8天)", "val5": "購物", "val6": "宮廷榚點", "val7": "40.23"},
 {"tag1": "2026", "tag2": "中國", "tag3": "浙江杭州 (8天)", "tag4": "自由行", "tag5": "鐵路", "val1": "2026/06/04 (Thu)", "val2": "中國", "val3": "自由行", "val4": "浙江杭州 (8天)", "val5": "鐵路", "val6": "鐵路 (奧體中心 > 蕭山國際機場)", "val7": "8.14"},
-{"tag1": "2026", "tag2": "中國", "tag3": "浙江杭州 (8天)", "tag4": "自由行", "tag5": "購物", "val1": "2026/06/04 (Thu)", "val2": "中國", "val3": "自由行", "val4": "浙江杭州 (8天)", "val5": "購物", "val6": "冰箱貼", "val7": "45.35"}
+{"tag1": "2026", "tag2": "中國", "tag3": "浙江杭州 (8天)", "tag4": "自由行", "tag5": "購物", "val1": "2026/06/04 (Thu)", "val2": "中國", "val3": "自由行", "val4": "浙江杭州 (8天)", "val5": "購物", "val6": "冰箱貼", "val7": "45.35"},
+{"tag1": "2026", "tag2": "中國", "tag3": "甘肅, 內蒙古 (8天)", "tag4": "大航", "tag5": "團費", "val1": "2026/07/06 (Mon)", "val2": "中國", "val3": "大航", "val4": "甘肅, 內蒙古 (8天)", "val5": "團費", "val6": "大航-Deposit", "val7": "8000"},
+{"tag1": "2026", "tag2": "中國", "tag3": "甘肅, 內蒙古 (8天)", "tag4": "大航", "tag5": "團費", "val1": "2026/09/22 (Tue)", "val2": "中國", "val3": "大航", "val4": "甘肅, 內蒙古 (8天)", "val5": "團費", "val6": "大航-尾數", "val7": "19158"},
+{"tag1": "2026", "tag2": "中國", "tag3": "甘肅, 內蒙古 (8天)", "tag4": "大航", "tag5": "保險", "val1": "2026/10/06 (Tue)", "val2": "中國", "val3": "大航", "val4": "甘肅, 內蒙古 (8天)", "val5": "保險", "val6": "中銀-環宇智選旅遊保障計劃", "val7": "300.6"}
 
 ]
 }
