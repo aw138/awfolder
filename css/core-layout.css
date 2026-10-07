@@ -207,7 +207,7 @@ body {
 .results-counter-badge { 
   height: 29px !important; 
   width: auto !important;
-  min-width: 76px !important;
+  min-width: 80px !important;
   box-sizing: border-box !important;
   font-size: 1.0rem !important;
   font-weight: 600;
