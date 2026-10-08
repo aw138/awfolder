@@ -38,7 +38,7 @@
 .breakdown-rows-flex-stack {
     display: grid !important;
     grid-template-columns: max-content 1fr max-content !important;
-    gap: 4px 0px !important; /* Standardized 6px gap between rows, 0px between columns */
+    gap: 4px 0px !important; /* adjust padding of each row bars */
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
