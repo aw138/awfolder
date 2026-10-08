@@ -17,7 +17,7 @@
 
 .breakdown-buttons-scroll-track {
     display: flex !important;
-    gap: 6px !important; /* adjust buttons gap */
+    gap: 3px !important; /* adjust buttons gap */
     flex: 1 !important;
     overflow-x: auto !important;
     width: 100% !important;
