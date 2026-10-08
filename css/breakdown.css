@@ -1,0 +1,105 @@
+/* ============================================================= */
+/* CENTRALIZED DYNAMIC ANALYTICAL BREAKDOWN PANEL GRID SYSTEM 🎯 */
+/* ============================================================= */
+
+/* Main Container state tracking defaults */
+.text-layout-unified-frame {
+    display: none !important;
+}
+
+/* Row 1: Symmetrical Header toolbar deck container constraints */
+.breakdown-header-toolbar-deck {
+    background-color: #D3D9D4 !important;
+    border-bottom: 1px solid #748D92 !important;
+    padding: 10px !important; /* adjust button group left padding */
+    box-sizing: border-box !important;
+}
+
+.breakdown-buttons-scroll-track {
+    display: flex !important;
+    gap: 6px !important; /* adjust buttons gap */
+    flex: 1 !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Row 2: Core Scroll canvas viewport boundaries lock */
+.breakdown-body-viewport {
+    padding: 10px !important;
+    background-color: #f4f6f6 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+/* 🎯 THE MASTER CONTAINER GRID: Coordinates and aligns layout track dimensions across all rows globally */
+.breakdown-rows-flex-stack {
+    display: grid !important;
+    grid-template-columns: max-content 1fr max-content !important;
+    gap: 4px 0px !important; /* Standardized 6px gap between rows, 0px between columns */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+/* Symmetrical row cards distribution parameters with dynamic subgrid matrices 🎯 */
+.breakdown-data-row {
+    /* 🎯 THE PROFESSIONAL REMEDY: Inherits the exact 3-column template track geometry from the master wrapper grid */
+    display: grid !important;
+    grid-template-columns: subgrid !important;
+    grid-column: 1 / -1 !important; /* Spans across all 3 grid columns seamlessly */
+    align-items: center !important;
+    
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-shrink: 0 !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 4px !important;
+    padding: 4px 4px !important;
+    box-sizing: border-box !important;
+    min-height: 28px !important;
+}
+
+.breakdown-label-slot {
+    /* 🎯 DYNAMIC FIT WITH MOBILE SAFETY CEILING */
+    width: auto !important;
+    max-width: 120px !important; /* Prevents long labels from chewing up your graph space on tight mobile layouts 📱 */
+    
+    font-weight: 500 !important;
+    color: #212A31 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.breakdown-bar-corridor {
+    flex: 1 !important;
+    margin: 0px 14px !important;
+    background-color: #E2E8F0 !important;
+    height: 14px !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    width: auto !important; /* Eliminates rigid flex limits */
+}
+
+.breakdown-bar-fill-fluid {
+    height: 100% !important;
+    /* background-color: #124E66 !important; */
+    background-color: #EB9752 !important;
+    border-radius: 4px 0 0 4px !important;
+    transition: width 0.25s ease-out !important;
+}
+
+.breakdown-metrics-slot {
+    /* 🎯 DYNAMIC METRICS TRACK: Automatically sizes itself to match the longest value + percentage string perfectly */
+    width: auto !important;
+    text-align: right !important;
+    font-weight: 500 !important;
+    color: #1E293B !important;
+    white-space: nowrap !important;
+}
