@@ -168,9 +168,17 @@ window.bindSortingTriggers = function() {
 // FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked! 🎯 [INDEX: 0.1.143]
 // FIXED MASTER RESET ENGINE: Clears active chips while keeping your AND/OR states locked!
 document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
-    // 1. Reset standard UI checkbox toggles
-    const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
-    if (showCheckedOnlyToggle) showCheckedOnlyToggle.checked = false;
+	// 1. Reset standard UI checkbox toggles and strip out active button background highlights 🎯
+	const showCheckedOnlyToggle = document.getElementById("showCheckedOnlyToggle");
+	if (showCheckedOnlyToggle) {
+		showCheckedOnlyToggle.checked = false;
+		
+		// Traverses up to the button container to strip off the active blue color highlight immediately
+		const outerToggleBoxElement = showCheckedOnlyToggle.closest(".manual-check-filter-box");
+		if (outerToggleBoxElement) {
+			outerToggleBoxElement.classList.remove("active-toggle-state");
+		}
+	}
 
     // 🚀 NEW THE FIX: Explicitly flush out and reset text search components
     const searchInput = document.getElementById("tableSearch");
