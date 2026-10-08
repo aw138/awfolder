@@ -264,10 +264,17 @@ window.applyCombinedFilter = function() {
 	// 🎯 REPLACE VERBATIM WITH THIS INJECTION:
     window.recalculateRealtimeFavCounters();
     
-    // Auto-update analytics calculation values if a stat row panel is currently active on screen
-    if (typeof window.executeRealtimeTableStatistics === "function") {
-        window.executeRealtimeTableStatistics();
-    }
+	// Auto-update analytics calculation values if a stat row panel is currently active on screen
+	if (typeof window.executeRealtimeTableStatistics === "function") {
+		window.executeRealtimeTableStatistics();
+	}
+
+	// 🎯 THE REAL-TIME REACTIVE HOOK: If the breakdown view is open, force it to instantly repaint the bars
+	if (window.activeBreakdownCategoryKey && typeof window.executeBreakdownAggregation === "function") {
+		const activeColumns = window.activeColumnsWidthsSchema || [];
+		const configProfile = activeColumns.find(c => c && c.jsonKey === window.activeStatisticsColumnJsonKey);
+		window.executeBreakdownAggregation(window.activeBreakdownCategoryKey, configProfile);
+	}
 };
 // PART C: EVENT LISTENERS & INVERT MACRO CAPTURE HOOKS (Paste directly below Part B)
 
@@ -631,6 +638,11 @@ window.executeRealtimeTableStatistics = function() {
     document.getElementById("statFieldTotalValue").textContent = formatIndividualStatItem(grandSumTotal, statsMetricsConfigMatrix.total);
     
     panel.style.setProperty("display", "flex", "important");
+	// 🎯 THE TIMING HOOK: Instantly binds your standalone fourth card trigger right when statistics paint onto your canvas screen grid!
+	if (typeof window.bindBreakdownInteractionTrigger === "function") {
+		window.bindBreakdownInteractionTrigger();
+	}
+
 };
 
 // Global toggle utility configuration execution macro trigger mapping hook parameters profile pipeline steps
