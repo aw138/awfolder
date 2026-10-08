@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/data-table.css">
     <link rel="stylesheet" href="css/dynamic-config.css">
     <link rel="stylesheet" href="css/stat-panel.css">
+    <link rel="stylesheet" href="css/breakdown.css">
 	<!-- 🎯 THE ADVANCED RESPONSIBLE LINK HOOK -->
 	<!-- This loads conditionally and activates ONLY if the browser layout drops below 768px -->
 	<link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 768px)">
@@ -101,9 +102,11 @@
 				<span id="statFieldSDValue" class="stat-metric-value-span">0.00</span>
 			</div>
 			<div class="stat-metric-card-block">
-				<span id="statLabelTotal" class="metric-card-label">Total:</span> 
+				<span id="statLabelTotal" class="metric-card-label">Total:</span>
 				<span id="statFieldTotalValue" class="stat-metric-value-span">0.00</span>
 			</div>
+			<!-- 🎯 THE STANDALONE FOURTH ELEMENT CARD: Matches height and shape profiles perfectly -->
+			<button type="button" id="openBreakdownBtn" class="stat-metric-card-block dynamic-more-info-card-trigger">...</button>
 		</div>
 
 		<!-- CONTAINER 3: MAIN DATA TABLE -->
@@ -119,13 +122,29 @@
             </div>
             <div id="noResults" class="no-results" style="display: none;">No records match your criteria.</div>
         </div>
+		<!-- CONTAINER 4: DYNAMIC ANALYTICAL BREAKDOWN DRAWER DECK -->
+		<div id="breakdownContainer" class="table-container text-layout-unified-frame">
+			<!-- Row 1: The Category Selector Toolbar -->
+			<div class="panel-row-one breakdown-header-toolbar-deck">
+				<div id="breakdownCategoryButtonsDeck" class="breakdown-buttons-scroll-track">
+					<!-- JavaScript will inject your 8 category buttons here dynamically -->
+				</div>
+			</div>
+			<!-- Row 2: The Core Statistics Display Frame -->
+			<div class="table-scroll-wrapper breakdown-body-viewport">
+				<div id="breakdownRowsWrapper" class="breakdown-rows-flex-stack">
+					<!-- JavaScript will inject dynamic bar rows here -->
+				</div>
+			</div>
+		</div>
+		
     </div>
 
     <!-- Sequential Script Dependencies Layer Injection -->
 	<script>
 		(function() {
 			// 1. Establish a bulletproof structural default file fallback configuration 🎯
-			const defaultJSONFileEndpoint = "https://github.io";
+			const defaultJSONFileEndpoint = "https://aw138.github.io/awfolder/";
 			
 			// 2. Query the live window URL parameters matrix database from the address bar search string
 			const addressBarURLParametersQuery = new URLSearchParams(window.location.search);
@@ -147,11 +166,12 @@
 			console.log("⚡ [Router] Dashboard dataset source target locked successfully onto URL endpoint:", window.APP_DATA_SOURCE_URL);
 		})();
 	</script>
-    <script src="js/ui-core.js"></script>
-    <script src="js/ui-slicer-state.js"></script>
-    <script src="js/ui-slicer-view.js"></script>
-    <script src="js/core-search.js"></script>
-    <script src="js/table-sort.js"></script>
-    <script src="js/dynamic-app.js"></script>
+    <script src="js/ui-core.js" defer></script>
+    <script src="js/ui-slicer-state.js" defer></script>
+    <script src="js/ui-slicer-view.js" defer></script>
+    <script src="js/core-search.js" defer></script>
+    <script src="js/table-sort.js" defer></script>
+    <script src="js/table-breakdown.js" defer></script>
+    <script src="js/dynamic-app.js" defer></script>
 </body>
 </html>
