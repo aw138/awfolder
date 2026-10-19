@@ -113,6 +113,13 @@ document.addEventListener("click", function(event) {
 			if (chk) {
 				chk.checked = masterStateValue;
 				row.classList.toggle("is-checked-state", masterStateValue);
+				
+				// 🎯 THE STABILITY PLUG: If unchecking all, label rows as pending so they don't vanish immediately
+				if (!masterStateValue) {
+					row.classList.add("is-unchecked-pending");
+				} else {
+					row.classList.remove("is-unchecked-pending");
+				}
 			}
 		});
 		
