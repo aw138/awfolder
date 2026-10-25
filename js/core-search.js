@@ -182,18 +182,24 @@ window.applyCombinedFilter = function() {
             cell.normalize(); 
         });
 
-        // 1. Dashboard Checked Row Visibility Lock Checkbox Constraints
-        if (showCheckedOnly) {
-            if (!isChecked) {
-                if (row.style.display === "none") return;
-                if (!row.classList.contains("is-unchecked-pending")) {
-                    row.style.display = "none";
-                    return;
-                }
-            } else {
-                row.classList.remove("is-unchecked-pending");
-            }
-        }
+		// 1. Dashboard Checked Row Visibility Lock Checkbox Constraints 🎯
+		if (showCheckedOnly) {
+			if (!isChecked) {
+				// 🎯 THE PRO-APP FREZE: If the row is already hidden, keep it hidden and break execution.
+				if (row.style.display === "none") {
+					return;
+				}
+				
+				// 🎯 THE TOGGLE LOCK: If the row is visible but has NO pending checkmark tracking class, force it to hide!
+				if (!row.classList.contains("is-unchecked-pending")) {
+					row.style.display = "none";
+					return;
+				}
+			} else {
+				// Clears out the tracking tag cleanly if a row becomes checked again
+				row.classList.remove("is-unchecked-pending");
+			}
+		}
 
         // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock
         if (window.showFavouritesActiveState() && favColumnIndex !== -1) {
@@ -378,8 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 		
 		window.getRuntimeRows().forEach(row => {
-			row.style.display = ""; 
-			row.classList.remove("is-unchecked-pending"); 
+			row.style.display = "";
 		});
 		window.applyCombinedFilter();
 	});
@@ -410,13 +415,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         const rangeCheckbox = rangeRow.querySelector(".row-selector-checkbox");
                         if (rangeCheckbox) {
                             rangeCheckbox.checked = currentClickCheckedState;
-                            if (currentClickCheckedState) rangeRow.classList.remove("is-unchecked-pending");
-                            else if (isFilterActive) rangeRow.classList.add("is-unchecked-pending");
+                            // if (currentClickCheckedState) rangeRow.classList.remove("is-unchecked-pending");
+                            // else if (isFilterActive) rangeRow.classList.add("is-unchecked-pending");
                         }
                     }
                 } else {
-                    if (currentClickCheckedState) targetedRow.classList.remove("is-unchecked-pending");
-                    else if (isFilterActive) targetedRow.classList.add("is-unchecked-pending");
+                    // if (currentClickCheckedState) targetedRow.classList.remove("is-unchecked-pending");
+                    // else if (isFilterActive) targetedRow.classList.add("is-unchecked-pending");
                 }
 
                 let savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
@@ -430,15 +435,34 @@ document.addEventListener("DOMContentLoaded", () => {
                             savedCheckedKeysDatabase = savedCheckedKeysDatabase.filter(key => key !== rowLookupKeySignature);
                         }
                     }
-                });
-
-                localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(savedCheckedKeysDatabase));
-                window.lastCheckedRowElement = targetedRow;
-                window.applyCombinedFilter();
-            }, 0);
-        }
-    });
-
+			});
+			
+			localStorage.setItem("dashboardSelectedCheckedKeys", JSON.stringify(
+			savedCheckedKeysDatabase));
+			window.lastCheckedRowElement = targetedRow;
+			
+			// 🎯 THE COUNTER SYNCHRONIZER: Recalculates and repaints the ✅(xx) toolbar badge instantly on click 
+			// without calling the filter engine, ensuring rows never vanish while you are working!
+			const activeRowsDatabaseArray = window.getRuntimeRows();
+			let liveCheckedVisibleCount = 0;
+			activeRowsDatabaseArray.forEach(r => {
+				if (r.style.display !== "none" && r.querySelector(".row-selector-checkbox")?.checked) {
+					liveCheckedVisibleCount++;
+				}
+			});
+			const toolbarCounterLabelSlot = document.getElementById("checkedFilterCounterText");
+			if (toolbarCounterLabelSlot) {
+				toolbarCounterLabelSlot.textContent = `✅(${liveCheckedVisibleCount})`;
+			}
+			
+			// Synchronize the header master checkbox state (checkmark, empty, or line) to match your new click values
+			if (typeof window.updateMasterCheckboxState === "function") {
+				window.updateMasterCheckboxState();
+			}
+			}, 0);
+		}
+	});
+	
     // ============================================================================
     // BATCH MASTER TOGGLE ENGINE WITH SAFETY DELAY PENDING STATE 🔄
     // ============================================================================
@@ -457,10 +481,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isChecked) {
                 if (!savedCheckedKeysDatabase.includes(rowStorageKeySignature)) savedCheckedKeysDatabase.push(rowStorageKeySignature);
-                row.classList.remove("is-unchecked-pending");
+                // row.classList.remove("is-unchecked-pending");
             } else {
                 savedCheckedKeysDatabase = savedCheckedKeysDatabase.filter(key => key !== rowStorageKeySignature);
-                if (isFilterActive) row.classList.add("is-unchecked-pending");
+                // if (isFilterActive) row.classList.add("is-unchecked-pending");
             }
         });
 
@@ -489,10 +513,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (prospectiveCheckedState) {
                 if (!savedCheckedKeysDatabase.includes(rowStorageKeySignature)) savedCheckedKeysDatabase.push(rowStorageKeySignature);
-                row.classList.remove("is-unchecked-pending");
+                // row.classList.remove("is-unchecked-pending");
             } else {
                 savedCheckedKeysDatabase = savedCheckedKeysDatabase.filter(key => key !== rowStorageKeySignature);
-                if (isFilterActive) row.classList.add("is-unchecked-pending");
+                // if (isFilterActive) row.classList.add("is-unchecked-pending");
             }
         });
 
