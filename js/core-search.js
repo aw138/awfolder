@@ -90,12 +90,13 @@ document.addEventListener("click", function(event) {
 		if (typeof window.syncCheckboxCounterLabel === "function") window.syncCheckboxCounterLabel();
 		if (typeof window.updateMasterCheckboxState === "function") window.updateMasterCheckboxState();
 		
-		// Calculate and sync selection counters directly without triggering a row filtration update pass
+		// Calculate and sync selection counters directly without triggering a row 
 		const visibleRowsArr = window.getRuntimeRows();
-		const checkedRowsNum = visibleRowsArr.filter(r => r.querySelector(".row-selector-checkbox")?.checked).length;
+		// 🎯 THE VISIBILITY MATCHING LOCK: Filters out hidden rows so only active on-screen checked items are counted
+		const checkedRowsNum = visibleRowsArr.filter(r => r.style.display !== "none" && r.querySelector(".row-selector-checkbox")?.checked).length;
 		const counterLabelSlot = document.getElementById("checkedFilterCounterText");
 		if (counterLabelSlot) {
-			counterLabelSlot.textContent = `✅(${checkedRowsNum})`;
+			counterLabelSlot.textContent = `✅ (${checkedRowsNum})`;
 		}
 		
 		// Force save event right after status change 💾
@@ -267,7 +268,8 @@ window.applyCombinedFilter = function() {
         });
         // counterTextTarget.textContent = `${checkedVisibleCount} selected`;
         // counterTextTarget.textContent = `${String.fromCodePoint(9989)} (${checkedVisibleCount})`;
-        counterTextTarget.textContent = `\u{2705} ${checkedVisibleCount}`;
+        // counterTextTarget.textContent = `\u{2705} (${checkedVisibleCount})`;
+        counterTextTarget.textContent = `✅ (${checkedVisibleCount})`;
     }
 
     if (typeof window.updateAllSlicerButtonsUI === "function") {
@@ -452,7 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			const toolbarCounterLabelSlot = document.getElementById("checkedFilterCounterText");
 			if (toolbarCounterLabelSlot) {
-				toolbarCounterLabelSlot.textContent = `✅(${liveCheckedVisibleCount})`;
+				toolbarCounterLabelSlot.textContent = `✅ (${liveCheckedVisibleCount})`;
 			}
 			
 			// Synchronize the header master checkbox state (checkmark, empty, or line) to match your new click values
