@@ -3,7 +3,7 @@
 "PROFILES":{
 "ONE":{
 "buttonLabel": "On",
-"pageTitle": "T-800c T-800c I",
+"pageTitle": "T-One",
 "version": "v. 8.0.0c",
 "defaults": {
 "initialSlicersExpanded":false,
@@ -72,7 +72,7 @@
 },
 "TWO":{
 "buttonLabel": "Tw",
-"pageTitle": "T-800c II",
+"pageTitle": "T-Two",
 "version": "v. 8.0.0c",
 "defaults": {
 "initialSlicersExpanded":false,
@@ -141,7 +141,7 @@
 },
 "THREE":{
 "buttonLabel": "Th",
-"pageTitle": "T-800c III",
+"pageTitle": "T-Three",
 "version": "v. 8.0.0c",
 "defaults": {
 "initialSlicersExpanded":false,
@@ -210,7 +210,7 @@
 },
 "FOUR":{
 "buttonLabel": "Fo",
-"pageTitle": "T-800c III",
+"pageTitle": "T-Four",
 "version": "v. 8.0.0c",
 "defaults": {
 "initialSlicersExpanded":false,
