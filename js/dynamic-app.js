@@ -91,6 +91,35 @@ document.addEventListener("DOMContentLoaded", () => {
 				// 1. Re-map internal data schema descriptors references
 				window.activeFiltersSchema = activeProfile.filters || [];
 				window.activeColumnsWidthsSchema = activeProfile.columns || [];
+				// 🎯 THE INITIAL VIEW FILTER INJECTOR ENGINE
+				// Clear out any stale previous selections when switching view profiles
+				window.selectedFilters = {};
+
+				(activeProfile.filters || []).forEach(config => {
+					// Standardize key name format matching your layout processor logic
+					const cleanKey = String(config.jsonKey || "").replace(/data-|-/g, '').trim();
+					
+					// Initialize an empty active filter Set for this category row
+					window.selectedFilters[cleanKey] = new Set();
+					
+					// If an initial fallback filter parameter value exists in your JSON profile schema...
+					if (config.initFilter && String(config.initFilter).trim() !== "") {
+						const defaultFilterValue = String(config.initFilter).trim();
+						
+						// Populate the Set natively so the chip elements materialize automatically on page load 🚀
+						window.selectedFilters[cleanKey].add(defaultFilterValue);
+						
+						console.log(`📌 [View Initializer] Pre-populated default filter state locked: ${cleanKey} -> "${defaultFilterValue}"`);
+					}
+				});
+
+				// Force a full evaluation run to paint chips and hide non-matching rows on the initial layout frame
+				if (typeof window.applyCombinedFilter === "function") {
+					window.applyCombinedFilter();
+				}
+				if (typeof window.updateAllSlicerButtonsUI === "function") {
+					window.updateAllSlicerButtonsUI(window.getRuntimeRows());
+				}
 
 				// 🎯 THE MATCHING LOCK: Binds your JSON priority schema directly to the engine register key
 				window.currentCustomSortPriority = activeProfile.customSortPriority || {};
