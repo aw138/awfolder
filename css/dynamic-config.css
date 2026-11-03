@@ -279,7 +279,7 @@
 
 /* Collapse Active Status Toggle Style (The Minus State) */
 .global-slicers-expand-btn.collapse-active-state {
- background-color: #d8f7d2 !important; 
+ background-color: #C8e7c2 !important; 
  color: #1E1924 !important;
  border-color: #748D92 !important;
 }
@@ -297,7 +297,7 @@
 .panel-row-center-title {
     position: absolute !important;
     left: 50% !important; /*adjust H-position of top title */
-    top: 20% !important; /*adjust V-position of top title */
+    top: 10% !important; /*adjust V-position of top title */
     transform: translate(-50%, -50%) !important;
     pointer-events: none !important; /* Zero footprint prevents blocking data table scrolls */
     height: 0px !important;
