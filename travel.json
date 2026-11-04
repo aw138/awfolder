@@ -141,8 +141,8 @@
 {"type": "checkbox","width": 33,"minWidth":33},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":75,"minWidth":75},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":50,"minWidth":50},
-{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
-{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":100,"minWidth":100},
+{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
+
 {"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":100},
 {"label": "Camera","jsonKey": "val12","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 {"label": "Lens","jsonKey": "val13","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
