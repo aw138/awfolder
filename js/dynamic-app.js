@@ -70,6 +70,30 @@ document.addEventListener("DOMContentLoaded", () => {
 			return res.json();
 		})
 		.then(payload => {
+			// ====================================================================
+			// 🧠 CENTRALIZED IN-MEMORY INHERITANCE LAYER (With Profile Override Priority)
+			// ====================================================================
+			if (payload.COMMON && payload.PROFILES) {
+				const commonSettings = payload.COMMON;
+				Object.keys(payload.PROFILES).forEach(profileKey => {
+					const currentProfile = payload.PROFILES[profileKey];
+					
+					// Combines both objects. If a key exists in both, the profile value (right) wins! 🎯
+					currentProfile.statusBadges = { ...commonSettings.statusBadges, 
+						...currentProfile.statusBadges 
+					};
+					
+					currentProfile.descriptionBadges = { ...commonSettings.descriptionBadges, 
+						...currentProfile.descriptionBadges 
+					};
+					
+					currentProfile.customSortPriority = { ...commonSettings.customSortPriority, 
+						...currentProfile.customSortPriority 
+					};
+				});
+			}
+			// ====================================================================
+
 			// Cache the master payload globally for lookups across profile swaps
 			window.globalCachedFullPayloadConfig = payload;
 			window.currentCustomSortPriority = payload.customSortPriority || {};
