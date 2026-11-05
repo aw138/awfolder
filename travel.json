@@ -177,11 +177,15 @@
 {"label": "Camera","jsonKey": "val12","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 {"label": "Lens","jsonKey": "val13","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
 {"label": "Tripod","jsonKey": "val14","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80}
-]
+],
+"statusBadges": {
+"中國":{"label": "中國", "bg": "#FFFFFF","text": "#00FF00","border": "#AA0000","borderRadius": "3px"}
+}
 }
 },
 "DATA":
 [
+
 
 {"tag1": "Travel", "tag2": "1985", "tag3": "秋季", "tag4": "Japan", "tag5": "關東; 中部; 關西", "tag6": "星晨", "tag7": "8", "tag8": "B200", "tag9": "CZ50;Pentagon135", "tag10": "HG-4", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "秋季 七月十七 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "關東; 中部; 關西<BR>(茨城; 東京; 神奈川; 山梨; 靜岡; 京都; 大阪; 奈良)", "val6": "星晨 (HON-8)", "val7": "本州迪士尼筑波八天超級豪華團", "val8": "1985/9/1 (Sun) - 1985/9/8 (Sun) <span class='inline-description-badge' data-badge='daybadge'>8天</span>", "val9": "Japan <BR> 關東; 中部; 關西", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span>本州迪士尼筑波八天超級豪華團", "val11": "Japan 關東 茨城; 千葉; 東京; 神奈川 中部 山梨; 靜岡 關西 京都; 大阪; 奈良", "val12": "B200", "val13": "CZ50 Pentagon135", "val14": "HG-4"},
 {"tag1": "Travel", "tag2": "1987", "tag3": "秋季", "tag4": "Thailand", "tag5": "曼谷; 布吉; 巴提雅", "tag6": "星晨", "tag7": "7", "tag8": "B200;RicohAF50", "tag9": "CZ50;Pentagon135;Tamron28-50", "tag10": "HG-4", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "秋季 八月初五 - 八月十一", "val3": "7", "val4": "Thailand", "val5": "曼谷; 布吉; 巴提雅", "val6": "星晨", "val7": "曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val8": "1987/9/27 (Sun) - 1987/10/3 (Sat) <span class='inline-description-badge' data-badge='daybadge'>7天</span>", "val9": "Thailand <BR> 曼谷; 布吉; 巴提雅", "val10": "<span class='inline-description-badge' data-badge='agentbadge'>星晨</span>曼谷，布吉，巴提雅(鄭皇廟, 臥佛寺, 布吉查龍寺)", "val11": "Thailand <BR> 曼谷; 布吉; 巴提雅", "val12": "B200 RicohAF50", "val13": "CZ50 Pentagon135 Tamron28-50", "val14": "HG-4"},
