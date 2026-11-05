@@ -44,6 +44,11 @@
 "九州":{"label": "九州", "bg": "#DDFFDD","text": "#224422","border": "#224422","borderRadius": "999px"},
 "沖繩":{"label": "沖繩", "bg": "#DDFFDD","text": "#224422","border": "#224422","borderRadius": "999px"},
 "北海道":{"label": "北海道", "bg": "#DDFFDD","text": "#224422","border": "#224422","borderRadius": "999px"},
+"春季":{"label": "春季", "bg": "#72fA59","text": "#006600","border": "#006600"},
+"夏季":{"label": "夏季", "bg": "#FBB9B9","text": "#AA0000","border": "#AA0000"},
+"秋季":{"label": "秋季", "bg": "#DcCd47","text": "#5c7d00","border": "#5c7d00"},
+"冬季":{"label": "冬季", "bg": "#498aE0","text": "#FFFFFF","border": "#222222"},
+"自由行":{"label": "自由行", "bg": "#FFa0a0","text": "#883030","border": "#883030"},
 "b200":{"label": "B200", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "2px 2px 2px 2px"},
 "eos650":{"label": "EOS650", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
 "20d":{"label": "20D", "bg": "#000000","text": "#AAAAAA","border": "#000000","borderRadius": "5px 5px 0px 0px"},
@@ -140,12 +145,12 @@
 ],
 "columns": [
 {"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":100,"minWidth":100},
+{"label": "Date","jsonKey": "val8","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":75,"minWidth":75},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
-{"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"width":40,"minWidth":40},
-{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 
-{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":60,"minWidth":60},
+{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
+
+{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"width":50,"minWidth":50},
 {"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true,"width":120,"minWidth":120}
 ]
 },
@@ -174,9 +179,9 @@
 {"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
 
 {"label": "Description","jsonKey": "val7","dataType": "string","isSortable":true, "alignRight":false,"width":100,"minWidth":100},
-{"label": "Camera","jsonKey": "val12","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80},
+{"label": "Camera","jsonKey": "val12","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":70,"minWidth":70},
 {"label": "Lens","jsonKey": "val13","dataType": "string","textColor": "#db582d","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
-{"label": "Tripod","jsonKey": "val14","dataType": "string","isSortable":true, "isStatusBadge":true,"width":80,"minWidth":80}
+{"label": "Tripod","jsonKey": "val14","dataType": "string","isSortable":true, "isStatusBadge":true,"width":70,"minWidth":70}
 ]
 }
 },
