@@ -92,7 +92,7 @@
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":40},
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"isFullRow":true, "initSort":true, "initsortOrder":"asc","width":35,"minWidth":35},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":200,"minWidth":200},
 
 
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
