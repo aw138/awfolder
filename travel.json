@@ -119,7 +119,7 @@
 "columns": [
 {"type": "checkbox","width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val8","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":90,"minWidth":90},
-{"label": "Country","jsonKey": "val11","dataType": "string","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
+{"label": "Country","jsonKey": "val11","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":90,"minWidth":90},
 
 
 
