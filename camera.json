@@ -6,7 +6,7 @@
 "中國":1
 },
 "statusBadges": {
-"Canon":{"label": "Canon", "bg": "#BBBBBB","text": "#993030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
+"canon":{"label": "Canon", "bg": "#BBBBBB","text": "#993030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
 },
 "descriptionBadges": {
