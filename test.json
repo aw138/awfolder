@@ -27,6 +27,13 @@
 "hotel":{"bg": "#e086e3","text": "#000000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
+"filters": [
+{"jsonKey": "tag7","title": "Event","initFilter": "Travel","useTab":false,"labelWidth":55}
+],
+"columns": [
+{"type": "checkbox","width":40,"minWidth":40}
+],
+
 "statisticsConfig": {
 "val3":{
 "panelTitle":"D",
@@ -52,7 +59,6 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag7","title": "Event","initFilter": "Travel","useTab":false,"labelWidth":55},
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
@@ -61,7 +67,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
 
 
@@ -82,7 +87,6 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag7","title": "Event","useTab":false,"labelWidth":55},
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6","initFilter": "中國","useTab":true,"labelWidth":55},
@@ -91,7 +95,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":200,"minWidth":200},
 
 
@@ -112,7 +115,6 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag7","title": "Event","useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
 {"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
 {"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
@@ -120,7 +122,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":160},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":78,"minWidth":78},
