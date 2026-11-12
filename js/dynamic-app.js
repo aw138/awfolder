@@ -101,8 +101,17 @@ document.addEventListener("DOMContentLoaded", () => {
 								}
 							});
 						}
+
+						// Sort by optional numeric listOrder (items without listOrder stay at the end in original order)
+						mergedArray.sort((a, b) => {
+							const orderA = (a && typeof a === 'object' && typeof a.listOrder === 'number') ? a.listOrder : 999;
+							const orderB = (b && typeof b === 'object' && typeof b.listOrder === 'number') ? b.listOrder : 999;
+							return orderA - orderB;
+							});
+
 							currentProfile[commonKey] = mergedArray;
-						} else if (commonVal && typeof commonVal === 'object') {
+						}
+							else if (commonVal && typeof commonVal === 'object') {
 							currentProfile[commonKey] = { ...commonVal, ...(profileVal || {}) };
 						} else if (profileVal === undefined) {
 							currentProfile[commonKey] = commonVal;
@@ -306,7 +315,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				// 🎯 THE UNIVERSAL HOOK: Read explicitly from the jsonKey configuration parameter map!
 				// Fall back to a blank string if the database cell field doesn't exist.
 				const variableKey = colConf.jsonKey || "";
-				const rawValue = variableKey ? (item[variableKey] || "").trim() : "";
+				const rawFieldData = variableKey ? item[variableKey] : "";
+				const rawValue = (typeof rawFieldData === "string" || typeof rawFieldData === "number") ? String(rawFieldData).trim() : "";
 
 				let stylesArray = [];
 				if (colConf.textColor) stylesArray.push(`color: ${colConf.textColor} !important;`);
@@ -314,6 +324,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				const stylingAttributes = stylesArray.length > 0 ? `style="${stylesArray.join(' ')}"` : '';
 				let cellDisplayValue = rawValue;
+
+				// MULTI-VALUE KEY-VALUE LIST RENDERER
+				if (colConf.isKeyValueList && rawFieldData && typeof rawFieldData === "object") {
+					const entries = Array.isArray(rawFieldData)? rawFieldData.map(entry => [entry.label || entry.key || "", entry.value || ""]): Object.entries(rawFieldData);
+					const kvRowsHtml = entries
+					.filter(([k, v]) => k !== "" || v !== "").map(([k, v]) => {
+					let valHtml = String(v);
+					const lookup = valHtml.trim().toLowerCase();
+					if (colConf.isStatusBadge && badgeSchema[lookup]) {
+					const b = badgeSchema[lookup];
+					valHtml = `<span class="status-badge-token" style="background-color:${b.bg || ''};color:${b.text || ''};border:1px solid ${b.border || 'transparent'};border-radius:${b.borderRadius || '4px'};padding:${b.padding || '1px 6px'};">${b.label || v}</span>`;
+					}
+					return `
+					<div class="kv-cell-row">
+					<span class="kv-cell-key">${k}:</span>
+					<span class="kv-cell-val">${valHtml}</span>
+					</div>
+					`;
+					}).join("");
+
+					cellDisplayValue = `<div class="kv-cell-grid">${kvRowsHtml}</div>`;
+				}
                 if (colConf.isCurrency && rawValue !== "") {
                     const numericValue = parseFloat(rawValue.replace(/,/g, ''));
                     if (!isNaN(numericValue)) {
@@ -330,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     cellDisplayValue = `<a href="${targetUrl}" target="_blank" class="table-cell-hyperlink" style="color: inherit !important;">${rawValue}</a>`;
                 }
 
-				if (colConf.isStatusBadge) {
+				if (colConf.isStatusBadge && !colConf.isKeyValueList) {
 					const statusWordsArray = cellDisplayValue.trim().split(/\s+/);
 					let compiledBadgesHtmlString = "";
 
