@@ -26,10 +26,8 @@
 {"jsonKey": "tag10","title": "RAW","listOrder":100,"useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","listOrder":10,"width":80,"minWidth":80},
-{"label": "Model","jsonKey": "val1","dataType": "string","isSortable":true,"listOrder":20,"width":200,"minWidth":200},
-{"label": "General","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":50,"width":200,"minWidth":200},
-{"label": "Img/sensor","jsonKey": "val3","dataType": "string","textColor": "#009900","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":90,"width":200,"minWidth":200}
+{"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
+{"label": "Model","jsonKey": "val1","dataType": "string","isSortable":true,"listOrder":20,"width":100,"minWidth":100}
 ]
 },
 "PROFILES":{
@@ -42,6 +40,8 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
+{"label": "General","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":50,"width":200,"minWidth":200},
+{"label": "Image/sensor","jsonKey": "val3","dataType": "string","textColor": "#009900","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":90,"width":200,"minWidth":200},
 {"label": "Physical","jsonKey": "val4","dataType": "string","textColor": "#db582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
 ]
 },
@@ -54,12 +54,15 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
-{"label": "Photography","jsonKey": "val5","dataType": "string","textColor": "#FF582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
+{"label": "Sceen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#FF582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200},
+{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#FF582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200},
+{"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#FF582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
 ]
 }
 },
 "DATA":
 [
+
 
 {"tag1": "Disposed", "tag2": "Praktica", "tag3": "Full Frame", "tag4": "1978", "tag5": "SLR", "tag6": "Film", "tag7": "No", "tag8": "No", "tag9": "No", "tag10": "N/A", "val1": "Praktica MTL3", "val2":{"Launch year":"1978","Launch Price":"","Bought":"1978","Type":"SLR","Include lens":"No"}, "val3": {"Resolution":"N/A","Sensor":"Film (3:2)","AF Points":"Manual focus","AF brightness":"N/A","IBIS":"N/A","Max ISO":1600}, "val4": {"Battery":"PX625","Built-in flash":"No","Weight":"561.3g","Dimensions":"138 x 87 x 49mm"}, "val5": {"Viewfinder":"Optical","VF magnification":"?","VF resolution":"N/A","Screen":"N/A","Touch screen":"No","LCD resolution":"N/A"}, "val6": {"Shutter range":"1s-1/1000s","X-Sync":"1/90s","Burst":"N/A","Exp Comp":"N/A","RAW":"N/A"}, "val7": {"Storage":"Film","USB version":"N/A","HDMI":"No","GPS":"No","Wireless":"No"}},
 {"tag1": "Disposed", "tag2": "Praktica", "tag3": "Full Frame", "tag4": "1979", "tag5": "SLR", "tag6": "Film", "tag7": "No", "tag8": "No", "tag9": "No", "tag10": "N/A", "val1": "Praktica B200", "val2":{"Launch year":"1979","Launch Price":" ","Bought":"1979","Type":"SLR","Include lens":"No"}, "val3": {"Resolution":"N/A","Sensor":"Film (3:2)","AF Points":"Manual focus","AF brightness":"N/A","IBIS":"N/A","Max ISO":1600}, "val4": {"Battery":"4LR44","Built-in flash":"No","Weight":"530g","Dimensions":"138 x 87.5 x 49mm"}, "val5": {"Viewfinder":"Optical","VF magnification":"0.95x","VF resolution":"N/A","Screen":"N/A","Touch screen":"No","LCD resolution":"N/A"}, "val6": {"Shutter range":"40s-1/1000s","X-Sync":"1/90s","Burst":"N/A","Exp Comp":"± 2ev","RAW":"N/A"}, "val7": {"Storage":"Film","USB version":"N/A","HDMI":"No","GPS":"No","Wireless":"No"}},
