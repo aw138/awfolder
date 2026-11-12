@@ -191,12 +191,9 @@ document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
     }
     window.lastExecutedSearchQuery = ""; // Unlock search state 🔓
 
-    // 2. Reset our Favorite filter system tracking states and visual handles
-    window.showFavouritesOnlyActive = false;
-    const favToggleBtn = document.getElementById("favFilterToggleBtn");
-    if (favToggleBtn) {
-        favToggleBtn.classList.remove("fav-filter-active-state");
-    }
+	window.manualSelections = {};
+	window.upgradedNormalFilters = new Set();
+	window.userExplicitlyClearedDefaults = new Set();
 
     // 3. Clear all dynamic cross-filter Slicer Sets completely
     if (window.selectedFilters) {

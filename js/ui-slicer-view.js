@@ -142,11 +142,37 @@ window.updateAllSlicerButtonsUI = function(rows) {
             
             chip.className = `active-selected-chip ${logicColorClass}`;
             chip.innerHTML = `${chosenValue} <span>&times;</span>`;
-            chip.onclick = (e) => {
-                e.stopPropagation();
-                activeSet.delete(chosenValue);
-                window.applyCombinedFilter();
-            };
+			chip.onclick = (e) => {
+				e.stopPropagation();
+				
+				window.manualSelections = window.manualSelections || {};
+				window.upgradedNormalFilters = window.upgradedNormalFilters || new Set();
+				window.userExplicitlyClearedDefaults = window.userExplicitlyClearedDefaults || new Set();
+
+				const signatureKey = `${currentAttr}:${chosenValue}`;
+				
+				// Identify if this item is a configured default parameter
+				const filterConfig = (window.activeFiltersSchema || []).find(f => String(f.jsonKey || "").replace(/data-|-/g, '').trim() === currentAttr);
+				const isDefaultParam = filterConfig && String(filterConfig.initFilter || "").trim() === String(chosenValue).trim();
+
+				if (isDefaultParam) {
+					if (window.upgradedNormalFilters.has(signatureKey)) {
+						// It was converted to a normal filter, so handle standard removal
+						window.upgradedNormalFilters.delete(signatureKey);
+						if (window.manualSelections[currentAttr]) window.manualSelections[currentAttr].delete(chosenValue);
+					} else {
+						// It was an untouched default, black-list it from popping up again in this view
+						window.userExplicitlyClearedDefaults.add(signatureKey);
+					}
+				} else {
+					// Clear normal user filter options cleanly
+					if (window.manualSelections[currentAttr]) window.manualSelections[currentAttr].delete(chosenValue);
+					window.upgradedNormalFilters.delete(signatureKey);
+				}
+
+				activeSet.delete(chosenValue);
+				window.applyCombinedFilter();
+			};
             chipsWrapper.appendChild(chip);
         });
 
@@ -357,14 +383,29 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
 			// 🎯 AMEND VERBATIM TO THIS UPDATED ACTION BLOCK:
 			btn.onclick = () => {
 				window.activeSlicerKey = currentAttr;
+				
+				window.manualSelections = window.manualSelections || {};
+				window.upgradedNormalFilters = window.upgradedNormalFilters || new Set();
+				window.userExplicitlyClearedDefaults = window.userExplicitlyClearedDefaults || new Set();
+
+				const signatureKey = `${currentAttr}:${tagObj.value}`;
+				
+				// Upgrade state conversion tracking registration key
+				window.upgradedNormalFilters.add(signatureKey);
+				
+				if (!window.manualSelections[currentAttr]) window.manualSelections[currentAttr] = new Set();
+
 				if (activeSet.has(tagObj.value)) {
 					activeSet.delete(tagObj.value);
+					window.manualSelections[currentAttr].delete(tagObj.value);
+					window.upgradedNormalFilters.delete(signatureKey);
 				} else {
-					// 🚨 Enforce single item selection ceiling if row is active under ONLY logic mode
 					if (window.booleanLogicalModes[currentAttr] === "ONLY") {
 						activeSet.clear();
+						window.manualSelections[currentAttr].clear();
 					}
 					activeSet.add(tagObj.value);
+					window.manualSelections[currentAttr].add(tagObj.value);
 				}
 				window.applyCombinedFilter();
 			};
@@ -386,19 +427,34 @@ window.renderTargetedSlicerLayoutGroup = function(rows, tagsWithAvailability, fi
             }
             
 			// 🎯 AMEND VERBATIM TO THIS RE-ALIGNED DECK ACTION BLOCK:
-            btn.onclick = () => {
-                window.activeSlicerKey = currentAttr;
-                if (activeSet.has(tagObj.value)) {
-                    activeSet.delete(tagObj.value);
-                } else {
-                    // 🚨 Enforce single item selection ceiling if row is active under ONLY logic mode
-                    if (window.booleanLogicalModes[currentAttr] === "ONLY") {
-                        activeSet.clear();
-                    }
-                    activeSet.add(tagObj.value);
-                }
-                window.applyCombinedFilter();
-            };
+			btn.onclick = () => {
+				window.activeSlicerKey = currentAttr;
+				
+				window.manualSelections = window.manualSelections || {};
+				window.upgradedNormalFilters = window.upgradedNormalFilters || new Set();
+				window.userExplicitlyClearedDefaults = window.userExplicitlyClearedDefaults || new Set();
+
+				const signatureKey = `${currentAttr}:${tagObj.value}`;
+				
+				// Upgrade state conversion tracking registration key
+				window.upgradedNormalFilters.add(signatureKey);
+				
+				if (!window.manualSelections[currentAttr]) window.manualSelections[currentAttr] = new Set();
+
+				if (activeSet.has(tagObj.value)) {
+					activeSet.delete(tagObj.value);
+					window.manualSelections[currentAttr].delete(tagObj.value);
+					window.upgradedNormalFilters.delete(signatureKey);
+				} else {
+					if (window.booleanLogicalModes[currentAttr] === "ONLY") {
+						activeSet.clear();
+						window.manualSelections[currentAttr].clear();
+					}
+					activeSet.add(tagObj.value);
+					window.manualSelections[currentAttr].add(tagObj.value);
+				}
+				window.applyCombinedFilter();
+			};
             optionsDeck.appendChild(btn);
         });
     }

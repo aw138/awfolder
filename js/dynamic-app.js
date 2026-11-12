@@ -74,22 +74,40 @@ document.addEventListener("DOMContentLoaded", () => {
 			// 🧠 CENTRALIZED IN-MEMORY INHERITANCE LAYER (With Profile Override Priority)
 			// ====================================================================
 			if (payload.COMMON && payload.PROFILES) {
-				const commonSettings = payload.COMMON;
-				Object.keys(payload.PROFILES).forEach(profileKey => {
-					const currentProfile = payload.PROFILES[profileKey];
-					
-					// Combines both objects. If a key exists in both, the profile value (right) wins! 🎯
-					currentProfile.statusBadges = { ...commonSettings.statusBadges, 
-						...currentProfile.statusBadges 
-					};
-					
-					currentProfile.descriptionBadges = { ...commonSettings.descriptionBadges, 
-						...currentProfile.descriptionBadges 
-					};
-					
-					currentProfile.customSortPriority = { ...commonSettings.customSortPriority, 
-						...currentProfile.customSortPriority 
-					};
+				//const commonSettings = payload.COMMON;
+				const allProfiles = payload.PROFILES || {};
+				const commonSettings = payload.COMMON || {};
+
+				Object.keys(allProfiles).forEach(profileKey => {
+					const currentProfile = allProfiles[profileKey];
+					if (!currentProfile) return;
+
+					Object.keys(commonSettings).forEach(commonKey => {
+						const commonVal = commonSettings[commonKey];
+						const profileVal = currentProfile[commonKey];
+
+						if (Array.isArray(commonVal)) {
+							const mergedArray = [...commonVal];
+						if (Array.isArray(profileVal)) {
+							profileVal.forEach(pItem => {
+								const getItemId = (obj) => obj && typeof obj === 'object' ? (obj.jsonKey || obj.type || obj.label) : obj;
+								const pId = getItemId(pItem);
+								const existingIdx = pId !== undefined ? mergedArray.findIndex(cItem => getItemId(cItem) === pId) : -1;
+
+								if (existingIdx !== -1) {
+									mergedArray[existingIdx] = pItem;
+								} else {
+									mergedArray.push(pItem);
+								}
+							});
+						}
+							currentProfile[commonKey] = mergedArray;
+						} else if (commonVal && typeof commonVal === 'object') {
+							currentProfile[commonKey] = { ...commonVal, ...(profileVal || {}) };
+						} else if (profileVal === undefined) {
+							currentProfile[commonKey] = commonVal;
+						}
+					});
 				});
 			}
 			// ====================================================================
@@ -112,28 +130,62 @@ document.addEventListener("DOMContentLoaded", () => {
 					activeProfile = payload.CONFIG || {};
 				}
 
-				// 1. Re-map internal data schema descriptors references
+				// ====================================================================
+				// 🧼 STATE MANAGER LAYER: PURGE UNTOUCHED DEFAULTS & RECONCILE MEMORY
+				// ====================================================================
+				window.manualSelections = window.manualSelections || {};
+				window.upgradedNormalFilters = window.upgradedNormalFilters || new Set();
+				window.userExplicitlyClearedDefaults = window.userExplicitlyClearedDefaults || new Set();
+
+				// Clean out untouched defaults from the previous view profile before moving forward
+				if (window.activeFiltersSchema && Array.isArray(window.activeFiltersSchema)) {
+					window.activeFiltersSchema.forEach(oldConfig => {
+						if (oldConfig.initFilter && String(oldConfig.initFilter).trim() !== "") {
+							const oldCleanKey = String(oldConfig.jsonKey || "").replace(/data-|-/g, '').trim();
+							const oldDefaultValue = String(oldConfig.initFilter).trim();
+							const signatureKey = `${oldCleanKey}:${oldDefaultValue}`;
+
+							// Scrub ONLY if the user didn't intentionally interact with it
+							if (!window.upgradedNormalFilters.has(signatureKey)) {
+								if (window.manualSelections[oldCleanKey]) {
+									window.manualSelections[oldCleanKey].delete(oldDefaultValue);
+								}
+							}
+						}
+					});
+				}
+
+				// 1. Re-map internal data schema descriptors references for the incoming layout profile
 				window.activeFiltersSchema = activeProfile.filters || [];
 				window.activeColumnsWidthsSchema = activeProfile.columns || [];
-				// 🎯 THE INITIAL VIEW FILTER INJECTOR ENGINE
-				// Clear out any stale previous selections when switching view profiles
+				
+				// Reinitialize core object and copy over persistent manual selections safely
 				window.selectedFilters = {};
+				Object.keys(window.manualSelections).forEach(key => {
+					window.selectedFilters[key] = new Set(window.manualSelections[key]);
+				});
 
+				// ====================================================================
+				// 🚀 POPULATE INCOMING INITIAL FILTER PROPS
+				// ====================================================================
 				(activeProfile.filters || []).forEach(config => {
-					// Standardize key name format matching your layout processor logic
 					const cleanKey = String(config.jsonKey || "").replace(/data-|-/g, '').trim();
-					
-					// Initialize an empty active filter Set for this category row
-					window.selectedFilters[cleanKey] = new Set();
-					
-					// If an initial fallback filter parameter value exists in your JSON profile schema...
+
+					if (!window.selectedFilters[cleanKey]) {
+						window.selectedFilters[cleanKey] = new Set();
+					}
+					if (!window.manualSelections[cleanKey]) {
+						window.manualSelections[cleanKey] = new Set();
+					}
+
 					if (config.initFilter && String(config.initFilter).trim() !== "") {
 						const defaultFilterValue = String(config.initFilter).trim();
-						
-						// Populate the Set natively so the chip elements materialize automatically on page load 🚀
-						window.selectedFilters[cleanKey].add(defaultFilterValue);
-						
-						console.log(`📌 [View Initializer] Pre-populated default filter state locked: ${cleanKey} -> "${defaultFilterValue}"`);
+						const signatureKey = `${cleanKey}:${defaultFilterValue}`;
+
+						// Only load if the user hasn't explicitly clicked it away inside this view
+						if (!window.userExplicitlyClearedDefaults.has(signatureKey)) {
+							window.selectedFilters[cleanKey].add(defaultFilterValue);
+						}
 					}
 				});
 
