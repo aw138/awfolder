@@ -1,6 +1,20 @@
 {
 "CURRENT_ACTIVE_PROFILE":"ONE",
 "COMMON":{
+"filters": [
+{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Country","useTab":false,"labelWidth":55},
+{"jsonKey": "tag4","title": "Agent","useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Trip","textColor": "#0000e6","useTab":false,"labelWidth":55},
+{"jsonKey": "tag5","title": "Cat","textColor": "#065f46","useTab":false,"labelWidth":55}
+],
+"columns": [
+{"type": "checkbox","listOrder":10,"width":33,"minWidth":33},
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":95,"minWidth":95},
+{"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"listOrder":60,"width":48,"minWidth":48},
+{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"listOrder":70,"width":114,"minWidth":114},
+{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"listOrder":80,"width":80,"minWidth":80}
+],
 "customSortPriority": {
 "(None)":999,
 "中國":1
@@ -32,23 +46,7 @@
 "defaults": {
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
-},
-"filters": [
-{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Country","useTab":false,"labelWidth":55},
-{"jsonKey": "tag4","title": "Agent","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Trip","textColor": "#0000e6","useTab":false,"labelWidth":55},
-{"jsonKey": "tag5","title": "Cat","textColor": "#065f46","useTab":false,"labelWidth":55}
-],
-"columns": [
-{"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":95,"minWidth":95},
-
-
-{"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":48,"minWidth":48},
-{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":114,"minWidth":114},
-{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":80,"minWidth":80}
-]
+}
 },
 "TWO":{
 "buttonLabel": "II",
@@ -58,22 +56,10 @@
 "initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
 },
-"filters": [
-{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Country","useTab":false,"labelWidth":55},
-{"jsonKey": "tag4","title": "Agent","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Trip","textColor": "#0000e6","useTab":false,"labelWidth":55},
-{"jsonKey": "tag5","title": "Cat","textColor": "#065f46","useTab":false,"labelWidth":55}
-],
 "columns": [
-{"type": "checkbox","width":33,"minWidth":33},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":110,"minWidth":110},
-{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"width":70,"minWidth":70},
-{"label": "Agent","jsonKey": "val3","dataType": "string","isSortable":true,"isStatusBadge":true,"width":70,"minWidth":70},
-{"label": "Trip","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true,"width":110,"minWidth":110},
-{"label": "Cat","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"width":40,"minWidth":40},
-{"label": "Description","jsonKey": "val6","dataType": "string","isSortable":true,"width":150,"minWidth":150},
-{"label": "Amount","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"width":90,"minWidth":90}
+{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"listOrder":30,"width":70,"minWidth":70},
+{"label": "Agent","jsonKey": "val3","dataType": "string","isSortable":true,"isStatusBadge":true,"listOrder":40,"width":70,"minWidth":70},
+{"label": "Trip","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true,"listOrder":50,"width":110,"minWidth":110}
 ]
 }
 },
