@@ -15,7 +15,7 @@
 "公開報名":{"label": "公開報名", "bg": "#C0C0FF","text": "#303088","border": "#303088","borderRadius": "4px"}
 },
 "descriptionBadges": {
-"travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
+"day":{"bg": "#FFFFFF","text": "#883333","border": "#883333"}
 },
 "filters": [
 {"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":70},
@@ -84,6 +84,7 @@
 },
 "DATA":
 [
+
 
 {"tag1":"2023","tag2":"長者徒手健體訓練班","tag3":"沙田","tag4":"車公廟體育館","tag5":"Mon;Thu","tag6":"10","tag7":"中籤","val1":"2023/1/30 (Mon)","val2":"2023/3/30 (Thu)","val3":"10","val4":"長者徒手健體訓練班","val5":"車公廟體育館","val6":"Mon;Thu","val7":"10-11","val8":"沙田","val9":"中籤","val10":"2023/1/30 (Mon) - 2023/3/30 (Thu)","val11":"Mon;Thu (10-11) <span class='inline-description-badge' data-badge='day'>10 堂</span>"},
 {"tag1":"2023","tag2":"長者器械健體訓練班","tag3":"沙田","tag4":"圓洲角體育館","tag5":"Wed;Fri","tag6":"15","tag7":"中籤","val1":"2023/1/11 (Wed)","val2":"2023/2/22 (Wed)","val3":"10","val4":"長者器械健體訓練班","val5":"圓洲角體育館","val6":"Wed;Fri","val7":"15-16","val8":"沙田","val9":"中籤","val10":"2023/1/11 (Wed) - 2023/2/22 (Wed)","val11":"Wed;Fri (15-16) <span class='inline-description-badge' data-badge='day'>10 堂</span>"},
