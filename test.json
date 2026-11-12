@@ -53,7 +53,7 @@
 "TRAVEL":{
 "buttonLabel": "Travel",
 "pageTitle": "Test-Tvl",
-"version": "v. 8.0.0c",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -81,7 +81,7 @@
 "TVLGEAR":{
 "buttonLabel": "中國自由行",
 "pageTitle": "中國自由行",
-"version": "v. 8.0.5",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -109,7 +109,7 @@
 "All":{
 "buttonLabel": "All",
 "pageTitle": "Test-All",
-"version": "v. 8.0.0c",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
