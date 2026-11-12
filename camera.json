@@ -46,15 +46,15 @@
 ]
 },
 "PHOTO":{
-"buttonLabel": "Gen",
-"pageTitle": "Cam-Gen",
+"buttonLabel": "Photo",
+"pageTitle": "Cam-Photo",
 "version": "v. 8.2.0",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
-{"label": "Physical","jsonKey": "val5","dataType": "string","textColor": "#db582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
+{"label": "Photography","jsonKey": "val5","dataType": "string","textColor": "#FF582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
 ]
 }
 },
