@@ -111,7 +111,7 @@
 "TRAVEL":{
 "buttonLabel": "旅行",
 "pageTitle": "旅行紀錄",
-"version": "v. 8",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -133,7 +133,7 @@
 "ALL":{
 "buttonLabel": "All",
 "pageTitle": "All",
-"version": "v. 8",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -152,7 +152,7 @@
 "GEAR":{
 "buttonLabel": "Gears",
 "pageTitle": "Gears",
-"version": "v. 8",
+"version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
