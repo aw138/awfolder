@@ -11,7 +11,7 @@
 },
 "statusBadges": {
 "中國":{"label": "中國", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
-"a":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
+"澳門":{"label": "澳門", "bg": "#FFa0a0","text": "#883030","border": "#883030","borderRadius": "4px 4px 0px 0px"},
 "thailand":{"label": "Thailand", "bg": "#00F080","text": "#000000","border": "#000066","borderRadius": "0px 0px 0px 0px"},
 "malaysia":{"label": "Malaysia", "bg": "#FF80FF","text": "#0000FF","border": "#000066","borderRadius": "0px 6px 0px 6px"},
 "sing a pore":{"label": "Singapore", "bg": "#FF8080","text": "#cccc00","border": "#000066","borderRadius": "999px"},
@@ -28,7 +28,12 @@
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
 "filters": [
-{"jsonKey": "tag7","title": "Event","initFilter": "Travel","useTab":false,"labelWidth":55}
+{"jsonKey": "tag7","title": "Event","listOrder":10,"useTab":false,"labelWidth":55},
+{"jsonKey": "tag2","title": "Season","listOrder":20,"useTab":false,"labelWidth":55},
+{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","listOrder":30,"useTab":true,"labelWidth":55},
+{"jsonKey": "tag4","title": "Place","textColor": "#065f46","listOrder":40,"useTab":true,"labelWidth":55},
+{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","listOrder":50,"useTab":false,"labelWidth":55},
+{"jsonKey": "tag6","title": "Days","listOrder":60,"dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":40},
@@ -59,12 +64,7 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
-{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
+{"jsonKey": "tag1","title": "Year","listOrder":15,"useTab":false,"labelWidth":55}
 ],
 "columns": [
 
@@ -86,13 +86,7 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
-{"jsonKey": "tag7","title": "Event","useTab":false,"labelWidth":55},
-{"jsonKey": "tag1","title": "Year","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","initFilter": "中國","useTab":true,"labelWidth":55},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
-{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","initFilter": "自由行","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
+{"jsonKey": "tag1","title": "Year","listOrder":15,"useTab":false,"labelWidth":55}
 ],
 "columns": [
 
@@ -113,14 +107,6 @@
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
 },
-"filters": [
-{"jsonKey": "tag7","title": "Event","useTab":false,"labelWidth":55},
-{"jsonKey": "tag2","title": "Season","useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Country","textColor": "#0000e6","useTab":true,"labelWidth":55},
-{"jsonKey": "tag4","title": "Place","textColor": "#065f46","useTab":true,"labelWidth":55},
-{"jsonKey": "tag5","title": "Agent","textColor": "#db582d","useTab":false,"labelWidth":55},
-{"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
-],
 "columns": [
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":160},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":78,"minWidth":78},
@@ -135,7 +121,6 @@
 },
 "DATA":
 [
-
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "tag7": "Travel", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "tag7": "Travel", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 EF100L - 八 月 十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
