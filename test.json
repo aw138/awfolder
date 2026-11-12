@@ -31,9 +31,9 @@
 {"jsonKey": "tag7","title": "Event","initFilter": "Travel","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":40}
+{"type": "checkbox","width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200}
 ],
-
 "statisticsConfig": {
 "val3":{
 "panelTitle":"D",
@@ -67,7 +67,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
 
 
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
@@ -80,7 +79,7 @@
 },
 "TVLGEAR":{
 "buttonLabel": "中國自由行",
-"pageTitle": "中國自由行",
+"pageTitle": "Test-中國自由行",
 "version": "v. 8.1.4",
 "defaults": {
 "initialSlicersExpanded":false,
@@ -95,7 +94,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true, "initSort":true, "initsortOrder":"asc","width":200,"minWidth":200},
 
 
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
@@ -122,7 +120,6 @@
 {"jsonKey": "tag6","title": "Days","dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"width":200,"minWidth":200},
 {"label": "Lunar","jsonKey": "val2","dataType": "string","isSortable":true,"isStatusBadge":true, "initSort":true, "initsortOrder":"asc","width":160,"minWidth":160},
 {"label": "Days","jsonKey": "val3","dataType": "number","isSortable":true, "alignRight":true,"isCurrency":false,"precision": 0,"isStatistics": true,"isStatMode": false,"width":78,"minWidth":78},
 {"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"width":95,"minWidth":95},
@@ -136,6 +133,10 @@
 },
 "DATA":
 [
+
+]
+}
+
 
 {"tag1": "1985", "tag2": "秋季", "tag3": "Japan", "tag4": "本州", "tag5": "星晨", "tag6": "8", "tag7": "Travel", "val1": "1985/9/1 (Sun) - 1985/9/8 (Sun)", "val2": "8 本州迪士尼筑波七天超級豪華團 - 七月廿四", "val3": "8", "val4": "Japan", "val5": "本州", "val6": "星晨 (HON-8)", "val7": "4370", "val8": "<span class='inline-description-badge' data-badge='flower'>❀&#xFE0E; FLOWER</span>8 本州迪士尼筑波8天超級豪華團"},
 {"tag1": "1987", "tag2": "秋季", "tag3": "Thailand", "tag4": "Bangkok; 布吉; 巴提雅", "tag5": "星晨", "tag6": "7", "tag7": "Travel", "val1": "1987/9/27 (Sun) - 1987/10/3 (Sat)", "val2": "8曼谷，布吉，巴提雅 EF100L - 八 月 十一", "val3": "7", "val4": "Thailand", "val5": "Bangkok; 布吉; 巴提雅", "val6": "星晨", "val7": "0.8", "val8": "<span class='inline-description-badge' data-badge='hiking'>🚶‍&#xFE0E; HIKING</span>8曼谷，布吉，巴提雅"},
