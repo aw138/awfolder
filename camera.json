@@ -55,7 +55,7 @@
 },
 "columns": [
 {"label": "Sceen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#995050","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200},
-{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#8080AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200},
+{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#3030AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200},
 {"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#800000","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":200,"minWidth":200}
 ]
 }
