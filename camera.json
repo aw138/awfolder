@@ -6,10 +6,10 @@
 "中國":1
 },
 "statusBadges": {
-"active":{"label": "A", "bg": "#7CC24E","text": "#406328","border": "#406328","borderRadius": "999px"},
+"active":{"label": "A", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000","borderRadius": "999px"},
 "retired":{"label": "R", "bg": "#FFAA00","text": "#967B44","border": "#967B44","borderRadius": "999px"},
 "disposed":{"label": "D", "bg": "#a0a0a0","text": "#000000","border": "#000000","borderRadius": "999px"},
-"not_having":{"label": "N", "bg": "#0000BB","text": "#0000FF","border": "#000044","borderRadius": "999px"},
+"not_having":{"label": "N", "bg": "#0000FF","text": "#AAAAFF","border": "#0000FF","borderRadius": "999px"},
 "canon":{"label": "Canon", "bg": "#FFFFFF","text": "#BB3030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "nikon":{"label": "Nikon", "bg": "#FFFF00","text": "#000000","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "praktica":{"label": "Praktica", "bg": "#EEEEEE","text": "#0000FF","border": "#303030","borderRadius": "3px 3px 3px 3px"},
