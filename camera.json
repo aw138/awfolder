@@ -33,7 +33,7 @@
 ],
 "columns": [
 {"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
-{"label": "Model","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true,"listOrder":20,"width":100,"minWidth":100}
+{"label": "Model","jsonKey": "val1","dataType": "string","isSortable":true, "isStatusBadge":true, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":100,"minWidth":100}
 ]
 },
 "PROFILES":{
