@@ -61,9 +61,9 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
-{"label": "Screen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#995050","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160},
-{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#3030AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160},
-{"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#800000","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160}
+{"label": "Screen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#995050","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":110,"width":160,"minWidth":160},
+{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#3030AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":120,"width":160,"minWidth":160},
+{"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#800000","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":130,"width":160,"minWidth":160}
 ]
 },
 "ALL":{
@@ -78,9 +78,9 @@
 {"label": "General","jsonKey": "val2","dataType": "string","textColor": "#0000e6","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":50,"width":160,"minWidth":160},
 {"label": "Image/sensor","jsonKey": "val3","dataType": "string","textColor": "#009900","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":90,"width":160,"minWidth":160},
 {"label": "Physical","jsonKey": "val4","dataType": "string","textColor": "#db582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160},
-{"label": "Screen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#995050","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160},
-{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#3030AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160},
-{"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#800000","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160}
+{"label": "Screen/Viewfinder","jsonKey": "val5","dataType": "string","textColor": "#995050","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":110,"width":160,"minWidth":160},
+{"label": "Photography","jsonKey": "val6","dataType": "string","textColor": "#3030AA","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":120,"width":160,"minWidth":160},
+{"label": "Storage/Connectivity","jsonKey": "val7","dataType": "string","textColor": "#800000","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":130,"width":160,"minWidth":160}
 ]
 }
 },
