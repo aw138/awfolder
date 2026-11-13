@@ -3,7 +3,7 @@
 "COMMON":{
 "customSortPriority": {
 "Yes":1,
-"No":2,
+"No":998,
 "N/A":999
 },
 "statusBadges": {
@@ -23,8 +23,8 @@
 "filters": [
 {"jsonKey": "tag1","title": "Status","listOrder":10,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag2","title": "Brand","listOrder":20,"useTab":false,"labelWidth":55},
-{"jsonKey": "tag3","title": "Format","textColor": "#0000e6","listOrder":30,"useTab":true,"labelWidth":55},
-{"jsonKey": "tag4","title": "Launched","textColor": "#065f46","listOrder":40,"useTab":true,"labelWidth":55},
+{"jsonKey": "tag3","title": "Format","textColor": "#0000e6","listOrder":30,"useTab":false,"labelWidth":55},
+{"jsonKey": "tag4","title": "Launched","textColor": "#065f46","listOrder":110,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag5","title": "Body","textColor": "#db582d","listOrder":50,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag6","title": "Storage","listOrder":60,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag7","title": "Touch","listOrder":70,"useTab":false,"labelWidth":55},
