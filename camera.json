@@ -1,5 +1,5 @@
 {
-"CURRENT_ACTIVE_PROFILE":"GEN",
+"CURRENT_ACTIVE_PROFILE":"ALL",
 "COMMON":{
 "customSortPriority": {
 "Yes":1,
@@ -7,10 +7,10 @@
 "N/A":999
 },
 "statusBadges": {
-"active":{"label": "A", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000","borderRadius": "999px"},
-"retired":{"label": "R", "bg": "#c49f49","text": "#634d1a","border": "#634d1a","borderRadius": "999px"},
-"disposed":{"label": "D", "bg": "#b0b0b0","text": "#000000","border": "#000000","borderRadius": "999px"},
-"not_having":{"label": "N", "bg": "#0000FF","text": "#ccccFF","border": "#000000","borderRadius": "999px"},
+"active":{"label": "ACTIVE", "bg": "#FFFF00","text": "#FF0000","border": "#FF0000","borderRadius": "999px"},
+"retired":{"label": "RETIRED", "bg": "#c49f49","text": "#634d1a","border": "#634d1a","borderRadius": "999px"},
+"disposed":{"label": "DISPOSED", "bg": "#b0b0b0","text": "#000000","border": "#000000","borderRadius": "999px"},
+"not_having":{"label": "NOT HAVING", "bg": "#0000FF","text": "#ccccFF","border": "#000000","borderRadius": "999px"},
 "canon":{"label": "Canon", "bg": "#FFFFFF","text": "#BB3030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "nikon":{"label": "Nikon", "bg": "#FFFF00","text": "#000000","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "praktica":{"label": "Praktica", "bg": "#EEEEEE","text": "#0000FF","border": "#303030","borderRadius": "3px 3px 3px 3px"},
@@ -86,7 +86,6 @@
 },
 "DATA":
 [
-
 
 
 {"tag1": "Disposed", "tag2": "Praktica", "tag3": "Full Frame", "tag4": "1978", "tag5": "SLR", "tag6": "Film", "tag7": "No", "tag8": "No", "tag9": "No", "tag10": "N/A", "val1": "Praktica MTL3 Disposed", "val2":{"Launch year":"1978","Launch Price":"","Bought":"1978","Type":"SLR","Include lens":"No"}, "val3": {"Resolution":"N/A","Sensor":"Film (3:2)","AF Points":"Manual focus","AF brightness":"N/A","IBIS":"N/A","Max ISO":1600}, "val4": {"Battery":"PX625","Built-in flash":"No","Weight":"561.3g","Dimensions":"138 x 87 x 49mm"}, "val5": {"Viewfinder":"Optical","VF magnification":"?","VF resolution":"N/A","Screen":"N/A","Touch screen":"No"}, "val6": {"Shutter range":"1s-1/1000s","X-Sync":"1/90s","Burst":"N/A","Exp Comp":"N/A","RAW":"N/A"}, "val7": {"Storage":"Film","USB version":"N/A","HDMI":"No","GPS":"No","Wireless":"No"}},
