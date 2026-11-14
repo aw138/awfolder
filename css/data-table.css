@@ -86,6 +86,7 @@
 }
 
 /* 📌 FIXED STICKY TABLE HEADER SCOPE CONTAINER */
+#dataTable th,
 #dataTable th.sortable { 
     font-size: 1rem !important; 
     color: #ffffff !important; 
