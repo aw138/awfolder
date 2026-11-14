@@ -469,9 +469,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // =============================================================
             // 🎯 THE INITIAL SORT ENGINE SCANNER DIRECT INJECTION
             // =============================================================
-            if (typeof window.executeSort === "function" && columnConfigs) {
-                // Find the index offset position mapping your target column
-                const defaultSortColumnIndex = columnConfigs.findIndex(col => col && col.initSort === true);
+			if (typeof window.executeSort === "function" && columnConfigs) {
+				// Find the index offset position mapping your target column
+				const defaultSortColumnIndex = columnConfigs.findIndex(col => col && col.initSort === true && col.isSortable !== false);
                 
                 if (defaultSortColumnIndex !== -1) {
                     const targetSortConfig = columnConfigs[defaultSortColumnIndex];
@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				// Build sorting visual caret arrows indicators directly onto headers
 				if (typeof window.executeSort === "function" && columnConfigs) {
-					const defaultSortIdx = columnConfigs.findIndex(col => col && col.initSort === true);
+					const defaultSortIdx = columnConfigs.findIndex(col => col && col.initSort === true && col.isSortable !== false);
 					if (defaultSortIdx !== -1) {
 						const isAscendingSortOrder = String(columnConfigs[defaultSortIdx].initsortOrder).toLowerCase() !== "desc";
 						window.executeSort(defaultSortIdx, isAscendingSortOrder);
