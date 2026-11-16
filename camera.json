@@ -4,7 +4,7 @@
 "customSortPriority": {
 "Yes":1,
 "No":998,
-"not_having":999,
+"Active":1,
 "N/A":999
 },
 "statusBadges": {
