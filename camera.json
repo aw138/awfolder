@@ -38,7 +38,7 @@
 },
 "PROFILES":{
 "LIST":{
-"buttonLabel": "List",
+"buttonLabel": "列",
 "pageTitle": "Cam-List",
 "version": "v. 8.2.0",
 "defaults": {
@@ -51,7 +51,7 @@
 ]
 },
 "GEN":{
-"buttonLabel": "Gen",
+"buttonLabel": "普",
 "pageTitle": "Cam-Gen",
 "version": "v. 8.2.0",
 "defaults": {
@@ -66,7 +66,7 @@
 ]
 },
 "PHOTO":{
-"buttonLabel": "Photo",
+"buttonLabel": "功",
 "pageTitle": "Cam-Photo",
 "version": "v. 8.2.0",
 "defaults": {
@@ -81,7 +81,7 @@
 ]
 },
 "ALL":{
-"buttonLabel": "All",
+"buttonLabel": "全",
 "pageTitle": "Cam-All",
 "version": "v. 8.2.0",
 "defaults": {
@@ -101,6 +101,7 @@
 },
 "DATA":
 [
+
 
 
 
