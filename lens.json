@@ -22,7 +22,7 @@
 "carl_zeiss":{"label": "Carl Zeiss", "bg": "#121b88","text": "#FFFFFF","border": "#000000","borderRadius": "3px 3px 3px 3px"}
 },
 "descriptionBadges": {
-"span":{"bg": "#fc9088","text": "#FF0000","border": "#222222"},
+"is":{"bg": "#fc9088","text": "#FF0000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
 "filters": [
