@@ -79,8 +79,8 @@
 
 
 "columns": [
-{"label": "ISO","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":100,"width":50,"minWidth":95},
-{"label": "Location","jsonKey": "val8","dataType": "string","isSortable":true,"listOrder":110,"width":200,"minWidth":300}
+
+
 ]
 },
 "TVLGEAR":{
