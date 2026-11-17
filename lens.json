@@ -15,6 +15,7 @@
 "retired":{"label": "Retired", "bg": "#c49f49","text": "#634d1a","border": "#634d1a","borderRadius": "999px"},
 "disposed":{"label": "Disposed", "bg": "#b0b0b0","text": "#000000","border": "#000000","borderRadius": "999px"},
 "not_having":{"label": "Not having", "bg": "#0000FF","text": "#ccccFF","border": "#000000","borderRadius": "999px"},
+"unknown":{"label": "?", "bg": "#FFFFFF","text": "#505050","border": "#505050","borderRadius": "3px 3px 3px 3px"},
 "canon":{"label": "Canon", "bg": "#FFFFFF","text": "#BB3030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "tamron":{"label": "Tamron", "bg": "#eeeeee","text": "#0000AA","border": "#000099","borderRadius": "3px 3px 3px 3px"},
 "pentacon":{"label": "Pentacon", "bg": "#eeeeee","text": "#000000","border": "#000000","borderRadius": "3px 3px 3px 3px"},
@@ -110,6 +111,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "49", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 1.8/50 MC", "val1.1": "1960", "val1.2": "Disposed", "val2":{"Launch year":"1960","Launch Price":" ","Bought":"1978","Type":"Prime"}, "val3": {"Resolution":"","Sensor":"","AF Points":"","AF brightness":"","IBIS":"","Max ISO":""}, "val4": {"Battery":"","Built-in flash":"","Weight":"250g","Dimensions":"? / 48mm"}, "val5": {"Viewfinder":"","VF magnification":"","VF resolution":"","Screen":"","Touch screen":""}, "val6": {"Shutter range":"","X-Sync":"","Burst":"","Exp Comp":"","RAW":""}, "val7": {"Storage":"","USB version":"","HDMI":"","GPS":"","Wireless":""}},
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "55", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 2.8/135 MC (3rd gen)", "val1.1": "1970", "val1.2": "Disposed", "val2":{"Launch year":"1970","Launch Price":" ","Bought":"1981","Type":"Prime"}, "val3": {"Resolution":"","Sensor":"","AF Points":"","AF brightness":"","IBIS":"","Max ISO":""}, "val4": {"Battery":"","Built-in flash":"","Weight":"472g","Dimensions":"65.6mm / 89.1mm"}, "val5": {"Viewfinder":"","VF magnification":"","VF resolution":"","Screen":"","Touch screen":""}, "val6": {"Shutter range":"","X-Sync":"","Burst":"","Exp Comp":"","RAW":""}, "val7": {"Storage":"","USB version":"","HDMI":"","GPS":"","Wireless":""}},
