@@ -5,6 +5,7 @@
 "Yes":1,
 "No":998,
 "Active":1,
+"Not having":998,
 "Disposed":999,
 "N/A":999
 },
@@ -104,6 +105,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "49", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 1.8/50 MC", "val1.1": "1960", "val1.2": "Disposed", "val2":{"Launch year":"1960","Launch Price":" ","Bought":"1978","Type":"Prime"}, "val3": {"Resolution":"","Sensor":"","AF Points":"","AF brightness":"","IBIS":"","Max ISO":""}, "val4": {"Battery":"","Built-in flash":"","Weight":"250g","Dimensions":"? / 48mm"}, "val5": {"Viewfinder":"","VF magnification":"","VF resolution":"","Screen":"","Touch screen":""}, "val6": {"Shutter range":"","X-Sync":"","Burst":"","Exp Comp":"","RAW":""}, "val7": {"Storage":"","USB version":"","HDMI":"","GPS":"","Wireless":""}},
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "55", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 2.8/135 MC (3rd gen)", "val1.1": "1970", "val1.2": "Disposed", "val2":{"Launch year":"1970","Launch Price":" ","Bought":"1981","Type":"Prime"}, "val3": {"Resolution":"","Sensor":"","AF Points":"","AF brightness":"","IBIS":"","Max ISO":""}, "val4": {"Battery":"","Built-in flash":"","Weight":"472g","Dimensions":"65.6mm / 89.1mm"}, "val5": {"Viewfinder":"","VF magnification":"","VF resolution":"","Screen":"","Touch screen":""}, "val6": {"Shutter range":"","X-Sync":"","Burst":"","Exp Comp":"","RAW":""}, "val7": {"Storage":"","USB version":"","HDMI":"","GPS":"","Wireless":""}},
