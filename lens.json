@@ -16,7 +16,7 @@
 "canon":{"label": "Canon", "bg": "#FFFFFF","text": "#BB3030","border": "#303030","borderRadius": "3px 3px 3px 3px"},
 "tamron":{"label": "Tamron", "bg": "#eeeeee","text": "#0000AA","border": "#000099","borderRadius": "3px 3px 3px 3px"},
 "pentacon":{"label": "Pentacon", "bg": "#eeeeee","text": "#000000","border": "#000000","borderRadius": "3px 3px 3px 3px"},
-"carl_zeiss":{"label": "Carl Zeiss", "bg": "#000099","text": "#FFFFFF","border": "#000000","borderRadius": "3px 3px 3px 3px"}
+"carl_zeiss":{"label": "Carl Zeiss", "bg": "#121b88","text": "#FFFFFF","border": "#000000","borderRadius": "3px 3px 3px 3px"}
 },
 "descriptionBadges": {
 "flower":{"bg": "#fc9088","text": "#000000","border": "#222222"},
@@ -53,8 +53,8 @@
 {"label": "Status","jsonKey": "val1.2","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":30,"width":70,"minWidth":70}
 ]
 },
-"GEN":{
-"buttonLabel": "普",
+"OUTSIDE":{
+"buttonLabel": "外",
 "pageTitle": "Cam-Gen",
 "version": "v. 8.2.0",
 "defaults": {
@@ -68,8 +68,8 @@
 {"label": "Physical","jsonKey": "val4","dataType": "string","textColor": "#db582d","isSortable":false, "isStatusBadge":true, "isKeyValueList":true,"listOrder":100,"width":160,"minWidth":160}
 ]
 },
-"PHOTO":{
-"buttonLabel": "功",
+"INSIDE":{
+"buttonLabel": "內",
 "pageTitle": "Cam-Photo",
 "version": "v. 8.2.0",
 "defaults": {
