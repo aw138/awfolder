@@ -308,7 +308,7 @@ mark.search-hit-highlight {
 }
 
 #dataTable th {
-    position: relative !important;
+    /* position: relative !important; */
     border-right: 1px solid #556b70 !important;
 }
 
