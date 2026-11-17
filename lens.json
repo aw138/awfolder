@@ -22,7 +22,6 @@
 "carl_zeiss":{"label": "Carl Zeiss", "bg": "#121b88","text": "#FFFFFF","border": "#000000","borderRadius": "3px 3px 3px 3px"}
 },
 "descriptionBadges": {
-"IS":{"bg": "#fc9088","text": "#FF0000","border": "#222222"},
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
 "filters": [
@@ -51,7 +50,7 @@
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
-{"label": "Model","jsonKey": "val1","dataType": "string","textColor": "#008800","isSortable":true, "isStatusBadge":false, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":200,"minWidth":200},
+{"label": "Model","jsonKey": "val1","dataType": "string","textColor": "#008800","isSortable":true, "isStatusBadge":true, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":200,"minWidth":200},
 {"label": "Year","jsonKey": "val1.1","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":30,"width":50,"minWidth":50},
 {"label": "Status","jsonKey": "val1.2","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":40,"width":60,"minWidth":60},
 {"label": "Launch price","jsonKey": "val1.3","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":50,"width":50,"minWidth":50},
