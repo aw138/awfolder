@@ -26,16 +26,16 @@
 "travel":{"bg": "#3b758a","text": "#EEEEEE","border": "#222222"}
 },
 "filters": [
-{"jsonKey": "tag1","title": "Status","listOrder":10,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag2","title": "Brand","listOrder":20,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag3","title": "Mount","textColor": "#0000e6","listOrder":30,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag4","title": "Lens type","textColor": "#065f46","listOrder":40,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag5","title": "L Lens","textColor": "#FF0000","listOrder":50,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag6","title": "IS","textColor": "#00CC00","listOrder":60,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag7","title": "Filter size","listOrder":70,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag8","title": "Diaphram","listOrder":80,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag9","title": "Weather seal","textColor": "#0055FF","listOrder":90,"useTab":false,"labelWidth":70},
-{"jsonKey": "tag10","title": "Motor","listOrder":100,"useTab":false,"labelWidth":70}
+{"jsonKey": "tag1","title": "Status","listOrder":10,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag2","title": "Brand","listOrder":20,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag3","title": "Mount","textColor": "#0000e6","listOrder":30,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag4","title": "Lens type","textColor": "#065f46","listOrder":40,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag5","title": "L Lens","textColor": "#FF0000","listOrder":50,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag6","title": "IS","textColor": "#00CC00","listOrder":60,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag7","title": "Filter size","listOrder":70,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag8","title": "Diaphram","dataType": "number","listOrder":80,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag9","title": "Weather seal","textColor": "#0055FF","listOrder":90,"useTab":false,"labelWidth":80},
+{"jsonKey": "tag10","title": "Motor","listOrder":100,"useTab":false,"labelWidth":80}
 ],
 "columns": [
 {"type": "checkbox","listOrder":10,"width":40,"minWidth":40}
