@@ -115,8 +115,9 @@ document.addEventListener("click", function(event) {
 				chk.checked = masterStateValue;
 				row.classList.toggle("is-checked-state", masterStateValue);
 				
-				// 🎯 THE STABILITY PLUG: If unchecking all, label rows as pending so they don't vanish immediately
-				if (!masterStateValue) {
+				// THE STABILITY PLUG: Only label rows as pending if Show Selected is currently active 🎯
+				const isShowSelectedActive = document.getElementById("showCheckedOnlyToggle")?.checked || false;
+				if (!masterStateValue && isShowSelectedActive) {
 					row.classList.add("is-unchecked-pending");
 				} else {
 					row.classList.remove("is-unchecked-pending");
@@ -196,11 +197,14 @@ window.applyCombinedFilter = function() {
 					row.style.display = "none";
 					return;
 				}
+
 			} else {
-				// Clears out the tracking tag cleanly if a row becomes checked again
-				row.classList.remove("is-unchecked-pending");
+					// Clears out the tracking tag cleanly if a row becomes checked again
+					row.classList.remove("is-unchecked-pending");
+				}
+		} else {
+			row.classList.remove("is-unchecked-pending");
 			}
-		}
 
         // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock
         if (window.showFavouritesActiveState() && favColumnIndex !== -1) {
