@@ -93,7 +93,7 @@
 {"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"listOrder":30,"width":95,"minWidth":95},
 {"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"listOrder":35,"width":120,"minWidth":120},
 {"label": "Total","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"listOrder":30,"width":78,"minWidth":78},
-{ "label": "筆數", "jsonKey": "recordCount", "dataType": "number", "isSortable": true, "alignRight": true, "width": 70, "minWidth": 70, "listOrder": 30 },{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"listOrder":40,"width":40,"minWidth":40}
+{ "label": "筆數", "jsonKey": "recordCount", "dataType": "number", "isSortable": true, "alignRight": true, "width": 70, "minWidth": 70, "listOrder": 300 },{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"listOrder":40,"width":40,"minWidth":40}
 ]
 },
 "All":{
