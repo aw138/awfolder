@@ -90,8 +90,12 @@
 {"jsonKey": "tag1","title": "Year","listOrder":15,"useTab":false,"labelWidth":55}
 ],
 "columns": [
-{"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"listOrder":30,"width":95,"minWidth":95},
-{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"listOrder":35,"width":120,"minWidth":120},
+{"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
+{"label": "Date","jsonKey": "val1","dataType": "date","isSortable":true,"listOrder":20,"width":200,"minWidth":200},
+{"label": "Country","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":24,"width":95,"minWidth":95},
+{"label": "Description","jsonKey": "val8","dataType": "string","isSortable":true,"listOrder":25,"width":300,"minWidth":300}
+{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"listOrder":30,"width":78,"minWidth":78},
+{"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"listOrder":40,"width":40,"minWidth":40}
 { "label": "項目", "jsonKey": "val3", "isStatusBadge": true, "isSortable": true, "width": 160, "minWidth": 160, "listOrder": 320 },
 { "label": "筆數", "jsonKey": "recordCount", "dataType": "number", "isSortable": true, "alignRight": true, "width": 70, "minWidth": 70, "listOrder": 330 },
 { "label": "總金額", "jsonKey": "val17", "dataType": "number", "isSortable": true, "alignRight": true, "width": 110, "minWidth": 110, "listOrder": 340 }]
