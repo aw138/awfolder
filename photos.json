@@ -45,7 +45,7 @@
 {"label": "Trip","jsonKey": "val3","dataType": "string","isSortable":true,"listOrder":40,"width":80,"minWidth":80},
 {"label": "Camera","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":50,"width":60,"minWidth":60},
 {"label": "Lens","jsonKey": "val5","dataType": "string","isSortable":true,"listOrder":60,"width":120,"minWidth":120},
-{"label": "FL(mm)","jsonKey": "val6","dataType": "string","isSortable":true,"listOrder":70,"width":50,"minWidth":50},
+{"label": "FL(mm)","jsonKey": "val6","dataType": "number","isSortable":true,"listOrder":70,"width":50,"minWidth":50},
 {"label": "Tv","jsonKey": "val7","dataType": "string","isSortable":true,"listOrder":80,"width":50,"minWidth":50},
 {"label": "Av","jsonKey": "val8","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":90,"width":50,"minWidth":50},
 {"label": "ISO","jsonKey": "val9","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":100,"width":50,"minWidth":50},
