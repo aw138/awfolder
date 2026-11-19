@@ -95,15 +95,21 @@ window.executeBreakdownAggregation = function(categoryKey, columnConfig) {
 	});
 	const maxSingleValue = sortedDataArray.length > 0 ? Math.max(...sortedDataArray.map(item => item[1])): 1;
 
-    // 4. Output dynamic bars list to the dashboard view screen layout
-    const rowsWrapper = document.getElementById("breakdownRowsWrapper");
-    if (!rowsWrapper) return;
-    rowsWrapper.innerHTML = "";
+	// Sync grouped bar values to the Stat Panel (Mean & SD per bar category)
+	window.activeBreakdownChartValues = sortedDataArray.map(item => item[1]);
+	if (typeof window.executeRealtimeTableStatistics === "function") {
+		window.executeRealtimeTableStatistics();
+	}
 
-    if (sortedDataArray.length === 0) {
-        rowsWrapper.innerHTML = `<div style="text-align:center; padding:20px; color:#64748B; font-style:italic;">No active visible data available to parse.</div>`;
-        return;
-    }
+	// 4. Output dynamic bars list to the dashboard view screen layout
+	const rowsWrapper = document.getElementById("breakdownRowsWrapper");
+	if (!rowsWrapper) return;
+	rowsWrapper.innerHTML = "";
+
+	if (sortedDataArray.length === 0) {
+		rowsWrapper.innerHTML = `<div style="text-align:center; padding:20px; color:#64748B; font-style:italic;">No active visible data available to parse.</div>`;
+		return;
+	}
 
     // 🎯 THE JSON PROPERTY LOOKUP RESOLUTION: Looks for either column root keys or nested statisticsConfig parameters automatically
     const activeTargetColumnKey = window.activeStatisticsColumnJsonKey || "";
@@ -177,14 +183,18 @@ window.bindBreakdownInteractionTrigger = function() {
         // 🎯 THE REVERSIBLE SCREEN DETECTOR: Check if the breakdown chart is already active on screen right now
         const isBreakdownCurrentlyVisible = breakdownContainerNode.style.display === "flex";
         
-        if (isBreakdownCurrentlyVisible) {
-            // CONDITION A: Breakdown is open -> Close it, turn off style colors, and slide back onto Data Table smoothly
-            window.activeBreakdownCategoryKey = null;
-            showMoreInfoBtnElement.classList.remove("active-profile-state"); // Drops button active theme color on close
-            
-            breakdownContainerNode.style.setProperty("display", "none", "important");
-            tableContainerNode.style.setProperty("display", "flex", "important");
-        } else {
+		if (isBreakdownCurrentlyVisible) {
+			// CONDITION A: Breakdown is open -> Close it, turn off style colors, and slide back onto Data Table smoothly
+			window.activeBreakdownCategoryKey = null;
+			window.activeBreakdownChartValues = null;
+			showMoreInfoBtnElement.classList.remove("active-profile-state"); // Drops button active theme color on close
+
+			breakdownContainerNode.style.setProperty("display", "none", "important");
+			tableContainerNode.style.setProperty("display", "flex", "important");
+			if (typeof window.executeRealtimeTableStatistics === "function") {
+				window.executeRealtimeTableStatistics();
+			}
+		} else {
             // CONDITION B: Table is open -> Move to breakdown mode and repaint graphs
             showMoreInfoBtnElement.classList.add("active-profile-state"); // Colors the "..." card button matching your active theme presets
             

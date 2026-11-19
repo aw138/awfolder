@@ -558,37 +558,46 @@ window.executeRealtimeTableStatistics = function() {
     const columnIndex = widthsSchema.findIndex(col => col && col.jsonKey === activeTargetKey);
     if (columnIndex === -1) return;
 
-    const visibleRows = window.getRuntimeRows().filter(row => row.style.display !== "none");
-    const numericalValuesArray = [];
-    let grandSumTotal = 0;
+	let numericalValuesArray = [];
+	let grandSumTotal = 0;
 
-    visibleRows.forEach(row => {
-        const targetCell = row.querySelectorAll("td")[columnIndex];
-        if (!targetCell) return;
-        
-        // Strip text down to raw float coordinate parameters (removes currency symbols, whitespace)
-        const rawCleanString = String(targetCell.textContent || "").replace(/[^\d.-]/g, "").trim();
-        const parsedFloatVal = parseFloat(rawCleanString);
-        if (!isNaN(parsedFloatVal)) {
-            numericalValuesArray.push(parsedFloatVal);
-            grandSumTotal += parsedFloatVal;
-        }
-    });
+	// Use grouped bar chart totals if the Breakdown Chart is currently open
+	const breakdownContainer = document.getElementById("breakdownContainer");
+	const isBreakdownOpen = breakdownContainer && breakdownContainer.style.display === "flex" && Array.isArray(window.activeBreakdownChartValues);
 
-    const totalCountItems = numericalValuesArray.length;
-    let meanCalculatedValue = 0;
-    let calculatedStandardDeviation = 0;
+	if (isBreakdownOpen) {
+		numericalValuesArray = window.activeBreakdownChartValues.slice();
+		grandSumTotal = numericalValuesArray.reduce((acc, val) => acc + val, 0);
+	} else {
+		const visibleRows = window.getRuntimeRows().filter(row => row.style.display !== "none");
+		visibleRows.forEach(row => {
+		const targetCell = row.querySelectorAll("td")[columnIndex];
+		if (!targetCell) return;
 
-    if (totalCountItems > 0) {
-        meanCalculatedValue = grandSumTotal / totalCountItems;
-        
-        // Standard Deviation: Mean of square variances arithmetic steps
-        let sumSquaredDifferences = 0;
-        numericalValuesArray.forEach(val => {
-            sumSquaredDifferences += Math.pow(val - meanCalculatedValue, 2);
-        });
-        calculatedStandardDeviation = Math.sqrt(sumSquaredDifferences / totalCountItems);
-    }
+		// Strip text down to raw float coordinate parameters (removes currency symbols, whitespace)
+		const rawCleanString = String(targetCell.textContent || "").replace(/[^\d.-]/g, "").trim();
+		const parsedFloatVal = parseFloat(rawCleanString);
+		if (!isNaN(parsedFloatVal)) {
+		numericalValuesArray.push(parsedFloatVal);
+		grandSumTotal += parsedFloatVal;
+		}
+		});
+	}
+
+	const totalCountItems = numericalValuesArray.length;
+	let meanCalculatedValue = 0;
+	let calculatedStandardDeviation = 0;
+
+	if (totalCountItems > 0) {
+		meanCalculatedValue = grandSumTotal / totalCountItems;
+
+		// Standard Deviation: Mean of square variances arithmetic steps
+		let sumSquaredDifferences = 0;
+		numericalValuesArray.forEach(val => {
+			sumSquaredDifferences += Math.pow(val - meanCalculatedValue, 2);
+			});
+		calculatedStandardDeviation = Math.sqrt(sumSquaredDifferences / totalCountItems);
+	}
 
     // Lookup structural configurations profile mapping straight from column rules and global root variables
     const columnConfigProfile = widthsSchema[columnIndex] || {};
