@@ -91,8 +91,8 @@
 ],
 "columns": [
 {"label": "Place","jsonKey": "val5","dataType": "string","textColor": "#065f46","isSortable":true,"listOrder":30,"width":95,"minWidth":95},
-{"label": "項目","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"listOrder":35,"width":120,"minWidth":120},
-{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"listOrder":37,"width":78,"minWidth":78},
+{"label": "Agent","jsonKey": "val6","dataType": "string","textColor": "#db582d","isSortable":true,"isStatusBadge":true,"listOrder":35,"width":120,"minWidth":120},
+{"label": "Price","jsonKey": "val7","dataType": "number","textColor": "#db582d","isSortable":true, "alignRight":true,"isCurrency":true,"precision": 2,"isStatistics": true,"isStatMode": true,"listOrder":100,"width":78,"minWidth":78},
 {"label": "Fav","isToggle":true,"activeLabel":"★","isSortable":true,"inactiveLabel":"☆","activeColors":{"bg": "#fef08a","text": "#FF0000","border": "#ca8a04","borderRadius": "4px"},"inactiveColors":{"bg": "#ffffff","text": "#94a3b8","border": "#cbd5e1","borderRadius": "4px"},"listOrder":40,"width":40,"minWidth":40}
 ]
 },
