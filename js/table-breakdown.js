@@ -36,9 +36,64 @@ window.executeBreakdownAggregation = function(categoryKey, columnConfig) {
         });
     });
 
-    // 3. Sort options database array text values from highest amount to lowest
-    const sortedDataArray = Object.entries(aggregateMap).sort((a, b) => b[1] - a[1]);
-    const maxSingleValue = sortedDataArray.length > 0 ? sortedDataArray[0][1] : 1;
+	// Helper: Exact Data Table Category Comparator (Numbers -> English/ASCII -> Chinese Stroke -> Others)
+	const zhStrokeCollator = new Intl.Collator("zh-CN-u-co-stroke", { sensitivity: "base" });
+	const getCharTier = (ch) => {
+		if (!ch) return 0;
+		const code = ch.charCodeAt(0);
+		if (code >= 0 && code <= 127) return 1;        // ASCII / English
+		if (code >= 0x4E00 && code <= 0x9FFF) return 2; // Chinese CJK
+		return 3;
+	};
+
+	const compareCategoryLabels = (rawA, rawB) => {
+		const strA = String(rawA || "").trim();
+		const strB = String(rawB || "").trim();
+
+		if (strA === strB) return 0;
+		// if (strA === "(None)" || strA === "") return 1;
+		// if (strB === "(None)" || strB === "") return -1;
+
+		// 1. Pure numeric comparison (e.g., Days: 1, 2, 8, 12, 21)
+		if (/^-?\d+(\.\d+)?$/.test(strA) && /^-?\d+(\.\d+)?$/.test(strB)) {
+			return parseFloat(strA) - parseFloat(strB);
+		}
+
+		// 2. Character-by-character Tier Comparison (English/ASCII before Chinese)
+		const maxLen = Math.max(strA.length, strB.length);
+		for (let i = 0; i < maxLen; i++) {
+			const charA = strA[i] || "";
+			const charB = strB[i] || "";
+			if (charA === "" && charB !== "") return -1;
+			if (charA !== "" && charB === "") return 1;
+
+			const tierA = getCharTier(charA);
+			const tierB = getCharTier(charB);
+			if (tierA !== tierB) return tierA - tierB;
+
+			if (tierA === 1) {
+				const codeA = charA.toLowerCase().charCodeAt(0);
+				const codeB = charB.toLowerCase().charCodeAt(0);
+				if (codeA !== codeB) return codeA - codeB;
+			} else if (tierA === 2) {
+				return zhStrokeCollator.compare(strA.substring(i), strB.substring(i));
+			} else {
+				const cmp = strA.substring(i).localeCompare(strB.substring(i));
+				if (cmp !== 0) return cmp;
+			}
+		}
+		return 0;
+	};
+
+	// 3. Sort options database array based on active breakdown sort mode
+	window.breakdownSortMode = window.breakdownSortMode || "value_desc";
+	const sortedDataArray = Object.entries(aggregateMap).sort((a, b) => {
+		if (window.breakdownSortMode === "value_asc") return a[1] - b[1];
+		if (window.breakdownSortMode === "label_asc") return compareCategoryLabels(a[0], b[0]);
+		if (window.breakdownSortMode === "label_desc") return -compareCategoryLabels(a[0], b[0]);
+		return b[1] - a[1]; // Default: "value_desc"
+	});
+	const maxSingleValue = sortedDataArray.length > 0 ? Math.max(...sortedDataArray.map(item => item[1])): 1;
 
     // 4. Output dynamic bars list to the dashboard view screen layout
     const rowsWrapper = document.getElementById("breakdownRowsWrapper");
@@ -161,12 +216,79 @@ window.bindBreakdownInteractionTrigger = function() {
                         
                         window.executeBreakdownAggregation(cleanKey, configProfile);
                     };
-                    buttonsDeckSlot.appendChild(btn);
-                });
-                
-                // Force-click the first category automatically to initialize data on open frame
-                buttonsDeckSlot.querySelector("button")?.click();
-            }
+					buttonsDeckSlot.appendChild(btn);
+				});
+
+				// 1. Category Sort Trigger (reuses .sort-icon-trigger next to the last category button)
+				const catSortWrap = document.createElement("span");
+				catSortWrap.className = "breakdown-sort-trigger";
+				catSortWrap.title = "Sort Categories";
+				const catCaret = document.createElement("span");
+				catCaret.className = "sort-icon-trigger";
+				catSortWrap.appendChild(catCaret);
+				buttonsDeckSlot.appendChild(catSortWrap);
+
+				// 2. Dynamic Column Title ("Amount") + Value Sort Trigger on the right
+				const headerContainer = buttonsDeckSlot.parentElement;
+				let valCaret = null;
+
+				if (headerContainer) {
+					const oldMetricHeader = headerContainer.querySelector(".breakdown-metric-header");
+					if (oldMetricHeader) oldMetricHeader.remove();
+
+					const activeCols = window.activeColumnsWidthsSchema || [];
+					const statColCfg = activeCols.find(c => c && c.jsonKey === window.activeStatisticsColumnJsonKey);
+					const metricLabel = statColCfg?.label || "Amount";
+
+					const metricHeader = document.createElement("div");
+					metricHeader.className = "breakdown-metric-header";
+					metricHeader.title = `Sort by ${metricLabel}`;
+
+					const titleSpan = document.createElement("span");
+					titleSpan.textContent = metricLabel;
+
+					valCaret = document.createElement("span");
+					valCaret.className = "sort-icon-trigger desc";
+
+					metricHeader.appendChild(titleSpan);
+					metricHeader.appendChild(valCaret);
+					headerContainer.appendChild(metricHeader);
+
+					metricHeader.onclick = () => {
+						window.breakdownSortMode = (window.breakdownSortMode === "value_desc") ? "value_asc" : "value_desc";
+						updateSortCarets();
+						rerunActiveCategory();
+					};
+				}
+
+				const updateSortCarets = () => {
+					const mode = window.breakdownSortMode || "value_desc";
+					catCaret.className = "sort-icon-trigger" + (mode === "label_asc" ? " asc" : (mode === "label_desc" ? " desc" : ""));
+					if (valCaret) {
+						valCaret.className = "sort-icon-trigger" + (mode === "value_asc" ? " asc" : (mode === "value_desc" ? " desc" : ""));
+					}
+				};
+
+				const rerunActiveCategory = () => {
+					const activeCat = window.activeBreakdownCategoryKey;
+					if (activeCat) {
+						const activeCols = window.activeColumnsWidthsSchema || [];
+						const cfg = activeCols.find(c => c && c.jsonKey === window.activeStatisticsColumnJsonKey);
+						window.executeBreakdownAggregation(activeCat, cfg);
+					}
+				};
+
+				catSortWrap.onclick = () => {
+					window.breakdownSortMode = (window.breakdownSortMode === "label_asc") ? "label_desc" : "label_asc";
+					updateSortCarets();
+					rerunActiveCategory();
+				};
+
+				updateSortCarets();
+
+				// Force-click the first category automatically to initialize data on open frame
+				buttonsDeckSlot.querySelector("button")?.click();
+			}
         }
     };
 };
