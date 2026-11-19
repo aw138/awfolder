@@ -483,3 +483,25 @@ mark.search-hit-highlight {
 	color: inherit;
 	word-break: break-word;
 }
+/* Breakdown Header Sort Carets & Metric Title */
+.breakdown-sort-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 6px;
+	margin-left: 2px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.breakdown-metric-header {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-left: auto;
+	padding-right: 12px;
+	font-weight: 700;
+	cursor: pointer;
+	user-select: none;
+	white-space: nowrap;
+}

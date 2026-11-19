@@ -9,7 +9,8 @@
 
 /* Row 1: Symmetrical Header toolbar deck container constraints */
 .breakdown-header-toolbar-deck {
-    background-color: #D3D9D4 !important;
+    /* background-color: #D3D9D4 !important; */
+    background-color: #AAAAAA !important;  /* adjust bar chart header background colour */
     border-bottom: 1px solid #748D92 !important;
     padding: 10px !important; /* adjust button group left padding */
     box-sizing: border-box !important;
@@ -102,4 +103,27 @@
     font-weight: 500 !important;
     color: #1E293B !important;
     white-space: nowrap !important;
+}
+/* Breakdown Header Sort Carets & Metric Title */
+.breakdown-sort-trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 6px;
+	margin-left: 2px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.breakdown-metric-header {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	margin-left: auto;
+	padding-right: 12px;
+	font-weight: 700;
+	cursor: pointer;
+	user-select: none;
+	white-space: nowrap;
+	color: #000000 !important; /* adjust text colour in bar chart header */
 }
