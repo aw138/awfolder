@@ -9,22 +9,28 @@
 
 /* Row 1: Symmetrical Header toolbar deck container constraints */
 .breakdown-header-toolbar-deck {
-    /* background-color: #D3D9D4 !important; */
-    background-color: #AAAAAA !important;  /* adjust bar chart header background colour */
-    border-bottom: 1px solid #748D92 !important;
-    padding: 10px !important; /* adjust button group left padding */
-    box-sizing: border-box !important;
+	display: flex !important;
+	flex-wrap: nowrap !important; /* Keeps left buttons column and right Amount column side-by-side */
+	align-items: center !important;
+	justify-content: space-between !important;
+	gap: 6px !important;
+	height: auto !important; /* Expands vertically when left buttons wrap */
+	min-height: 44px !important;
+	background-color: #AAAAAA !important; /* adjust bar chart header background colour */
+	border-bottom: 1px solid #748D92 !important;
+	padding: 6px 6px !important;
+	box-sizing: border-box !important;
 }
 
 .breakdown-buttons-scroll-track {
-    display: flex !important;
-    gap: 3px !important; /* adjust buttons gap */
-    flex: 1 !important;
-    overflow-x: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+	display: flex !important;
+	flex-wrap: wrap !important; /* Wraps buttons onto next line before touching Amount */
+	align-items: center !important;
+	gap: 3px !important; /* adjust buttons gap */
+	flex: 1 1 auto !important; /* Occupies all remaining width after Amount column */
+	min-width: 0 !important;
+	box-sizing: border-box !important;
 }
-
 /* Row 2: Core Scroll canvas viewport boundaries lock */
 .breakdown-body-viewport {
     padding: 10px !important;
@@ -116,14 +122,15 @@
 }
 
 .breakdown-metric-header {
-	display: inline-flex;
-	align-items: center;
-	gap: 5px;
-	margin-left: auto;
-	padding-right: 12px;
-	font-weight: 700;
-	cursor: pointer;
-	user-select: none;
-	white-space: nowrap;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: flex-end !important;
+	gap: 5px !important;
+	flex: 0 0 200px !important; /* Reserves 200px on the right for Amount + sort icon */
+	padding-right: 2px !important;
+	font-weight: 700 !important;
+	cursor: pointer !important;
+	user-select: none !important;
+	white-space: nowrap !important;
 	color: #000000 !important; /* adjust text colour in bar chart header */
 }

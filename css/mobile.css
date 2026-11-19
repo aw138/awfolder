@@ -144,5 +144,9 @@
         min-width: 0 !important;      /* 🔥 CRITICAL REFIX: Blasts away the desktop 130px structural floor restriction! */
         max-width: none !important;
     }
+	.breakdown-metric-header {
+		flex: 0 0 60px !important; /* Compact reserved width on narrow phone screens */
+		font-size: 12px !important;
+	}
 
 }
