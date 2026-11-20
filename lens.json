@@ -57,7 +57,7 @@
 {"label": "Launch price","jsonKey": "val1.3","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":40,"width":50,"minWidth":50},
 {"label": "Bought","jsonKey": "val1.4","dataType": "string","textColor": "#662200","isSortable":true, "isStatusBadge":false, "isKeyValueList":false,"listOrder":60,"width":70,"minWidth":70},
 {"label": "Made in","jsonKey": "val1.5","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":70,"width":45,"minWidth":45},
-{"label": "FL start","jsonKey": "val1.7","dataType": "number","textColor": "#0000EE","isSortable":true, "isStatusBadge":false, "isKeyValueList":false,"listOrder":25,"width":40,"minWidth":40}
+{"label": "FL start","jsonKey": "val1.7","dataType": "number","textColor": "#0000EE","isSortable":true, "isStatusBadge":false, "isKeyValueList":false,"listOrder":25,"width":40,"minWidth":40},
 {"label": "Serial","jsonKey": "val1.6","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":80,"width":55,"minWidth":55}
 ]
 },
