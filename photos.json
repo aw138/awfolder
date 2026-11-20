@@ -41,14 +41,14 @@
 "columns": [
 {"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
 {"label": "Year","jsonKey": "val1","dataType": "string","isSortable":true,"listOrder":20,"width":40,"minWidth":40},
-{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"listOrder":30,"width":70,"minWidth":70},
+{"label": "Country","jsonKey": "val2","dataType": "string","isSortable":true,"listOrder":30,"width":60,"minWidth":60},
 {"label": "Trip","jsonKey": "val3","dataType": "string","isSortable":true,"listOrder":40,"width":80,"minWidth":80},
 {"label": "Camera","jsonKey": "val4","dataType": "string","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":50,"width":60,"minWidth":60},
-{"label": "Lens","jsonKey": "val5","dataType": "string","isSortable":true,"listOrder":60,"width":120,"minWidth":120},
+{"label": "Lens","jsonKey": "val5","dataType": "string","isSortable":true,"listOrder":60,"width":130,"minWidth":130},
 {"label": "FL(mm)","jsonKey": "val6","dataType": "number","isSortable":true,"listOrder":70,"width":50,"minWidth":50},
-{"label": "Tv","jsonKey": "val7","dataType": "number","isSortable":true,"listOrder":80,"width":50,"minWidth":50},
+{"label": "Tv","jsonKey": "val7","dataType": "number","isSortable":true,"listOrder":100,"width":50,"minWidth":50},
 {"label": "Av","jsonKey": "val8","dataType": "number","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":90,"width":50,"minWidth":50},
-{"label": "ISO","jsonKey": "val9","dataType": "number","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":100,"width":50,"minWidth":50},
+{"label": "ISO","jsonKey": "val9","dataType": "number","textColor": "#0000e6","isSortable":true, "isStatusBadge":true,"listOrder":80,"width":50,"minWidth":50},
 {"label": "Location","jsonKey": "val10","dataType": "string","isSortable":true,"listOrder":110,"width":80,"minWidth":80}
 ],
 "statisticsConfig": {
@@ -69,10 +69,10 @@
 "PROFILES":{
 "GEN":{
 "buttonLabel": "General",
-"pageTitle": "Photos",
+"pageTitle": "Tvl Photos",
 "version": "v. 8.2",
 "defaults": {
-"initialSlicersExpanded":false,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
 },
 
