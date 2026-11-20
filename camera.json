@@ -43,7 +43,7 @@
 "pageTitle": "Cam-List",
 "version": "v. 8.2.0",
 "defaults": {
-"initialSlicersExpanded":false,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
 },
 "columns": [
