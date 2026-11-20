@@ -57,7 +57,7 @@
 {"label": "Launch price","jsonKey": "val1.3","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":40,"width":50,"minWidth":50},
 {"label": "Bought","jsonKey": "val1.4","dataType": "string","textColor": "#662200","isSortable":true, "isStatusBadge":false, "isKeyValueList":false,"listOrder":60,"width":70,"minWidth":70},
 {"label": "Made in","jsonKey": "val1.5","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":70,"width":45,"minWidth":45},
-{"label": "FL start","jsonKey": "val1.7","dataType": "number","textColor": "#0000EE","isSortable":true, "isStatusBadge":false, "isKeyValueList":false,"listOrder":25,"width":40,"minWidth":40},
+{"label": "FL start","jsonKey": "val1.7","dataType": "number","textColor": "#0000EE","isSortable":true, "isStatusBadge":false, "alignRight":true, "isKeyValueList":false,"listOrder":25,"width":40,"minWidth":40},
 {"label": "Serial","jsonKey": "val1.6","dataType": "string","textColor": "#000000","isSortable":true, "isStatusBadge":true, "isKeyValueList":false,"listOrder":80,"width":55,"minWidth":55}
 ]
 },
@@ -112,6 +112,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "49", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 1.8/50 MC", "val1.11": "Pentacon auto 1.8/50 MC <BR> Disposed", "val1.1": "1960", "val1.2": "Disposed", "val1.3": " ", "val1.4": "1978", "val1.5": "East Germany", "val1.6": " ", "val1.7":"50", "val2":{"Weight":"250g","Diameter/Length":"? / 48mm","Filter size":"49mm"}, "val3": {"Barrel/Mount":" ","Dist scale":"Yes","L-Fn":"No","Weather seal":"No","Extender":"Not compatible"}, "val4": {"Hood":"No","Tripod collar":" ","Lens cap":"Yes","Case":" "}, "val5": {"Aperture":"f/1.8 - 16","Diaphram blades":"6","IS":"No"}, "val6": {"Elements/Groups":"6 / 4","UD/Flo/Asph":"? / ? / ?","AoV (H)":"46.8°"}, "val7": {"Mag/MFD":"0.21x / 0.33m","Motor":"Manual","FTM":"Yes","Focus method":"Manual"}},
 {"tag1": "Disposed", "tag2": "Pentacon", "tag3": "M42", "tag4": "Prime", "tag5": "No", "tag6": "No", "tag7": "55", "tag8": "6", "tag9": "No", "tag10": "Manual", "val1": "Pentacon auto 2.8/135 MC (3rd gen)", "val1.11": "Pentacon auto 2.8/135 MC (3rd gen) <BR> Disposed", "val1.1": "1970", "val1.2": "Disposed", "val1.3": " ", "val1.4": "1981", "val1.5": "East Germany", "val1.6": " ", "val1.7":"135", "val2":{"Weight":"472g","Diameter/Length":"65.6mm / 89.1mm","Filter size":"55mm"}, "val3": {"Barrel/Mount":" ","Dist scale":"Yes","L-Fn":"No","Weather seal":"No","Extender":"Not compatible"}, "val4": {"Hood":"Built-in","Tripod collar":" ","Lens cap":"Yes","Case":" "}, "val5": {"Aperture":"f/2.8 - 22","Diaphram blades":"6","IS":"No"}, "val6": {"Elements/Groups":"5 / 4","UD/Flo/Asph":"? / ? / ?","AoV (H)":"18°"}, "val7": {"Mag/MFD":"0.095x / 1.7m","Motor":"Manual","FTM":"Yes","Focus method":"Manual"}},
