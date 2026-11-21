@@ -247,22 +247,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				// 4. Reset table rendering content canvas
 				tbody.innerHTML = "";
+				const tbodyFragment = document.createDocumentFragment();
 				const records = payload.DATA || [];
 				const columnConfigs = activeProfile.columns || [];
 				const badgeSchema = payload.statusBadges || activeProfile.statusBadges || {};
 
-    // CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP 🔄 [INDEX: 0.1.242]
-    records.forEach(item => {
-        const tr = document.createElement("tr");
+	// Read localStorage ONCE outside the 45k loop and use Set for O(1) instant lookup
+	const savedCheckedKeysSet = new Set(JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]"));
+	const savedFavouritesSet = new Set(JSON.parse(localStorage.getItem("dashboardPersistentFavKeys") || "[]"));
 
-        // Generate a non-colliding row signature index key [INDEX: 0.1.242]
-        const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
-        const savedCheckedKeysDatabase = JSON.parse(localStorage.getItem("dashboardSelectedCheckedKeys") || "[]");
-        const initialCheckedMemoryState = savedCheckedKeysDatabase.includes(rowStorageKeySignature);
+	// CLEAN, DE-DUPLICATED DYNAMIC RESTORATION ENGINE RUNTIME LOOP
+	records.forEach(item => {
+		const tr = document.createElement("tr");
 
-        // Read persistent favorite statuses from local memory cache blocks on page load
-        const savedFavouritesDatabase = JSON.parse(localStorage.getItem("dashboardPersistentFavKeys") || "[]");
-        const isRowCurrentlyFavourited = savedFavouritesDatabase.includes(rowStorageKeySignature);
+		// Generate a non-colliding row signature index key
+		const rowStorageKeySignature = `${String(item.val1 || '')}_${String(item.val4 || '')}_${String(item.val5 || '')}`.trim().toLowerCase();
+		const initialCheckedMemoryState = savedCheckedKeysSet.has(rowStorageKeySignature);
+		const isRowCurrentlyFavourited = savedFavouritesSet.has(rowStorageKeySignature);
 
         tr.setAttribute("data-row-key", rowStorageKeySignature);
 
@@ -449,8 +450,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			tr._searchText = textParts.join(" ").toLowerCase();
 			tr._checkboxEl = tr.querySelector(".row-selector-checkbox");
 			tr._isHidden = false;
-			tbody.appendChild(tr);
+			tbodyFragment.appendChild(tr);
 		});
+		tbody.appendChild(tbodyFragment);
 
 			// 🎯 THE RUNTIME OVERHAUL: Dynamic Description Badge Color Mapping Engine
 			const descBadgeSchema = payload.descriptionBadges || activeProfile.descriptionBadges || {};
