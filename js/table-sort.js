@@ -108,12 +108,14 @@ function compareValues(a, b) {
             }
         }
 
-        // SPECIAL CASE OVERRIDE: Explicit Pure Numeric Sorting 🔢
-        if (assignedDataType === "number") {
-            const cleanNumA = parseFloat(valA.replace(/[^\d.-]/g, '')) || 0;
-            const cleanNumB = parseFloat(valB.replace(/[^\d.-]/g, '')) || 0;
-            return ascending ? cleanNumA - cleanNumB : cleanNumB - cleanNumA;
-        }
+		// SPECIAL CASE OVERRIDE: Explicit Pure Numeric & Fraction Sorting 🔢
+		if (assignedDataType === "number") {
+			const parsedA = parseNumericOrFraction(valA);
+			const parsedB = parseNumericOrFraction(valB);
+			const cleanNumA = isNaN(parsedA) ? 0 : parsedA;
+			const cleanNumB = isNaN(parsedB) ? 0 : parsedB;
+			return ascending ? cleanNumA - cleanNumB : cleanNumB - cleanNumA;
+		}
 
         // 🎯 THE DIRECT FIX: Apply core evaluation multiplied by directional vector [INDEX: 0.1.113]
         return compareValues(valA, valB) * direction;
@@ -217,3 +219,26 @@ document.getElementById("clearAllFiltersBtn")?.addEventListener("click", () => {
         window.updateAllSlicerButtonsUI(window.getRuntimeRows());
     }
 });
+function parseNumericOrFraction(rawText) {
+	const cleaned = String(rawText || "").replace(/,/g, "").trim();
+	
+	// Match fractions like "1/5", "1/100", "1/4000", or mixed numbers like "1 1/2"
+	const mixedMatch = cleaned.match(/^(-?\d+)\s+(\d+)\s*\/\s*(\d+)$/);
+	if (mixedMatch) {
+		const whole = parseFloat(mixedMatch[1]);
+		const num = parseFloat(mixedMatch[2]);
+		const den = parseFloat(mixedMatch[3]);
+		if (den !== 0) return whole < 0 ? whole - (num / den) : whole + (num / den);
+	}
+	
+	const fracMatch = cleaned.match(/^(-?\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/);
+	if (fracMatch) {
+		const num = parseFloat(fracMatch[1]);
+		const den = parseFloat(fracMatch[2]);
+		if (den !== 0) return num / den;
+	}
+	
+	// Fallback for regular numbers (strips units like "s", "sec", "mm", "$")
+	const numOnly = cleaned.replace(/[^\d.-]/g, "");
+	return numOnly !== "" ? parseFloat(numOnly) : NaN;
+}

@@ -266,17 +266,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         tr.setAttribute("data-row-key", rowStorageKeySignature);
 
-        // Automatically map tag attributes directly from your JSON parameters [INDEX: 0.1.242]
-        (window.activeFiltersSchema || []).forEach(filterConfig => {
-            const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
-            if (item[cleanKey] !== undefined) {
-                tr.setAttribute(cleanKey, item[cleanKey]);
-            } else if (item.TAGS && item.TAGS[cleanKey] !== undefined) {
-                tr.setAttribute(cleanKey, item.TAGS[cleanKey]);
-            } else {
-                tr.setAttribute(cleanKey, "");
-            }
-        });
+		// Pre-index tag Sets in memory once on load for O(1) instant filtering
+		tr._tagSets = {};
+		tr._tagLists = {};
+		(window.activeFiltersSchema || []).forEach(filterConfig => {
+			const cleanKey = String(filterConfig.jsonKey || "").replace('data-', '').replace('-', '').trim();
+			const rawTagVal = (item[cleanKey] !== undefined)? String(item[cleanKey]): ((item.TAGS && item.TAGS[cleanKey] !== undefined) ? String(item.TAGS[cleanKey]) : "");
+			tr.setAttribute(cleanKey, rawTagVal);
+		const parsedArr = rawTagVal ? rawTagVal.split(';').map(x => x.trim()).filter(Boolean) : [];
+			tr._tagLists[cleanKey] = parsedArr;
+			tr._tagSets[cleanKey] = new Set(parsedArr);
+		});
 
         let checkedAttributeMarker = initialCheckedMemoryState ? "checked" : "";
 
@@ -439,9 +439,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        tr.innerHTML = cellsContentHtml;
-        tbody.appendChild(tr);
-    });
+		tr.innerHTML = cellsContentHtml;
+			// Pre-cache searchable text & checkbox reference once on load
+			const tdNodes = tr.querySelectorAll("td");
+			let textParts = [];
+			for (let c = 1; c < tdNodes.length; c++) {
+				textParts.push(tdNodes[c].textContent);
+			}
+			tr._searchText = textParts.join(" ").toLowerCase();
+			tr._checkboxEl = tr.querySelector(".row-selector-checkbox");
+			tr._isHidden = false;
+			tbody.appendChild(tr);
+		});
 
 			// 🎯 THE RUNTIME OVERHAUL: Dynamic Description Badge Color Mapping Engine
 			const descBadgeSchema = payload.descriptionBadges || activeProfile.descriptionBadges || {};
@@ -466,55 +475,27 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 
 			window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
-            // =============================================================
-            // 🎯 THE INITIAL SORT ENGINE SCANNER DIRECT INJECTION
-            // =============================================================
+
+			// Re-initialize layouts and filter view grids components dynamically
+			if (typeof window.initColumnResizableEngine === "function") window.initColumnResizableEngine();
+			if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
+			if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
+
+			// Run initial sort ONCE before filtering
 			if (typeof window.executeSort === "function" && columnConfigs) {
-				// Find the index offset position mapping your target column
-				const defaultSortColumnIndex = columnConfigs.findIndex(col => col && col.initSort === true && col.isSortable !== false);
-                
-                if (defaultSortColumnIndex !== -1) {
-                    const targetSortConfig = columnConfigs[defaultSortColumnIndex];
-                    // Verify if target sort direction is descending; default to ascending true
-                    const isAscendingSortOrder = String(targetSortConfig.initsortOrder).toLowerCase() !== "desc";
-                    
-                    // 🚀 Execute your core sort engine function onto live table elements!
-                    window.executeSort(defaultSortColumnIndex, isAscendingSortOrder);
-                    
-                    // Synchronize visual caret symbols cleanly on the active header cell node
-                    const headerElements = document.querySelectorAll("#dataTable th");
-                    if (headerElements[defaultSortColumnIndex]) {
-                        // Clear old caret indicators across headers to avoid collision errors
-                        document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
-                        
-                        const sortCaretSpan = headerElements[defaultSortColumnIndex].querySelector(".sort-icon-trigger");
-                        if (sortCaretSpan) {
-                            sortCaretSpan.classList.add(isAscendingSortOrder ? "asc" : "desc");
-                        }
-                    }
-                }
-            }
-				window.globalTableRows = Array.from(tbody.querySelectorAll("tr"));
-
-				// Re-initialize layouts and filter view grids components dynamically
-				if (typeof window.initColumnResizableEngine === "function") window.initColumnResizableEngine();
-				if (typeof window.initHorizontalFilters === "function") window.initHorizontalFilters(window.globalTableRows);
-				if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
-				if (typeof window.bindSortingTriggers === "function") window.bindSortingTriggers();
-
-				// Build sorting visual caret arrows indicators directly onto headers
-				if (typeof window.executeSort === "function" && columnConfigs) {
-					const defaultSortIdx = columnConfigs.findIndex(col => col && col.initSort === true && col.isSortable !== false);
-					if (defaultSortIdx !== -1) {
-						const isAscendingSortOrder = String(columnConfigs[defaultSortIdx].initsortOrder).toLowerCase() !== "desc";
-						window.executeSort(defaultSortIdx, isAscendingSortOrder);
-						const headerElements = document.querySelectorAll("#dataTable th");
-						if (headerElements[defaultSortIdx]) {
-							document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
-							headerElements[defaultSortIdx].querySelector(".sort-icon-trigger")?.classList.add(isAscendingSortOrder ? "asc" : "desc");
+				const defaultSortIdx = columnConfigs.findIndex(col => col && col.initSort === true && col.isSortable !== false);
+				if (defaultSortIdx !== -1) {
+					const isAscendingSortOrder = String(columnConfigs[defaultSortIdx].initsortOrder).toLowerCase() !== "desc";
+					window.executeSort(defaultSortIdx, isAscendingSortOrder);
+					const headerElements = document.querySelectorAll("#dataTable th");
+					if (headerElements[defaultSortIdx]) {
+						document.querySelectorAll(".sort-icon-trigger").forEach(c => c.classList.remove("asc", "desc"));
+						headerElements[defaultSortIdx].querySelector(".sort-icon-trigger")?.classList.add(isAscendingSortOrder ? "asc" : "desc");
 						}
-					}
 				}
+			}
+
+			if (typeof window.applyCombinedFilter === "function") window.applyCombinedFilter();
 
 				// Synchronize active indicator highlight flags across layout buttons
 				document.querySelectorAll(".profile-switch-action-btn").forEach(btn => {

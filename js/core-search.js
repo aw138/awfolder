@@ -171,91 +171,106 @@ window.applyCombinedFilter = function() {
     
     const favColumnIndex = (window.activeColumnsWidthsSchema || []).findIndex(col => col && col.isToggle === true);
 
-    activeRows.forEach(row => {
-        const isChecked = row.querySelector(".row-selector-checkbox")?.checked || false; 
-        const cells = Array.from(row.querySelectorAll("td")); 
-        
-        // Clear old highlights safely
-        cells.forEach((cell, idx) => { 
-            if (idx === 0) return; 
-            cell.querySelectorAll("mark.search-hit-highlight").forEach(m => { 
-                m.parentNode.replaceChild(document.createTextNode(m.textContent), m); 
-            }); 
-            cell.normalize(); 
-        });
+	// Pre-compile active filter entries once outside the 45k row loop
+	const activeSlicerEntries = [];
+	for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters || {})) {
+	if (filterSet && filterSet.size > 0) {
+		const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
+		activeSlicerEntries.push({
+		cleanKey,
+		useAnd: window.booleanLogicalModes[cleanKey] === "AND",
+		items: Array.from(filterSet)
+		});
+	}
+	}
 
-		// 1. Dashboard Checked Row Visibility Lock Checkbox Constraints 🎯
-		if (showCheckedOnly) {
-			if (!isChecked) {
-				// 🎯 THE PRO-APP FREZE: If the row is already hidden, keep it hidden and break execution.
-				if (row.style.display === "none") {
-					return;
-				}
-				
-				// 🎯 THE TOGGLE LOCK: If the row is visible but has NO pending checkmark tracking class, force it to hide!
-				if (!row.classList.contains("is-unchecked-pending")) {
-					row.style.display = "none";
-					return;
-				}
+	const hasActiveSearch = searchText.length >= 1;
+	const hadPreviousHighlights = !!window._tableHasHighlights;
+	const isFavActive = window.showFavouritesActiveState() && favColumnIndex !== -1;
 
-			} else {
-					// Clears out the tracking tag cleanly if a row becomes checked again
-					row.classList.remove("is-unchecked-pending");
-				}
-		} else {
-			row.classList.remove("is-unchecked-pending");
+	activeRows.forEach(row => {
+	const isChecked = row._checkboxEl ? row._checkboxEl.checked : false;
+
+	// Only touch highlight DOM nodes if search is active or previous highlights exist
+	if (hadPreviousHighlights) {
+		row.querySelectorAll("mark.search-hit-highlight").forEach(m => {
+		m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
+		});
+	}
+
+	// 1. Dashboard Checked Row Visibility Lock Checkbox Constraints
+	if (showCheckedOnly) {
+	if (!isChecked) {
+	if (row._isHidden) return;
+	if (!row.classList.contains("is-unchecked-pending")) {
+		row.style.display = "none";
+		row._isHidden = true;
+		return;
+	}
+	} else {
+		row.classList.remove("is-unchecked-pending");
+	}
+	} else if (row.classList.contains("is-unchecked-pending")) {
+		row.classList.remove("is-unchecked-pending");
+	}
+
+	// 2. Favorite Only Interfiltration Context Check
+	if (isFavActive) {
+		const hiddenDataTracker = row.children[favColumnIndex]?.querySelector("span");
+		const isRowFav = hiddenDataTracker?.textContent.trim() === "1";
+		const isUnfavPending = row.classList.contains("is-unfav-pending");
+		if (!isRowFav && !isUnfavPending) {
+		if (!row._isHidden) { row.style.display = "none"; row._isHidden = true; }
+			return;
+		}
+	} else if (row.classList.contains("is-unfav-pending")) {
+		row.classList.remove("is-unfav-pending");
+	}
+
+	// 3. O(1) Pre-Indexed Slicer Check (Runs before text search to short-circuit fast)
+	let matchesSlicers = true;
+	for (let s = 0; s < activeSlicerEntries.length; s++) {
+		const { cleanKey, useAnd, items } = activeSlicerEntries[s];
+		const rowSet = row._tagSets ? row._tagSets[cleanKey] : null;
+		if (!rowSet || rowSet.size === 0) { matchesSlicers = false; break; }
+
+		if (useAnd) {
+			for (let k = 0; k < items.length; k++) {
+				if (!rowSet.has(items[k])) { matchesSlicers = false; break; }
 			}
+		} else {
+			let anyHit = false;
+			for (let k = 0; k < items.length; k++) {
+				if (rowSet.has(items[k])) { anyHit = true; break; }
+			}
+			if (!anyHit) matchesSlicers = false;
+		}
+		if (!matchesSlicers) break;
+	}
 
-        // 2. Favorite Only Interfiltration Context Check with Pending Visibility Lock
-        if (window.showFavouritesActiveState() && favColumnIndex !== -1) {
-            const hiddenDataTracker = cells[favColumnIndex]?.querySelector("span");
-            const isRowFav = hiddenDataTracker?.textContent.trim() === "1";
-            const isUnfavPending = row.classList.contains("is-unfav-pending");
-            
-            if (!isRowFav && !isUnfavPending) {
-                row.style.display = "none";
-                return; 
-            }
-        } else {
-            row.classList.remove("is-unfav-pending");
-        }
+	if (!matchesSlicers) {
+		if (!row._isHidden) { row.style.display = "none"; row._isHidden = true; }
+		return;
+	}
 
-        // 3. Core Text Search Validation Boundary (Evaluates locked query string cleanly)
-        const matchesSearch = searchText === "" || cells.some((el, idx) => { 
-            if (idx === 0) return false; 
-            return el.textContent.toLowerCase().includes(searchText); 
-        });
+	// 4. Fast Pre-Cached Text Search Check
+	const matchesSearch = !hasActiveSearch || (row._searchText ? row._searchText.includes(searchText) : false);
 
-        // 4. Sibling Slicer Conflict Scope Analysis
-        let matchesSlicers = true; 
-        for (const [dataAttr, filterSet] of Object.entries(window.selectedFilters)) { 
-            if (filterSet.size === 0) continue; 
-            const cleanKey = String(dataAttr).replace('data-', '').replace('-', '').trim();
-            const rowTagsStr = row.getAttribute(cleanKey) || row.getAttribute(`data-${cleanKey}`) || row.getAttribute(dataAttr) || ""; 
-            const rowParsedTags = rowTagsStr.split(';').map(x => x.trim());
-			// 🎯 REPLACE VERBATIM WITH THIS ALIGNED PROPERTY KEYLOOK:
-			const useAndLogicOperator = window.booleanLogicalModes[cleanKey] === "AND";
-            const activeFilterItems = Array.from(filterSet);
+	if (matchesSearch) {
+		if (row._isHidden) { row.style.display = ""; row._isHidden = false; }
+		visibleCount++;
+		if (hasActiveSearch) {
+			const cells = row.children;
+			for (let idx = 1; idx < cells.length; idx++) {
+				injectTextHighlights(cells[idx], searchText);
+			}
+		}
+	} else {
+		if (!row._isHidden) { row.style.display = "none"; row._isHidden = true; }
+	}
+	});
 
-            if (useAndLogicOperator) {
-                if (!activeFilterItems.every(t => rowParsedTags.includes(t))) { matchesSlicers = false; break; }
-            } else {
-                if (!activeFilterItems.some(t => rowParsedTags.includes(t))) { matchesSlicers = false; break; }
-            }
-        }
-
-        // Finalize display attributes
-        if (matchesSearch && matchesSlicers) { 
-            row.style.display = ""; 
-            visibleCount++; 
-            if (searchText.length >= 1) { 
-                // Highlights words only if they match the locked query text
-                cells.forEach((cell, idx) => { if (idx !== 0) injectTextHighlights(cell, searchText); }); 
-            } 
-        } else { 
-            row.style.display = "none"; 
-        }
-    });
+	window._tableHasHighlights = hasActiveSearch;
 
     if (noResultsMessage) noResultsMessage.style.display = visibleCount === 0 ? "block" : "none";
     if (typeof window.recalculateZebraStriping === "function") window.recalculateZebraStriping();

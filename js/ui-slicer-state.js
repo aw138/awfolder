@@ -4,61 +4,62 @@
  */
 
 window.getTagAvailabilityList = function(currentAttr, uniqueTags, rows, searchCtx) {
-    const showCheckedOnly = document.getElementById("showCheckedOnlyToggle")?.checked || false;
-    const currentFilters = window.selectedFilters || {};
+	const showCheckedOnly = document.getElementById("showCheckedOnlyToggle")?.checked || false;
+	const currentFilters = window.selectedFilters || {};
+	const activeSelfSet = currentFilters[currentAttr] || new Set();
 
-    return Array.from(uniqueTags).map(tagValue => {
-        let isAvailable = currentFilters[currentAttr] && currentFilters[currentAttr].has(tagValue);
-        
-        if (!isAvailable) {
-            isAvailable = rows.some(row => {
-                // ==========================================================
-                // HYBRID RUNTIME STATE EVALUATION MATRIX ??
-                // Explicitly isolates text search and cross-category constraints
-                // without collapsing state maps on first or last filter rows.
-                // ==========================================================
-                
-                // 1. Core Text Search Validation Boundary
-                if (searchCtx !== "") {
-                    const rowCells = Array.from(row.querySelectorAll("td"));
-                    const matchesText = rowCells.some((el, idx) => idx !== 0 && el.textContent.toLowerCase().includes(searchCtx));
-                    if (!matchesText) return false;
-                }
+	// Pre-compile sibling filters once instead of inside the 45k loop
+	const siblingFilters = [];
+	for (const [otherAttr, otherFilterSet] of Object.entries(currentFilters)) {
+		if (otherAttr === currentAttr || !otherFilterSet || otherFilterSet.size === 0) continue;
+		siblingFilters.push({
+			otherAttr,
+			useAnd: window.booleanLogicalModes[otherAttr] === "AND",
+			items: Array.from(otherFilterSet)
+		});
+	}
 
-                // 2. Dashboard Checked Row Visibility Lock Checkbox Constraints
-                if (showCheckedOnly) {
-                    const isChecked = row.querySelector(".row-selector-checkbox")?.checked || false;
-                    const isPending = row.classList.contains("is-unchecked-pending");
-                    if (!isChecked && !isPending) return false;
-                }
+	// Single pass over rows to collect all available tags for currentAttr
+	const availableTagsSet = new Set(activeSelfSet);
 
-                // 3. Sibling Slicer Conflict Scope Analysis [INDEX: 0.1.14]
-                // Loops through ALL alternate categories to verify eligibility records
-                for (const [otherAttr, otherFilterSet] of Object.entries(currentFilters)) {
-                    if (otherAttr === currentAttr || !otherFilterSet || otherFilterSet.size === 0) continue;
-                    
-                    const nestedTagsStr = row.getAttribute(otherAttr) || row.getAttribute(`data-${otherAttr}`) || "";
-                    const nestedTagsArray = nestedTagsStr.split(';').map(x => x.trim());
-                    
-                    // Respect alternate row structural logical state constraints
-					// 🎯 REPLACE VERBATIM WITH THIS ALIGNED PAIR LOOKUP:
-					const useAndLogicOperator = window.booleanLogicalModes[otherAttr] === "AND";
-                    const criteriaSetItems = Array.from(otherFilterSet);
+	for (let r = 0; r < rows.length; r++) {
+		const row = rows[r];
 
-                    if (useAndLogicOperator) {
-                        const satisfiesSiblingAnd = criteriaSetItems.every(t => nestedTagsArray.includes(t));
-                        if (!satisfiesSiblingAnd) return false;
-                    } else {
-                        const satisfiesSiblingOr = criteriaSetItems.some(t => nestedTagsArray.includes(t));
-                        if (!satisfiesSiblingOr) return false;
-                    }
-                }
+		if (searchCtx !== "" && !(row._searchText && row._searchText.includes(searchCtx))) continue;
 
-                // 4. Verify tag footprint accuracy on the targeted table row object
-                const rowTagsStr = row.getAttribute(currentAttr) || row.getAttribute(`data-${currentAttr}`) || "";
-                return rowTagsStr.split(';').map(t => t.trim()).includes(tagValue);
-            });
-        }
-        return { value: tagValue, available: isAvailable };
-    });
+		if (showCheckedOnly) {
+		const isChecked = row._checkboxEl ? row._checkboxEl.checked : false;
+		if (!isChecked && !row.classList.contains("is-unchecked-pending")) continue;
+		}
+
+		let passesSiblings = true;
+		for (let s = 0; s < siblingFilters.length; s++) {
+			const { otherAttr, useAnd, items } = siblingFilters[s];
+			const rowSet = row._tagSets ? row._tagSets[otherAttr] : null;
+			if (!rowSet || rowSet.size === 0) { passesSiblings = false; break; }
+
+			if (useAnd) {
+			for (let k = 0; k < items.length; k++) {
+				if (!rowSet.has(items[k])) { passesSiblings = false; break; }
+			}
+			} else {
+				let anyHit = false;
+				for (let k = 0; k < items.length; k++) {
+					if (rowSet.has(items[k])) { anyHit = true; break; }
+				}
+				if (!anyHit) passesSiblings = false;
+			}
+			if (!passesSiblings) break;
+		}
+
+		if (passesSiblings && row._tagLists && row._tagLists[currentAttr]) {
+			const tagsInRow = row._tagLists[currentAttr];
+			for (let t = 0; t < tagsInRow.length; t++) {
+				availableTagsSet.add(tagsInRow[t]);
+			}
+		}
+	}
+
+	return Array.from(uniqueTags).map(tagValue => ({ value: tagValue, available: availableTagsSet.has(tagValue)}
+	));
 };
