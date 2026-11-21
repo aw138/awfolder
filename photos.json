@@ -34,9 +34,9 @@
 {"jsonKey": "tag4","title": "Camera","textColor": "#065f46","listOrder":40,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag5","title": "Lens","textColor": "#db582d","listOrder":50,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag6","title": "FL(mm)","listOrder":60,"dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag7","title": "Tv","textColor": "#0000e6","listOrder":70,"dataType": "number","useTab":false,"labelWidth":55},
+{"jsonKey": "tag7","title": "Tv","textColor": "#0000e6","listOrder":90,"dataType": "number","useTab":false,"labelWidth":55},
 {"jsonKey": "tag8","title": "Av","textColor": "#065f46","listOrder":80,"dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag9","title": "ISO","textColor": "#db582d","listOrder":90,"dataType": "number","useTab":false,"labelWidth":55}
+{"jsonKey": "tag9","title": "ISO","textColor": "#db582d","listOrder":70,"dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
 {"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
