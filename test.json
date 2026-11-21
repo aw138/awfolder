@@ -18,6 +18,7 @@
 "ef*":{"bg": "#FFFFFF","text": "#DD0000","border": "#00aa00","borderRadius": "8px"},
 "自由行":{"label": "自由🚶‍", "bg": "#FFFFFF","text": "#db582d","border": "#db582d","borderRadius": "6px","padding":"0px 8px"},
 "月":{"label": "月", "bg": "#FFFF00","text": "#FF0000","border": "#333333","borderRadius": "999px","padding":"0px 0px"},
+"(wed)":{"label": "Inv", "bg": "#000000","text": "#FFFFFF","border": "#000000","borderRadius": "6px"},
 "(sun)":{"label": ".", "bg": "#00AAFF","text": "#000000","border": "#333333","borderRadius": "999px"},
 "japan":{"label": "&#11044", "bg": "#FFFFFF","text": "#FF0000","border": "#333333","borderRadius": "0px 0px 0px 0px"}
 },
@@ -61,9 +62,9 @@
 "TRAVEL":{
 "buttonLabel": "Travel",
 "pageTitle": "Test-Tvl",
-"version": "v. 8.1.4",
+"version": "v. 8.2",
 "defaults": {
-"initialSlicersExpanded":false,
+"initialSlicersExpanded":true,
 "defaultBooleanLogicMode":"ONLY"
 },
 "filters": [
@@ -77,7 +78,7 @@
 "TVLGEAR":{
 "buttonLabel": "中國自由行",
 "pageTitle": "Test-中國自由行",
-"version": "v. 8.1.4",
+"version": "v. 8.2",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
@@ -94,7 +95,7 @@
 "All":{
 "buttonLabel": "All",
 "pageTitle": "Test-All",
-"version": "v. 8.1.4",
+"version": "v. 8.2",
 "defaults": {
 "initialSlicersExpanded":false,
 "defaultBooleanLogicMode":"ONLY"
