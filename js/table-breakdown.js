@@ -60,12 +60,6 @@ window.executeBreakdownAggregation = function(categoryKey, columnConfig) {
 		if (!isNaN(numA) && !isNaN(numB)) {
 			return numA - numB;
 		}
-		// 1. Pure numeric & fraction comparison (e.g., Days: 1, 2, 8, 12, 21 or Shutter: 1/100, 1/5)
-		const numA = parseNumericOrFraction(strA);
-		const numB = parseNumericOrFraction(strB);
-		if (!isNaN(numA) && !isNaN(numB)) {
-			return numA - numB;
-		}
 
 		// 2. Character-by-character Tier Comparison (English/ASCII before Chinese)
 		const maxLen = Math.max(strA.length, strB.length);
