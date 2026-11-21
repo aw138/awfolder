@@ -34,9 +34,9 @@
 {"jsonKey": "tag4","title": "Camera","textColor": "#065f46","listOrder":40,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag5","title": "Lens","textColor": "#db582d","listOrder":50,"useTab":false,"labelWidth":55},
 {"jsonKey": "tag6","title": "FL(mm)","listOrder":60,"dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag7","title": "Tv","textColor": "#0000e6","listOrder":70,"dataType": "number","useTab":false,"labelWidth":55},
+{"jsonKey": "tag7","title": "Tv","textColor": "#0000e6","listOrder":90,"dataType": "number","useTab":false,"labelWidth":55},
 {"jsonKey": "tag8","title": "Av","textColor": "#065f46","listOrder":80,"dataType": "number","useTab":false,"labelWidth":55},
-{"jsonKey": "tag9","title": "ISO","textColor": "#db582d","listOrder":90,"dataType": "number","useTab":false,"labelWidth":55}
+{"jsonKey": "tag9","title": "ISO","textColor": "#db582d","listOrder":70,"dataType": "number","useTab":false,"labelWidth":55}
 ],
 "columns": [
 {"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
@@ -103,6 +103,7 @@
 },
 "DATA":
 [
+
 
 {"tag1": "2006", "tag2": "Thailand", "tag3": "泰國布吉島", "tag4": "20D", "tag5": "EF24-105mm f/4L IS USM", "tag6": "105", "tag7": "1/15", "tag8": "5.6", "tag9": "400", "val1": "2006", "val2": "Thailand", "val3": "泰國布吉島", "val4": "20D", "val5": "EF24-105mm f/4L IS USM", "val6": "105", "val7": "1/15", "val8": "5.6", "val9": "400", "val10": "<a href=\"file:///P:/ORIGINALS/6D & 5D4/2006 (20D)/20060809-Phuket Thailand/060809-091831_20D_4245_(1_15)_F5.6_ISO400_@105mm[EF24-105mm f_4L IS USM].jpg\" target=\"_blank\">View</a>"},
 {"tag1": "2006", "tag2": "Thailand", "tag3": "泰國布吉島", "tag4": "20D", "tag5": "EF24-105mm f/4L IS USM", "tag6": "24", "tag7": "1/50", "tag8": "5.6", "tag9": "400", "val1": "2006", "val2": "Thailand", "val3": "泰國布吉島", "val4": "20D", "val5": "EF24-105mm f/4L IS USM", "val6": "24", "val7": "1/50", "val8": "5.6", "val9": "400", "val10": "<a href=\"file:///P:/ORIGINALS/6D & 5D4/2006 (20D)/20060809-Phuket Thailand/060809-100515_20D_4246_(1_50)_F5.6_ISO400_@24mm[EF24-105mm f_4L IS USM].jpg\" target=\"_blank\">View</a>"},
