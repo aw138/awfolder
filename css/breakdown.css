@@ -74,7 +74,7 @@
 .breakdown-label-slot {
     /* 🎯 DYNAMIC FIT WITH MOBILE SAFETY CEILING */
     width: auto !important;
-    max-width: 130px !important; /* Prevents long labels from chewing up your graph space on tight mobile layouts 📱 */
+    max-width: 170px !important; /* Adjust label width. Prevents long labels from chewing up your graph space on tight mobile layouts 📱 */
     
     font-weight: 500 !important;
     color: #212A31 !important;
