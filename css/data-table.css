@@ -206,20 +206,28 @@
     color: #FFFFFF !important; 
 }
 
-#dataTable tbody tr td { 
-    background-color: #FFFFFF !important; /* adjust alternate row bg color */
-}
-
+/* 1. Uniform clean background (no alternating stripes) + thin horizontal dividers */
+#dataTable tbody tr td,
 #dataTable tbody tr.visible-even-row td { 
-    background-color: #e7e9e9 !important; /* adjust alternate row bg color */
+	background-color: #FFFFFF !important;
 }
 
+/* 2. Mouse hover highlight for unselected rows */
 #dataTable tbody tr:hover td { 
-    /* background-color: #ecc0c1 !important;  */
-    /* border-bottom: 1px solid #bdf2f2 !important;  */
-    /* background-color: #b0e0e0 !important; /* adjust hover row bg color */ 
-    background-color: #F4F5C4 !important; /* adjust hover row bg color */
-    border-bottom: 1px solid #c1c5cb !important; 
+	background-color: #F4F5C4 !important; /* adjust hover row bg color */
+	border-bottom: 1px solid #c1c5cb !important; 
+}
+
+/* 3. Light blue highlight across the entire row when selected (checked) */
+#dataTable tbody tr:has(.row-selector-checkbox:checked) td {
+	background-color: #E0F2FE !important; /* adjust selected row bg color */
+	/* border-bottom: 1px solid #BAE6FD !important; */
+	border-bottom: 1px solid #c1c5cb !important;
+}
+
+/* 4. Slightly deeper blue when hovering over an already-selected row */
+#dataTable tbody tr:has(.row-selector-checkbox:checked):hover td {
+	background-color: #BAE6FD !important; /* adjust selected + hover row bg color */
 }
 
 .header-inner-flex { 
