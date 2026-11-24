@@ -2,8 +2,7 @@
 "CURRENT_ACTIVE_PROFILE":"ONE",
 "COMMON":{
 "customSortPriority": {
-"South":1,
-"Sat":7
+"(None)":999
 },
 "statusBadges": {
 "中籤":{"label": "中籤", "bg": "#FFC0C0","text": "#883030","border": "#883030","borderRadius": "4px"},
