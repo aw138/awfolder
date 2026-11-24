@@ -2,7 +2,7 @@
 "CURRENT_ACTIVE_PROFILE":"ONE",
 "COMMON":{
 "customSortPriority": {
-"Sun":1,
+"South":1,
 "Sat":7
 },
 "statusBadges": {
@@ -20,7 +20,7 @@
 {"jsonKey": "tag5","title": "Accompany","useTab":true,"labelWidth":70}
 ],
 "columns": [
-{"type": "checkbox","width":40,"minWidth":40},
+{"type": "checkbox","listOrder":10,"width":40,"minWidth":40},
 {"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":80,"minWidth":80},
 {"label": "Title","jsonKey": "val2","dataType": "string","isSortable":true,"listOrder":30,"width":185,"minWidth":185}
 ]
@@ -56,6 +56,7 @@
 },
 "DATA":
 [
+
 
 
 {"tag1":1977, "tag2": "English", "tag3": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "tag4": "Washington 華盛頓", "tag5": "Lam Paul", "val1": "1977/11/4 (Fri)", "val2": "The Deep (1977)<BR>《深深深》", "val3": "English", "val4": "Adventure 冒險; Mystery 神秘; Thriller 驚悚", "val5": "Washington 華盛頓", "val6": "Lam Paul"},
