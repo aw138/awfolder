@@ -1,44 +1,57 @@
 {
-"CONFIG":
-{
-"pageTitle": "Movies",
-"version": "v. 7.8.2",
-"defaults": {
-"initialSlicersExpanded":false,
-"defaultBooleanLogicMode":"ONLY"
+"CURRENT_ACTIVE_PROFILE":"ONE",
+"COMMON":{
+"customSortPriority": {
+"Sun":1,
+"Sat":7
+},
+"statusBadges": {
+"中籤":{"label": "中籤", "bg": "#FFC0C0","text": "#883030","border": "#883030","borderRadius": "4px"},
+"公開報名":{"label": "公開報名", "bg": "#C0C0FF","text": "#303088","border": "#303088","borderRadius": "4px"}
+},
+"descriptionBadges": {
+"day":{"bg": "#FFFFFF","text": "#883333","border": "#883333"}
 },
 "filters": [
-{"jsonKey": "tag1","title": "Watch Year", "labelWidth":70,"useTab":false},
-{"jsonKey": "tag2","title": "Language","textColor": "#0000E6", "labelWidth":70,"useTab":false},
-{"jsonKey": "tag3","title": "Genre","textColor": "#065F46", "labelWidth":70,"useTab":false},
-{"jsonKey": "tag4","title": "Cinema","textColor": "#DB582D", "labelWidth":70,"useTab":false},
-{"jsonKey": "tag5","title": "Accompany", "labelWidth":70,"useTab":true}
+{"jsonKey": "tag1","title": "Watch year","useTab":false,"labelWidth":70},
+{"jsonKey": "tag2","title": "Language","textColor": "#0000E6","useTab":false,"labelWidth":70},
+{"jsonKey": "tag3","title": "Genre","textColor": "#065F46","useTab":false,"labelWidth":70},
+{"jsonKey": "tag4","title": "Cinema","textColor": "#DB582D","useTab":false,"labelWidth":70},
+{"jsonKey": "tag5","title": "Accompany","useTab":true,"labelWidth":70}
 ],
 "columns": [
 {"type": "checkbox","width":40,"minWidth":40},
-{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","width":80,"minWidth":80},
-{"label": "Title","jsonKey": "val2","dataType": "string","isSortable":true,"width":185,"minWidth":185},
-{"label": "Lanuage","jsonKey": "val3","dataType": "string","textColor": "#0000E6","isSortable":true, "isStatusBadge":true,"width":75,"minWidth":75},
-{"label": "Genre","jsonKey": "val4","dataType": "string","textColor": "#065F46","isSortable":true, "alignRight":false,"width":120,"minWidth":120},
-{"label": "Cinema","jsonKey": "val5","dataType": "string","textColor": "#DB582D","isSortable":true,"width":90,"minWidth":90},
-{"label": "Accompany","jsonKey": "val6","dataType": "string","isSortable":true,"width":140,"minWidth":140}
-],
-"customSortPriority": {
-"(None)":999,
-"English":1,
-"Cantonese":2,
-"Mandarin":3
+{"label": "Date","jsonKey": "val1","dataType": "string","isSortable":true, "initSort":true, "initsortOrder":"asc","listOrder":20,"width":80,"minWidth":80},
+{"label": "Title","jsonKey": "val2","dataType": "string","isSortable":true,"listOrder":30,"width":185,"minWidth":185}
+]
 },
-"statusBadges": {
-"English":{"label": "English", "bg": "#C9BB71","text": "#663B10","border": "#664B20"},
-"Cantonese":{"label": "Cantonese", "bg": "#66C3FF","text": "#1b3b59","border": "#1b3b59"},
-"Mandarin":{"label": "Mandarin", "bg": "#94FF87","text": "#24561e","border": "#34662e"},
-"已結業":{"label": "已結業", "bg": "#666666","text": "#ffffff","border": "#000000"}
+"PROFILES":{
+"ONE":{
+"buttonLabel": "精簡",
+"pageTitle": "Movies-I",
+"version": "v. 8.3",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"ONLY"
 },
-"descriptionBadges": {
-"active":{"bg": "#00EE00","text": "#FFFFFF","border": "#222222"},
-"retired":{"bg": "#c29008","text": "#000000","border": "#222222"},
-"disposal":{"bg": "#333333","text": "#FFFFFF","border": "#000000"}
+"columns": [
+{"label": "Cinema","jsonKey": "val5","dataType": "string","textColor": "#DB582D","isSortable":true,"listOrder":40,"width":90,"minWidth":90}
+]
+},
+"TWO":{
+"buttonLabel": "詳細",
+"pageTitle": "Movies-II",
+"version": "v. 8.3",
+"defaults": {
+"initialSlicersExpanded":true,
+"defaultBooleanLogicMode":"ONLY"
+},
+"columns": [
+{"label": "Language","jsonKey": "val3","dataType": "string","textColor": "#0000E6","isSortable":true, "isStatusBadge":true,"listOrder":40,"width":75,"minWidth":75},
+{"label": "Genre","jsonKey": "val4","dataType": "string","textColor": "#065F46","isSortable":true, "alignRight":false,"listOrder":50,"width":120,"minWidth":120},
+{"label": "Cinema","jsonKey": "val5","dataType": "string","textColor": "#DB582D","isSortable":true,"listOrder":60,"width":90,"minWidth":90},
+{"label": "Accompany","jsonKey": "val6","dataType": "string","isSortable":true,"listOrder":70,"width":140,"minWidth":140}
+]
 }
 },
 "DATA":
